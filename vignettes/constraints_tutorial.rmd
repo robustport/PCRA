@@ -1,0 +1,252 @@
+---
+title: "A tutorial on conducting portfolio optimization"
+author: "Kirk Li"
+date: "Saturday, August 02, 2014"
+output:
+  pdf_document:
+    fig_height: 6
+    fig_width: 8
+    number_sections: yes
+    toc: yes
+---
+
+Start up
+========
+
+```{r,message=FALSE,results='hide',warning=FALSE}
+inslib <- function(x){
+    x <-as.character(substitute(x))
+    if(!x %in% rownames(installed.packages())) 
+    {install.packages(x,repos="http://cran.stat.ucla.edu")}
+    eval(parse(text=paste("library(",x,")",sep="")))}
+
+inslib("mpo")
+inslib("quadprog")
+inslib("xts")
+inslib("Rglpk")
+inslib("corpcor")
+load("crsp.short.Rdata")
+```
+
+```{r}
+n.stocks <- 5
+names(midcap.ts)
+names(smallcap.ts)
+names(largecap.ts)
+returns.ts = midcap.ts[,1:n.stocks]
+returns = coredata(midcap.ts[,1:n.stocks])
+sum=0.5
+mu.target=0.02 
+w.initial=rep(1/n.stocks,n.stocks) 
+toc=0.3
+upper=rep(0.3,n.stocks)
+lower=rep(0,n.stocks)
+
+set.seed(1234)
+group=c(sample(1:2,n.stocks,replace=T))
+upper.group=c(0.8,0.8)
+lower.group=c(-0.5,-0.5)
+ptc=0.001
+digits=4
+wts.only=T
+mu.min = NULL 
+mu.max = NULL 
+rf = .003
+npoints = 20
+wts.plot = T 
+printout = F
+bar.ylim = c(-1,4)
+```
+
+Intial parameter values on constraints:
+
+```{r}
+list.arg <- list(
+        sum=sum,
+        mu.target=mu.target, 
+        group=group, 
+        upper.group=upper.group,
+        lower.group=lower.group, 
+        upper=upper, 
+        lower=lower, 
+        toc=toc, 
+        w.initial=w.initial,
+        ptc=ptc)    
+list.arg
+```
+
+Partial investment constraint
+========
+
+```{r}
+clist <- c("sum")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg=list.arg)
+(res  <- gmv(returns, cset=cset, wts.only=T,digits=4))
+all.equal(sum(res$WTS),list.arg$sum,tolerance=0.01)
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T, 
+           bar.ylim = c(-1,4),list.arg=list.arg)
+
+mtext(paste(clist,collapse="_"),side=1,line=5)
+```
+
+Note, the full investment is assumed (sum=1) for the following. 
+
+
+Long only constraints
+========
+
+```{r}
+clist <- c("lo")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg=list.arg)
+gmv(returns, cset=cset, wts.only=T,digits=4)
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg)
+mtext(paste(clist,collapse="_"),side=1,line=5)  
+```
+
+
+We will assume full investment as a default constraint in the next few scenarios. 
+
+Box constraints
+========
+
+```{r}
+clist <- c("box")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg=list.arg)
+gmv(returns, cset=cset, wts.only=T,digits=4)
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg)
+mtext(paste(clist,collapse="_"),side=1,line=5)
+
+```
+
+
+Long only and group constraints
+========
+```{r}
+clist <- c("lo","groups")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg=list.arg)
+gmv(returns, cset=cset, wts.only=T,digits=4)
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg)
+mtext(paste(clist,collapse="_"),side=1,line=5)
+
+```
+
+
+Long only and mean return constraints
+========
+
+```{r}
+clist <- c("lo","mu.target")
+cset <-combine.cset(clist=clist,returns=returns,list.arg=list.arg)
+gmv(returns, cset=cset, wts.only=T,digits=4)
+
+```
+
+
+Box and group constraints
+========
+
+```{r}
+clist <- c("box","groups")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg=list.arg)
+gmv(returns, cset=cset, wts.only=T,digits=4)
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg)
+mtext(paste(clist,collapse="_"),side=1,line=5)
+
+```
+
+
+Full investment, long only and turnover (2 versions) constraints
+========
+
+```{r}
+clist <- c("lo","turnover")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg=list.arg)
+gmv(returns, cset=cset, wts.only=T,digits=4)
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg)
+mtext(paste(clist,collapse="_"),side=1,line=5)
+# 1+4+1+4+4+2+2+1+4+4+4  
+# sum+lo+mu.target+box+box+group+group+turnover+w.sell+w.buy+w.initial
+
+clist <- c("lo","turnover.hobbs")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg=list.arg)
+gmv(returns, cset=cset, wts.only=T,digits=4)
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg)
+mtext(paste(clist,collapse="_"),side=1,line=5)
+# 1+4+1+4+4+2+2+1+4+4+4  
+# sum+lo+mu.target+box+box+group+group+turnover+w.sell+w.buy+w.initial
+```
+
+
+
+
+Propcost constraints
+========
+
+```{r}
+clist <- c("propcost")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg)
+gmv(returns, cset=cset, wts.only=T,digits=4)
+# global minum variance portfolio can always be achieved if all the initial weights are consumed by proportional cost, hence the new weights all equals to zero. 
+
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg)
+mtext(paste(clist,collapse="_"),side=1,line=5)
+
+```
+
+Long only and propcost constraints
+========
+
+```{r,results='hold'}
+clist <- c("lo","propcost")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg)
+
+try(efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg))
+
+```
+
+Box and propcost constraints
+========
+
+```{r}
+clist <- c("box","propcost")
+cset <- NULL
+cset <-combine.cset(clist=clist,returns=returns,list.arg)
+
+efrontPlot(returns, cset, rf = .003, npoints = 20,wts.plot = T,
+        bar.ylim = c(-1,4),list.arg=list.arg)
+mtext(paste(clist,collapse="_"),side=1,line=5)
+```
+
+Full investment, box and propcost constraints (Bad example, expect errors)
+========
+
+```{r,error=TRUE}
+clist <- c("sum","box","propcost")
+list.arg <- list( sum=sum,
+                  upper=upper,
+                  lower=lower,
+                  ptc=ptc,
+                  w.initial=w.initial)
+print(list.arg)
+cset <- NULL
+cset <-try(combine.cset(clist=clist,returns=returns,list.arg))
+# Expected error msg: Error in propcost.modify(cset.i) : 
+# sum constraint are not combinable with propcost constraint
+```

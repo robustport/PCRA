@@ -1,0 +1,27 @@
+Package: PCRM
+Type: Package
+Title: Companion to Portfolio Construction and Risk Management
+Version: 0.02
+Date: 2019-03-14
+Author: Doug Martin <>, Thomas Philips <>, Bernd Scherer <>, Ke Li <kirkli@stat.washington.edu>
+Maintainer: Ke Li <kirkli@stat.washington.edu>
+Description: PCRM is a companion package to the text Portfolio Construction and Risk Management
+License: GPL-2
+Depends: R (>= 3.0.0),
+	boot,
+	xts,
+	lattice,
+	mvtnorm,
+	Rglpk,
+	rrcov,
+	PortfolioAnalytics,
+	PerformanceAnalytics,
+	corpcor,
+	httpuv,
+	later,
+	shiny
+Suggests:
+	testthat
+LazyLoad: yes
+LazyData: yes
+RoxygenNote: 7.1.1
