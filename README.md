@@ -6,7 +6,7 @@ Please update to latest R, R-3.4.4 (as of March 2018)
 
 Since the update of devtool 2.0.0, there is a bug in devtool that making DESCRIPTION file not able to be read
 
-work around:  test
+work around:
 
 library(devtools)
 
