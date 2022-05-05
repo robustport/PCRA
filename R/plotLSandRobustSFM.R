@@ -1,3 +1,18 @@
+#' Plot LS and Robust SFM Fits
+#'
+#' @param x 
+#' @param family 
+#' @param efficiency 
+#' @param mainText 
+#' @param ylimits 
+#' @param legendPos 
+#' @param goodOutlier 
+#' @param makePct 
+#'
+#' @return
+#' @export
+#'
+#' @examples
 plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
                 mainText = NULL, ylimits = NULL, legendPos = "topleft",
                 goodOutlier = F, makePct = FALSE)
