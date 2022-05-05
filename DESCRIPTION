@@ -1,13 +1,13 @@
-Package: PCRM
+Package: PCRA
 Type: Package
-Title: Companion to Portfolio Construction and Risk Management
-Version: 0.02
-Date: 2019-03-14
+Title: Companion to Portfolio Construction and Risk Analysis
+Version: 0.01
+Date: 2022-05-05
 Author: Doug Martin <>, Thomas Philips <>, Bernd Scherer <>, Ke Li <kirkli@stat.washington.edu>
-Maintainer: Ke Li <kirkli@stat.washington.edu>
-Description: PCRM is a companion package to the text Portfolio Construction and Risk Management
+Maintainer: Jon Spinney <Jon.Spinney@vestcor.org>
+Description: PCRA is a companion package to the text Portfolio Construction and Risk Analysis
 License: GPL-2
-Depends: R (>= 3.0.0),
+Depends: R (>= 4.0.3),
 	boot,
 	xts,
 	lattice,
