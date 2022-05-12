@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotLSandRobustSFM.R
 \name{plotLSandRobustSFM}
 \alias{plotLSandRobustSFM}
-\title{LS and Robust mOpt Single Factor Model (SFM) Fits and Plot}
+\title{Robust and LS SFM Fits}
 \usage{
 plotLSandRobustSFM(
   x,
@@ -33,9 +33,14 @@ plotLSandRobustSFM(
 \item{makePct}{}
 }
 \value{
-The plot with straight line fits and legend containing coefficient
+The plot with straight line fits and legend coefficient estimates
          estimates and their standard errors
 }
 \description{
 LS and Robust mOpt Single Factor Model (SFM) Fits and Plot
+      with outliers identified, and legend with coefficents and (SE's).
+}
+\examples{
+data("ret4withOutliers")
+# plotLSandRobustSFM(retEDS,legendPos = "bottomright")
 }

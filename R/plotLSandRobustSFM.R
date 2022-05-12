@@ -1,4 +1,7 @@
-#' LS and Robust mOpt Single Factor Model (SFM) Fits and Plot
+#' Robust and LS SFM Fits
+#' 
+#' @description LS and Robust mOpt Single Factor Model (SFM) Fits and Plot
+#'       with outliers identified, and legend with coefficents and (SE's).
 #'
 #' @param x A univariate xts object.
 #' @param family Robust loss function choice.
@@ -9,12 +12,14 @@
 #' @param goodOutlier  
 #' @param makePct 
 #'
-#' @return The plot with straight line fits and legend containing coefficient
+#' @return The plot with straight line fits and legend coefficient estimates
 #'          estimates and their standard errors
 #'  
 #' @export
 #'
 #' @examples
+#' data("ret4withOutliers")
+#' # plotLSandRobustSFM(retEDS,legendPos = "bottomright")
 plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
                 mainText = NULL, ylimits = NULL, legendPos = "topleft",
                 goodOutlier = F, makePct = FALSE)
