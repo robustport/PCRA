@@ -7,15 +7,17 @@ Author: Doug Martin <>, Thomas Philips <>, Bernd Scherer <>, Ke Li <kirkli@stat.
 Maintainer: Jon Spinney <Jon.Spinney@vestcor.org>
 Description: PCRA is a companion package to the text Portfolio Construction and Risk Analysis
 License: GPL-2
-Depends: R (>= 4.0.3),
+Depends:
+	R (>= 4.0.3),
+	PortfolioAnalytics		
+Imports:
+	PerformanceAnalytics,
 	boot,
 	xts,
 	lattice,
 	mvtnorm,
 	Rglpk,
-	rrcov,
-	PortfolioAnalytics,
-	PerformanceAnalytics,
+	rrcov, 
 	corpcor,
 	httpuv,
 	later,
