@@ -7,19 +7,20 @@
 #' @usage data('factorsSPGMI')
 #'
 #' @format A data.frame containing 14 SPGMI monthly factor exposures (alpha
-#' factors) for 300 stocks from 1993 to 2015 (276 months) of observations on 21
-#' variables that include the 14 factor exposures, for each of 300 stocks
+#' factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21
+#' variables that include the 14 factor exposures, for each of 294 stocks
 #' \itemize{
 #'  \item \strong{Date:} type `Date`.
-#'  \item \strong{Ticker:} type `chr`. This is the ticker as of December 2015
-#'  \item \strong{TickerHist:} type `chr`. This is the ticker each month
+#'  \item \strong{TickerLast:} type `chr`. This is the ticker as of December 2015
+#'  \item \strong{Ticker:} type `chr`. This is the ticker each month
 #'  \item \strong{Company:} type `chr`. The name of the company 
-#'  \item \strong{CapGroup:} type `chr`. The market capitalization group of the
-#'  company, one of the following: MicroCap, SmallCap, MidCap or LargeCap
+#'  \item \strong{CapGroupLast:} type `chr`. Company market capitalization group
+#'  as of December 2015, one of: MicroCap, SmallCap, MidCap or LargeCap
+#'  \item \strong{CapGroup:} type `chr`. Monthly market capitalization group
 #'  \item \strong{GICS:} type `chr`. An 8 digit S&P GICS code, the first two
 #'  digits of which are codes for 11 GICS sectors
-#'  \item \strong{Sector:} type `chr`. One of 9  of the 11 GICS sectors, with
-#'  Energy and Real Estate sectors excluded
+#'  \item \strong{Sector:} type `chr`. One of 8  of the 11 GICS sectors, with
+#'  none of the 294 stocks in Financials, Real Estate or Utilities
 #'  \item \strong{AnnVol12M:} type `num`. Annualized Volatility of Monthly
 #'  Stock Returns (Last Twelve Months)
 #'  \item \strong{Beta60M:} type `num`.	60 Month OLS Beta relative to the
@@ -78,30 +79,30 @@
 #' 
 #' The factorsSPGMI data contains stocks in 8 of the 11 GICS sectors, with no
 #' stocks in the Financials, Utilities and Real Estate sectors.  On each of the
-#' next 11 lines we list the two digit GICS code that defines the GICS sectors,
-#' followed by GICS sector name and factorsSPGMI sector name, in that order:
+#' next 11 lines we list all 11 of the two digit GICS code that defines the GICS
+#' Sector, followed by the GICS sector name:
 #'
-#' 10 Energy -> Energy
+#' 10 Energy
 #'    
-#' 15 Materials -> Materials
+#' 15 Materials
 #'    
-#' 20 Industrials -> Industrials
+#' 20 Industrials
 #' 
-#' 25 Consumer Discretionary -> ConsumDisc
+#' 25 Consumer Discretionary
 #' 
-#' 30 Consumer Staples -> ConsumStap
+#' 30 Consumer Staples
 #' 
-#' 35 Health Care -> HealthCare  
+#' 35 Health Care  
 #' 
-#' 40 Financials -> None available
+#' 40 Financials (none currently available)
 #' 
-#' 45 Information Technology -> InfoTech
+#' 45 Information Technology
 #' 
-#' 50 Communication Services -> ComServices
+#' 50 Communication Services
 #' 
-#' 55 Utilities -> None available
+#' 55 Utilities (none currently available)
 #' 
-#' 60 Real Estate -> None available
+#' 60 Real Estate (none currently available)
 #'  
 #' GICS is a joint product of SPGMI and MSCI.
 #' For details, see the GICS Global Industry Classification Standard document
@@ -117,5 +118,5 @@
 #' data(factorsSPGMI)
 #' names(factorsSPGMI)
 #' head(factorsSPGMI, 2)
-#' str(factorsSPGMI) # WILL ADD MORE EXAMLE CODE 
+#' str(factorsSPGMI) # MORE EXAMPLE CODE MAY BE ADDED
 "factorsSPGMI"
