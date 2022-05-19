@@ -1,6 +1,6 @@
 #' stocksCRSP
 #'
-#' CRSP monthly stocks data for 300 stocks 1993 to 2015
+#' CRSP monthly stocks data for 294 stocks 1993 to 2015
 #' 
 #' @docType data
 #'
