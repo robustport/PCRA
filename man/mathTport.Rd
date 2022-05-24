@@ -19,3 +19,6 @@ mathTport(returns, rf = 0.01, digits = NULL)
 \description{
 mathTport
 }
+\examples{
+args(mathTport)
+}

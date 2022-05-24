@@ -17,3 +17,6 @@
 \description{
 cbind.na
 }
+\examples{
+args(cbind.na)
+}

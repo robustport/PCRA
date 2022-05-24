@@ -15,3 +15,6 @@ signifStars(pv)
 \description{
 signifStars
 }
+\examples{
+args(signifStars)
+}

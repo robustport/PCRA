@@ -19,3 +19,6 @@ turnoverSimple(wts, wtsInit = NULL, digits = NULL)
 \description{
 turnOverSimple
 }
+\examples{
+args(turnoverSimple)
+}

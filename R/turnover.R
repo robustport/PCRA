@@ -1,4 +1,5 @@
 #' Turnover
+#' 
 #' turnover is the function to calculate a times series of n-1 turn-over
 #' values for a times of n portfolio weight vectors, where the turnover
 #' from time i to time i+1 is the sum of the absolute differences 
@@ -10,6 +11,7 @@
 #' @export
 #'
 #' @examples
+#' args(turnover)
 turnover = function(weights){
   dates = index(weights)
   weights=coredata(weights)

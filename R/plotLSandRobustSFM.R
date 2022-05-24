@@ -19,7 +19,7 @@
 #'
 #' @examples
 #' data("ret4withOutliers")
-#' # plotLSandRobustSFM(retEDS,legendPos = "bottomright")
+#' plotLSandRobustSFM(retEDS,legendPos = "bottomright")
 plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
                 mainText = NULL, ylimits = NULL, legendPos = "topleft",
                 goodOutlier = F, makePct = FALSE)

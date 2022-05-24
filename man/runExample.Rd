@@ -15,3 +15,6 @@ runExample(example)
 \description{
 runExample
 }
+\examples{
+args(runExample)
+}

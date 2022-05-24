@@ -11,6 +11,7 @@
 #' @export
 #'
 #' @examples
+#' args(cbind.na)
 cbind.na <-
 		function (..., deparse.level = 1) 
 {

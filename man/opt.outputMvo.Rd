@@ -23,3 +23,6 @@ opt.outputMvo(opt, returns, digits = NULL, names = NULL, rf = 0)
 \description{
 opt.outputMvo
 }
+\examples{
+args(opt.outputMvo)
+}

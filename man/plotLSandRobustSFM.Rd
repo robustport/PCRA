@@ -42,5 +42,5 @@ LS and Robust mOpt Single Factor Model (SFM) Fits and Plot
 }
 \examples{
 data("ret4withOutliers")
-# plotLSandRobustSFM(retEDS,legendPos = "bottomright")
+plotLSandRobustSFM(retEDS,legendPos = "bottomright")
 }

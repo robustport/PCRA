@@ -19,3 +19,6 @@ tsPlot(ret, add.grid = T, cex = 1)
 \description{
 tsPlot
 }
+\examples{
+args(tsPlot)
+}
