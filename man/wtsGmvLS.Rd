@@ -20,7 +20,7 @@ data(wtsGmvLS)
 A multivariate time series of global minimum variance (GMV) Long-Short 
 portfolio weights based on  monthly returns of 20 smallcap stocks from
 December 2001 through December 2010, using a 5-year training window with
-initial position 1997 to 2001, with monthly rebalancing
+initial position 1997 to 2001, and monthly rebalancing
 }
 \examples{
  

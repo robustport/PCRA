@@ -6,8 +6,9 @@
 #'
 #' @return
 #' @export
-#'
+#' 
 #' @examples
+#' args(efront2Asset)
 efront2Asset = function(wts,rho,muVol = c(.20,.10,.15,.04))
 {
   sigma1 = muVol[1]

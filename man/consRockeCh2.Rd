@@ -17,3 +17,6 @@ consRockeCh2(p, n)
 \description{
 Title
 }
+\examples{
+args(consRockeCh2)
+}

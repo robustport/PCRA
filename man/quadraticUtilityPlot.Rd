@@ -12,3 +12,6 @@ quadraticUtilityPlot()
 \description{
 Title
 }
+\examples{
+args(quadraticUtilityPlot)
+}

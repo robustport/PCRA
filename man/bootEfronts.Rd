@@ -56,3 +56,6 @@ bootEfronts(
 \description{
 bootEfronts
 }
+\examples{
+args(bootEfronts)
+}

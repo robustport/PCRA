@@ -19,3 +19,6 @@ mathWtsEfrontRisky(returns, mu.efront, digits = NULL)
 \description{
 Title
 }
+\examples{
+args(mathWtsEfrontRisky)
+}

@@ -35,3 +35,6 @@ barplotWtsDoug(
 \description{
 Title
 }
+\examples{
+args(barplotWtsDoug)
+}

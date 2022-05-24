@@ -12,3 +12,6 @@ powerUtilityPlots()
 \description{
 Title
 }
+\examples{
+args(powerUtilityPlots)
+}

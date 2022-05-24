@@ -23,3 +23,6 @@ mathWtsEfrontRiskyMuCov(muRet, volRet, corrRet, mu.efront, digits = NULL)
 \description{
 Title
 }
+\examples{
+args(mathWtsEfrontRiskyMuCov)
+}

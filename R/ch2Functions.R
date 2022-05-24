@@ -12,6 +12,7 @@
 #' @export
 #'
 #' @examples
+#' args(barplotWtsDoug)
 barplotWtsDoug <- function (wts.efront, legend.text = NULL, col = NULL,
                             ylab = NULL, xlab = "VOL", bar.ylim = NULL, ...) 
 {
@@ -47,6 +48,7 @@ barplotWtsDoug <- function (wts.efront, legend.text = NULL, col = NULL,
 #' @export
 #'
 #' @examples
+#' args(consRockeCh2)
 consRockeCh2 <- function(p,n)
 {
   beta <- c(-6.1357, -1.0078, 0.81564)
@@ -73,6 +75,7 @@ consRockeCh2 <- function(p,n)
 #' @export
 #'
 #' @examples
+#' args(edfPointMassFig)
 edfPointMassFig <- function(r,x1 = -0.02,x2 = 0.02)
 {
   x1 = -0.02
@@ -101,6 +104,7 @@ edfPointMassFig <- function(r,x1 = -0.02,x2 = 0.02)
 #' @export
 #'
 #' @examples
+#' args(ellipsesPlotNewKjell.covfm)
 ellipsesPlotNewKjell.covfm = function (x, ...) 
 {
   n.models <- length(x)
@@ -263,6 +267,7 @@ ellipsesPlotNewKjell.covfm = function (x, ...)
 #' @export
 #'
 #' @examples
+#' args(mathEfrontRiskyMuCov)
 mathEfrontRiskyMuCov <- function(muRet,volRet,corrRet, npoints = 100,display = T,
                                  efront.only = T, print = F,  digits = NULL) 
 {
@@ -327,6 +332,7 @@ mathEfrontRiskyMuCov <- function(muRet,volRet,corrRet, npoints = 100,display = T
 #' @export
 #'
 #' @examples
+#' args(mathWtsEfrontRisky)
 mathWtsEfrontRisky <- function (returns, mu.efront, digits = NULL) 
 {
   V = var(returns)
@@ -373,6 +379,7 @@ mathWtsEfrontRisky <- function (returns, mu.efront, digits = NULL)
 #' @export
 #'
 #' @examples
+#' args(mathWtsEfrontRiskyMuCov)
 mathWtsEfrontRiskyMuCov <- function (muRet, volRet, corrRet, mu.efront,
                                      digits = NULL) 
 {
@@ -418,6 +425,7 @@ mathWtsEfrontRiskyMuCov <- function (muRet, volRet, corrRet, mu.efront,
 #' @export
 #'
 #' @examples
+#' args(plotLSfitVHI)
 plotLSfitVHI <- function (x) 
 {
   ret = x
@@ -441,6 +449,7 @@ plotLSfitVHI <- function (x)
 #' @export
 #'
 #' @examples
+#' args(powerUtilityPlots)
 powerUtilityPlots = function()
 {
   x = seq(.01,3,.01)
@@ -466,6 +475,7 @@ powerUtilityPlots = function()
 #' @export
 #'
 #' @examples
+#' args(quadraticUtilityPlot)
 quadraticUtilityPlot <- function()
 {
   v = seq(0,1.5,.01)
@@ -486,6 +496,7 @@ quadraticUtilityPlot <- function()
 #' @export
 #'
 #' @examples
+#' args(WRoTruCh2)
 WRoTruCh2 <- function(tt,gamma,q = 2)
 {
   ss <- (tt - 1)/gamma

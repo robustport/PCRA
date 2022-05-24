@@ -51,3 +51,6 @@ Title
 
 mathEfrontRiskyMuCov
 }
+\examples{
+args(mathEfrontRiskyMuCov)
+}

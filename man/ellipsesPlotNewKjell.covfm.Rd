@@ -17,3 +17,6 @@ ellipsesPlotNewKjell.covfm(x, ...)
 \description{
 Title
 }
+\examples{
+args(ellipsesPlotNewKjell.covfm)
+}

@@ -47,3 +47,6 @@ chart.Efront(
 \description{
 chart.Efront
 }
+\examples{
+args(chart.Efront)
+}

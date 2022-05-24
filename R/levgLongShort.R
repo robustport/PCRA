@@ -13,7 +13,8 @@
 #'
 #' @examples
 #' data(wtsGmvLS)
-#' round(head(wtsGmvLS,1),3)
+#' w <- levgLongShort(wtsGmvLS)
+#' head(round(w,3))
 #' 
 #' @export
 levgLongShort <- function(w)

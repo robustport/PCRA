@@ -19,3 +19,6 @@ efront2Asset(wts, rho, muVol = c(0.2, 0.1, 0.15, 0.04))
 \description{
 Efficient Frontier for 2-Asset Portfolio
 }
+\examples{
+args(efront2Asset)
+}

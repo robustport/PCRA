@@ -19,3 +19,6 @@ WRoTruCh2(tt, gamma, q = 2)
 \description{
 Title
 }
+\examples{
+args(WRoTruCh2)
+}

@@ -33,3 +33,6 @@ barplotWts(
 \description{
 barplotWts
 }
+\examples{
+args(barplotsWts)
+}

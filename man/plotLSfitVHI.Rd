@@ -15,3 +15,6 @@ plotLSfitVHI(x)
 \description{
 Title
 }
+\examples{
+args(plotLSfitVHI)
+}

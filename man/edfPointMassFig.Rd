@@ -26,5 +26,6 @@ Title
 This is code for plotting a point mass distribution
 }
 \examples{
+args(edfPointMassFig)
 edfPointMassFig(.005)
 }
