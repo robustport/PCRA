@@ -18,6 +18,7 @@
 #\left(\frac{x_t-\hat{\mu}_{t-1}}{\hat{\sigma}_{t-1}}\right)
 #'
 #' @examples
+#' args(ewmaMeanVol)
 #' @export
 
 

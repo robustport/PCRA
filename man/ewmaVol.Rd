@@ -23,3 +23,6 @@ ewmaVol(x, nstart = 10, robVol = TRUE, cc = 2.5, lambda = 0.9)
 \description{
 Exponential Weighted Moving Average (EWMA) Volitility
 }
+\examples{
+args(ewmaVol)
+}

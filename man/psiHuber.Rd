@@ -6,8 +6,16 @@
 \usage{
 psiHuber(x, cc = 1.345)
 }
+\arguments{
+\item{x}{a numeric vector}
+
+\item{cc}{a numeric constant}
+}
 \description{
 Huber Psi
+}
+\examples{
+args(psiHuber)
 }
 \seealso{
 \code{\link{}}

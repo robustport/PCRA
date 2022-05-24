@@ -9,6 +9,7 @@
 #' @return
 #'
 #' @examples
+#' args(ewmaVol)
 #' @export
 ewmaVol <- function(x,nstart = 10,robVol = TRUE,cc = 2.5,lambda = 0.9)
 {
