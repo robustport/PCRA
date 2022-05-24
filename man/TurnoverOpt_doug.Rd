@@ -32,8 +32,11 @@ Specify turnover constraints using a version derived by Doug Martin
 \details{
 use \code{table.Performance.pool} to check available metrics. recoded SharpeRatio
 }
+\examples{
+args(TurnoverOpt_doug)
+}
 \seealso{
-
+\code{\link{turnoverOpt}}
 }
 \author{
 Doug Martin, Kirk Li  \email{kirkli@stat.washington.edu}

@@ -1,3 +1,15 @@
+#' Winsorized Mean
+#'
+#' @param x numeric vector
+#' @param trim fraction of data to be Winsorized
+#' @param na.rm 
+#' @param ... 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' args(winsorMean)
 winsorMean <- function(x, trim = 0, na.rm = FALSE, ...) {
   if (!is.numeric(x) && !is.complex(x) && !is.logical(x)) {
     warning("argument is not numeric or logical: returning NA")
