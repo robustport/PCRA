@@ -6,18 +6,19 @@
 #'
 #' @param w a multivariate xts portfolio weights object
 #'
-#' @return levg an xts time series of portfolio leverages
+#' @return levg   a univariate xts time series of portfolio leverages
 #'  
 #' @rdname levgLongShort
 #' @author Doug Martin, \email{martinrd3d@gmail.com}
 #'
 #' @examples
-#' 
+#' data(wtsGmvLS)
+#' round(head(wtsGmvLS,1),3)
 #' 
 #' @export
 levgLongShort <- function(w)
 {
-  # Input w must be a multivariate xts object (change to allow matrix, etc.)
+  # Input w must be a multivariate xts object (change code to allow matrix)
   wMat <- coredata(w)
   n <- dim(wMat)[1]
   levg <- rep(0,n)

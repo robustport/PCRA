@@ -10,7 +10,7 @@ levgLongShort(w)
 \item{w}{a multivariate xts portfolio weights object}
 }
 \value{
-levg an xts time series of portfolio leverages
+levg   a univariate xts time series of portfolio leverages
 }
 \description{
 This function computes a time series of portfolio leverages, defined  as
@@ -18,7 +18,8 @@ the sum of the absolute portfolio weights divided by the sum of the long
 position weights
 }
 \examples{
-
+data(wtsGmvLS)
+round(head(wtsGmvLS,1),3)
 
 }
 \author{

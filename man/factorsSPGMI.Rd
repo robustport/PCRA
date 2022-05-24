@@ -11,7 +11,7 @@ variables that include the 14 factor exposures, for each of 294 stocks
 \itemize{
  \item \strong{Date:} type `Date`.
  \item \strong{TickerLast:} type `chr`. This is the ticker as of December 2015
- \item \strong{Ticker:} type `chr`. This is the ticker each month
+ \item \strong{Ticker:} type `chr`. This is the monthly ticker
  \item \strong{Company:} type `chr`. The name of the company 
  \item \strong{CapGroupLast:} type `chr`. Company market capitalization group
  as of December 2015, one of: MicroCap, SmallCap, MidCap or LargeCap
@@ -75,13 +75,15 @@ data('factorsSPGMI')
 }
 \details{
 The term "factor exposures" is often used for the values of the 14 factors,
-which SPGMI refer to as "scores" or sometimes as "alpha factors". 
+which SPGMI also refers to as "scores" or "alpha factors". 
 Our names for the the 14 factors are identical to those used by SPGMI in
 their AFL library.  For an introduction to the AFL library see:
 \url{https://www.spglobal.com/marketintelligence/en/solutions/alpha-factor-library}
 
-The four CapGroup categorizations of the stocks were determined using the
-three capitalization breakpoints $xxxM, $yyyM, $zzzM. For details concerning.
+The four CapGroupLast categorizations of the stocks were determined using the
+three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the
+construction of the monthly CapGroup categorizations will eventually be
+provided in a Vignette.
 
 The factorsSPGMI data contains stocks in 8 of the 11 GICS sectors, with no
 stocks in the Financials, Utilities and Real Estate sectors.  On each of the

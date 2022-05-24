@@ -8,12 +8,13 @@
 A data.frame with 82000 observations on 15 variables:
 \itemize{
  \item \strong{Date:} type `Date`.
- \item \strong{TickerLast:} type `chr`. This is the ticker as of the last date
- \item \strong{Ticker:} type `chr`. This is the actual ticker at each time
+ \item \strong{TickerLast:} type `chr`. The ticker as of December 2015
+ \item \strong{Ticker:} type `chr`. Monthly ticker
  period
  \item \strong{Company:} type `chr`. The name of company with TickerLast
- \item \strong{CapGroup:} type `chr`. The market capitalization group of the
- company, MicroCap, SmallCap, MidCap or LargeCap
+ \item \strong{CapGroupLast:} type `chr`. Company market capitalization group
+ as of December 2015, one of: MicroCap, SmallCap, MidCap or LargeCap
+ \item \strong{CapGroup:} type `chr`. Monthly market capitalization group
  \item \strong{GICS:} type `chr`. 6 digit S&P GICS code
  \item \strong{Sector:} type `chr`. One of 10 sectors specified by the first
  two digits of the GICS code
@@ -47,6 +48,12 @@ stocksCRSP
 
 CRSP monthly stocks data for 294 stocks 1993 to 2015
 }
+\details{
+The four CapGroupLast categorizations of the stocks were determined using the
+three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the
+construction of the monthly CapGroup categorizations will eventually be
+provided in a Vignette.
+}
 \examples{
  
 data(stocksCRSP)
@@ -54,5 +61,9 @@ names(stocksCRSP)
 unique(stocksCRSP$Sector)
 unique(stocksCRSP$CapGroup)
 head(stocksCRSP,2)
+}
+\references{
+A standard corporate finance textbook:  Ross, Westerfield, Jaffe and
+Jordan (2019). Corporate Finance, McGraw-Hill Education.
 }
 \keyword{datasets}
