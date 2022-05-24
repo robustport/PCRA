@@ -21,3 +21,6 @@ lmFitStats(x, rsq = F, digits = 3, show.signif.stars = TRUE)
 \description{
 lmFitStats
 }
+\examples{
+args(lmFitStats)
+}

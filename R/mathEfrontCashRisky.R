@@ -18,6 +18,7 @@
 #' @export
 #'
 #' @examples
+#' args(mathEfrontCashRisky)
 mathEfrontCashRisky <-
 		function(returns,rf = 0.005,scalex = 1.2,scaley = 2,display.stocks = T,
 				stock.names = T, risk.tol = F, npoints = 10, plot.efront = T, wts.plot = T,

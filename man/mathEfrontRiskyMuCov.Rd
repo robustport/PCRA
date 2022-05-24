@@ -53,4 +53,5 @@ mathEfrontRiskyMuCov
 }
 \examples{
 args(mathEfrontRiskyMuCov)
+args(mathEfrontRiskyMuCov)
 }

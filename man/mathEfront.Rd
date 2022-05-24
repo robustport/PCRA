@@ -47,3 +47,6 @@ mathEfront(
 \description{
 mathEfront
 }
+\examples{
+args(mathEfront)
+}

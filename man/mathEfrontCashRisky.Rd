@@ -53,3 +53,6 @@ mathEfrontCashRisky(
 \description{
 mathEfrontCashRisky
 }
+\examples{
+args(mathEfrontCashRisky)
+}

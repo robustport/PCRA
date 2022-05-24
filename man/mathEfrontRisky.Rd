@@ -29,3 +29,6 @@ mathEfrontRisky(
 \description{
 mathEfrontRisky
 }
+\examples{
+args(mathEfrontRisky)
+}
