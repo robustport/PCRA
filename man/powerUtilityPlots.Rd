@@ -6,9 +6,6 @@
 \usage{
 powerUtilityPlots()
 }
-\value{
-
-}
 \description{
 Title
 }

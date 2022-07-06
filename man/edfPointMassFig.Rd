@@ -15,11 +15,6 @@ edfPointMassFig(r, x1 = -0.02, x2 = 0.02)
 
 \item{x2}{Upper limit of plotting range}
 }
-\value{
-
-
-
-}
 \description{
 Title
 

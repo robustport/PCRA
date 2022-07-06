@@ -41,11 +41,6 @@ mathEfrontRiskyMuCov(
 
 \item{print}{}
 }
-\value{
-
-
-
-}
 \description{
 Title
 

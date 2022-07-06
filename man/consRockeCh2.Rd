@@ -11,9 +11,6 @@ consRockeCh2(p, n)
 
 \item{n}{}
 }
-\value{
-
-}
 \description{
 Title
 }

@@ -23,9 +23,6 @@ mathEfrontRisky(
 
 \item{digits}{}
 }
-\value{
-
-}
 \description{
 mathEfrontRisky
 }

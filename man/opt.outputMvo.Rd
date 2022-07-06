@@ -17,9 +17,6 @@ opt.outputMvo(opt, returns, digits = NULL, names = NULL, rf = 0)
 
 \item{rf}{}
 }
-\value{
-
-}
 \description{
 opt.outputMvo
 }

@@ -1,3 +1,17 @@
+#' Four types of returns means for reporting
+#' 
+#' Computes arithmetic mean, logarithmic mean, geometric mean and an approximate
+#' geometric mean.
+#'
+#' @param x An xts or numeric vector of return
+#' @param robust A logical value controlling whether a classical or robust sample
+#' mean and standard deviation is computed. Default is FALSE 
+#'
+#' @return Arithmetic, logarithmic, geometric and approximate geometric means
+#' @export
+#'
+#' @examples
+#' args(meanRetReport)
 meanRetReport <- function(x,robust = FALSE)
 {
   if(robust == FALSE) {retMu <- mean(ret)} else

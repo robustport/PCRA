@@ -9,9 +9,6 @@ signifStars(pv)
 \arguments{
 \item{pv}{}
 }
-\value{
-
-}
 \description{
 signifStars
 }

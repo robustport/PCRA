@@ -13,9 +13,6 @@ mathWtsEfrontRisky(returns, mu.efront, digits = NULL)
 
 \item{digits}{}
 }
-\value{
-
-}
 \description{
 Title
 }

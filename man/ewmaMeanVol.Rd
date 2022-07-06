@@ -38,9 +38,6 @@ ewmaMeanVol(
 
 \item{lambdaVolDyn}{}
 }
-\value{
-
-}
 \description{
 Exponential Weighted Moving Average (EWMA) Mean Volitility
 }

@@ -26,4 +26,4 @@ Suggests:
 	testthat
 LazyLoad: yes
 LazyData: yes
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0

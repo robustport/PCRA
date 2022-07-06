@@ -29,9 +29,6 @@ barplotWtsDoug(
 
 \item{...}{}
 }
-\value{
-
-}
 \description{
 Title
 }
