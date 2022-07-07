@@ -4,13 +4,13 @@
 \alias{meansReturns4Report}
 \title{Four types of returns means for reporting}
 \usage{
-meansReturns4Report(x, robust = FALSE, eff = 0.95)
+meansReturns4Report(ret, robust = FALSE, eff = 0.95)
 }
 \arguments{
-\item{x}{An xts or numeric vector of return}
-
 \item{robust}{A logical value controlling whether a classical or robust sample
 mean and standard deviation is computed. Default is FALSE}
+
+\item{x}{An xts or numeric vector of return}
 }
 \value{
 FourMeans

@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' args(meanRetReport)
-meansReturns4Report <- function(x,robust = FALSE,eff = 0.95)
+meansReturns4Report <- function(ret,robust = FALSE,eff = 0.95)
 {
   if(robust == FALSE) {retMu <- mean(ret)} else
   {x <- RobStatTM::locScaleM(ret,eff = eff)
