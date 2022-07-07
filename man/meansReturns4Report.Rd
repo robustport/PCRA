@@ -4,7 +4,7 @@
 \alias{meansReturns4Report}
 \title{Four types of returns means for reporting}
 \usage{
-meansReturns4Report(x, robust = FALSE)
+meansReturns4Report(x, robust = FALSE, eff = 0.95)
 }
 \arguments{
 \item{x}{An xts or numeric vector of return}

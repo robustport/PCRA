@@ -12,15 +12,15 @@
 #'
 #' @examples
 #' args(meanRetReport)
-meansReturns4Report <- function(x,robust = FALSE)
+meansReturns4Report <- function(x,robust = FALSE,eff = 0.95)
 {
   if(robust == FALSE) {retMu <- mean(ret)} else
-  {x <- RobStatTM::locScaleM(ret)
+  {x <- RobStatTM::locScaleM(ret,eff = eff)
   retMu <- x$mu
   }
   logret <- log(ret+1)
   if(robust == FALSE) {logretMu <- mean(logret)} else
-  {x <- RobStatTM::locScaleM(logret)
+  {x <- RobStatTM::locScaleM(logret,eff = eff)
   logretMu <- x$mu
   }
   g <- exp(logretMu)-1
@@ -29,6 +29,7 @@ meansReturns4Report <- function(x,robust = FALSE)
   S_squared <- scale^2
   }
   gApprox <- retMu - S_squared/2
-  FourMeans <- c(retMu,logretMu,g,gApprox)
-  return(FourMeans)
+  fourMeans <- c(retMu,logretMu,g,gApprox)
+  names(fourMeans) <- c("ArithMean","LogMean","GeomMean","ApproxGMean")
+  return(fourMeans)
 }
