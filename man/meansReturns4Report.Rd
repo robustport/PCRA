@@ -13,7 +13,7 @@ mean and standard deviation is computed. Default is FALSE}
 \item{x}{An xts or numeric vector of return}
 }
 \value{
-FourMeans
+fourMeans
 }
 \description{
 Computes arithmetic mean, logarithmic mean, geometric mean and an approximate

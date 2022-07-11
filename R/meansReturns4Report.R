@@ -7,7 +7,7 @@
 #' @param robust A logical value controlling whether a classical or robust sample
 #' mean and standard deviation is computed. Default is FALSE 
 #'
-#' @return FourMeans
+#' @return fourMeans
 #' @export
 #'
 #' @examples
