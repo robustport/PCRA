@@ -11,9 +11,9 @@ wtsOpt(r, c)
 
 \item{c}{}
 }
-\value{
-
-}
 \description{
-wtsOpt
+Old polynomial approximation to opt function, to be discarded
+}
+\examples{
+args(wtsOpt)
 }

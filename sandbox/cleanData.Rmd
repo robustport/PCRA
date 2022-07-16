@@ -1,0 +1,310 @@
+---
+title: "Cleaning factorsSPGMI and stocksCRSP"
+author: "Jon Spinney"
+date: "30/04/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summary
+
+stocksCRSP and factorsSPGMI are currently in the FactorAnalytics package and are to be migrated into either PCRA or another new package. Loading the data from the FactorAnalytics package:
+
+```{r}
+# load data from FA & create tmp copies
+library(data.table)
+library(FactorAnalytics)
+data(factorsSPGMI)
+data(stocksCRSP)
+factorsSPGMI_tmp <- factorsSPGMI
+stocksCRSP_tmp <- stocksCRSP
+```
+
+There are four potential issues that should be dealt with before the data can be used:
+
+1. Sector names are misspelled and do not follow official convention for naming. I am aware that Doug prefers short names for written material, however it probably makes sense to use the official names at this stage and potentially modify them later for publication using a function.
+2. There is a small subset of securities that were assigned to the wrong Sector and GICS Code originally (verified by independent checking using S&P and Bloomberg data).
+3. Once cleaned, there are three sectors (Financials, Utilities, and Real Estate) each with 3 or fewer members - these should be either deleted or deleted and replaced with securities in the remaining 8 sectors (if we have access, it might make sense to delete the financials and real estate names and replace with three new utilities so that we have as many sectors as possible).
+4. The Capitalization Group assignments are questionable and could be revisited. One option will be to use (for example) the CRSP approach to assigning securities to a cap group based on market cap coverage at the 0.7, 0.85, and 0.98 levels using a broad total market data set on a point in time basis. This would result in securities migrating from one cap group to another as they grow/shrink in size.
+
+## Misspelled Sector Names
+
+factorsSPGMI and stocksCRSP do not use official GICS naming conventions in sector names. In addition, several securities have obvious misspellings in Sector assignment, resulting in incorrect groupings. For example:
+
+```{r}
+unique(factorsSPGMI_tmp$Sector) # contains 16 sectors with duplications
+```
+For those 16 "Sectors" above, the following mapping would be correct:
+
+| Sector (in factorsSPGMI) | Official GICS Sector Name |
+|:-------------------------|:--------------------------|
+| InfoTech                 | Information Technology    |
+| Industrials              | Industrials               |
+| HealthCare               | Health Care               |
+| ConsumStap               | Consumer Staples          |
+| Energy                   | Energy                    |
+| Materials                | Materials                 |
+| ConsumDisc               | Consumer Discretionary    |
+| TelcoServices            | Communication Services    |
+| Utilities                | Utilities                 |
+| RealEstate               | Real Estate               |
+| Health Care              | Health Care               |
+| Financials               | Financials                |
+| Consumer Discretionay    | Consumer Discretionary    |
+| Information Technology   | Information Technology    |
+| Consumer Staple          | Consumer Staples          |
+| Communication Services   | Communication Services    |
+
+
+```{r}
+# replacement data
+bad_sectors <- unique(factorsSPGMI_tmp$Sector)
+good_sectors <- c("Information Technology","Industrials","Health Care",
+                  "Consumer Staples","Energy","Materials",
+                  "Consumer Discretionary","Communication Services","Utilities",
+                  "Real Estate","Health Care","Financials",
+                  "Consumer Discretionary","Information Technology",
+                  "Consumer Staples","Communication Services")
+sector_table <- data.frame(cbind(bad_sectors,good_sectors))
+colnames(sector_table) <- c("BadSectors","GoodSectors")
+sector_table
+
+# replacements
+factorsSPGMI_tmp$Sector <- sector_table$GoodSectors[match(factorsSPGMI_tmp$Sector,sector_table$BadSectors)]
+stocksCRSP_tmp$Sector <- sector_table$GoodSectors[match(stocksCRSP_tmp$Sector,sector_table$BadSectors)]
+```
+
+Checking the results:
+
+```{r}
+# confirm factorsSPGMI and stocksCRSP have correct sectors
+unique(factorsSPGMI_tmp$Sector) # contains 11 sectors with no duplication
+unique(stocksCRSP_tmp$Sector) # contains 11 sectors with no duplication
+
+# check membership
+lastDateCRSP <- tail(stocksCRSP_tmp[,Date],1)
+stocksCRSPLast <- stocksCRSP_tmp[Date == lastDateCRSP]
+stocksCRSPLast[ , .N, by = Sector] 
+factorsSPGMILast <- factorsSPGMI_tmp[Date == lastDateCRSP]
+factorsSPGMILast[ , .N, by = Sector] 
+```
+
+At this point both stocksCRSP and factorsSPGMI have corrected sector names, however there are a few securities based on our verification work that were assigned to incorrect sectors.
+
+## Incorrect Sector and GICS Code Assignments for Certain Securities
+
+A subset of securities have incorrect Sectors and GICS data. This appears to be the result of human error in creating data sets...my best guess is that S&P used the ticker (or TickerLast) to match CRSP data to their data sets and a subset of securities were mismatched due to ticker recycling, etc.
+
+This can be seen in the file stocksTickers310GICSgovindSPGMI.xlsx, in the FactorAnalytics Sandbox, which has incorrect mappings for several securities (observe row 280, ticker STJ, which has matched "St Jude Medical Inc" to "St James's Place plc for example).
+
+Subsequent to the original data set creation, however, there appears to have been some human intervention to clean up a few securities. I identified 11 securities in the original stocksTickers310GICSgovindSPGMI.xlsx with issues, but a few of them are now correct in stocksCRSP and factorsSPGMI so they must have been fixed later?
+
+Note that both the Sector name and the GICS number appear to be incorrect in some cases.
+
+Fixing this will result in cleaner data in the FactorAnalytics package, a better ability to merge data sets with vendor sources later, and will allow resolution of additional issues with factorsSPGMI and stocksCRSP. The following table lists the securities where there remain uncorrected data.
+
+| TickerLast  | Assigned Sector             |   Correct Sector       | Assigned GICS | Correct GICS |
+|:------------|:----------------------------|:-----------------------|:--------------|:-------------|
+| AVP         | Industrials                 | Consumer Staples       | 20101010      | 30302010 |
+| CSH         | Information Technology      | Financials             | 45103010      | 40202010 |
+| CTS         | Information Technology      | Information Technology | 45102010      | 45203020 |
+| PIR         | Financials                  | Consumer Discretionary | 40301040      | 25504060 |
+| RTN         | Consumer Discretionary      | Industrials            | 25301040      | 20101010 |
+| STJ         | Financials                  | Healthcare             | 40203010      | 35101010 |
+| TSS         | Industrials                 | Information Technology | 20102010      | 45102020 |
+
+```{r}
+# sector names incorrect for a few securities
+right_sectors <- data.frame(cbind(c("AVP","CSH","CTS","PIR",
+                                    "RTN","STJ","TSS"),
+                                  c("Consumer Staples",
+                                    "Financials",
+                                    "Information Technology",
+                                    "Consumer Discretionary",
+                                    "Industrials",
+                                    "Health Care",
+                                    "Information Technology")))
+colnames(right_sectors) <- c("TickerLast","Sector")
+
+# first factorsSPGMI
+factorsSPGMI_tmp$Sector2 <- right_sectors$Sector[match(factorsSPGMI_tmp$TickerLast,right_sectors$TickerLast)]
+factorsSPGMI_tmp$Sector <- ifelse(is.na(factorsSPGMI_tmp$Sector2),factorsSPGMI_tmp$Sector,factorsSPGMI_tmp$Sector2)
+factorsSPGMI_tmp$Sector2 <- NULL
+
+# stocksCRSP
+stocksCRSP_tmp$Sector2 <- right_sectors$Sector[match(stocksCRSP_tmp$TickerLast,right_sectors$TickerLast)]
+stocksCRSP_tmp$Sector <- ifelse(is.na(stocksCRSP_tmp$Sector2),stocksCRSP_tmp$Sector,stocksCRSP_tmp$Sector2)
+stocksCRSP_tmp$Sector2 <- NULL
+
+# GICS code also incorrect
+right_gics <- data.frame(cbind(c("AVP","CSH","CTS","PIR",
+                                 "RTN","STJ","TSS"),
+                               c(30302010,
+                                 40202010,
+                                 45203020,
+                                 25504060,
+                                 20101010,
+                                 35101010,
+                                 45102020)))
+colnames(right_gics) <- c("TickerLast","GICS")
+
+# first factorsSPGMI
+factorsSPGMI_tmp$GICS2 <- right_gics$GICS[match(factorsSPGMI_tmp$TickerLast,right_sectors$TickerLast)]
+factorsSPGMI_tmp$GICS <- ifelse(is.na(factorsSPGMI_tmp$GICS2),factorsSPGMI_tmp$GICS,factorsSPGMI_tmp$GICS2)
+factorsSPGMI_tmp$GICS2 <- NULL
+
+# stocksCRSP
+stocksCRSP_tmp$GICS2 <- right_gics$GICS[match(stocksCRSP_tmp$TickerLast,right_gics$TickerLast)]
+stocksCRSP_tmp$GICS <- ifelse(is.na(stocksCRSP_tmp$GICS2),stocksCRSP_tmp$GICS,stocksCRSP_tmp$GICS2)
+stocksCRSP_tmp$GICS2 <- NULL
+```
+
+Double checking the results:
+
+```{r}
+res <- data.frame(factorsSPGMI_tmp[TickerLast 
+                                   %in% 
+                                     c("AVP","CSH","CTS","PIR",
+                                       "RTN","STJ","TSS"), 
+                                   unique(paste(TickerLast,Sector, GICS))])
+colnames(res) <- "Ticker/Sector/GICS"
+res
+
+# confirm factorsSPGMI and stocksCRSP have correct sectors
+unique(factorsSPGMI_tmp$Sector) # 11 sectors with no dupes
+unique(stocksCRSP_tmp$Sector)
+stocksCRSPLast <- stocksCRSP_tmp[Date == lastDateCRSP]
+stocksCRSPLast[ , .N, by = Sector] 
+factorsSPGMILast <- factorsSPGMI_tmp[Date == lastDateCRSP]
+factorsSPGMILast[ , .N, by = Sector] 
+```
+
+At this point, the Utilities, Real Estate, and Financials sectors all have low membership counts of 3, 1, and 2 members respectively. A short term solution would be to delete those three sectors so that model fits on the data sets aren't broken by the Real Estate (n=1) or inefficient due to low group counts. A better long term solution would be to replace the 1 Real Estate stock and 2 Financials Stocks (both sectors are challenging from a Factor modeling perspective anyway) and replace with 3 Utilities stocks so that we maintain total sample size of 300 securities and the smallest sector has n=6.
+
+## Minimal Membership in Financials, Utilities, and Real Estate Sectors
+
+Temporarily delete the Utilities, Financials, and Real Estate sectors from both stocksCRSP and factorsSPGMI:
+
+```{r, echo=TRUE}
+stocksCRSP_tmp <- stocksCRSP_tmp[!stocksCRSP_tmp$Sector %in% c("Financials","Real Estate","Utilities"),]
+factorsSPGMI_tmp <- factorsSPGMI_tmp[!factorsSPGMI_tmp$Sector %in% c("Financials","Real Estate","Utilities"),]
+```
+
+Check the results:
+
+```{r}
+# confirm factorsSPGMI and stocksCRSP have correct sectors
+unique(factorsSPGMI_tmp$Sector) #8 sectors with no duplicates
+unique(stocksCRSP_tmp$Sector) #8 sectors with no duplicates
+stocksCRSPLast <- stocksCRSP_tmp[Date == lastDateCRSP]
+stocksCRSPLast[ , .N, by = Sector] 
+factorsSPGMILast <- factorsSPGMI_tmp[Date == lastDateCRSP]
+factorsSPGMILast[ , .N, by = Sector] 
+```
+
+Overall now the sample size would be 294 securities and 276 months (81144 rows):
+
+```{r}
+dim(stocksCRSP_tmp)
+dim(factorsSPGMI_tmp)
+```
+
+## Clarifying Capitalization Group Assignments
+
+One potential method for cleaning the cap group assignments would be to:
+
+1. Confirm the assignment of each security at each point in time based on a coherent methodology such as CRSP, and
+2. If desired, create a static cap group assignment to simplify model estimation (that is, by keeping a security in a single cap group for the entire estimation period) - in this case I would suggest we use whichever capitalization group the security spent the most time in during the 276 month window (using the last cap group would introduce an obvious bias). In reality, practitioners would 
+
+CRSP applies securities to a capitalization group according to the percentile breakpoints for the entire market. The exact schema is probably too detailed for factorsSPGMI and stocksCRSP (can be viewed for the most recent quarter at \url{https://www.crsp.org/files/breakpoints-chart-values_20220307.pdf}), but a simplified version might be:
+
+- Large: 70% of the total market,
+- Mid: from 70% to 85% of the total market,
+- Small: from 85% to 98% of the total market,
+- Micro: above the 98th percentile
+
+In order to apply this to stocksCRSP and factorsSPGMI, we need breakpoints for the entire market to eliminate bias. We used the S&P Global Markets (aka Capital IQ & Compustat) databases to build breakpoints on a monthly basis according to the above:
+
+```{r}
+MktCapPercentiles <- read.csv("MktCapPercentiles.csv")
+breakpoints <- xts::xts(MktCapPercentiles[,-1], order.by=as.Date(MktCapPercentiles$Date))
+plot(breakpoints)
+```
+
+These breakpoints can be used to assign the stocksCRSP and factorsSPGMI stocks to a cap grouping on a Point-in-Time basis with no look ahead bias:
+
+```{r}
+factorsSPGMI_tmp$MktCap <- exp(factorsSPGMI_tmp$LogMktCap)
+
+factorsSPGMI_tmp$CapGroupLC <- 
+  MktCapPercentiles$LC[match(as.Date(factorsSPGMI_tmp$Date),as.Date(MktCapPercentiles$Date))]
+factorsSPGMI_tmp$CapGroupMC <- 
+  MktCapPercentiles$MC[match(as.Date(factorsSPGMI_tmp$Date),as.Date(MktCapPercentiles$Date))]
+factorsSPGMI_tmp$CapGroupSC <- 
+  MktCapPercentiles$SC[match(as.Date(factorsSPGMI_tmp$Date),as.Date(MktCapPercentiles$Date))]
+
+factorsSPGMI_tmp$CapGroup <- ifelse(factorsSPGMI_tmp$MktCap < factorsSPGMI_tmp$CapGroupSC,"MicroCap",
+                                    ifelse(factorsSPGMI_tmp$MktCap < factorsSPGMI_tmp$CapGroupMC,"SmallCap",
+                                           ifelse(factorsSPGMI_tmp$MktCap < factorsSPGMI_tmp$CapGroupLC,"MidCap",
+                                                  "LargeCap")))
+```
+
+Temporarily, we can create a "CapGroupLast" variable:
+
+```{r}
+end_dat <- factorsSPGMI_tmp[factorsSPGMI_tmp$Date == "2015-12-31",]
+factorsSPGMI_tmp$CapGroupLast <- end_dat$CapGroup[match(factorsSPGMI_tmp$TickerLast,end_dat$TickerLast)]
+```
+
+Although as mentioned it is likely best not to use this and instead use the "most common" cap grouping for each stock.
+
+```{r}
+# match CapGroup and CapGroupL in stocksCRSP
+factorsSPGMI_tmp$MatchVar <- paste(factorsSPGMI_tmp$Date,factorsSPGMI_tmp$Ticker,sep="-")
+stocksCRSP_tmp$MatchVar <- paste(stocksCRSP_tmp$Date,stocksCRSP_tmp$Ticker,sep="-")
+stocksCRSP_tmp$CapGroup <- factorsSPGMI_tmp$CapGroup[match(stocksCRSP_tmp$MatchVar,factorsSPGMI_tmp$MatchVar)]
+stocksCRSP_tmp$CapGroupLast <- factorsSPGMI_tmp$CapGroupLast[match(stocksCRSP_tmp$MatchVar,factorsSPGMI_tmp$MatchVar)]
+```
+
+```{r}
+# reorder columns
+factorsSPGMI_tmp <- factorsSPGMI_tmp[,c("Date","Ticker","TickerLast","Company",
+                                        "CapGroup","CapGroupLast","GICS",
+                                        "Sector","AnnVol12M","Beta60M","BP","EP",
+                                        "LogMktCap","PM12M1M","AccrualRatioCF",
+                                        "AstAdjChg1YOCF","CFROIC","Chg1YAstTo",
+                                        "EBITDAEV","FCFP","PM1M","SEV")]
+head(factorsSPGMI_tmp)
+stocksCRSP_tmp <- stocksCRSP_tmp[,c("Date","Ticker","TickerLast","Company",
+                                    "CapGroup","CapGroupLast","GICS","Sector","Return",
+                                    "RetExDiv","Price","PrcSplitAdj","Ret4WkBill",
+                                    "Ret13WkBill","Ret1YrBill","mktIndexCRSP")]
+head(stocksCRSP_tmp)
+```
+
+Final checks:
+
+```{r}
+# confirm factorsSPGMI and stocksCRSP have correct sectors
+unique(factorsSPGMI_tmp$Sector) #8 sectors with no duplicates
+unique(stocksCRSP_tmp$Sector) #8 sectors with no duplicates
+stocksCRSPLast <- stocksCRSP_tmp[Date == lastDateCRSP]
+stocksCRSPLast[ , .N, by = Sector] 
+factorsSPGMILast <- factorsSPGMI_tmp[Date == lastDateCRSP]
+factorsSPGMILast[ , .N, by = Sector] 
+dim(stocksCRSP_tmp)
+dim(factorsSPGMI_tmp)
+```
+
+factorsSPGMI_tmp and stocksCRSP_tmp now have 294 securities with 276 months of data, properly assigned to the 8 remaining sectors with official GICS naming conventions, with cap groups assigned roughly in accordance to the official CRSP methodology using the broad market (that is, >3000 stocks per month) to set the breakpoints.
+
+```{r}
+# save data
+#factorsSPGMI <- factorsSPGMI_tmp
+#stocksCRSP <- stocksCRSP_tmp
+#save(factorsSPGMI,file="./data/factorsSPGMI.rda")
+#save(stocksCRSP,file="./data/stocksCRSP.rda")
+```

@@ -6,8 +6,16 @@
 \usage{
 constFromEffHuber(eff, interval = c(1e-06, 3))
 }
+\arguments{
+\item{x}{a numeric vector}
+
+\item{cc}{a numeric constant}
+}
 \description{
 Constant from Efficiency Huber Psi
+}
+\examples{
+args(constFromEffHuber)
 }
 \seealso{
 \code{\link{}}

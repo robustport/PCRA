@@ -23,9 +23,9 @@ mathEfrontRisky(
 
 \item{digits}{}
 }
-\value{
-
-}
 \description{
 mathEfrontRisky
+}
+\examples{
+args(mathEfrontRisky)
 }

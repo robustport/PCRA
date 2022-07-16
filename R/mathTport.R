@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' args(mathTport)
 mathTport = function(returns, rf = 0.01,digits = NULL)
 {
 	mu <- apply(returns, 2, mean)

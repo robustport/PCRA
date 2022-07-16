@@ -4,22 +4,22 @@
 \alias{ewmaVol}
 \title{Exponential Weighted Moving Average (EWMA) Volitility}
 \usage{
-ewmaVol(x, nstart = 10, robVol = T, cc = 2.5, lambda = 0.9)
+ewmaVol(x, nstart = 10, robVol = TRUE, cc = 2.5, lambda = 0.9)
 }
 \arguments{
 \item{x}{returns of the portfolio}
 
-\item{nstart}{}
+\item{nstart}{startup values, default is nstart = 10}
 
-\item{robVol}{if the robust vol is used, default is T}
+\item{robVol}{if the robust vol is used, default is TRUE}
 
-\item{cc}{}
+\item{cc}{robustness tuning constant, default 2.5}
 
-\item{lambda}{}
-}
-\value{
-
+\item{lambda}{EWMA decay parameter, default 0.9}
 }
 \description{
 Exponential Weighted Moving Average (EWMA) Volitility
+}
+\examples{
+args(ewmaVol)
 }

@@ -11,6 +11,7 @@
 #' @export
 #'
 #' @examples
+#' args(barplotsWts)
 barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,xlab = c("MU","VOL"),bar.ylim = NULL,...)
 {
 	xlab.choose <- match.arg(xlab)
@@ -42,5 +43,7 @@ barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,xl
 	abline(h=0)
 	
 }
+
+
 
 

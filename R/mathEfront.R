@@ -16,6 +16,7 @@
 #' @export
 #'
 #' @examples
+#' args(mathEfront)
 mathEfront = function(returns, mu.max=NULL, sigma.max=NULL, rf=0.005, rf.line=T, stocks=T,
       stock.names = T, values = T, identify.stock.names = F, npoints = 100, digits = NULL)
 {

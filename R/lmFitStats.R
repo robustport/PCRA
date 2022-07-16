@@ -9,6 +9,7 @@
 #' @export
 #'
 #' @examples
+#' args(lmFitStats)
 lmFitStats = function(x,rsq = F,digits = 3, show.signif.stars=TRUE) {
   fitSum = summary(x)
   out = data.frame(fitSum$coefficients)

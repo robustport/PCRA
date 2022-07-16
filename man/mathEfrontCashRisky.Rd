@@ -47,9 +47,9 @@ mathEfrontCashRisky(
 
 \item{digits}{}
 }
-\value{
-
-}
 \description{
 mathEfrontCashRisky
+}
+\examples{
+args(mathEfrontCashRisky)
 }

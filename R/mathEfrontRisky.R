@@ -10,6 +10,7 @@
 #' @export
 #'
 #' @examples
+#' args(mathEfrontRisky)
 mathEfrontRisky <-
 		function(returns,npoints = 100,efront.only = T,display = T,digits = NULL)
 {
@@ -71,6 +72,7 @@ mathEfrontRisky <-
 #' @export
 #'
 #' @examples
+#' args(mathEfrontRiskyMuCov)
 mathEfrontRiskyMuCov <- function(muRet,volRet,corrRet, npoints = 100,display = T,
 		efront.only = T, digits = NULL) 
 {

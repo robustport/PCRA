@@ -10,6 +10,7 @@
 #' @export
 #'
 #' @examples
+#' args(opt.outputMvo)
 opt.outputMvo <-
 function(opt,returns,digits = NULL,names = NULL,rf = 0)
 {

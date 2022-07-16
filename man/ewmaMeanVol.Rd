@@ -38,12 +38,12 @@ ewmaMeanVol(
 
 \item{lambdaVolDyn}{}
 }
-\value{
-
-}
 \description{
 Exponential Weighted Moving Average (EWMA) Mean Volitility
 }
 \details{
 The robust EWMA mean algorithm has the form
+}
+\examples{
+args(ewmaMeanVol)
 }

@@ -16,6 +16,7 @@
 #' @export
 #'
 #' @examples
+#' args(chart.Efront)
 chart.Efront <- function(returns,pspec,firstEfront = T,gmv = T, maxSR = T,rf = 0,xlim = NULL,
                          ylim = NULL, xlab = NULL, ylab = NULL, n.portfolios = 10)
 {

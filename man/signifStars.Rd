@@ -9,9 +9,9 @@ signifStars(pv)
 \arguments{
 \item{pv}{}
 }
-\value{
-
-}
 \description{
 signifStars
+}
+\examples{
+args(signifStars)
 }

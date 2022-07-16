@@ -1,16 +1,17 @@
 #' Exponential Weighted Moving Average (EWMA) Volitility 
 #'
 #' @param x returns of the portfolio
-#' @param nstart 
-#' @param robVol if the robust vol is used, default is T
-#' @param cc 
-#' @param lambda 
+#' @param nstart startup values, default is nstart = 10
+#' @param robVol if the robust vol is used, default is TRUE
+#' @param cc robustness tuning constant, default 2.5
+#' @param lambda EWMA decay parameter, default 0.9
 #'
 #' @return
 #'
 #' @examples
+#' args(ewmaVol)
 #' @export
-ewmaVol <- function(x,nstart = 10,robVol = T,cc = 2.5,lambda = 0.9)
+ewmaVol <- function(x,nstart = 10,robVol = TRUE,cc = 2.5,lambda = 0.9)
 {
   n <- length(x)
   index = index(x)

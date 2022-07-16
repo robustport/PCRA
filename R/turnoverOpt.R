@@ -13,6 +13,7 @@
 #' @export
 #'
 #' @examples
+#' args(turnoverOpt)
 turnoverOpt <- function(returns,mu.target = NULL,wts.initial,toc,
                 long.only = TRUE,printD = F,printA = F,printout = T){
   nassets <- ncol(returns)

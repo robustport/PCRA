@@ -11,9 +11,9 @@
 
 \item{deparse.level}{}
 }
-\value{
-
-}
 \description{
 cbind.na
+}
+\examples{
+args(cbind.na)
 }

@@ -27,9 +27,9 @@ barplotWts(
 
 \item{bar.ylim}{}
 }
-\value{
-
-}
 \description{
 barplotWts
+}
+\examples{
+args(barplotsWts)
 }

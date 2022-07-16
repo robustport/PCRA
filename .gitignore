@@ -2,3 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+<<<<<<< HEAD
+=======
+.Rd2pdf*/
+man/*.R
+man/*.pdf
+>>>>>>> c023cdeb3cb962c7c4e0de735b8ade75b2e4583e

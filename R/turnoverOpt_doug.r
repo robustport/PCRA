@@ -7,9 +7,10 @@
 #' @param printDandA, default is FALSE, specify if print the D and A matrix
 #' @details use \code{table.Performance.pool} to check available metrics. recoded SharpeRatio 
 #' @author Doug Martin, Kirk Li  \email{kirkli@@stat.washington.edu} 
-#' @seealso \code{\link{turnoverOpt}}}
+#' @seealso \code{\link{turnoverOpt}}
 #' @keywords turnover, constraints
 #' @examples
+#' args(TurnoverOpt_doug)
 #' @export
 
 

@@ -19,6 +19,7 @@
 #' @export
 #'
 #' @examples
+#' args(bootEfronts)
 bootEfronts = function(returns,pspec, rf=.03, npoints=20, B = 3, Seed = NULL, gmv=T, maxSR=F,
                        xlim  = NULL, ylim = NULL, k.sigma = 2, k.mu = 2, digits = 4, figTitle = NULL)
 {
