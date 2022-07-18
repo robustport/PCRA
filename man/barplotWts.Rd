@@ -31,5 +31,5 @@ barplotWts(
 barplotWts
 }
 \examples{
-args(barplotsWts)
+args(barplotWts)
 }

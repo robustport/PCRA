@@ -2,7 +2,7 @@
 % Please edit documentation in R/mathEfrontRisky.R
 \name{mathEfrontRisky}
 \alias{mathEfrontRisky}
-\title{mathEfrontRisky}
+\title{Mathematical Efficient Frontier}
 \usage{
 mathEfrontRisky(
   returns,
@@ -23,8 +23,11 @@ mathEfrontRisky(
 
 \item{digits}{}
 }
+\value{
+Values of efficient frontier
+}
 \description{
-mathEfrontRisky
+Mathematical efficient frontier based on a data set of returns
 }
 \examples{
 args(mathEfrontRisky)

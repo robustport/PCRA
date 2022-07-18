@@ -1,3 +1,13 @@
+#' Ellipses Plot for fit.models
+#'
+#' @param x 
+#' @param ... 
+#'
+#' @return A Figure
+#' @export
+#'
+#' @examples
+#' args(ellipsesPlotNewKjell.covfm)
 ellipsesPlotNewKjell.covfm = function (x, ...) 
 {
   n.models <- length(x)
