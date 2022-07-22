@@ -1,18 +1,25 @@
-#' Mathematical Efficient Frontier
-#' @description Mathematical efficient frontier based on a data set of returns
-#' @param returns 
-#' @param npoints 
-#' @param efront.only 
-#' @param display 
-#' @param digits 
+#' mathEfrontRisky
+#' 
+#' Compute the efficient frontier of a fully invested portfolio
+#' based on a data set of returns.  Uses the mathematical formula based on
+#' the estimated mean return vector and covariance matrix.  Can have short
+#' positions.
+#' 
+#' @param returns A multivariate xts object of returns
+#' @param npoints The number of points computed on the efficient frontier
+#' @param efront.only If true only the efficient frontier is computed, and 
+#' otherwise the entire frontier is computed
+#' @param display If TRUE the efficient frontier is plotted
+#' @param digits If NULL no rounding is done, else specifies the number of 
+#' significant digits
 #'
-#' @return Values of efficient frontier
+#' @return Values portfolio mean and volatility along efficient frontier
 #' @export
 #'
 #' @examples
 #' args(mathEfrontRisky)
 mathEfrontRisky <-
-		function(returns,npoints = 100,efront.only = T,display = T,digits = NULL)
+		function(returns,npoints = 100,efront.only = TRUE,display = T,digits = NULL)
 {
 	V = var(returns)
 	mu = apply(returns, 2, mean)
