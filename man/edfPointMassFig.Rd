@@ -2,19 +2,22 @@
 % Please edit documentation in R/edfPointMassFig.R
 \name{edfPointMassFig}
 \alias{edfPointMassFig}
-\title{This is code for plotting a point mass distribution}
+\title{edfPointMassFig}
 \usage{
 edfPointMassFig(r, x1 = -0.02, x2 = 0.02)
 }
 \arguments{
-\item{r}{A vector of values for the plot x axis}
+\item{r}{Numeric value for location of point mass}
 
-\item{x1}{Lower limite of plotting range}
+\item{x1}{Lower limit of plotting range}
 
 \item{x2}{Upper limit of plotting range}
 }
+\value{
+A figure of the point mass distribution function
+}
 \description{
-This is code for plotting a point mass distribution
+This is code for plotting a point mass distribution function
 }
 \examples{
 edfPointMassFig(.005)
