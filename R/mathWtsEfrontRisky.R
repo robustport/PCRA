@@ -1,4 +1,4 @@
-#' Math Weights on Efficient Frontier
+#' Portfolio Weights on an Efficient Frontier
 #' 
 #' Computes weights vector along an efficient frontier, obtained from a time
 #' series of portfolio returns at specified portfolio mean return values
