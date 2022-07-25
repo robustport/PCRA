@@ -1,6 +1,8 @@
 #' barplotWts
+#' 
+#' Brief description will be added here
 #'
-#' @param wts.efront 
+#' @param wts.efront Weights along the efficient frontiers
 #' @param legend.text 
 #' @param col 
 #' @param ylab 
