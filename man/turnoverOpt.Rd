@@ -32,9 +32,9 @@ turnoverOpt(
 
 \item{printout}{}
 }
-\value{
-
-}
 \description{
 turnoverOpt
+}
+\examples{
+args(turnoverOpt)
 }

@@ -41,9 +41,9 @@ chart.Efront(
 
 \item{n.portfolios}{}
 }
-\value{
-
-}
 \description{
 chart.Efront
+}
+\examples{
+args(chart.Efront)
 }

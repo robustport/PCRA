@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' args(tsPlot)
 tsPlot = function(ret,add.grid = T,cex = 1.0)
 {
   if(add.grid) {type = c("l","g")} else

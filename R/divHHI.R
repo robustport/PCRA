@@ -6,6 +6,7 @@
 #' @export
 #'
 #' @examples
+#' args(divHHI)
 divHHI = function(weights){
   n.dates=nrow(weights)
   if(n.dates<1){

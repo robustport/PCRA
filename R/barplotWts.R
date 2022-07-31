@@ -1,6 +1,8 @@
 #' barplotWts
+#' 
+#' Brief description will be added here
 #'
-#' @param wts.efront 
+#' @param wts.efront Weights along the efficient frontiers
 #' @param legend.text 
 #' @param col 
 #' @param ylab 
@@ -11,6 +13,7 @@
 #' @export
 #'
 #' @examples
+#' args(barplotWts)
 barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,xlab = c("MU","VOL"),bar.ylim = NULL,...)
 {
 	xlab.choose <- match.arg(xlab)

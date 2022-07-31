@@ -6,8 +6,16 @@
 \usage{
 psiHardRej(x, cc = 2.5)
 }
+\arguments{
+\item{x}{a numeric vector}
+
+\item{cc}{a numeric constant}
+}
 \description{
 Psi Hard Rejection
+}
+\examples{
+args(psiHardRej)
 }
 \seealso{
 \code{\link{}}

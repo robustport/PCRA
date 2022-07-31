@@ -13,9 +13,9 @@ mathTport(returns, rf = 0.01, digits = NULL)
 
 \item{digits}{}
 }
-\value{
-
-}
 \description{
 mathTport
+}
+\examples{
+args(mathTport)
 }

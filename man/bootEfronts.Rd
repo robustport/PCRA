@@ -50,9 +50,9 @@ bootEfronts(
 
 \item{figTitle}{}
 }
-\value{
-
-}
 \description{
 bootEfronts
+}
+\examples{
+args(bootEfronts)
 }

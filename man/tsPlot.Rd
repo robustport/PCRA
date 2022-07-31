@@ -13,9 +13,9 @@ tsPlot(ret, add.grid = T, cex = 1)
 
 \item{cex}{}
 }
-\value{
-
-}
 \description{
 tsPlot
+}
+\examples{
+args(tsPlot)
 }

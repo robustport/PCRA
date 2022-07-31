@@ -1,18 +1,25 @@
-#' Plot LS and Robust SFM Fits
+#' Robust and LS SFM Fits
+#' 
+#' @description LS and Robust mOpt Single Factor Model (SFM) Fits and Plot
+#'       with outliers identified, and legend with coefficents and (SE's).
 #'
-#' @param x 
-#' @param family 
-#' @param efficiency 
-#' @param mainText 
-#' @param ylimits 
-#' @param legendPos 
-#' @param goodOutlier 
+#' @param x A univariate xts object.
+#' @param family Robust loss function choice.
+#' @param efficiency Normal distribution estimator efficiency.
+#' @param mainText Main title, if any.
+#' @param ylimits Vertical axis limits.
+#' @param legendPos Legend position.
+#' @param goodOutlier  
 #' @param makePct 
 #'
-#' @return
+#' @return The plot with straight line fits and legend coefficient estimates
+#'          estimates and their standard errors
+#'  
 #' @export
 #'
 #' @examples
+#' data("ret4withOutliers")
+#' plotLSandRobustSFM(retEDS,legendPos = "bottomright")
 plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
                 mainText = NULL, ylimits = NULL, legendPos = "topleft",
                 goodOutlier = F, makePct = FALSE)
@@ -31,7 +38,7 @@ plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
   
   x = fit.ls$model$x
   y = fit.ls$model$y
-  plot(x,y, xlab="Market Returns (%)", ylab="Returns (%)", type="n",
+  plot(x,y, xlab="Market Returns", ylab="Asset Returns", type="n",
        ylim = ylimits, main = mainText, cex.main =1.5, cex.lab=1.5)
   abline(fit.mOpt, col="black", lty=1, lwd=2)
   abline(fit.ls, col="red", lty=2, lwd=2)

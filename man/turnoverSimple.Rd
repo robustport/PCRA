@@ -13,9 +13,9 @@ turnoverSimple(wts, wtsInit = NULL, digits = NULL)
 
 \item{digits}{}
 }
-\value{
-
-}
 \description{
 turnOverSimple
+}
+\examples{
+args(turnoverSimple)
 }

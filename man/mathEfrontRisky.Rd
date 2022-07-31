@@ -7,25 +7,33 @@
 mathEfrontRisky(
   returns,
   npoints = 100,
-  efront.only = T,
+  efront.only = TRUE,
   display = T,
   digits = NULL
 )
 }
 \arguments{
-\item{returns}{}
+\item{returns}{A multivariate xts object of returns}
 
-\item{npoints}{}
+\item{npoints}{The number of points computed on the efficient frontier}
 
-\item{efront.only}{}
+\item{efront.only}{If true only the efficient frontier is computed, and 
+otherwise the entire frontier is computed}
 
-\item{display}{}
+\item{display}{If TRUE the efficient frontier is plotted}
 
-\item{digits}{}
+\item{digits}{If NULL no rounding is done, else specifies the number of 
+significant digits}
 }
 \value{
-
+Values portfolio mean and volatility along efficient frontier
 }
 \description{
-mathEfrontRisky
+Compute the efficient frontier of a fully invested portfolio
+based on a data set of returns.  Uses the mathematical formula based on
+the estimated mean return vector and covariance matrix.  Can have short
+positions.
+}
+\examples{
+args(mathEfrontRisky)
 }

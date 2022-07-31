@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotLSandRobustSFM.R
 \name{plotLSandRobustSFM}
 \alias{plotLSandRobustSFM}
-\title{Plot LS and Robust SFM Fits}
+\title{Robust and LS SFM Fits}
 \usage{
 plotLSandRobustSFM(
   x,
@@ -16,25 +16,31 @@ plotLSandRobustSFM(
 )
 }
 \arguments{
-\item{x}{}
+\item{x}{A univariate xts object.}
 
-\item{family}{}
+\item{family}{Robust loss function choice.}
 
-\item{efficiency}{}
+\item{efficiency}{Normal distribution estimator efficiency.}
 
-\item{mainText}{}
+\item{mainText}{Main title, if any.}
 
-\item{ylimits}{}
+\item{ylimits}{Vertical axis limits.}
 
-\item{legendPos}{}
+\item{legendPos}{Legend position.}
 
 \item{goodOutlier}{}
 
 \item{makePct}{}
 }
 \value{
-
+The plot with straight line fits and legend coefficient estimates
+         estimates and their standard errors
 }
 \description{
-Plot LS and Robust SFM Fits
+LS and Robust mOpt Single Factor Model (SFM) Fits and Plot
+      with outliers identified, and legend with coefficents and (SE's).
+}
+\examples{
+data("ret4withOutliers")
+plotLSandRobustSFM(retEDS,legendPos = "bottomright")
 }

@@ -6,8 +6,16 @@
 \usage{
 wtsHuber(x, cc = 1.345)
 }
+\arguments{
+\item{x}{a numeric vector}
+
+\item{cc}{a numeric constant}
+}
 \description{
 Huber Wts
+}
+\examples{
+args(wtsHuber)
 }
 \seealso{
 \code{\link{}}

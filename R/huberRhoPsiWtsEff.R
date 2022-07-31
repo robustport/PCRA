@@ -1,22 +1,24 @@
 #' Huber Rho
-#' @param x
-#' @param cc
+#' @param x a numeric vector
+#' @param cc a numeric constant
 #' @author Kirk Li  \email{kirkli@@stat.washington.edu} 
 #' @seealso \code{\link{}}
 #' @keywords huber
 #' @examples
+#' args(rhoHuber)
 #' @export
 rhoHuber = function(x,cc=1.345)
 {rho = ifelse(abs(x/cc) <1, 0.5*x^2, cc*abs(x)-0.5*cc^2) 
 return(rho)
 }
 #' Huber Psi
-#' @param x
-#' @param cc
+#' @param x a numeric vector
+#' @param cc a numeric constant
 #' @author Kirk Li  \email{kirkli@@stat.washington.edu} 
 #' @seealso \code{\link{}}
 #' @keywords huber
 #' @examples
+#' args(psiHuber)
 #' @export
 psiHuber = function(x,cc=1.345)
 {psi = ifelse(abs(x/cc) < 1, x, cc) 
@@ -24,12 +26,13 @@ psi = ifelse(x/cc <= -1, -cc, psi)
 return(psi)
 }
 #' Huber Wts
-#' @param x
-#' @param cc
+#' @param x a numeric vector
+#' @param cc a numeric constant
 #' @author Kirk Li  \email{kirkli@@stat.washington.edu} 
 #' @seealso \code{\link{}}
 #' @keywords huber
 #' @examples
+#' args(wtsHuber)
 #' @export
 wtsHuber = function(x,cc=1.345)
 {wts = ifelse(abs(x/cc) < 1, 1, cc/(sign(x)*x)) 
@@ -37,12 +40,13 @@ return(wts)
 }
 
 #' Efficiency From Constant Huber Psi
-#' @param x
-#' @param cc
+#' @param x a numeric vector
+#' @param cc a numeric constant
 #' @author Kirk Li  \email{kirkli@@stat.washington.edu} 
 #' @seealso \code{\link{}}
 #' @keywords huber
 #' @examples
+#' args(effFromConstHuber)
 #' @export
 effFromConstHuber <- function(cc = 1.345)
 {
@@ -57,12 +61,13 @@ effFromConstHuber <- function(cc = 1.345)
   1.0 / varHuber
 }
 #' Constant from Efficiency Huber Psi
-#' @param x
-#' @param cc
+#' @param x a numeric vector
+#' @param cc a numeric constant
 #' @author Kirk Li  \email{kirkli@@stat.washington.edu} 
 #' @seealso \code{\link{}}
 #' @keywords huber
 #' @examples
+#' args(constFromEffHuber)
 #' @export
 constFromEffHuber <- function(eff, interval = c(1e-6, 3))
 {
@@ -75,12 +80,13 @@ constFromEffHuber <- function(eff, interval = c(1e-6, 3))
 
 
 #' Psi Hard Rejection
-#' @param x
-#' @param cc
+#' @param x a numeric vector
+#' @param cc a numeric constant
 #' @author Kirk Li  \email{kirkli@@stat.washington.edu} 
 #' @seealso \code{\link{}}
 #' @keywords huber
 #' @examples
+#' args(psiHardRej)
 #' @export
 psiHardRej = function(x,cc = 2.5)
 {psi = ifelse(abs(x/cc) < 1, x, 0)

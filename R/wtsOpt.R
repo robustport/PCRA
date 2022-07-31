@@ -1,5 +1,6 @@
 #' wtsOpt
 #'
+#' Old polynomial approximation to opt function, to be discarded
 #' @param r 
 #' @param c 
 #'
@@ -7,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' args(wtsOpt)
 wtsOpt = function(r,c)
 {
   n = length(r)

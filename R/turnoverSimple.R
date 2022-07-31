@@ -8,6 +8,7 @@
 #' @export
 #'
 #' @examples
+#' args(turnoverSimple)
 turnoverSimple = function(wts,wtsInit = NULL,digits = NULL)
 {
 if(is.null(wtsInit)) {

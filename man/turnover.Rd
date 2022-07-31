@@ -2,24 +2,19 @@
 % Please edit documentation in R/turnover.R
 \name{turnover}
 \alias{turnover}
-\title{Turnover
-turnover is the function to calculate a times series of n-1 turn-over
-values for a times of n portfolio weight vectors, where the turnover
-from time i to time i+1 is the sum of the absolute differences 
-between the portfolio weights at time i and time i+1}
+\title{Turnover}
 \usage{
 turnover(weights)
 }
 \arguments{
 \item{weights}{}
 }
-\value{
-
-}
 \description{
-Turnover
 turnover is the function to calculate a times series of n-1 turn-over
 values for a times of n portfolio weight vectors, where the turnover
 from time i to time i+1 is the sum of the absolute differences 
 between the portfolio weights at time i and time i+1
+}
+\examples{
+args(turnover)
 }

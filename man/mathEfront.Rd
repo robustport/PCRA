@@ -41,9 +41,9 @@ mathEfront(
 
 \item{digits}{}
 }
-\value{
-
-}
 \description{
 mathEfront
+}
+\examples{
+args(mathEfront)
 }

@@ -15,7 +15,7 @@ barplotWts(
 )
 }
 \arguments{
-\item{wts.efront}{}
+\item{wts.efront}{Weights along the efficient frontiers}
 
 \item{legend.text}{}
 
@@ -27,9 +27,9 @@ barplotWts(
 
 \item{bar.ylim}{}
 }
-\value{
-
-}
 \description{
-barplotWts
+Brief description will be added here
+}
+\examples{
+args(barplotWts)
 }

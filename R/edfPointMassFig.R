@@ -1,10 +1,12 @@
-#' This is code for plotting a point mass distribution
+#' edfPointMassFig
+#' 
+#' This is code for plotting a point mass distribution function
 #'
-#' @param r A vector of values for the plot x axis
-#' @param x1 Lower limite of plotting range
+#' @param r Numeric value for location of point mass
+#' @param x1 Lower limit of plotting range
 #' @param x2 Upper limit of plotting range
 #'
-#' @return
+#' @return A figure of the point mass distribution function
 #' @export
 #'
 #' @examples
