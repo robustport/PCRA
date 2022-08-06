@@ -9,7 +9,8 @@ Description: PCRA is a companion package to the text Portfolio Construction and 
 License: GPL-2
 Depends:
 	R (>= 4.0.3),
-	PortfolioAnalytics		
+	PortfolioAnalytics
+Encoding: UTF-8
 Imports:
 	PerformanceAnalytics,
 	boot,
