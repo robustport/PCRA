@@ -33,6 +33,7 @@ to an xts time series object
 \examples{
 library(PCRA)
 library(data.table)
+class(stocksCRSP)
 args(stocksCRSPxts)
 tickers4 <- c("DHR","CSL","AVP","AMWD")
 dateRange <- c("2011-01-31","2015-12-31")
