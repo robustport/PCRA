@@ -12,31 +12,30 @@ stocksCRSPxts(
 }
 \arguments{
 \item{data}{One of data.table objects stocksCRSP, stocksCRSPweekly and
-stocksCRSPdaily}
+stocksCRSPdaily.  Referred to collectively as the stocksCRSP data.}
 
 \item{dateRange}{Character vector with two components a start date
-and an end date}
+and an end date using format "yyyy-mm-dd".  Default is the entire
+stocksCRSP data dates range c("1993-01-31","2015-12-32")}
 
-\item{tickerSet}{A subset of tickers of the stocks in stocksCRSP}
+\item{tickerSet}{A subset of tickers of the stocks in stocksCRSP. The
+default is tickerSet = NULL, which results in selection of all stocks
+in stocksCRSP.}
 }
 \value{
 An xts time series object
 }
 \description{
 Function to extract a set of stocksCRSP data specified by a date
-range, and a set of tickers, with convenient defaults
-}
-\details{
-The start date and end date of the dateRange paramter must have
-the format "yyyy-mm-dd", and the default is the entire stocksCRSP data
-range "1993-01-31" to "2015-12-32". If the tickerSet is NULL, then the 
-resulting xts object contains all the stocks in stocksCRSP.
+range, and a set of tickers, with convenient defaults, and convert it
+to an xts time series object
 }
 \examples{
+library(PCRA)
+library(data.table)
 args(stocksCRSPxts)
 tickers4 <- c("DHR","CSL","AVP","AMWD")
 dateRange <- c("2011-01-31","2015-12-31")
-library(data.table)
 returns4 <- stocksCRSPxts(stocksCRSP, dateRange = dateRange,
                            tickerSet = tickers4) 
 class(returns4)
