@@ -35,7 +35,8 @@ There are four potential issues that should be dealt with before the data can be
 factorsSPGMI and stocksCRSP do not use official GICS naming conventions in sector names. In addition, several securities have obvious misspellings in Sector assignment, resulting in incorrect groupings. For example:
 
 ```{r}
-unique(factorsSPGMI_tmp$Sector) # contains 16 sectors with duplications
+unique(factorsSPGMI_tmp$Sector)
+unique(stocksCRSP_tmp$Sector)
 ```
 For those 16 "Sectors" above, the following mapping would be correct:
 
@@ -303,8 +304,8 @@ factorsSPGMI_tmp and stocksCRSP_tmp now have 294 securities with 276 months of d
 
 ```{r}
 # save data
-#factorsSPGMI <- factorsSPGMI_tmp
-#stocksCRSP <- stocksCRSP_tmp
-#save(factorsSPGMI,file="./data/factorsSPGMI.rda")
-#save(stocksCRSP,file="./data/stocksCRSP.rda")
+factorsSPGMI <- factorsSPGMI_tmp
+stocksCRSP <- stocksCRSP_tmp
+save(factorsSPGMI,file="factorsSPGMI.rda")
+save(stocksCRSP,file="stocksCRSP.rda")
 ```
