@@ -4,7 +4,7 @@
 #' range, and a set of tickers, with convenient defaults, and convert it
 #' to an xts time series object
 #'
-#' @param data One of data.table objects stocksCRSP, stocksCRSPweekly and
+#' @param data One of the data.table objects stocksCRSP, stocksCRSPweekly,
 #' stocksCRSPdaily.  Referred to collectively as the stocksCRSP data.
 #' @param dateRange Character vector with two components a start date
 #' and an end date using format "yyyy-mm-dd".  Default is the entire
@@ -34,7 +34,7 @@ stocksCRSPxts <- function(data,
 {
   # This is a first version. To be expanded for capgroup selection
   select_cols    <- c("Date","Return","TickerLast","CapGroupLast")
-  stocksAllTime <- stocksCRSP[, ..select_cols]
+  stocksAllTime <- data[, ..select_cols]
   Date1 <- dateRange[1]
   Date2 <- dateRange[2]
   stocks <- stocksAllTime[stocksAllTime$Date >= as.Date(Date1) & 

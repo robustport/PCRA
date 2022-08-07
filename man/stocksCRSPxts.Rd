@@ -11,7 +11,7 @@ stocksCRSPxts(
 )
 }
 \arguments{
-\item{data}{One of data.table objects stocksCRSP, stocksCRSPweekly and
+\item{data}{One of the data.table objects stocksCRSP, stocksCRSPweekly,
 stocksCRSPdaily.  Referred to collectively as the stocksCRSP data.}
 
 \item{dateRange}{Character vector with two components a start date
