@@ -21,6 +21,7 @@
 #' args(stocksCRSPxts)
 #' tickers4 <- c("DHR","CSL","AVP","AMWD")
 #' dateRange <- c("2011-01-31","2015-12-31")
+#' library(data.table)
 #' returns4 <- stocksCRSPxts(stocksCRSP, dateRange = dateRange,
 #'                            tickerSet = tickers4) 
 #' class(returns4)
