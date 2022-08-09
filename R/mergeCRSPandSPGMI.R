@@ -24,10 +24,12 @@
 #' ("MicroCap","SmallCap","MidCap","LargeCap") variable
 #' @param tickerList A character vector that contains a subset of tickerLast 
 #' items 
-#' @param returnsTS Boolean, TRUE if the user wants
+#' @param returnsTS Boolean, TRUE if the user wants xts return output in wide
+#' format
 #'
-#' @return A data.table consisting of selected stocks and factor/stock data 
-#' items
+#' @return A list containing a data.table consisting of selected stocks and 
+#' factor/stock data as well as (optionally, if returns TS==TRUE) an xts object 
+#' with time series returns for each stock in the final sample
 #' 
 #'@examples
 #'data(stocksCRSP)
