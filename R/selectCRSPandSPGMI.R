@@ -1,9 +1,9 @@
 #' @title Merge and select subsets from stocksCRSP and factorsSPGMI data sets
 #'
-#' @description Merge data from stocksCRSP (daily, weekly, and monthly) with
-#' factorsSPGMI while also optionally selecting subsets by rows (selecting on
-#'  date ranges, tickers, capitalization groups, and sectors or by columns 
-#'  (selecting a subset of the factor data for each ticker).
+#' @description Select data from stocksCRSP (daily, weekly, and monthly) and 
+#' merge with factorsSPGMI while also optionally selecting subsets by rows 
+#' (selecting on date ranges, tickers, capitalization groups, and sectors or by 
+#' columns (selecting a subset of the factor data for each ticker).
 #'
 #' @details
 #' Users select a periodicity for the data (stocksCRSP is available in daily, 
@@ -48,10 +48,10 @@
 #'data(stocksCRSP)
 #'data(factorsSPGMI)
 #'
-#'stocks_factors <- mergeCRSPandSPGMI(periodicity = "monthly",
+#'stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
 #'                                     dateSet = c("2006-01-31", "2010-12-31"), 
 #'                                     stockItems = c("Date", "TickerLast", 
-#'                                                    "CapGroup", "Sector", 
+#'                                                    "CapGroupLast", "Sector", 
 #'                                                    "Return", "Ret13WkBill",
 #'                                                    "mktIndexCRSP"),
 #'                                     factorItems = c("BP", "LogMktCap", "SEV"),
@@ -63,16 +63,16 @@
 #'str(stocks_factors)
 #'@export
 
-mergeCRSPandSPGMI <- function(periodicity = "monthly",
-                              dateSet = c("1997-12-31","2000-12-31"), 
-                              stockItems = c("Date", "TickerLast", 
-                                             "CapGroupLast", "Sector", "Return",
-                                             "Ret13WkBill", "MktIndexCRSP"), 
-                              factorItems = c("BP", "LogMktCap", "SEV"), 
-                              sectorList = NULL, 
-                              capGroupList = NULL, 
-                              tickerList= NULL, 
-                              returnsTS = TRUE)
+selectCRSPandSPGMI <- function(periodicity = "monthly",
+                               dateSet = c("1997-12-31","2000-12-31"), 
+                               stockItems = c("Date", "TickerLast", 
+                                              "CapGroupLast", "Sector", "Return",
+                                              "Ret13WkBill", "MktIndexCRSP"),
+                               factorItems = c("BP", "LogMktCap", "SEV"), 
+                               sectorList = NULL, 
+                               capGroupList = NULL, 
+                               tickerList= NULL, 
+                               returnsTS = TRUE)
 {
   
   ### get correct version of stocksCRSP and merge with 
