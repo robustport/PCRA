@@ -48,7 +48,7 @@
 #'data(stocksCRSP)
 #'data(factorsSPGMI)
 #'
-#'stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
+#'stocks_factors <- mergeCRSPandSPGMI(periodicity = "monthly",
 #'                                     dateSet = c("2006-01-31", "2010-12-31"), 
 #'                                     stockItems = c("Date", "TickerLast", 
 #'                                                    "CapGroup", "Sector", 
