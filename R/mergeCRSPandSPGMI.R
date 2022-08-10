@@ -1,35 +1,48 @@
-#' @title Select and merge stocksCRSP and factorsSPGMI
+#' @title Merge and select subsets from stocksCRSP and factorsSPGMI data sets
 #'
-#' @description Function to enable the selection of subsets of either stocksCRSP
-#' or factorsSPGMI data as well as merge the two data sets for risk model 
-#' estimation.
+#' @description Merge data from stocksCRSP (daily, weekly, and monthly) with
+#' factorsSPGMI while also optionally selecting subsets by rows (selecting on
+#'  date ranges, tickers, capitalization groups, and sectors or by columns 
+#'  (selecting a subset of the factor data for each ticker).
 #'
 #' @details
-#' The data sets to be used (stocksCRSP or factorsSPGMI), desired date range, 
-#' and data subsets (e.g. sector, capgroup, or a ticker list) may be changed by
-#' the user.
+#' Users select a periodicity for the data (stocksCRSP is available in daily, 
+#' weekly, and monthly variants) and this function will resample the monthly
+#' factorsSPGMI data to the selected periodicity. 
+#' Users may select all columns from both data sets, a specified set of columns,
+#' or by setting either stockItems or factorItems to "NULL", may select only 
+#' items from the other data set (that is, if only the stocksCRSP data is 
+#' desired, set factorITEMS to NULL). 
+#' Smaller sub-samples of the data (fewer rows) can be returned by
+#' selecting a specific date range, sectors, CapGroups (MicroCap, SmallCap, 
+#' etc.) of interest, or by specifying a list of tickers for which data can be
+#' returned. Care should be taken to ensure consistency in combined 
+#' restrictions when specifying CapGroup, Sector, and TickerLast values.
 #' 
 #' @importFrom utils globalVariables
 #' 
-#' @param periodicity Character "m","w","d" for monthly, weekly or daily data
+#' @param periodicity Character "monthly","weekly","daily".
 #' @param dateSet A character vector providing a start data and an end 
-#' date, having the same form as c("2006-01-31", "2010-12-31")
+#' date, having the same form as c("2006-01-31", "2010-12-31").
 #' @param stockItems A character vector that is a subset of the names
-#' of stocks data.table
+#' of columns in the stocksCRSP data.table
 #' @param factorItems A character vector that is a subset of the names
-#' of factors data.table
+#' of columns in the factorsSPGMI data.table
 #' @param sectorList A character vector that is a subset of the sectors in the 
-#' stocksCRSP dataset
+#' stocksCRSP dataset. Set to NULL to return all sectors.
 #' @param capGroupList A character vector that is a subset of the CapGroupLast
-#' ("MicroCap","SmallCap","MidCap","LargeCap") variable
+#' ("MicroCap","SmallCap","MidCap","LargeCap") variable. Set to NULL to return
+#' all CapGroups.
 #' @param tickerList A character vector that contains a subset of tickerLast 
-#' items 
+#' items. Set to NULL to return all tickers.
 #' @param returnsTS Boolean, TRUE if the user wants xts return output in wide
-#' format
+#' format. Any other value for this variable will return just the stock data
+#' data.table.
 #'
-#' @return A list containing a data.table consisting of selected stocks and 
-#' factor/stock data as well as (optionally, if returns TS==TRUE) an xts object 
-#' with time series returns for each stock in the final sample
+#' @return Either a list containing a two items: data.table consisting of 
+#' selected stocks and factor/stock data as well as (optionally, if 
+#' returnsTS==TRUE) an xts object with time series returns for each stock in 
+#' the final sample. If returnsTS is not TRUE, only the data.table is returned.
 #' 
 #'@examples
 #'data(stocksCRSP)
@@ -49,7 +62,7 @@
 #'str(stocks_factors)
 #'@export
 
-mergeCRSPandSPGMI <- function(periodicity = "m",
+mergeCRSPandSPGMI <- function(periodicity = "monthly",
                               dateSet = c("1997-12-31","2000-12-31"), 
                               stockItems = c("Date", "TickerLast", 
                                              "CapGroupLast", "Sector", "Return",
@@ -65,11 +78,13 @@ mergeCRSPandSPGMI <- function(periodicity = "m",
   ### factorsSPGMI at highest frequency
   
   # input checking
-  stopifnot(periodicity %in% c("m","w","d"))
+  stopifnot(periodicity %in% c("monthly","weekly","daily"))
   
   # merge data
-  stock_data <- switch(periodicity,"m" = stocksCRSP,"w" = stocksCRSPweekly, 
-                       "d" = stocksCRSPdaily)
+  stock_data <- switch(periodicity,
+                       "monthly" = stocksCRSP,
+                       "weekly" = stocksCRSPweekly, 
+                       "daily" = stocksCRSPdaily)
   factor_data <- factorsSPGMI
   fac_sel_idx <- which(colnames(stock_data) %in% colnames(factor_data))
   stock_data$key <- substr(as.character(stock_data$Date),
