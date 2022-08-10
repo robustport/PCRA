@@ -57,7 +57,8 @@
 #'                                     factorItems = c("BP", "LogMktCap", "SEV"),
 #'                                     sectorList = ("Energy"),
 #'                                     capGroupList = ("SmallCap"),
-#'                                     tickerList = c("ABT","ABM","MMM","NKE"))
+#'                                     tickerList = NULL,
+#'                                     returnsTS = FALSE)
 #'
 #'str(stocks_factors)
 #'@export
