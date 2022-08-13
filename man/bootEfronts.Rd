@@ -50,6 +50,9 @@ bootEfronts(
 
 \item{figTitle}{}
 }
+\value{
+
+}
 \description{
 bootEfronts
 }

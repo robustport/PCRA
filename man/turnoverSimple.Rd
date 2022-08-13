@@ -13,6 +13,9 @@ turnoverSimple(wts, wtsInit = NULL, digits = NULL)
 
 \item{digits}{}
 }
+\value{
+
+}
 \description{
 turnOverSimple
 }

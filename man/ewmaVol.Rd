@@ -17,6 +17,9 @@ ewmaVol(x, nstart = 10, robVol = TRUE, cc = 2.5, lambda = 0.9)
 
 \item{lambda}{EWMA decay parameter, default 0.9}
 }
+\value{
+
+}
 \description{
 Exponential Weighted Moving Average (EWMA) Volitility
 }

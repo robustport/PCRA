@@ -32,6 +32,9 @@ turnoverOpt(
 
 \item{printout}{}
 }
+\value{
+
+}
 \description{
 turnoverOpt
 }

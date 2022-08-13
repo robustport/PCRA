@@ -47,6 +47,9 @@ mathEfrontCashRisky(
 
 \item{digits}{}
 }
+\value{
+
+}
 \description{
 mathEfrontCashRisky
 }

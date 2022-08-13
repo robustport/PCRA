@@ -41,6 +41,9 @@ mathEfront(
 
 \item{digits}{}
 }
+\value{
+
+}
 \description{
 mathEfront
 }

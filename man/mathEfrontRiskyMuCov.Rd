@@ -32,6 +32,9 @@ mathEfrontRiskyMuCov(
 
 \item{digits}{}
 }
+\value{
+
+}
 \description{
 Efficient Frontier based on user specified mean vector and
 covariance matrix

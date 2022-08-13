@@ -15,6 +15,9 @@ winsorMean(x, trim = 0, na.rm = FALSE, ...)
 
 \item{...}{}
 }
+\value{
+
+}
 \description{
 Winsorized Mean
 }

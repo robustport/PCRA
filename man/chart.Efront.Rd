@@ -41,6 +41,9 @@ chart.Efront(
 
 \item{n.portfolios}{}
 }
+\value{
+
+}
 \description{
 chart.Efront
 }

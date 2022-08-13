@@ -15,6 +15,9 @@ fitTsfmStats(x, rsq = F, digits = 3, show.signif.stars = TRUE)
 
 \item{show.signif.stars}{}
 }
+\value{
+
+}
 \description{
 fitTsfmStats
 }
