@@ -6,7 +6,7 @@
 \usage{
 selectCRSPandSPGMI(
   periodicity = "monthly",
-  dateSet = c("1997-12-31", "2000-12-31"),
+  dateSet = c("1993-01-31", "2015-12-31"),
   stockItems = c("Date", "TickerLast", "CapGroupLast", "Sector", "Return",
     "Ret13WkBill", "MktIndexCRSP"),
   factorItems = c("BP", "LogMktCap", "SEV"),
@@ -75,12 +75,11 @@ data(factorsSPGMI)
 stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
                                     dateSet = c("2006-01-31", "2010-12-31"), 
                                     stockItems = c("Date", "TickerLast", 
-                                                   "CapGroupLast", "Sector", 
-                                                   "Return", "Ret13WkBill",
-                                                   "mktIndexCRSP"),
+                                    "CapGroupLast", "Sector", "Return",
+                                    "Ret13WkBill", "MktIndexCRSP"),
                                     factorItems = c("BP", "LogMktCap", "SEV"),
-                                    sectorList = ("Energy"),
-                                    capGroupList = ("SmallCap"),
+                                    sectorList = NULL,
+                                    capGroupList = NULL,
                                     tickerList = NULL,
                                     returnsTS = FALSE)
 
