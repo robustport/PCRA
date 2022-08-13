@@ -20,6 +20,7 @@
 #' restrictions when specifying CapGroup, Sector, and TickerLast values.
 #' 
 #' @importFrom utils globalVariables
+#' @depends data.table
 #' 
 #' @param periodicity Character "monthly","weekly","daily".
 #' @param dateSet A character vector providing a start data and an end 
@@ -51,12 +52,11 @@
 #'stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
 #'                                     dateSet = c("2006-01-31", "2010-12-31"), 
 #'                                     stockItems = c("Date", "TickerLast", 
-#'                                                    "CapGroupLast", "Sector", 
-#'                                                    "Return", "Ret13WkBill",
-#'                                                    "mktIndexCRSP"),
+#'                                     "CapGroupLast", "Sector", "Return",
+#'                                     "Ret13WkBill", "MktIndexCRSP"),
 #'                                     factorItems = c("BP", "LogMktCap", "SEV"),
-#'                                     sectorList = ("Energy"),
-#'                                     capGroupList = ("SmallCap"),
+#'                                     sectorList = NULL,
+#'                                     capGroupList = NULL,
 #'                                     tickerList = NULL,
 #'                                     returnsTS = FALSE)
 #'
@@ -64,7 +64,7 @@
 #'@export
 
 selectCRSPandSPGMI <- function(periodicity = "monthly",
-                               dateSet = c("1997-12-31","2000-12-31"), 
+                               dateSet = c("1993-01-31","2015-12-31"), 
                                stockItems = c("Date", "TickerLast", 
                                               "CapGroupLast", "Sector", "Return",
                                               "Ret13WkBill", "MktIndexCRSP"),
@@ -74,6 +74,9 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
                                tickerList= NULL, 
                                returnsTS = TRUE)
 {
+  
+  # as recommended to clear "no visible binding for global variable" build NOTE 
+  #Date <- factorsSPGMI <- stocksCRSP <- NULL
   
   ### get correct version of stocksCRSP and merge with 
   ### factorsSPGMI at highest frequency
@@ -93,12 +96,13 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   factor_data$key <- substr(as.character(factor_data$Date),
                            1,nchar(as.character(factor_data$Date[1]))-3)
   fac_sel <- c("TickerLast",colnames(factor_data)[-fac_sel_idx])
-  factor_data <- factor_data[,..fac_sel]
+  factor_data <- factor_data[,fac_sel,with=FALSE]
   merged_data <- merge(stock_data, factor_data, by = c("key", "TickerLast"), 
                        all.x=TRUE)
   
-  ### subset by column and row based on user input
   
+  ### subset by column and row based on user input
+
   # date subset
   if (!is.null(dateSet)) {
     merged_data <- merged_data[Date >= dateSet[1] & Date <= dateSet[2]]
