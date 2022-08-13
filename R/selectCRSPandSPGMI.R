@@ -20,7 +20,7 @@
 #' restrictions when specifying CapGroup, Sector, and TickerLast values.
 #' 
 #' @importFrom utils globalVariables
-#' @depends data.table
+#' @import data.table
 #' 
 #' @param periodicity Character "monthly","weekly","daily".
 #' @param dateSet A character vector providing a start data and an end 
