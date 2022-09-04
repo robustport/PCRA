@@ -23,7 +23,7 @@
 #' @import data.table
 #' 
 #' @param periodicity Character "monthly","weekly","daily".
-#' @param dateSet A character vector providing a start data and an end 
+#' @param dateRange A character vector providing a start data and an end 
 #' date, having the same form as c("2006-01-31", "2010-12-31").
 #' @param stockItems A character vector that is a subset of the names
 #' of columns in the stocksCRSP data.table
@@ -50,7 +50,7 @@
 #'data(factorsSPGMI)
 #'
 #'stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
-#'                                     dateSet = c("2006-01-31", "2010-12-31"), 
+#'                                     dateRange = c("2006-01-31", "2010-12-31"), 
 #'                                     stockItems = c("Date", "TickerLast", 
 #'                                     "CapGroupLast", "Sector", "Return",
 #'                                     "Ret13WkBill", "MktIndexCRSP"),
@@ -64,7 +64,7 @@
 #'@export
 
 selectCRSPandSPGMI <- function(periodicity = "monthly",
-                               dateSet = c("1993-01-31","2015-12-31"), 
+                               dateRange = c("1993-01-31","2015-12-31"), 
                                stockItems = c("Date", "TickerLast", 
                                               "CapGroupLast", "Sector", "Return",
                                               "Ret13WkBill", "MktIndexCRSP"),
@@ -104,8 +104,8 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   ### subset by column and row based on user input
 
   # date subset
-  if (!is.null(dateSet)) {
-    merged_data <- merged_data[Date >= dateSet[1] & Date <= dateSet[2]]
+  if (!is.null(dateRange)) {
+    merged_data <- merged_data[Date >= dateRange[1] & Date <= dateRange[2]]
   }
   
   # keep selected columns
@@ -134,7 +134,8 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   
   ### output
   if(returnsTS == TRUE) {
-    return(list(merged_data,returns_ts))
+    return(list(dataTable = merged_data,
+                timeSeries = returns_ts))
   } else {
     return(merged_data) 
   }
