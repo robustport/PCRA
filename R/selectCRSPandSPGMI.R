@@ -40,10 +40,7 @@
 #' format. Any other value for this variable will return just the stock data
 #' data.table.
 #'
-#' @return Either a list containing a two items: data.table consisting of 
-#' selected stocks and factor/stock data as well as (optionally, if 
-#' returnsTS==TRUE) an xts object with time series returns for each stock in 
-#' the final sample. If returnsTS is not TRUE, only the data.table is returned.
+#' @return A data.table consisting of selected stocks and factor/stock data.
 #' 
 #'@examples
 #'data(stocksCRSP)
@@ -57,8 +54,7 @@
 #'                                     factorItems = c("BP", "LogMktCap", "SEV"),
 #'                                     sectorList = NULL,
 #'                                     capGroupList = NULL,
-#'                                     tickerList = NULL,
-#'                                     returnsTS = FALSE)
+#'                                     tickerList = NULL)
 #'
 #'str(stocks_factors)
 #'@export
@@ -71,12 +67,8 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
                                factorItems = c("BP", "LogMktCap", "SEV"), 
                                sectorList = NULL, 
                                capGroupList = NULL, 
-                               tickerList= NULL, 
-                               returnsTS = TRUE)
+                               tickerList= NULL)
 {
-  
-  # as recommended to clear "no visible binding for global variable" build NOTE 
-  #Date <- factorsSPGMI <- stocksCRSP <- NULL
   
   ### get correct version of stocksCRSP and merge with 
   ### factorsSPGMI at highest frequency
@@ -126,19 +118,8 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
     merged_data <- merged_data[merged_data$TickerLast %in% tickerList,]
   }
   
-  ### format returns as a wide matrix
-  returns_mat <- tapply(merged_data[["Return"]], 
-                        list(merged_data$Date, merged_data$TickerLast), I)
-  returns_ts  <- xts::xts(returns_mat,order.by = as.Date(rownames(returns_mat)))
-
-  
   ### output
-  if(returnsTS == TRUE) {
-    return(list(dataTable = merged_data,
-                timeSeries = returns_ts))
-  } else {
-    return(merged_data) 
-  }
-  
+  return(merged_data) 
+
 }
                               

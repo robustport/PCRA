@@ -6,20 +6,19 @@
 \usage{
 selectCRSPandSPGMI(
   periodicity = "monthly",
-  dateSet = c("1993-01-31", "2015-12-31"),
+  dateRange = c("1993-01-31", "2015-12-31"),
   stockItems = c("Date", "TickerLast", "CapGroupLast", "Sector", "Return",
     "Ret13WkBill", "MktIndexCRSP"),
   factorItems = c("BP", "LogMktCap", "SEV"),
   sectorList = NULL,
   capGroupList = NULL,
-  tickerList = NULL,
-  returnsTS = TRUE
+  tickerList = NULL
 )
 }
 \arguments{
 \item{periodicity}{Character "monthly","weekly","daily".}
 
-\item{dateSet}{A character vector providing a start data and an end 
+\item{dateRange}{A character vector providing a start data and an end 
 date, having the same form as c("2006-01-31", "2010-12-31").}
 
 \item{stockItems}{A character vector that is a subset of the names
@@ -43,10 +42,7 @@ format. Any other value for this variable will return just the stock data
 data.table.}
 }
 \value{
-Either a list containing a two items: data.table consisting of 
-selected stocks and factor/stock data as well as (optionally, if 
-returnsTS==TRUE) an xts object with time series returns for each stock in 
-the final sample. If returnsTS is not TRUE, only the data.table is returned.
+A data.table consisting of selected stocks and factor/stock data.
 }
 \description{
 Select data from stocksCRSP (daily, weekly, and monthly) and 
@@ -73,15 +69,14 @@ data(stocksCRSP)
 data(factorsSPGMI)
 
 stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
-                                    dateSet = c("2006-01-31", "2010-12-31"), 
+                                    dateRange = c("2006-01-31", "2010-12-31"), 
                                     stockItems = c("Date", "TickerLast", 
                                     "CapGroupLast", "Sector", "Return",
                                     "Ret13WkBill", "MktIndexCRSP"),
                                     factorItems = c("BP", "LogMktCap", "SEV"),
                                     sectorList = NULL,
                                     capGroupList = NULL,
-                                    tickerList = NULL,
-                                    returnsTS = FALSE)
+                                    tickerList = NULL)
 
 str(stocks_factors)
 }
