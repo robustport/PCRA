@@ -24,7 +24,3 @@ to_monthly will convert daily returns to monthly returns.
 \details{
 tbc
 }
-\examples{
-tbc
-
-}

@@ -19,8 +19,6 @@
 #' returned. Care should be taken to ensure consistency in combined 
 #' restrictions when specifying CapGroup, Sector, and TickerLast values.
 #' 
-#' @importFrom utils globalVariables
-#' @import data.table
 #' 
 #' @param periodicity Character "monthly","weekly","daily".
 #' @param dateRange A character vector providing a start data and an end 

@@ -37,7 +37,6 @@ user flexibility in the choice of which day to end the week.
 tbc
 }
 \examples{
-my_wkly_rets <- to_weekly(dlyrets,
-                          )
+my_wkly_rets <- to_weekly(dlyrets, week_ending_day_str = 'Monday')
 
 }

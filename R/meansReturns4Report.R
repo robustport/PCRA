@@ -11,21 +11,21 @@
 #' @export
 #'
 #' @examples
-#' args(meanRetReport)
+#' args(meansReturns4Report)
 meansReturns4Report <- function(ret,robust = FALSE,eff = 0.95)
 {
   if(robust == FALSE) {retMu <- mean(ret)} else
-  {x <- RobStatTM::locScaleM(ret,eff = eff)
+  {x <- locScaleM(ret,eff = eff)
   retMu <- x$mu
   }
   logret <- log(ret+1)
   if(robust == FALSE) {logretMu <- mean(logret)} else
-  {x <- RobStatTM::locScaleM(logret,eff = eff)
+  {x <- locScaleM(logret,eff = eff)
   logretMu <- x$mu
   }
   g <- exp(logretMu)-1
   if(robust == FALSE) {S_squared <- var(ret)} else
-  {scale <- robustbase::scaleTau2(ret)
+  {scale <- scaleTau2(ret)
   S_squared <- scale^2
   }
   gApprox <- retMu - S_squared/2

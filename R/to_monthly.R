@@ -3,11 +3,7 @@
 #' @description 
 #' to_monthly will convert daily returns to monthly returns.
 #'
-#' @details
-#' tbc
-#' 
-#' @importFrom utils globalVariables
-#' @import data.table
+#' @details tbc
 #' 
 #' @param daily An xts object of daily returns.
 #' @param index_last Controls whether the return date label will fall on the 
@@ -19,7 +15,6 @@
 #' @return monthly
 #' 
 #' @examples
-#' tbc
 #' 
 #' @export
 

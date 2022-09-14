@@ -9,9 +9,6 @@ runExample(example)
 \arguments{
 \item{example}{}
 }
-\value{
-
-}
 \description{
 runExample
 }

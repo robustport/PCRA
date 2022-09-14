@@ -7,9 +7,6 @@
 #' @details
 #' tbc
 #' 
-#' @importFrom utils globalVariables
-#' @import data.table
-#' 
 #' @param daily An xts object of daily returns.
 #' @param days_in_week Default 5.
 #' @param week_ending_day_str  controls what is the week end day. If the 
@@ -25,8 +22,7 @@
 #' @return rets
 #' 
 #' @examples
-#' my_wkly_rets <- to_weekly(dlyrets,
-#'                           )
+#' my_wkly_rets <- to_weekly(dlyrets, week_ending_day_str = 'Monday')
 #' 
 #' @export
 
@@ -39,7 +35,7 @@ to_weekly <- function(daily,
 {
   
   week_ending_date <- switch(
-    week_ending_day_str,
+    week_ending_day_str[1],
     'Monday' = 1,
     'Tuesday' = 2,
     'Wednesday' = 3,
@@ -90,7 +86,7 @@ to_weekly <- function(daily,
   # construct final output
   xdates <- master$xdate[end_idx]
   xdates[length(xdates)] <- last_date  # adjust last date to theoretical week end day
-  rets <- xts::xts(rets, order.by = xdates)
+  rets <- xts(rets, order.by = xdates)
   names(rets) <- colnames(daily)
   return(rets)
   

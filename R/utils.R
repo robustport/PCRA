@@ -2,18 +2,20 @@
 # 
 # Author: klei
 ###############################################################################
-#' cbind.na
+# Comments AG: you cannot take a method such as cbind and add a dot and call it
+# cbind.na since there is no class called "na" for it to dispatch to!
+
+#' cbind_na
 #'
 #' @param ... 
 #' @param deparse.level 
 #'
 #' @return
 #' @export
-#'
+#' @rdname cbind_na
 #' @examples
-#' args(cbind.na)
-cbind.na <-
-		function (..., deparse.level = 1) 
+#' args(cbind_na)
+cbind_na <- function(..., deparse.level = 1) 
 {
 	na <- nargs() - (!missing(deparse.level))
 	deparse.level <- as.integer(deparse.level)

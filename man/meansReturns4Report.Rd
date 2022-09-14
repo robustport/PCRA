@@ -20,5 +20,5 @@ Computes arithmetic mean, logarithmic mean, geometric mean and an approximate
 geometric mean.
 }
 \examples{
-args(meanRetReport)
+args(meansReturns4Report)
 }
