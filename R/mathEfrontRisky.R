@@ -22,6 +22,7 @@
 #' args(mathEfrontRisky)
 mathEfrontRisky <-
   function(returns,npoints = 100,efront.only = TRUE,display = TRUE,
+           pchPoints = 20, cexPoints = 1.0, cexText = 0.7,
            values = FALSE, digits = NULL)
   {
     V = var(returns)
@@ -52,9 +53,9 @@ mathEfrontRisky <-
           xlab = "StdDev",ylab = "Mean Return")
       if(!efront.only) {lines(sigma,mu.front)}	
       points(gmv$vol, gmv$mu, pch = 19)
-      text(gmv$vol, gmv$mu,"GMV",cex = 0.9, pos = 4)
-      points(sigma.stocks, mu.stocks, pch = 20)
-      text(sigma.stocks, mu.stocks, names(returns), cex = 0.8,pos = 4)
+      text(gmv$vol, gmv$mu,"GMV", cex = 0.9, pos = 4)
+      points(sigma.stocks, mu.stocks, pch = pchPoints, cex = cexPoints)
+      text(sigma.stocks, mu.stocks, names(returns), cexText = 0.8, pos = 4)
     }
     if(values == TRUE) {
       if(is.null(digits))
