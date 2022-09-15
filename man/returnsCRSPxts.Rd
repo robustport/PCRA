@@ -7,7 +7,7 @@
 returnsCRSPxts(stocksData)
 }
 \arguments{
-\item{stocksData}{The data.table created by selectCRSPandSPGMI}
+\item{stocksDT}{The data.table created by selectCRSPandSPGMI}
 }
 \value{
 A multivariate times series object described above
@@ -26,9 +26,9 @@ stockItems <- c("Date","TickerLast","CapGroupLast","Return","MktIndexCRSP",
 dateRange <- c("1997-01-31","2002-12-31")
 stocksDT <- selectCRSPandSPGMI("monthly",dateRange = dateRange, stockItems =
                                  stockItems, factorItems = NULL)
-stocksData <- stocksDT[[1]][CapGroupLast == "SmallCap"]
-ret <- returnsCRSPxts(stocksData)
-tickers <- unique(stocksData[,TickerLast])
+stocksDT <- stocksDT[CapGroupLast == "SmallCap"]
+ret <- returnsCRSPxts(stocksDT)
+tickers <- unique(stocksDT[,TickerLast])
 tickers10 <- tickers[11:20]
 colnames <- c(tickers10,"Market","RiskFree")
 head(ret[,colnames],1)
