@@ -24,6 +24,7 @@ mathEfrontRisky <-
   function(returns,npoints = 100,efront.only = TRUE,display = TRUE,
            values = FALSE, digits = NULL)
   {
+    V = var(returns)
     mu = apply(returns, 2, mean)
     one = rep(1, nrow(V))
     z = solve(V, one)               # z = Vinv * 1
