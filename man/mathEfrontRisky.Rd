@@ -12,6 +12,7 @@ mathEfrontRisky(
   npoints = 100,
   efront.only = TRUE,
   display = TRUE,
+  cexGmv = 0.9,
   pchPoints = 20,
   cexPoints = 1,
   cexText = 0.7,
