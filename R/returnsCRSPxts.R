@@ -16,7 +16,7 @@
 #' stockItems <- c("Date","TickerLast","CapGroupLast","Return","MktIndexCRSP",
 #'                "Ret13WkBill")
 #' dateRange <- c("1997-01-31","2002-12-31")
-#' stocksDT <- selectCRSPandSPGMI("monthly",dateSet = dateRange, stockItems =
+#' stocksDT <- selectCRSPandSPGMI("monthly",dateRange = dateRange, stockItems =
 #'                                  stockItems, factorItems = NULL)
 #' stocksData <- stocksDT[[1]][CapGroupLast == "SmallCap"]
 #' ret <- returnsCRSPxts(stocksData)
