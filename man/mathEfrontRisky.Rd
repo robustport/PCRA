@@ -2,13 +2,17 @@
 % Please edit documentation in R/mathEfrontRisky.R
 \name{mathEfrontRisky}
 \alias{mathEfrontRisky}
-\title{mathEfrontRisky}
+\title{Compute the efficient frontier of a fully invested portfolio
+based on a data set of returns.  Uses the mathematical formula based on
+the estimated mean return vector and estimated covariance matrix.  Can
+have short positions.}
 \usage{
 mathEfrontRisky(
   returns,
   npoints = 100,
   efront.only = TRUE,
-  display = T,
+  display = TRUE,
+  values = FALSE,
   digits = NULL
 )
 }
@@ -22,17 +26,20 @@ otherwise the entire frontier is computed}
 
 \item{display}{If TRUE the efficient frontier is plotted}
 
+\item{values}{If TRUE efficient frontier values are returned}
+
 \item{digits}{If NULL no rounding is done, else specifies the number of 
 significant digits}
 }
 \value{
-Values portfolio mean and volatility along efficient frontier
+Optionally, a plot of a risky assets only efficient frontier, and
+optionally return the efficient frontier mean and standard deviation values.
 }
 \description{
 Compute the efficient frontier of a fully invested portfolio
 based on a data set of returns.  Uses the mathematical formula based on
-the estimated mean return vector and covariance matrix.  Can have short
-positions.
+the estimated mean return vector and estimated covariance matrix.  Can
+have short positions.
 }
 \examples{
 args(mathEfrontRisky)
