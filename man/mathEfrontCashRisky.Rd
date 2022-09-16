@@ -9,7 +9,6 @@ mathEfrontCashRisky(
   npoints = 10,
   rf = 0.005,
   plot.efront = TRUE,
-  display.stocks = TRUE,
   stock.names = TRUE,
   values = FALSE,
   scalex = 1.1,
@@ -29,15 +28,15 @@ weights}
 \item{plot.efront}{Logical variable which if TRUE results in a plot of
 the linear efficient frontier}
 
-\item{display.stocks}{Logical parameter which if TRUE results in stocks
-being displayed as points in the figures}
-
 \item{stock.names}{Logical variable which if TRUE results in stock names 
 being displayed}
 
 \item{scalex}{A scale parameter for scaling the horizontal axis}
 
 \item{scaley}{A scale parameter for scaling the vertical axis}
+
+\item{display.stocks}{Logical parameter which if TRUE results in stocks
+being displayed as points in the figures}
 
 \item{wtValues}{Logical variable which if TRUE returns the portfolio weights
 along the linear efficient frontier}
