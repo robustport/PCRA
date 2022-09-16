@@ -8,16 +8,12 @@
 #' @param rf A risk-free rate
 #' @param scalex A scale parameter for scaling the horizontal axis
 #' @param scaley A scale parameter for scaling the vertical axis
-#' @param display.stocks Logical parameter which if TRUE results in stocks
-#' being displayed as points in the figures
 #' @param stock.names Logical variable which if TRUE results in stock names 
 #' being displayed 
 #' @param npoints Number of points at which to compute efront values and
 #' weights
 #' @param plot.efront Logical variable which if TRUE results in a plot of
-#' the linear efficient frontier
-#' @param wtValues Logical variable which if TRUE returns the portfolio weights
-#' along the linear efficient frontier
+#' the linear efficient frontier and the stock positions
 #' @param digits Number of digits for printing efront weights
 #'
 #' @return  A plot of the linear efficient frontier or the weights along the

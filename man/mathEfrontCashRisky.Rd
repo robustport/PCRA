@@ -26,7 +26,7 @@ weights}
 \item{rf}{A risk-free rate}
 
 \item{plot.efront}{Logical variable which if TRUE results in a plot of
-the linear efficient frontier}
+the linear efficient frontier and the stock positions}
 
 \item{stock.names}{Logical variable which if TRUE results in stock names 
 being displayed}
@@ -34,12 +34,6 @@ being displayed}
 \item{scalex}{A scale parameter for scaling the horizontal axis}
 
 \item{scaley}{A scale parameter for scaling the vertical axis}
-
-\item{display.stocks}{Logical parameter which if TRUE results in stocks
-being displayed as points in the figures}
-
-\item{wtValues}{Logical variable which if TRUE returns the portfolio weights
-along the linear efficient frontier}
 
 \item{digits}{Number of digits for printing efront weights}
 }
