@@ -2,6 +2,7 @@
 #' 
 #' This function computes and plots a linear efficient frontier that is
 #' a mix of a risk-free asset ("cash") and risky stocks (or other assets).
+#' It optionally returns the weights along the linear efficient frontier.
 #'
 #' @param returns Risky asset returns in the form of an xts object 
 #' @param rf A risk-free rate
@@ -11,19 +12,13 @@
 #' being displayed as points in the figures
 #' @param stock.names Logical variable which if TRUE results in stock names 
 #' being displayed 
-#' @param risk.tol A parameter equal to the reciprocal of risk aversion
 #' @param npoints Number of points at which to compute efront values and
 #' weights
 #' @param plot.efront Logical variable which if TRUE results in a plot of
 #' the linear efficient frontier
-#' @param wts.plot Logical variable which if TRUE results in a plot of the 
-#' efficient frontier weights at npoints
-#' @param equal.wts Logical variable which if TRUE results in computing and
-#' displaying the mean and vol location of an equal weighted portfolio
-#' @param bar.ylim Numerical character vector with upper and lower vertical
-#' axis limits of a weight barplot display
-#' @param values
-#' @param digits Number of digits for printing efront values
+#' @param wtValues Logical variable which if TRUE returns the portfolio weights
+#' along the linear efficient frontier
+#' @param digits Number of digits for printing efront weights
 #'
 #' @return  A plot of the linear efficient frontier or the weights along the
 #' efficient frontier.  Optionally output the mean and vol values
@@ -33,11 +28,9 @@
 #' @examples
 #' args(mathEfrontCashRisky)
 mathEfrontCashRisky <-
-		function(returns,rf = 0.005,scalex = 1.1, scaley = 1.1 ,display.stocks = TRUE,
-				stock.names = TRUE, npoints = 10, plot.efront = TRUE,
-				wts.plot = TRUE, equal.wts = TRUE, bar.ylim = c(0,1),
-				cexPoints = 0.8, cexText = 0.8,
-				values = FALSE, digits = NULL)
+		function(returns, npoints = 10, rf = 0.005, plot.efront = TRUE,
+		    display.stocks = TRUE, stock.names = TRUE, values = FALSE,
+				scalex = 1.1, scaley = 1.1, cexPoints = 0.8, cexText = 0.8)
 {
 	V = var(returns)
 	mu.stocks = apply(returns, 2, mean)
@@ -52,10 +45,8 @@ mathEfrontCashRisky <-
 	sigmavals = c(muvals/bsr)
 	muvalse = seq(0,mu.max, length.out = npoints)
 	muvals = rf + muvalse
-	inv.lambdavals = (muvals-rf)/b
 	if(plot.efront)
 	{
-		if(wts.plot) {par(mfrow = c(1,2))}
 		x = sigmavals; y = muvals
 		xlim = c(0,scalex*max(sigma.stocks,x))
 		ylim = c(min(mu.stocks),max(muvals))
@@ -74,22 +65,14 @@ mathEfrontCashRisky <-
 		y = y - .07*(ylim[2] - ylim[1])
 		text(x,y,paste("RF= ",round(rf,3),sep = ""),pos = 4)
 
-# Compute cash and risky assets weights and barplot
+# Compute cash and risky assets weights
 	wts.risky = (sum(a)/b)*muvalse
 	wts.cash = 1 - wts.risky
 	wts.efront = rbind(muvals,sigmavals,wts.cash,wts.risky)
 	row.names(wts.efront) = c("MU","VOL","Cash","Risky Assets")
-	if(wts.plot){
-	  barplotWts(wts.efront,legend.text = T,col = topo.colors(2),ylab = "Weights",
-	             xlab = "VOL",bar.ylim = bar.ylim);par(mfrow=c(1,1))
-  	}
 
 	if(values){
-	  if(is.null(digits)){
-	    out <- wts.efront
-	  } else{
-	    out <- lapply(wts.efront,round,digits = digits)}
-	  }
-	    out
+	  return(wts.efront)
+	  } 
 	}
 }
