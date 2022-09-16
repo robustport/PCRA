@@ -11,12 +11,13 @@ mathEfrontCashRisky(
   scaley = 1.1,
   display.stocks = TRUE,
   stock.names = TRUE,
-  risk.tol = FALSE,
   npoints = 10,
   plot.efront = TRUE,
   wts.plot = TRUE,
   equal.wts = TRUE,
   bar.ylim = c(0, 1),
+  cexPoints = 0.8,
+  cexText = 0.8,
   values = FALSE,
   digits = NULL
 )
@@ -36,8 +37,6 @@ being displayed as points in the figures}
 \item{stock.names}{Logical variable which if TRUE results in stock names 
 being displayed}
 
-\item{risk.tol}{A parameter equal to the reciprocal of risk aversion}
-
 \item{npoints}{Number of points at which to compute efront values and
 weights}
 
@@ -54,6 +53,8 @@ displaying the mean and vol location of an equal weighted portfolio}
 axis limits of a weight barplot display}
 
 \item{digits}{Number of digits for printing efront values}
+
+\item{risk.tol}{A parameter equal to the reciprocal of risk aversion}
 }
 \value{
 A plot of the linear efficient frontier or the weights along the

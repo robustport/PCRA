@@ -34,8 +34,9 @@
 #' args(mathEfrontCashRisky)
 mathEfrontCashRisky <-
 		function(returns,rf = 0.005,scalex = 1.1, scaley = 1.1 ,display.stocks = TRUE,
-				stock.names = TRUE, risk.tol = FALSE, npoints = 10, plot.efront = TRUE,
-				wts.plot = TRUE, equal.wts = TRUE, bar.ylim = c(0,1), 
+				stock.names = TRUE, npoints = 10, plot.efront = TRUE,
+				wts.plot = TRUE, equal.wts = TRUE, bar.ylim = c(0,1),
+				cexPoints = 0.8, cexText = 0.8,
 				values = FALSE, digits = NULL)
 {
 	V = var(returns)
@@ -55,59 +56,40 @@ mathEfrontCashRisky <-
 	if(plot.efront)
 	{
 		if(wts.plot) {par(mfrow = c(1,2))}
-		if(risk.tol) {
-			x = inv.lambdavals; y = muvals; xlab = "Risk Tolerance"; par(mfrow=c(1,1))}
-		else {
-			x = sigmavals; y = muvals; xlab = "Portfolio Standard Deviation"}
+		x = sigmavals; y = muvals
 		xlim = c(0,scalex*max(sigma.stocks,x))
 		ylim = c(min(mu.stocks),max(muvals))
 		plot(x, y, type = "l", xaxs = "i", lwd = 2, xlim = xlim, ylim = ylim,
-				xlab = xlab, ylab = "Portfolio Mean Return")
-		if(risk.tol)
-		{display.stocks = F; stock.names = F}
-		if(display.stocks)
-		{points(sigma.stocks, mu.stocks, pch = 20)
-			if(stock.names)
-			{text(sigma.stocks + 0.02*xlim[2], mu.stocks, names(returns),
-						cex = 0.5, adj = 0)}
+				xlab = "Volatility", ylab = "Mean Return")
+		if(display.stocks){
+		points(sigma.stocks, mu.stocks, pch = 20, cex = cexPoints)
+		if(stock.names){
+		  text(sigma.stocks + 0.02*xlim[2], mu.stocks, names(returns),
+						cex = cexText, adj = 0)
+		  }
 		}
 		x <- xlim[1] + .05 * (xlim[2] - xlim[1])
 		y <- ylim[2] - .02 * (ylim[2] - ylim[1])
-		text(x,y,paste("Rf = ",round(rf,3),sep = ""),pos = 4)
-		y = y - .05*(ylim[2] - ylim[1])
 		text(x,y,paste("SR = ",round(sr.opt,2),sep = ""),pos = 4)
-		# Compute and plot equal weighted portfolio
-		if(equal.wts)
-		{n = length(mu.stocks)
-			wts = rep(1/n,n)
-			mu.eq = mean(mu.stocks)
-			sigma.eq =as.numeric((t(wts)%*%V%*%wts)^.5)
-			sr.eq = mu.eq/sigma.eq
-			points(sigma.eq,mu.eq,pch=15,cex = 1.2)
-			text(sigma.eq,mu.eq,"EQ.WTS",pos = 4, cex = .7)
-		}
-	}
+		y = y - .07*(ylim[2] - ylim[1])
+		text(x,y,paste("RF= ",round(rf,3),sep = ""),pos = 4)
+
 # Compute cash and risky assets weights and barplot
 	wts.risky = (sum(a)/b)*muvalse
 	wts.cash = 1 - wts.risky
 	wts.efront = rbind(muvals,sigmavals,wts.cash,wts.risky)
 	row.names(wts.efront) = c("MU","VOL","Cash","Risky Assets")
-	if(wts.plot)
-	{barplotWts(wts.efront,legend.text = T,col = topo.colors(2),ylab = "Weights",
-				xlab = "VOL",bar.ylim = bar.ylim);par(mfrow=c(1,1))}
-	
+	if(wts.plot){
+	  barplotWts(wts.efront,legend.text = T,col = topo.colors(2),ylab = "Weights",
+	             xlab = "VOL",bar.ylim = bar.ylim);par(mfrow=c(1,1))
+  	}
+
 	if(values){
-	  if(is.null(digits))
-	  {if(!risk.tol) {wts.efront}}
-	  else
-	  {if(equal.wts)
-	  {out = list(MU.EQ.WT = mu.eq, STDEV.EQ.WT = sigma.eq, SR.EQ.WT = sr.eq,
-	              SR.EFRONT = sr.opt)
-	  out = lapply(out,round,digits = digits)}
-	    else
-	    {out = list(SR.EFRONT = sr.opt)
-	    out = lapply(out,round,digits = digits)}
-	    out
+	  if(is.null(digits)){
+	    out <- wts.efront
+	  } else{
+	    out <- lapply(wts.efront,round,digits = digits)}
 	  }
+	    out
 	}
 }
