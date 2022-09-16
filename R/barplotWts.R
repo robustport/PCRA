@@ -1,18 +1,22 @@
 #' barplotWts
+#' 
+#' Uses the R barplot() function to make a barplot of efficient frontier weights
+#' See the manual page for barplot()
 #'
-#' @param wts.efront 
-#' @param legend.text 
-#' @param col 
-#' @param ylab 
-#' @param xlab 
-#' @param bar.ylim 
+#' @param wts.efront  Weights along the efficient frontiers
+#' @param legend.text  Vector of text for the legend 
+#' @param col  Vector of colors for the bars
+#' @param ylab  A label for the y axis
+#' @param xlab  A label for the x axis
+#' @param bar.ylim  Limits of the y axis for barplot
 #'
-#' @return
+#' @return  A barplot of efficient frontier weights
 #' @export
 #'
 #' @examples
 #' args(barplotWts)
-barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,xlab = c("MU","VOL"),bar.ylim = NULL,...)
+barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,
+                       xlab = c("MU","VOL"),bar.ylim = NULL,...)
 {
 	xlab.choose <- match.arg(xlab)
 #   cat(xlab.choose,"\n")
@@ -41,7 +45,6 @@ barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,xl
 	
 	barplot(xneg,add = T,col = col,axisnames=FALSE,axes=FALSE)
 	abline(h=0)
-	
 }
 
 

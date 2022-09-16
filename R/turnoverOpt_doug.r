@@ -13,8 +13,6 @@
 #' args(TurnoverOpt_doug)
 #' @export
 
-
-
 TurnoverOpt_doug <- function(returns,mu.target = NULL,wts.initial,toc,
                         long.only = TRUE,printDandA = FALSE){
   nassets <- ncol(returns)

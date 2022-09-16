@@ -15,20 +15,24 @@ barplotWts(
 )
 }
 \arguments{
-\item{wts.efront}{}
+\item{wts.efront}{Weights along the efficient frontiers}
 
-\item{legend.text}{}
+\item{legend.text}{Vector of text for the legend}
 
-\item{col}{}
+\item{col}{Vector of colors for the bars}
 
-\item{ylab}{}
+\item{ylab}{A label for the y axis}
 
-\item{xlab}{}
+\item{xlab}{A label for the x axis}
 
-\item{bar.ylim}{}
+\item{bar.ylim}{Limits of the y axis for barplot}
+}
+\value{
+A barplot of efficient frontier weights
 }
 \description{
-barplotWts
+Uses the R barplot() function to make a barplot of efficient frontier weights
+See the manual page for barplot()
 }
 \examples{
 args(barplotWts)

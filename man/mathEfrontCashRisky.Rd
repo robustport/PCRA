@@ -6,49 +6,46 @@
 \usage{
 mathEfrontCashRisky(
   returns,
-  rf = 0.005,
-  scalex = 1.2,
-  scaley = 2,
-  display.stocks = T,
-  stock.names = T,
-  risk.tol = F,
   npoints = 10,
-  plot.efront = T,
-  wts.plot = T,
-  equal.wts = T,
-  bar.ylim = c(0, 1),
-  digits = NULL
+  rf = 0.005,
+  plot.efront = TRUE,
+  stock.names = TRUE,
+  values = FALSE,
+  scalex = 1.1,
+  scaley = 1.1,
+  cexPoints = 0.8,
+  cexText = 0.8
 )
 }
 \arguments{
-\item{returns}{}
+\item{returns}{Risky asset returns in the form of an xts object}
 
-\item{rf}{}
+\item{npoints}{Number of points at which to compute efront values and
+weights}
 
-\item{scalex}{}
+\item{rf}{A risk-free rate}
 
-\item{scaley}{}
+\item{plot.efront}{Logical variable which if TRUE results in a plot of
+the linear efficient frontier and the stock positions}
 
-\item{display.stocks}{}
+\item{stock.names}{Logical variable which if TRUE results in stock names 
+being displayed}
 
-\item{stock.names}{}
+\item{scalex}{A scale parameter for scaling the horizontal axis}
 
-\item{risk.tol}{}
+\item{scaley}{A scale parameter for scaling the vertical axis}
 
-\item{npoints}{}
-
-\item{plot.efront}{}
-
-\item{wts.plot}{}
-
-\item{equal.wts}{}
-
-\item{bar.ylim}{}
-
-\item{digits}{}
+\item{digits}{Number of digits for printing efront weights}
+}
+\value{
+A plot of the linear efficient frontier or the weights along the
+efficient frontier.  Optionally output the mean and vol values
+of the linear efficient frontier or its weights, or both.
 }
 \description{
-mathEfrontCashRisky
+This function computes and plots a linear efficient frontier that is
+a mix of a risk-free asset ("cash") and risky stocks (or other assets).
+It optionally returns the weights along the linear efficient frontier.
 }
 \examples{
 args(mathEfrontCashRisky)

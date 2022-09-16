@@ -2,32 +2,48 @@
 % Please edit documentation in R/mathEfrontRisky.R
 \name{mathEfrontRisky}
 \alias{mathEfrontRisky}
-\title{Mathematical Efficient Frontier}
+\title{Compute the efficient frontier of a fully invested portfolio
+based on a data set of returns.  Uses the mathematical formula based on
+the estimated mean return vector and estimated covariance matrix.  Can
+have short positions.}
 \usage{
 mathEfrontRisky(
   returns,
   npoints = 100,
-  efront.only = T,
-  display = T,
+  efront.only = TRUE,
+  display = TRUE,
+  cexGmv = 0.9,
+  pchPoints = 20,
+  cexPoints = 1,
+  cexText = 0.7,
+  values = FALSE,
   digits = NULL
 )
 }
 \arguments{
-\item{returns}{}
+\item{returns}{A multivariate xts object of returns}
 
-\item{npoints}{}
+\item{npoints}{The number of points computed on the efficient frontier}
 
-\item{efront.only}{}
+\item{efront.only}{If true only the efficient frontier is computed, and 
+otherwise the entire frontier is computed}
 
-\item{display}{}
+\item{display}{If TRUE the efficient frontier is plotted}
 
-\item{digits}{}
+\item{values}{If TRUE efficient frontier values are returned}
+
+\item{digits}{If NULL no rounding is done, else specifies the number of 
+significant digits}
 }
 \value{
-Values of efficient frontier
+Optionally, a plot of a risky assets only efficient frontier, and
+optionally return the efficient frontier mean and standard deviation values.
 }
 \description{
-Mathematical efficient frontier based on a data set of returns
+Compute the efficient frontier of a fully invested portfolio
+based on a data set of returns.  Uses the mathematical formula based on
+the estimated mean return vector and estimated covariance matrix.  Can
+have short positions.
 }
 \examples{
 args(mathEfrontRisky)

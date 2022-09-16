@@ -29,8 +29,8 @@ var.se <- function(R,methods=c("normal","non-normal","bootstrap")){
 												+(mean((x-mean(x,na.rm=TRUE))^4,na.rm=TRUE)-3*var(x,na.rm=TRUE)^2)/length(x)^3
 												)
 							))},
-			"bootstrap" = {	require("boot")
-				
+			"bootstrap" = {
+			  # require("boot")
 				boot.sd.var <- function(X,idx) var(X[idx],na.rm=TRUE)
 				boot.sd <- function(X) 
 				{
