@@ -7,48 +7,62 @@
 mathEfrontCashRisky(
   returns,
   rf = 0.005,
-  scalex = 1.2,
-  scaley = 2,
-  display.stocks = T,
-  stock.names = T,
-  risk.tol = F,
+  scalex = 1.1,
+  scaley = 1.1,
+  display.stocks = TRUE,
+  stock.names = TRUE,
+  risk.tol = FALSE,
   npoints = 10,
-  plot.efront = T,
-  wts.plot = T,
-  equal.wts = T,
+  plot.efront = TRUE,
+  wts.plot = TRUE,
+  equal.wts = TRUE,
   bar.ylim = c(0, 1),
+  values = FALSE,
   digits = NULL
 )
 }
 \arguments{
-\item{returns}{}
+\item{returns}{Risky asset returns in the form of an xts object}
 
-\item{rf}{}
+\item{rf}{A risk-free rate}
 
-\item{scalex}{}
+\item{scalex}{A scale parameter for scaling the horizontal axis}
 
-\item{scaley}{}
+\item{scaley}{A scale parameter for scaling the vertical axis}
 
-\item{display.stocks}{}
+\item{display.stocks}{Logical parameter which if TRUE results in stocks
+being displayed as points in the figures}
 
-\item{stock.names}{}
+\item{stock.names}{Logical variable which if TRUE results in stock names 
+being displayed}
 
-\item{risk.tol}{}
+\item{risk.tol}{A parameter equal to the reciprocal of risk aversion}
 
-\item{npoints}{}
+\item{npoints}{Number of points at which to compute efront values and
+weights}
 
-\item{plot.efront}{}
+\item{plot.efront}{Logical variable which if TRUE results in a plot of
+the linear efficient frontier}
 
-\item{wts.plot}{}
+\item{wts.plot}{Logical variable which if TRUE results in a plot of the 
+efficient frontier weights at npoints}
 
-\item{equal.wts}{}
+\item{equal.wts}{Logical variable which if TRUE results in computing and
+displaying the mean and vol location of an equal weighted portfolio}
 
-\item{bar.ylim}{}
+\item{bar.ylim}{Numerical character vector with upper and lower vertical
+axis limits of a weight barplot display}
 
-\item{digits}{}
+\item{digits}{Number of digits for printing efront values}
+}
+\value{
+A plot of the linear efficient frontier or the weights along the
+efficient frontier.  Optionally output the mean and vol values
+of the linear efficient frontier or its weights, or both.
 }
 \description{
-mathEfrontCashRisky
+This function computes and plots a linear efficient frontier that is
+a mix of a risk-free asset ("cash") and risky stocks (or other assets).
 }
 \examples{
 args(mathEfrontCashRisky)

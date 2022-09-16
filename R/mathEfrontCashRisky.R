@@ -1,28 +1,42 @@
 #' mathEfrontCashRisky
+#' 
+#' This function computes and plots a linear efficient frontier that is
+#' a mix of a risk-free asset ("cash") and risky stocks (or other assets).
 #'
-#' @param returns 
-#' @param rf 
-#' @param scalex 
-#' @param scaley 
-#' @param display.stocks 
-#' @param stock.names 
-#' @param risk.tol 
-#' @param npoints 
-#' @param plot.efront 
-#' @param wts.plot 
-#' @param equal.wts 
-#' @param bar.ylim 
-#' @param digits 
+#' @param returns Risky asset returns in the form of an xts object 
+#' @param rf A risk-free rate
+#' @param scalex A scale parameter for scaling the horizontal axis
+#' @param scaley A scale parameter for scaling the vertical axis
+#' @param display.stocks Logical parameter which if TRUE results in stocks
+#' being displayed as points in the figures
+#' @param stock.names Logical variable which if TRUE results in stock names 
+#' being displayed 
+#' @param risk.tol A parameter equal to the reciprocal of risk aversion
+#' @param npoints Number of points at which to compute efront values and
+#' weights
+#' @param plot.efront Logical variable which if TRUE results in a plot of
+#' the linear efficient frontier
+#' @param wts.plot Logical variable which if TRUE results in a plot of the 
+#' efficient frontier weights at npoints
+#' @param equal.wts Logical variable which if TRUE results in computing and
+#' displaying the mean and vol location of an equal weighted portfolio
+#' @param bar.ylim Numerical character vector with upper and lower vertical
+#' axis limits of a weight barplot display
+#' @param values
+#' @param digits Number of digits for printing efront values
 #'
-#' @return
+#' @return  A plot of the linear efficient frontier or the weights along the
+#' efficient frontier.  Optionally output the mean and vol values
+#' of the linear efficient frontier or its weights, or both.
 #' @export
 #'
 #' @examples
 #' args(mathEfrontCashRisky)
 mathEfrontCashRisky <-
-		function(returns,rf = 0.005,scalex = 1.2,scaley = 2,display.stocks = T,
-				stock.names = T, risk.tol = F, npoints = 10, plot.efront = T, wts.plot = T,
-				equal.wts = T,bar.ylim = c(0,1), digits = NULL)
+		function(returns,rf = 0.005,scalex = 1.1, scaley = 1.1 ,display.stocks = TRUE,
+				stock.names = TRUE, risk.tol = FALSE, npoints = 10, plot.efront = TRUE,
+				wts.plot = TRUE, equal.wts = TRUE, bar.ylim = c(0,1), 
+				values = FALSE, digits = NULL)
 {
 	V = var(returns)
 	mu.stocks = apply(returns, 2, mean)
@@ -32,7 +46,7 @@ mathEfrontCashRisky <-
 	b = as.numeric(t(mue) %*% a)       # b = muetp * Vinv* mue
 	sr.opt = sqrt(as.numeric(b))
 	bsr = sqrt(b)
-	mu.max = scaley * max(mu.stocks)   # Important for leverage
+	mu.max = scaley * max(mu.stocks)
 	muvals = seq(0,mu.max, length.out = npoints)
 	sigmavals = c(muvals/bsr)
 	muvalse = seq(0,mu.max, length.out = npoints)
@@ -81,16 +95,19 @@ mathEfrontCashRisky <-
 	if(wts.plot)
 	{barplotWts(wts.efront,legend.text = T,col = topo.colors(2),ylab = "Weights",
 				xlab = "VOL",bar.ylim = bar.ylim);par(mfrow=c(1,1))}
-	if(is.null(digits))
-	{if(!risk.tol) {wts.efront}}
-	else
-	{if(equal.wts)
-		{out = list(MU.EQ.WT = mu.eq, STDEV.EQ.WT = sigma.eq, SR.EQ.WT = sr.eq,
-					SR.EFRONT = sr.opt)
-			out = lapply(out,round,digits = digits)}
-		else
-		{out = list(SR.EFRONT = sr.opt)
-			out = lapply(out,round,digits = digits)}
-		out
+	
+	if(values){
+	  if(is.null(digits))
+	  {if(!risk.tol) {wts.efront}}
+	  else
+	  {if(equal.wts)
+	  {out = list(MU.EQ.WT = mu.eq, STDEV.EQ.WT = sigma.eq, SR.EQ.WT = sr.eq,
+	              SR.EFRONT = sr.opt)
+	  out = lapply(out,round,digits = digits)}
+	    else
+	    {out = list(SR.EFRONT = sr.opt)
+	    out = lapply(out,round,digits = digits)}
+	    out
+	  }
 	}
 }
