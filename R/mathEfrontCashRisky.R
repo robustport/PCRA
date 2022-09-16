@@ -65,7 +65,6 @@ mathEfrontCashRisky <-
 		  wts.cash = 1 - wts.risky
 		  wts.efront = rbind(muvals,sigmavals,wts.cash,wts.risky)
 		  row.names(wts.efront) = c("MU","VOL","Cash","Risky Assets")
-		  print(wts.efront)
 		  
 		  if(values){
 		    return(wts.efront)

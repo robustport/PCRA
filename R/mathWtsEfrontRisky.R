@@ -9,13 +9,13 @@
 #' digits for rounding
 #'
 #' @return
-#' A matrix whose first row contains the volatilities along the efficient
-#' at specified mean returns contained in the second row, and the remaining
-#' n rows contain contain the n weight vectors at each of the efficient
-#' frontier mean return values 
+#' A matrix with first containing the mean (MU) along the efficient frontier
+#' and the second row containing the standard deviation (VOL), and the following
+#' n rows contain the n weight vectors along the efficient
 #' 
 #' @examples
 #' args(mathWtsEfrontRisky)
+#' 
 #' @export
 mathWtsEfrontRisky <- function (returns, mu.efront, digits = NULL) 
 {
@@ -38,7 +38,7 @@ mathWtsEfrontRisky <- function (returns, mu.efront, digits = NULL)
   wts.efront <- as.data.frame(wts.efront)
   vol.efront <- (1/cc + (cc/d) * (mu.efront - a/cc)^2)^0.5
   out <- rbind(vol.efront, mu.efront, wts.efront)
-  rowNames <- c("Vol", "Mean", paste("W-", sep = "", names(returns)))
+  rowNames <- c("MU", "VOL", paste("W-", sep = "", names(returns)))
   row.names(out) <- rowNames
   names(out) <- paste("P", sep = "", 1:n)
   if (is.null(digits)) {

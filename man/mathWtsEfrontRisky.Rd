@@ -15,10 +15,9 @@ mathWtsEfrontRisky(returns, mu.efront, digits = NULL)
 digits for rounding}
 }
 \value{
-A matrix whose first row contains the volatilities along the efficient
-at specified mean returns contained in the second row, and the remaining
-n rows contain contain the n weight vectors at each of the efficient
-frontier mean return values
+A matrix with first containing the mean (MU) along the efficient frontier
+and the second row containing the standard deviation (VOL), and the following
+n rows contain the n weight vectors along the efficient
 }
 \description{
 Computes weights vector along an efficient frontier, obtained from a time
@@ -26,4 +25,5 @@ series of portfolio returns at specified portfolio mean return values
 }
 \examples{
 args(mathWtsEfrontRisky)
+
 }
