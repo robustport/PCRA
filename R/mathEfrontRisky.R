@@ -40,12 +40,12 @@ mathEfrontRisky <-
     sigma.stocks = apply(returns, 2, var)^0.5
     mu.max = 1.1*max(mu.stocks)
     sigma.max = (1/cc + (cc/d) * (mu.max - a/cc)^2)^0.5
-    sigma.max = 1.2*sigma.max
+    sigma.max = 1.1*sigma.max
     sigma = seq(sigma.gmv, sigma.max, length = npoints)
     mu.efront = a/cc + ((d * sigma^2)/cc - d/cc^2)^0.5
     if(!efront.only) {mu.front = a/cc - ((d * sigma^2)/cc - d/cc^2)^0.5}
     mu.efront[1] = a/cc					# Replace mu[1] NA
-    xlim = c(0.6*sigma.gmv, 1.2*max(sigma))
+    xlim = c(0.6*sigma.gmv, 1.2*max(c(sigma,sigma.stocks)))
     if(efront.only) {ylim = range(mu.efront,mu.stocks)} else
     {ylim = range(mu.efront, mu.front)}
     if(display)
