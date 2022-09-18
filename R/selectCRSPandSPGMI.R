@@ -54,6 +54,7 @@
 #'                                     capGroupList = NULL,
 #'                                     tickerList = NULL)
 #'
+#'names(stocks_factors)
 #'str(stocks_factors)
 #'@export
 
