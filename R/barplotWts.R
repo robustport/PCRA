@@ -33,12 +33,9 @@ barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,
 		ylim = c(ymin*1.2,ymax*1.2)}   else {ylim = bar.ylim}
 	colnames(xpos) <- xlab
 
-# layout_mat = cbind(matrix(1,nrow(xpos),ncol(xpos)),matrix(2,nrow(xpos),2))
-# layout(layout_mat)
-	
-	barplot(xpos,legend.text = legend.text,col = col,ylab = ylab,xlab = xlab.choose,    xlim=c(0, ncol(xpos) + 3),
+	barplot(xpos,legend.text = legend.text,col = col,ylab = ylab,xlab = xlab.choose,    xlim=c(0, ncol(xpos)*1.5),
 			ylim = ylim,las=2, cex.names=0.8, bty="n",args.legend=list(
-			  x=ncol(xpos) + 3,
+			  x=ncol(xpos) *1.5,
 			  y=max(colSums(xpos)),
 			  bty = "n"
 			),...)
