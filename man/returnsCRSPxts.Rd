@@ -15,8 +15,12 @@ A multivariate times series object described above
 \description{
 This function uses the data.table created by selectCRSPandSPGMI to create
 a multivarite xts time series object that contains the returns of the stocks
-with tickers in the TickerLast component of the data.table, the returns of
-the MktIndexCRSP, and the returns of the Ret13WkBill.
+with tickers in the TickerLast component of the data.table, the MktIndexCRSP
+Ret13WkBill returns.
+}
+\details{
+NOTE:  For this function to work, the selectCRSPandSPGMI must include the 
+the stockItems TickerLast, MktIndexCRSP and Ret13WkBill.
 }
 \examples{
 library(PCRA)

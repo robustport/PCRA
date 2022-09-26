@@ -78,5 +78,6 @@ stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
                                     capGroupList = NULL,
                                     tickerList = NULL)
 
+names(stocks_factors)
 str(stocks_factors)
 }
