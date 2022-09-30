@@ -33,7 +33,7 @@ barplotWtsDoug(
 A figure
 }
 \description{
-Barplot of Efficient Frontier Weights
+This is an old version which will be deleted soon.
 }
 \examples{
 args(barplotWtsDoug)

@@ -1,4 +1,6 @@
 #' Barplot of Efficient Frontier Weights
+#' 
+#' This is an old version which will be deleted soon.
 #'
 #' @param wts.efront 
 #' @param legend.text 
