@@ -5,7 +5,9 @@
 #' @param digits 
 #' @param show.signif.stars 
 #'
-#' @return
+#' @return Values of summary statistics for a time series factor model
+#' fit
+#' 
 #' @export
 #'
 #' @examples

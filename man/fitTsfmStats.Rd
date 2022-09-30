@@ -15,6 +15,10 @@ fitTsfmStats(x, rsq = F, digits = 3, show.signif.stars = TRUE)
 
 \item{show.signif.stars}{}
 }
+\value{
+Values of summary statistics for a time series factor model
+fit
+}
 \description{
 fitTsfmStats
 }

@@ -12,7 +12,7 @@
 #' @param ylab 
 #' @param n.portfolios 
 #'
-#' @return
+#' @return Plots of efficient frontiers
 #' @export
 #'
 #' @examples

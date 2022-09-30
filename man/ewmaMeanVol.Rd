@@ -38,6 +38,10 @@ ewmaMeanVol(
 
 \item{lambdaVolDyn}{}
 }
+\value{
+Times series of exponentially weighted classic or robust
+mean and volatility
+}
 \description{
 Exponential Weighted Moving Average (EWMA) Mean Volitility
 }

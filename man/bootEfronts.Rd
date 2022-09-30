@@ -50,6 +50,9 @@ bootEfronts(
 
 \item{figTitle}{}
 }
+\value{
+Bootstrapped efficient frontiers plot
+}
 \description{
 bootEfronts
 }

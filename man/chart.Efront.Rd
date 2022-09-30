@@ -41,6 +41,9 @@ chart.Efront(
 
 \item{n.portfolios}{}
 }
+\value{
+Plots of efficient frontiers
+}
 \description{
 chart.Efront
 }

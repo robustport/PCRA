@@ -4,7 +4,7 @@
 #' @param rho 
 #' @param muVol 
 #'
-#' @return
+#' @return Efficient frontier values for 2 asset portfolio
 #' @export
 #' 
 #' @examples

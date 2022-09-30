@@ -5,7 +5,7 @@
 #' @param digits 
 #' @param show.signif.stars 
 #'
-#' @return
+#' @return Linear model fit summary statistics
 #' @export
 #'
 #' @examples

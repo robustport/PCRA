@@ -6,7 +6,7 @@
 #' @param cc robustness tuning constant, default 2.5
 #' @param lambda EWMA decay parameter, default 0.9
 #'
-#' @return
+#' @return Time series of classical or robust EWMA volatility
 #'
 #' @examples
 #' args(ewmaVol)

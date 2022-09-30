@@ -11,7 +11,8 @@
 #' @param lambdaMeanDyn 
 #' @param lambdaVolDyn 
 #'
-#' @return
+#' @return Times series of exponentially weighted classic or robust
+#' mean and volatility
 #' 
 #' @details The robust EWMA mean algorithm has the form 
 #\hat{\mu}_t = \hat{\mu}_{t-1} + (1-\lambda)\hat{\sigma}_{t-1}\psi_{\texttt{hub}}

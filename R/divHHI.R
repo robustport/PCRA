@@ -2,7 +2,7 @@
 #'
 #' @param weights 
 #'
-#' @return
+#' @return Time series of portfolio diversification values
 #' @export
 #'
 #' @examples

@@ -15,7 +15,7 @@
 #' @param digits 
 #' @param figTitle 
 #'
-#' @return
+#' @return Bootstrapped efficient frontiers plot
 #' @export
 #'
 #' @examples
@@ -53,7 +53,7 @@ bootEfronts = function(returns,pspec, rf=.03, npoints=20, B = 3, Seed = NULL, gm
   boot.index = matrix(boot.idx,n,B)
   gmvMaxSR = matrix(rep(0,5*B),B)
   
-  # Compute and Plot Classic Bootstrapped Frontiers
+  # Compute and Plot Classic Bootstrapped EfficientFrontiers
   for(i in 1:B) 
   {gmvMaxSR[i,] = chart.Efront(returns[boot.index[,i],],pspec,firstEfront = F,gmv = gmv, maxSR = maxSR,
                                rf = rf, xlim=xlim,ylim=ylim,xlab = xlab,ylab = ylab,n.portfolios = 20)}
