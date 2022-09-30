@@ -12,9 +12,10 @@
 #' (potentially a non-trading date). Regardless, the returns are identical 
 #' under two scenarios, but the date may differ for the "month end".
 #'
-#' @return monthly
+#' @return monthly returns computed from daily returns
 #' 
 #' @examples
+#' args(to_monthly)
 #' 
 #' @export
 

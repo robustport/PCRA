@@ -9,6 +9,9 @@ signifStars(pv)
 \arguments{
 \item{pv}{}
 }
+\value{
+p-values with none, one, two, or three star symbols added
+}
 \description{
 signifStars
 }

@@ -5,7 +5,7 @@
 #' @param na.rm 
 #' @param ... 
 #'
-#' @return
+#' @return Value of Winsorized mean
 #' @export
 #'
 #' @examples

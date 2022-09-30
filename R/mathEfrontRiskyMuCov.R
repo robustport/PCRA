@@ -11,13 +11,13 @@
 #' @param print 
 #' @param digits 
 #'
-#' @return
+#' @return Values of efficient frontier and optional plot
 #' @export
 #'
 #' @examples
 #' args(mathEfrontRiskyMuCov)
-mathEfrontRiskyMuCov <- function(muRet,volRet,corrRet, npoints = 100,display = T,
-                                 efront.only = T, print = F,  digits = NULL) 
+mathEfrontRiskyMuCov <- function(muRet,volRet,corrRet, npoints = 100,
+                display = T, efront.only = T, print = F,  digits = NULL) 
 {
   covRet = diag(volRet)%*%corrRet%*%diag(volRet)
   names(muRet) = c("Stock 1","Stock 2","Stock 3")

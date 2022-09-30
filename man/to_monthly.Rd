@@ -16,11 +16,15 @@ month in most financial data sets) or the calendar month end date
 under two scenarios, but the date may differ for the "month end".}
 }
 \value{
-monthly
+monthly returns computed from daily returns
 }
 \description{
 to_monthly will convert daily returns to monthly returns.
 }
 \details{
 tbc
+}
+\examples{
+args(to_monthly)
+
 }

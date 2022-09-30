@@ -13,6 +13,9 @@ mathTport(returns, rf = 0.01, digits = NULL)
 
 \item{digits}{}
 }
+\value{
+Tangency portfoliow weights, mean and volatility
+}
 \description{
 mathTport
 }

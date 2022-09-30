@@ -4,7 +4,7 @@
 #' @param wtsInit 
 #' @param digits 
 #'
-#' @return
+#' @return Turnover value given initial weights and final weights
 #' @export
 #'
 #' @examples

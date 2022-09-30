@@ -17,6 +17,9 @@ opt.outputMvo(opt, returns, digits = NULL, names = NULL, rf = 0)
 
 \item{rf}{}
 }
+\value{
+MVO portfolio weights, mean, volatility, and Sharpe ratio
+}
 \description{
 opt.outputMvo
 }

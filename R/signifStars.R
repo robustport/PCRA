@@ -2,7 +2,7 @@
 #'
 #' @param pv 
 #'
-#' @return
+#' @return p-values with none, one, two, or three star symbols added
 #' @export
 #'
 #' @examples

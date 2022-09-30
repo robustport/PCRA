@@ -12,13 +12,15 @@
 #' @param npoints 
 #' @param digits 
 #'
-#' @return
+#' @return Efficient frontier values using returns to compute mean vector
+#' and covariance matrix
 #' @export
 #'
 #' @examples
 #' args(mathEfront)
-mathEfront = function(returns, mu.max=NULL, sigma.max=NULL, rf=0.005, rf.line=T, stocks=T,
-      stock.names = T, values = T, identify.stock.names = F, npoints = 100, digits = NULL)
+mathEfront = function(returns, mu.max=NULL, sigma.max=NULL, rf=0.005, rf.line=T,
+                      stocks=T, stock.names = T, values = T, 
+                      identify.stock.names = F, npoints = 100, digits = NULL)
 {
 	C <- var(returns)
 	mu <- apply(returns, 2, mean)

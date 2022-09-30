@@ -4,7 +4,7 @@
 #' @param rf 
 #' @param digits 
 #'
-#' @return
+#' @return Tangency portfoliow weights, mean and volatility
 #' @export
 #'
 #' @examples

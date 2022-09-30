@@ -4,7 +4,7 @@
 #' @param add.grid 
 #' @param cex 
 #'
-#' @return
+#' @return Simple time series plot
 #' @export
 #'
 #' @examples

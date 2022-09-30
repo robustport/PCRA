@@ -32,6 +32,10 @@ turnoverOpt(
 
 \item{printout}{}
 }
+\value{
+Optimal turnover constrained minVar portfolio, weights, buy weights,
+sell weights, turnover, portfolio mean, and portfolio variacne)
+}
 \description{
 turnoverOpt
 }

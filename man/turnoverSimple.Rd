@@ -13,6 +13,9 @@ turnoverSimple(wts, wtsInit = NULL, digits = NULL)
 
 \item{digits}{}
 }
+\value{
+Turnover value given initial weights and final weights
+}
 \description{
 turnOverSimple
 }

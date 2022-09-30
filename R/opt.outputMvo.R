@@ -6,7 +6,7 @@
 #' @param names 
 #' @param rf 
 #'
-#' @return
+#' @return MVO portfolio weights, mean, volatility, and Sharpe ratio
 #' @export
 #'
 #' @examples

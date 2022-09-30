@@ -4,7 +4,7 @@
 #' @param r 
 #' @param c 
 #'
-#' @return
+#' @return Value of old polynomial approximation
 #' @export
 #'
 #' @examples

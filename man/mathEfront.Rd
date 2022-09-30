@@ -41,6 +41,10 @@ mathEfront(
 
 \item{digits}{}
 }
+\value{
+Efficient frontier values using returns to compute mean vector
+and covariance matrix
+}
 \description{
 mathEfront
 }

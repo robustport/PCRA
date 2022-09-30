@@ -7,7 +7,7 @@
 #' 
 #' @param weights 
 #'
-#' @return
+#' @return Time series of turnover values
 #' @export
 #'
 #' @examples
