@@ -22,8 +22,9 @@
 #' @return rets
 #' 
 #' @examples
+#' \dontrun{
 #' my_wkly_rets <- to_weekly(dlyrets, week_ending_day_str = 'Monday')
-#' 
+#' }
 #' @export
 
 to_weekly <- function(daily, 

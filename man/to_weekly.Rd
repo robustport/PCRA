@@ -4,12 +4,7 @@
 \alias{to_weekly}
 \title{Function to convert from daily to weekly returns.}
 \usage{
-to_weekly(
-  daily,
-  days_in_week = 5,
-  week_ending_day_str = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-    "Saturday", "Sunday")
-)
+to_weekly(daily, days_in_week = 5, week_ending_day_str = "Friday")
 }
 \arguments{
 \item{daily}{An xts object of daily returns.}
@@ -37,6 +32,7 @@ user flexibility in the choice of which day to end the week.
 tbc
 }
 \examples{
+\dontrun{
 my_wkly_rets <- to_weekly(dlyrets, week_ending_day_str = 'Monday')
-
+}
 }

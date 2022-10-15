@@ -56,9 +56,9 @@ Plot time series with specific plotting parameters
 \examples{
 
 #Load the data
-data("stocks145scores6")
-dat = stocks145scores6
-returns = tapply(dat$RETURN,list(dat$DATE,dat$TICKER),I)
+data("stocksCRSP")
+dat = stocksCRSP
+returns = tapply(dat$Return,list(dat$Date,dat$TickerLast),I)
 ret = xts(returns[,1:5],as.yearmon(rownames(returns)))
 
 #generate return time series plot               
