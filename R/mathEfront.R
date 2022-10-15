@@ -8,7 +8,6 @@
 #' @param stocks 
 #' @param stock.names 
 #' @param values 
-#' @param identify.stock.names 
 #' @param npoints 
 #' @param digits 
 #'
@@ -20,7 +19,8 @@
 #' args(mathEfront)
 mathEfront = function(returns, mu.max=NULL, sigma.max=NULL, rf=0.005, rf.line=T,
                       stocks=T, stock.names = T, values = T, 
-                      identify.stock.names = F, npoints = 100, digits = NULL)
+                      # identify.stock.names = F, 
+                      npoints = 100, digits = NULL)
 {
 	C <- var(returns)
 	mu <- apply(returns, 2, mean)
@@ -69,8 +69,8 @@ mathEfront = function(returns, mu.max=NULL, sigma.max=NULL, rf=0.005, rf.line=T,
 		if(stock.names)
 			text(sigma.stocks + 0.02 * xlim[2], mu.stocks, names(returns), cex = 0.7,
 				adj = 0)
-		else if(identify.stock.names)
-			identify(sigma.stocks, mu.stocks, labels = names(along = sigma.stocks))
+		# else if(identify.stock.names)
+		# 	identify(sigma.stocks, mu.stocks, labels = names(along = sigma.stocks))
 	}
 	cat("\n", "SHARPE RATIO =", sharpe, sep = " ", "\n\n")
 	print(mvp)
