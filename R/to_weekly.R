@@ -28,9 +28,7 @@
 
 to_weekly <- function(daily, 
                        days_in_week = 5,
-                       week_ending_day_str = c('Monday','Tuesday','Wednesday',
-                                               'Thursday','Friday','Saturday',
-                                               'Sunday')
+                       week_ending_day_str = 'Friday'
                        )
 {
   
