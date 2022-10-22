@@ -13,7 +13,6 @@ mathEfront(
   stocks = T,
   stock.names = T,
   values = T,
-  identify.stock.names = F,
   npoints = 100,
   digits = NULL
 )
@@ -34,8 +33,6 @@ mathEfront(
 \item{stock.names}{}
 
 \item{values}{}
-
-\item{identify.stock.names}{}
 
 \item{npoints}{}
 
