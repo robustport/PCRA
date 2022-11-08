@@ -30,10 +30,17 @@ otherwise the entire frontier is computed}
 
 \item{display}{If TRUE the efficient frontier is plotted}
 
+\item{cexGmv}{A size parameter of text for GMV}
+
+\item{pchPoints}{A parameter of the type of points}
+
+\item{cexPoints}{A size parameter of point}
+
+\item{cexText}{A size parameter of text}
+
 \item{values}{If TRUE efficient frontier values are returned}
 
-\item{digits}{If NULL no rounding is done, else specifies the number of 
-significant digits}
+\item{digits}{If NULL no rounding is done, else specifies the number of significant digits}
 }
 \value{
 Optionally, a plot of a risky assets only efficient frontier, and

@@ -7,9 +7,9 @@
 #' @examples
 #' args(rhoHuber)
 #' @export
-rhoHuber = function(x,cc=1.345)
-{rho = ifelse(abs(x/cc) <1, 0.5*x^2, cc*abs(x)-0.5*cc^2) 
-return(rho)
+rhoHuber = function(x,cc=1.345){
+  rho = ifelse(abs(x/cc) <1, 0.5*x^2, cc*abs(x)-0.5*cc^2)
+  return(rho)
 }
 #' Huber Psi
 #' @param x a numeric vector
@@ -20,10 +20,10 @@ return(rho)
 #' @examples
 #' args(psiHuber)
 #' @export
-psiHuber = function(x,cc=1.345)
-{psi = ifelse(abs(x/cc) < 1, x, cc) 
-psi = ifelse(x/cc <= -1, -cc, psi)
-return(psi)
+psiHuber = function(x,cc=1.345){
+  psi = ifelse(abs(x/cc) < 1, x, cc) 
+  psi = ifelse(x/cc <= -1, -cc, psi)
+  return(psi)
 }
 #' Huber Wts
 #' @param x a numeric vector
@@ -34,14 +34,15 @@ return(psi)
 #' @examples
 #' args(wtsHuber)
 #' @export
-wtsHuber = function(x,cc=1.345)
-{wts = ifelse(abs(x/cc) < 1, 1, cc/(sign(x)*x)) 
-return(wts)
+wtsHuber = function(x,cc=1.345){
+  wts = ifelse(abs(x/cc) < 1, 1, cc/(sign(x)*x)) 
+  return(wts)
 }
 
 #' Efficiency From Constant Huber Psi
-#' @param x a numeric vector
+#'
 #' @param cc a numeric constant
+#'
 #' @author Kirk Li  \email{kirkli@@stat.washington.edu} 
 #' @seealso \code{\link{}}
 #' @keywords huber
@@ -61,19 +62,22 @@ effFromConstHuber <- function(cc = 1.345)
   1.0 / varHuber
 }
 #' Constant from Efficiency Huber Psi
-#' @param x a numeric vector
-#' @param cc a numeric constant
+#'
+#' @param eff 
+#' @param interval 
+#'
 #' @author Kirk Li  \email{kirkli@@stat.washington.edu} 
 #' @seealso \code{\link{}}
 #' @keywords huber
 #' @examples
 #' args(constFromEffHuber)
 #' @export
+#' 
+#' 
 constFromEffHuber <- function(eff, interval = c(1e-6, 3))
 {
   obj <- function(cc, e)
-    e - effFromConstHuber(cc)
-  
+  e - effFromConstHuber(cc)
   uniroot(obj, interval = interval, e = eff, check.conv = TRUE, tol = 1e-8)$root
 }
 
@@ -88,9 +92,9 @@ constFromEffHuber <- function(eff, interval = c(1e-6, 3))
 #' @examples
 #' args(psiHardRej)
 #' @export
-psiHardRej = function(x,cc = 2.5)
-{psi = ifelse(abs(x/cc) < 1, x, 0)
-	return(psi)
+psiHardRej = function(x,cc = 2.5){
+  psi = ifelse(abs(x/cc) < 1, x, 0)
+  return(psi)
 }
 
 

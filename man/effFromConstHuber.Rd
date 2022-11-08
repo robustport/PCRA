@@ -8,8 +8,6 @@ effFromConstHuber(cc = 1.345)
 }
 \arguments{
 \item{cc}{a numeric constant}
-
-\item{x}{a numeric vector}
 }
 \description{
 Efficiency From Constant Huber Psi

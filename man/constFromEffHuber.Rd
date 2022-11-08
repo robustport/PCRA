@@ -7,9 +7,9 @@
 constFromEffHuber(eff, interval = c(1e-06, 3))
 }
 \arguments{
-\item{x}{a numeric vector}
+\item{eff}{}
 
-\item{cc}{a numeric constant}
+\item{interval}{}
 }
 \description{
 Constant from Efficiency Huber Psi

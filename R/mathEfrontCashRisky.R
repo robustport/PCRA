@@ -8,14 +8,14 @@
 #' @param rf A risk-free rate
 #' @param scalex A scale parameter for scaling the horizontal axis
 #' @param scaley A scale parameter for scaling the vertical axis
-#' @param stock.names Logical variable which if TRUE results in stock names 
-#' being displayed 
+#' @param stock.names Logical variable which if TRUE results in stock names being displayed 
 #' @param npoints Number of points at which to compute efront values and
 #' weights
 #' @param plot.efront Logical variable which if TRUE results in a plot of
+#' @param values Logical whether to return values in output
+#' @param cexPoints A size parameter for points
+#' @param cexText A size parameter for text
 #' the linear efficient frontier and the stock positions
-#' @param digits Number of digits for printing efront weights
-#'
 #' @return  A plot of the linear efficient frontier or the weights along the
 #' efficient frontier.  Optionally output the mean and vol values
 #' of the linear efficient frontier or its weights, or both.

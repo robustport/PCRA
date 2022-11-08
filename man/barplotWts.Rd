@@ -26,6 +26,8 @@ barplotWts(
 \item{xlab}{A label for the x axis}
 
 \item{bar.ylim}{Limits of the y axis for barplot}
+
+\item{...}{additional parameters from barplot}
 }
 \value{
 A barplot of efficient frontier weights

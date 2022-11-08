@@ -7,8 +7,8 @@
 TurnoverOpt_doug(
   returns,
   mu.target = NULL,
-  wts.initial,
-  toc,
+  wts.initial = NULL,
+  toc = NULL,
   long.only = TRUE,
   printDandA = FALSE
 )

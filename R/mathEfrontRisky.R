@@ -11,8 +11,11 @@
 #' otherwise the entire frontier is computed
 #' @param display If TRUE the efficient frontier is plotted
 #' @param values If TRUE efficient frontier values are returned
-#' @param digits If NULL no rounding is done, else specifies the number of 
-#' significant digits
+#' @param digits If NULL no rounding is done, else specifies the number of significant digits
+#' @param cexGmv A size parameter of text for GMV
+#' @param pchPoints A parameter of the type of points
+#' @param cexPoints A size parameter of point
+#' @param cexText A size parameter of text
 #'
 #' @return Optionally, a plot of a risky assets only efficient frontier, and
 #' optionally return the efficient frontier mean and standard deviation values.

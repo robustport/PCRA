@@ -7,8 +7,8 @@
 turnoverOpt(
   returns,
   mu.target = NULL,
-  wts.initial,
-  toc,
+  wts.initial = NULL,
+  toc = NULL,
   long.only = TRUE,
   printD = F,
   printA = F,

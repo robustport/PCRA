@@ -25,17 +25,20 @@ weights}
 
 \item{rf}{A risk-free rate}
 
-\item{plot.efront}{Logical variable which if TRUE results in a plot of
-the linear efficient frontier and the stock positions}
+\item{plot.efront}{Logical variable which if TRUE results in a plot of}
 
-\item{stock.names}{Logical variable which if TRUE results in stock names 
-being displayed}
+\item{stock.names}{Logical variable which if TRUE results in stock names being displayed}
+
+\item{values}{Logical whether to return values in output}
 
 \item{scalex}{A scale parameter for scaling the horizontal axis}
 
 \item{scaley}{A scale parameter for scaling the vertical axis}
 
-\item{digits}{Number of digits for printing efront weights}
+\item{cexPoints}{A size parameter for points}
+
+\item{cexText}{A size parameter for text
+the linear efficient frontier and the stock positions}
 }
 \value{
 A plot of the linear efficient frontier or the weights along the

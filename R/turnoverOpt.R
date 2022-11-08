@@ -15,8 +15,15 @@
 #'
 #' @examples
 #' args(turnoverOpt)
-turnoverOpt <- function(returns,mu.target = NULL,wts.initial,toc,
+turnoverOpt <- function(returns,mu.target = NULL,wts.initial=NULL,toc=NULL,
                 long.only = TRUE,printD = F,printA = F,printout = T){
+  
+  
+  if(is.null(wts.initial))
+    stop("missing values for wts.initial")
+  if(is.null(toc))
+    stop("missing values for toc")  
+  
   nassets <- ncol(returns)
   nobs = nrow(returns)
   returns0 = matrix(rep(0,nassets*nobs),ncol = nassets)
