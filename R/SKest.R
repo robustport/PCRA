@@ -15,6 +15,5 @@ SKest =  function(x)
   n = length(x)
   k = 1/n
   SK <- k*sum(((x-mean(x))/(sd(x)*sqrt((n-1)/n)))^3)
-  names(SK) <- "Skewness"
-  SK
+  return(SK)
 }

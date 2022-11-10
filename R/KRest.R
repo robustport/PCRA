@@ -19,9 +19,6 @@ KRest =  function(x,excess = TRUE)
   KR <- k*sum(((x-mean(x))/(sd(x)*sqrt((n-1)/n)))^4)
   if(excess){
     KR <- KR - 3} else
-      KR
-  if(excess){
-    names(KR) <- "Excess Kurtosis"} else
-      names(KR) <- "Kurtosis"
+    KR
   return(KR)
 }
