@@ -2,7 +2,7 @@
 % Please edit documentation in R/divHHI.R
 \name{divHHI}
 \alias{divHHI}
-\title{divHHI is the function to calculate the diversification index for a set of portfolio weights. DIV is one minus the HHI index.}
+\title{divHHI calculates a portfolio diversification index DIV}
 \usage{
 divHHI(weights)
 }
@@ -13,7 +13,12 @@ divHHI(weights)
 Time series of portfolio diversification values
 }
 \description{
-divHHI is the function to calculate the diversification index for a set of portfolio weights. DIV is one minus the HHI index.
+DIV is one minus the Herfindahl-Hirschman Index (HHI)index, which is defined
+to be the sum of the squared portfolio weights.
+}
+\details{
+The maximum HHI of a long-only portfolio is 1, which occurs when all of the
+portfolio's investment is in a single asset, and correspondingly HHI = 0.
 }
 \examples{
 args(divHHI)

@@ -15,7 +15,7 @@ barplotWts(
 )
 }
 \arguments{
-\item{wts.efront}{Weights along the efficient frontiers}
+\item{wts.efront}{Matrix of weights along the efficient frontier}
 
 \item{legend.text}{Vector of text for the legend}
 

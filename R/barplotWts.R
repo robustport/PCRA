@@ -3,7 +3,7 @@
 #' Uses the R barplot() function to make a barplot of efficient frontier weights
 #' See the manual page for barplot()
 #'
-#' @param wts.efront  Weights along the efficient frontiers
+#' @param wts.efront  Matrix of weights along the efficient frontier
 #' @param legend.text  Vector of text for the legend 
 #' @param col  Vector of colors for the bars
 #' @param ylab  A label for the y axis
