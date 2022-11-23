@@ -15,4 +15,7 @@
 #' @importFrom quadprog solve.QP
 #' @importFrom RobStatTM locScaleM lmrobdet.control lmrobdetMM
 #' @importFrom robustbase scaleTau2
+#' @importFrom R.cache loadCache saveCache
+#' @importFrom utils download.file
+
 "_PACKAGE"

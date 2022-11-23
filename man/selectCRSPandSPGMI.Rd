@@ -7,8 +7,8 @@
 selectCRSPandSPGMI(
   periodicity = "monthly",
   dateRange = c("1993-01-31", "2015-12-31"),
-  stockItems = c("Date", "TickerLast", "CapGroupLast", "Sector", "Return",
-    "Ret13WkBill", "MktIndexCRSP"),
+  stockItems = c("Date", "TickerLast", "CapGroupLast", "Sector", "Return", "Ret13WkBill",
+    "MktIndexCRSP"),
   factorItems = c("BP", "LogMktCap", "SEV"),
   sectorList = NULL,
   capGroupList = NULL,

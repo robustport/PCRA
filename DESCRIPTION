@@ -25,9 +25,10 @@ Imports:
 	data.table,
 	quadprog,
 	RobStatTM,
-	robustbase
+	robustbase,
+	R.cache
 Suggests:
 	testthat, MASS, shiny, Rglpk
 LazyLoad: yes
 LazyData: yes
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
