@@ -9,12 +9,10 @@
 #' @return levg   a univariate xts time series of portfolio leverages
 #'  
 #' @rdname levgLongShort
-#' @author Doug Martin, \email{martinrd3d@gmail.com}
+#' @author Doug Martin
 #'
 #' @examples
-#' data(wtsGmvLS)
-#' w <- levgLongShort(wtsGmvLS)
-#' head(round(w,3))
+#' args(levgLongShort)
 #' 
 #' @export
 levgLongShort <- function(w)

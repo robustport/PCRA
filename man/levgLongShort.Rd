@@ -18,11 +18,9 @@ the sum of the absolute portfolio weights divided by the sum of the long
 position weights
 }
 \examples{
-data(wtsGmvLS)
-w <- levgLongShort(wtsGmvLS)
-head(round(w,3))
+args(levgLongShort)
 
 }
 \author{
-Doug Martin, \email{martinrd3d@gmail.com}
+Doug Martin
 }
