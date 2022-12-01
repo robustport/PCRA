@@ -38,7 +38,7 @@ mathWtsEfrontRiskyMuCov <- function (muRet, volRet, corrRet, mu.efront,
   g2 <- as.matrix((cc * z2 - a * z1)/d, ncol = 1)
   n <- length(mu.efront)
   a1 <- matrix(rep(g1, n), ncol = n)
-  a2 <- g2 %*% mu.efront
+  a2 <- g2 %*% t(mu.efront)
   wts.efront <- a1 + a2
   wts.efront <- as.data.frame(wts.efront)
   vol.efront <- (1/cc + (cc/d) * (mu.efront - a/cc)^2)^0.5
