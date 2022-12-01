@@ -27,7 +27,6 @@ mathWtsEfrontRiskyMuCov <- function (muRet, volRet, corrRet, mu.efront,
   mu <- muRet
   V <- covRet
   n.assets <- length(mu)
-  print(n.assets)
   one <- rep(1, n.assets)
   z1 <- solve(V, one)
   a <- as.numeric(t(mu) %*% z1)
@@ -51,8 +50,7 @@ mathWtsEfrontRiskyMuCov <- function (muRet, volRet, corrRet, mu.efront,
     out
   }
   else {
-    out <- sapply(out, FUN = round, digits = digits)
-    row.names(out) = rowNames
-    data.frame(out)
+    out <- round(out, digits)
+    out
   }
 }
