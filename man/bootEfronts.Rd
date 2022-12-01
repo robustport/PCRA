@@ -22,34 +22,33 @@ bootEfronts(
 )
 }
 \arguments{
-\item{returns}{A multivarite xts returns data set}
+\item{returns}{A multivarite xts returns object}
 
-\item{pspec}{Portfoliol analytics portfolio specification object}
+\item{pspec}{PortfolioAnalytics portfolio specification object}
 
-\item{rf}{Risk-free rate as a decimal, default is 0.003}
+\item{rf}{Risk-free rate as a decimal, default 0.003}
 
-\item{npoints}{Number of points on efficient frontier, default = 10}
+\item{npoints}{Number of points on efficient frontier, default 10}
 
-\item{B}{Number of bootstrap samples, default = 3}
+\item{B}{Number of bootstrap samples, default 3}
 
-\item{Seed}{Seed of bootstrap random number generator, default = NULL}
+\item{Seed}{Seed of bootstrap random number generator, default NULL}
 
-\item{gmv}{Logical variable with default is gmv = TRUE}
+\item{gmv}{Logical variable, default TRUE}
 
-\item{maxSR}{Logical variable with default maxSR = FALSE
-gmv = TRUE}
+\item{maxSR}{Logical variable, default FALSE}
 
-\item{xlim}{Numeric x axis plot limits, default = NULL}
+\item{xlim}{Numeric x axis plot limits, default NULL}
 
-\item{ylim}{Numeric y axis plot limits, default = NULL}
+\item{ylim}{Numeric y axis plot limits, default NULL}
 
 \item{k.sigma}{Numeric value}
 
 \item{k.mu}{Numeric value}
 
-\item{digits}{Number of significant digits for numeric values displayed}
+\item{digits}{Number of significant digits for numeric values}
 
-\item{figTitle}{Optional figure title with default figTitle = NULL}
+\item{figTitle}{Optional figure title, default NULL}
 }
 \value{
 Bootstrapped efficient frontiers plot
@@ -62,8 +61,8 @@ optional points for GMV portfolios and tangency portfolios.
 k.sigma controls horizontal axis plotting range if xlim = NULL, and
 k.mu controls vertical axis plotting range if ylim = NULL. Adjust k.mu and
 k.sigma to eliminate plot "Line out of bounds" Warnings.
-gmv = TRUE to display bullet at global minimum var. portfolio
-maxSR = TRUE to display bullet at tangency portfolio
+gmv = TRUE to display a bullet at global minimum variance portfolio
+maxSR = TRUE to display a bullet at tangency portfolio
 }
 \examples{
 args(bootEfronts)

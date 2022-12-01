@@ -3,27 +3,26 @@
 #' @description Computes and plots bootstrapped portfolio efficient frontiers, with 
 #' optional points for GMV portfolios and tangency portfolios.
 #' 
-#' @param returns A multivarite xts returns data set
-#' @param pspec Portfoliol analytics portfolio specification object
-#' @param rf Risk-free rate as a decimal, default is 0.003
-#' @param npoints Number of points on efficient frontier, default = 10
-#' @param B Number of bootstrap samples, default = 3 
-#' @param Seed Seed of bootstrap random number generator, default = NULL 
-#' @param gmv Logical variable with default is gmv = TRUE
-#' @param maxSR Logical variable with default maxSR = FALSE
-#' gmv = TRUE 
-#' @param xlim Numeric x axis plot limits, default = NULL
-#' @param ylim Numeric y axis plot limits, default = NULL
+#' @param returns A multivarite xts returns object
+#' @param pspec PortfolioAnalytics portfolio specification object
+#' @param rf Risk-free rate as a decimal, default 0.003
+#' @param npoints Number of points on efficient frontier, default 10
+#' @param B Number of bootstrap samples, default 3 
+#' @param Seed Seed of bootstrap random number generator, default NULL 
+#' @param gmv Logical variable, default TRUE
+#' @param maxSR Logical variable, default FALSE
+#' @param xlim Numeric x axis plot limits, default NULL
+#' @param ylim Numeric y axis plot limits, default NULL
 #' @param k.sigma Numeric value
 #' @param k.mu Numeric value
-#' @param digits Number of significant digits for numeric values displayed 
-#' @param figTitle Optional figure title with default figTitle = NULL
+#' @param digits Number of significant digits for numeric values 
+#' @param figTitle Optional figure title, default NULL
 #' 
 #' @details k.sigma controls horizontal axis plotting range if xlim = NULL, and
 #' k.mu controls vertical axis plotting range if ylim = NULL. Adjust k.mu and
 #' k.sigma to eliminate plot "Line out of bounds" Warnings.
-#' gmv = TRUE to display bullet at global minimum var. portfolio
-#' maxSR = TRUE to display bullet at tangency portfolio 
+#' gmv = TRUE to display a bullet at global minimum variance portfolio
+#' maxSR = TRUE to display a bullet at tangency portfolio 
 #'
 #' @return Bootstrapped efficient frontiers plot
 #' @export
