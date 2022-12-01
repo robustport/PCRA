@@ -34,11 +34,11 @@ mathWtsEfrontRiskyMuCov <- function (muRet, volRet, corrRet, mu.efront,
   z2 <- solve(V, mu)
   b <- as.numeric(t(mu) %*% z2)
   d <- b * cc - a^2
-  g1 <- as.matrix((b * z1 - a * z2)/d, ncol = 1)
-  g2 <- as.matrix((cc * z2 - a * z1)/d, ncol = 1)
+  g1 <- matrix((b * z1 - a * z2)/d, ncol = 1)
+  g2 <- matrix((cc * z2 - a * z1)/d, ncol = 1)
   n <- length(mu.efront)
   a1 <- matrix(rep(g1, n), ncol = n)
-  mu.efrontMat <- as.matrix(mu.efront, ncol = 1)
+  mu.efrontMat <- matrix(mu.efront, nrow = 1)
   a2 <- g2 %*% mu.efrontMat
   wts.efront <- a1 + a2
   wts.efront <- as.data.frame(wts.efront)
