@@ -2,7 +2,7 @@
 % Please edit documentation in R/mathEfrontRiskyMuCov.R
 \name{mathEfrontRiskyMuCov}
 \alias{mathEfrontRiskyMuCov}
-\title{Efficient Frontier}
+\title{Efficient Frontier for Mu and Cov}
 \usage{
 mathEfrontRiskyMuCov(
   muRet,
@@ -16,28 +16,31 @@ mathEfrontRiskyMuCov(
 )
 }
 \arguments{
-\item{muRet}{}
+\item{muRet}{Numeric vector as asset returns}
 
-\item{volRet}{}
+\item{volRet}{Numeric vector of asset volatilities}
 
-\item{corrRet}{}
+\item{corrRet}{Correlation matrix of asset returns}
 
-\item{npoints}{}
+\item{npoints}{Number of points on efficient frontier, default 100}
 
-\item{display}{}
+\item{display}{Logical variable, default TRUE}
 
-\item{efront.only}{}
+\item{efront.only}{Logical variable, default TRUE}
 
-\item{print}{}
+\item{print}{Logical variable, default FALSE}
 
 \item{digits}{}
 }
 \value{
-Values of efficient frontier and optional plot
+Plot of efficient frontier
 }
 \description{
-Efficient Frontier based on user specified mean vector and
-covariance matrix
+Computes a frontier or efficient frontier based on user
+specified mean vector and covariance matrix.  Default is to compute the
+efficient frontier and plot it.  Optionally the mean and volatility values
+of the frontier or efficient frontier is returned at user specified number
+of significant digits.
 }
 \examples{
 args(mathEfrontRiskyMuCov)
