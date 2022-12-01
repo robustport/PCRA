@@ -2,17 +2,17 @@
 % Please edit documentation in R/bootEfronts.R
 \name{bootEfronts}
 \alias{bootEfronts}
-\title{bootEfronts}
+\title{Bootstrapped Efficient Frontiers}
 \usage{
 bootEfronts(
   returns,
   pspec,
-  rf = 0.03,
+  rf = 0.003,
   npoints = 20,
   B = 3,
   Seed = NULL,
-  gmv = T,
-  maxSR = F,
+  gmv = TRUE,
+  maxSR = FALSE,
   xlim = NULL,
   ylim = NULL,
   k.sigma = 2,
@@ -22,39 +22,48 @@ bootEfronts(
 )
 }
 \arguments{
-\item{returns}{}
+\item{returns}{A multivarite xts returns data set}
 
-\item{pspec}{}
+\item{pspec}{Portfoliol analytics portfolio specification object}
 
-\item{rf}{}
+\item{rf}{Risk-free rate as a decimal, default is 0.003}
 
-\item{npoints}{}
+\item{npoints}{Number of points on efficient frontier, default = 10}
 
-\item{B}{}
+\item{B}{Number of bootstrap samples, default = 3}
 
-\item{Seed}{}
+\item{Seed}{Seed of bootstrap random number generator, default = NULL}
 
-\item{gmv}{}
+\item{gmv}{Logical variable with default is gmv = TRUE}
 
-\item{maxSR}{}
+\item{maxSR}{Logical variable with default maxSR = FALSE
+gmv = TRUE}
 
-\item{xlim}{}
+\item{xlim}{Numeric x axis plot limits, default = NULL}
 
-\item{ylim}{}
+\item{ylim}{Numeric y axis plot limits, default = NULL}
 
-\item{k.sigma}{}
+\item{k.sigma}{Numeric value}
 
-\item{k.mu}{}
+\item{k.mu}{Numeric value}
 
-\item{digits}{}
+\item{digits}{Number of significant digits for numeric values displayed}
 
-\item{figTitle}{}
+\item{figTitle}{Optional figure title with default figTitle = NULL}
 }
 \value{
 Bootstrapped efficient frontiers plot
 }
 \description{
-bootEfronts
+Computes and plots bootstrapped portfolio efficient frontiers, with 
+optional points for GMV portfolios and tangency portfolios.
+}
+\details{
+k.sigma controls horizontal axis plotting range if xlim = NULL, and
+k.mu controls vertical axis plotting range if ylim = NULL. Adjust k.mu and
+k.sigma to eliminate plot "Line out of bounds" Warnings.
+gmv = TRUE to display bullet at global minimum var. portfolio
+maxSR = TRUE to display bullet at tangency portfolio
 }
 \examples{
 args(bootEfronts)
