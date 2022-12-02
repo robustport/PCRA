@@ -2,7 +2,7 @@
 % Please edit documentation in R/mathWtsEfrontRisky.R
 \name{mathWtsEfrontRisky}
 \alias{mathWtsEfrontRisky}
-\title{Efficient Frontier Portfolio Weights}
+\title{Efficient Frontier Portfolio Weights Vectors}
 \usage{
 mathWtsEfrontRisky(returns, mu.efront, digits = NULL)
 }
@@ -11,7 +11,7 @@ mathWtsEfrontRisky(returns, mu.efront, digits = NULL)
 
 \item{mu.efront}{A vector of specified efficient frontier mean returns}
 
-\item{digits}{Integer number of significant digits for output}
+\item{digits}{Integer number of significant digits with default NULL}
 }
 \value{
 A matrix with first row containing the mean (MU) along the efficient
@@ -19,8 +19,9 @@ frontier, the second row containing the standard deviation, and the
 following n rows contain the n weight vectors along the efficient fronier
 }
 \description{
-Computes weights vector for a set of points along the efficient
-frontier that are defined by their mean return values
+Uses time series of asset returns to compute the weights vectors
+for a set of points along the efficient frontier that are defined by their
+mean return values
 }
 \examples{
 args(mathWtsEfrontRisky)

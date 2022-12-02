@@ -1,11 +1,12 @@
-#' @title Efficient Frontier Portfolio Weights
+#' @title Efficient Frontier Portfolio Weights Vectors
 #' 
-#' @description Computes weights vector for a set of points along the efficient
-#' frontier that are defined by their mean return values
+#' @description Uses time series of asset returns to compute the weights vectors
+#' for a set of points along the efficient frontier that are defined by their
+#' mean return values
 #' 
 #' @param returns A multivariate xts object of n asset returns 
 #' @param mu.efront A vector of specified efficient frontier mean returns
-#' @param digits Integer number of significant digits for output
+#' @param digits Integer number of significant digits with default NULL
 #'
 #' @return
 #' A matrix with first row containing the mean (MU) along the efficient

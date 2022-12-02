@@ -1,15 +1,14 @@
-#' Portfolio Weights on an Efficient Frontier
+#' @title Efficient Frontier Portfolio Weights Vectors
 #' 
-#' Same as function \code{"mathWtsEfrontRisky"} except that instead a user specified
-#' time series of portfolio return, it is based on user specified returns 
-#' mean vector and covariance matrix
+#' @description Same as function \code{"mathWtsEfrontRisky"} except that
+#' instead a user specified time series of portfolio asset returns, it is
+#' based on user specified returns mean vector and covariance matrix
 #'
 #' @param muRet Vector of asset mean returns
-#' @param volRet Vector of asset volatilies
+#' @param volRet Vector of asset volatilities
 #' @param corrRet Asset correlation matrix
 #' @param mu.efront A vector of specified efficient frontier mean returns
-#' @param digits If null no rounding of weights, else number of significant
-#' digits for rounding
+#' @param digits Integer number of significant digits with default NULL
 #'
 #' @return
 #' A matrix whose first row contains the volatilities along the efficient

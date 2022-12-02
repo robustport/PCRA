@@ -2,21 +2,20 @@
 % Please edit documentation in R/mathWtsEfrontRiskyMuCov.R
 \name{mathWtsEfrontRiskyMuCov}
 \alias{mathWtsEfrontRiskyMuCov}
-\title{Portfolio Weights on an Efficient Frontier}
+\title{Efficient Frontier Portfolio Weights Vectors}
 \usage{
 mathWtsEfrontRiskyMuCov(muRet, volRet, corrRet, mu.efront, digits = NULL)
 }
 \arguments{
 \item{muRet}{Vector of asset mean returns}
 
-\item{volRet}{Vector of asset volatilies}
+\item{volRet}{Vector of asset volatilities}
 
 \item{corrRet}{Asset correlation matrix}
 
 \item{mu.efront}{A vector of specified efficient frontier mean returns}
 
-\item{digits}{If null no rounding of weights, else number of significant
-digits for rounding}
+\item{digits}{Integer number of significant digits with default NULL}
 }
 \value{
 A matrix whose first row contains the volatilities along the efficient
@@ -25,9 +24,9 @@ n rows contain contain the n weight vectors at each of the efficient
 frontier mean return values
 }
 \description{
-Same as function \code{"mathWtsEfrontRisky"} except that instead a user specified
-time series of portfolio return, it is based on user specified returns 
-mean vector and covariance matrix
+Same as function \code{"mathWtsEfrontRisky"} except that
+instead a user specified time series of portfolio asset returns, it is
+based on user specified returns mean vector and covariance matrix
 }
 \examples{
 args(mathWtsEfrontRiskyMuCov)
