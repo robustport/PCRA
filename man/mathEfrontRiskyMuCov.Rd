@@ -2,7 +2,7 @@
 % Please edit documentation in R/mathEfrontRiskyMuCov.R
 \name{mathEfrontRiskyMuCov}
 \alias{mathEfrontRiskyMuCov}
-\title{Efficient Frontier for Mu and Cov}
+\title{Efficient Frontier}
 \usage{
 mathEfrontRiskyMuCov(
   muRet,

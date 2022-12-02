@@ -1,4 +1,4 @@
-#' @title Efficient Frontier for Mu and Cov
+#' @title Efficient Frontier
 #' 
 #' @description Computes a frontier or efficient frontier based on user
 #' specified mean vector and covariance matrix.  Default is to compute the
@@ -65,10 +65,10 @@ mathEfrontRiskyMuCov <- function(muRet, volRet, corrRet, npoints = 100,
   }
   if (is.null(digits)) {
     out <- list(mu.efront = mu.efront, vol.efront = sigma)
+    out
   } else {
-    vol.efront <- sigma
-    out <- rbind(mu.efront, vol.efront)
-    out <- round(out, digits = digits)
+    out <- list(mu.efront = round(mu.efront, digits), 
+                vol.efront = round(sigma, digits))
+    out
   }
-  if(print) return(out)
 }
