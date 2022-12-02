@@ -11,26 +11,31 @@ mathEfrontRiskyMuCov(
   npoints = 100,
   display = T,
   efront.only = T,
-  print = F,
+  values = F,
   digits = NULL
 )
 }
 \arguments{
-\item{muRet}{Numeric vector as asset returns}
+\item{muRet}{Numeric vector of asset mean returns}
 
-\item{volRet}{Numeric vector of asset volatilities}
+\item{volRet}{Numeric vector of asset standard deviations/volatilities}
 
 \item{corrRet}{Correlation matrix of asset returns}
 
-\item{npoints}{Number of points on efficient frontier, default 100}
+\item{npoints}{Integer number of points on efficient frontier, default 100}
 
 \item{display}{Logical variable, default TRUE}
 
 \item{efront.only}{Logical variable, default TRUE}
 
-\item{print}{Logical variable, default FALSE}
+\item{values}{Logical variable, default = FALSE}
 
-\item{digits}{}
+\item{digits}{Integer number of significant 
+
+#' @details When efront.only = TRUE only the efficient frontier is computed,
+and if FALSE the entire frontier is computed.  When value = TRUE the
+efficient frontier mean and volatility values are returned, and when
+value = FALSE these values are not returned.}
 }
 \value{
 Plot of efficient frontier
@@ -39,7 +44,7 @@ Plot of efficient frontier
 Computes a frontier or efficient frontier based on user
 specified mean vector and covariance matrix.  Default is to compute the
 efficient frontier and plot it.  Optionally the mean and volatility values
-of the frontier or efficient frontier is returned at user specified number
+of the frontier or efficient frontier is returned at a user specified number
 of significant digits.
 }
 \examples{

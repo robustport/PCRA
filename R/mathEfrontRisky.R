@@ -10,9 +10,9 @@
 #' @param display If TRUE the efficient frontier is plotted
 #' @param values Logical variable with default TRUE
 #' @param digits Integer variable number of significant digits, default NULL
-#' @param cexGmv A size parameter of text for GMV
+#' @param cexGmv A size parameter for the text "GMV"
 #' @param pchPoints A parameter of the type of points
-#' @param cexPoints A size parameter of point
+#' @param cexPoints A size parameter of points
 #' @param cexText A size parameter of text
 #' 
 #' @details When efront.only = TRUE only the efficient frontier is computed,

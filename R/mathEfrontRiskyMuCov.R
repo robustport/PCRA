@@ -3,17 +3,22 @@
 #' @description Computes a frontier or efficient frontier based on user
 #' specified mean vector and covariance matrix.  Default is to compute the
 #' efficient frontier and plot it.  Optionally the mean and volatility values
-#' of the frontier or efficient frontier is returned at user specified number
+#' of the frontier or efficient frontier is returned at a user specified number
 #' of significant digits.
 #'
-#' @param muRet Numeric vector as asset returns
-#' @param volRet Numeric vector of asset volatilities
+#' @param muRet Numeric vector of asset mean returns
+#' @param volRet Numeric vector of asset standard deviations/volatilities
 #' @param corrRet Correlation matrix of asset returns
-#' @param npoints Number of points on efficient frontier, default 100
+#' @param npoints Integer number of points on efficient frontier, default 100
 #' @param display Logical variable, default TRUE
 #' @param efront.only Logical variable, default TRUE
-#' @param print Logical variable, default FALSE
-#' @param digits 
+#' @param values Logical variable, default = FALSE
+#' @param digits Integer number of significant 
+#' 
+#' #' @details When efront.only = TRUE only the efficient frontier is computed,
+#' and if FALSE the entire frontier is computed.  When value = TRUE the
+#' efficient frontier mean and volatility values are returned, and when
+#' value = FALSE these values are not returned.
 #'
 #' @return Plot of efficient frontier
 #' @export
@@ -21,7 +26,7 @@
 #' @examples
 #' args(mathEfrontRiskyMuCov)
 mathEfrontRiskyMuCov <- function(muRet, volRet, corrRet, npoints = 100,
-                display = T, efront.only = T, print = F,  digits = NULL) 
+                display = T, efront.only = T, values = F, digits = NULL) 
 {
   covRet <- diag(volRet)%*%corrRet%*%diag(volRet)
   names(muRet) <- c("Stock 1", "Stock 2", "Stock 3")
@@ -63,12 +68,11 @@ mathEfrontRiskyMuCov <- function(muRet, volRet, corrRet, npoints = 100,
     text(0.07, 0.095, "EFFICIENT FRONTIER", cex = 1.2)
     arrows(0.07, 0.09, sigma[15], mu.efront[15], length = 0.1, lwd= 1.5)
   }
-  if (is.null(digits)) {
-    out <- list(mu.efront = mu.efront, vol.efront = sigma)
-    out
-  } else {
-    out <- list(mu.efront = round(mu.efront, digits), 
-                vol.efront = round(sigma, digits))
+  if(values == TRUE) {
+    if(is.null(digits))
+    {out <- list(mu.efront = mu.efront, vol.efront = sigma)} else
+    {vol.efront <- sigma; out = rbind(mu.efront, vol.efront)
+    out <- round(out, digits = digits)}
     out
   }
 }

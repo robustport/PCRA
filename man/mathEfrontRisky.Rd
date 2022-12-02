@@ -26,11 +26,11 @@ mathEfrontRisky(
 
 \item{display}{If TRUE the efficient frontier is plotted}
 
-\item{cexGmv}{A size parameter of text for GMV}
+\item{cexGmv}{A size parameter for the text "GMV"}
 
 \item{pchPoints}{A parameter of the type of points}
 
-\item{cexPoints}{A size parameter of point}
+\item{cexPoints}{A size parameter of points}
 
 \item{cexText}{A size parameter of text}
 
