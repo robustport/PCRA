@@ -17,8 +17,10 @@ mathTport(returns, rf = 0.005, digits = NULL)
 Tangency portfoliow weights, mean and volatility
 }
 \description{
-Computes the portfolio weights of the tangency portfolio
-defined by the line through the risk-free rate and the efficient frontier
+Computes the portfolio weights of the tangency portfolio, and
+its mean return and volatility.  The tangency portfolio is defined by the
+line connecting the zero volatility risk-free rate to its tangency point on
+the efficient frontier.
 }
 \examples{
 args(mathTport)

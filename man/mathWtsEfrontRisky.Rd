@@ -2,26 +2,25 @@
 % Please edit documentation in R/mathWtsEfrontRisky.R
 \name{mathWtsEfrontRisky}
 \alias{mathWtsEfrontRisky}
-\title{Portfolio Weights on an Efficient Frontier}
+\title{Efficient Frontier Portfolio Weights}
 \usage{
 mathWtsEfrontRisky(returns, mu.efront, digits = NULL)
 }
 \arguments{
-\item{returns}{A multivariate xts object of arithmetic asset returns}
+\item{returns}{A multivariate xts object of n asset returns}
 
 \item{mu.efront}{A vector of specified efficient frontier mean returns}
 
-\item{digits}{If null no rounding of weights, else number of significant
-digits for rounding}
+\item{digits}{Integer number of significant digits for output}
 }
 \value{
-A matrix with first containing the mean (MU) along the efficient frontier
-and the second row containing the standard deviation (VOL), and the following
-n rows contain the n weight vectors along the efficient
+A matrix with first row containing the mean (MU) along the efficient
+frontier, the second row containing the standard deviation, and the 
+following n rows contain the n weight vectors along the efficient fronier
 }
 \description{
-Computes weights vector along an efficient frontier, obtained from a time
-series of portfolio returns at specified portfolio mean return values
+Computes weights vector for a set of points along the efficient
+frontier that are defined by their mean return values
 }
 \examples{
 args(mathWtsEfrontRisky)
