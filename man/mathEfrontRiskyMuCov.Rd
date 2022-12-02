@@ -30,12 +30,7 @@ mathEfrontRiskyMuCov(
 
 \item{values}{Logical variable, default = FALSE}
 
-\item{digits}{Integer number of significant 
-
-#' @details When efront.only = TRUE only the efficient frontier is computed,
-and if FALSE the entire frontier is computed.  When value = TRUE the
-efficient frontier mean and volatility values are returned, and when
-value = FALSE these values are not returned.}
+\item{digits}{Integer number of significant}
 }
 \value{
 Plot of efficient frontier
@@ -46,6 +41,12 @@ specified mean vector and covariance matrix.  Default is to compute the
 efficient frontier and plot it.  Optionally the mean and volatility values
 of the frontier or efficient frontier is returned at a user specified number
 of significant digits.
+}
+\details{
+When efront.only = TRUE only the efficient frontier is computed,
+and if FALSE the entire frontier is computed.  When value = TRUE the
+efficient frontier mean and volatility values are returned, and when
+value = FALSE these values are not returned.
 }
 \examples{
 args(mathEfrontRiskyMuCov)

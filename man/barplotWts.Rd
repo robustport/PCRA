@@ -2,7 +2,7 @@
 % Please edit documentation in R/barplotWts.R
 \name{barplotWts}
 \alias{barplotWts}
-\title{Barplot Weights}
+\title{A Barplot of a Set of Portfolio Weights}
 \usage{
 barplotWts(
   wts.efront,
@@ -33,8 +33,8 @@ barplotWts(
 A barplot of efficient frontier weights
 }
 \description{
-Uses the R barplot() function to make a barplot of efficient frontier weights
-See the manual page for barplot()
+Uses the R barplot function to make a barplot of efficient 
+frontier weights. See the manual page for barplot()
 }
 \examples{
 args(barplotWts)

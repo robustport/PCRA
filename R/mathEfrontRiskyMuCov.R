@@ -15,7 +15,7 @@
 #' @param values Logical variable, default = FALSE
 #' @param digits Integer number of significant 
 #' 
-#' #' @details When efront.only = TRUE only the efficient frontier is computed,
+#' @details When efront.only = TRUE only the efficient frontier is computed,
 #' and if FALSE the entire frontier is computed.  When value = TRUE the
 #' efficient frontier mean and volatility values are returned, and when
 #' value = FALSE these values are not returned.

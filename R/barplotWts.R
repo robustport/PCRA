@@ -1,7 +1,7 @@
-#' Barplot Weights
+#' @title A Barplot of a Set of Portfolio Weights
 #' 
-#' Uses the R barplot() function to make a barplot of efficient frontier weights
-#' See the manual page for barplot()
+#' @description Uses the R barplot function to make a barplot of efficient 
+#' frontier weights. See the manual page for barplot()
 #'
 #' @param wts.efront  Matrix of weights along the efficient frontier
 #' @param legend.text  Vector of text for the legend 

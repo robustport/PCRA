@@ -2,20 +2,22 @@
 % Please edit documentation in R/mathGmv.R
 \name{mathGmv}
 \alias{mathGmv}
-\title{Global Minimum Variance (GMV) Portfolio}
+\title{Global Minimum Variance Portfolio (GMV)}
 \usage{
 mathGmv(returns, digits = NULL)
 }
 \arguments{
-\item{returns}{matrix of asset returns}
+\item{returns}{Matrix of asset returns}
 
-\item{digits}{integer indicating the number of decimal places}
+\item{digits}{Integer value of number of significant digits, default NULL}
+}
+\value{
+List of GMV portfolio weights, mean return and volatility
 }
 \description{
-Compute the weights, mean return and volatility of a GMV portfolio.
+Computes the weights of a GMV portfolio, and its mean return
+and volatility
 }
 \examples{
-data(midcap.ts)
-returns = midcap.ts[, 1:10]
-mathGmv(returns)
+args(mathGmv)
 }
