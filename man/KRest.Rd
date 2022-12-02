@@ -2,22 +2,22 @@
 % Please edit documentation in R/KRest.R
 \name{KRest}
 \alias{KRest}
-\title{KRest}
+\title{Kurtosis Estimator}
 \usage{
 KRest(x, excess = TRUE)
 }
 \arguments{
 \item{x}{A numeric vector}
 
-\item{excess}{A logical variable with TRUE resulting in computation
-of excess kurtosis, and FALSE resulting in ordinary kurtosis}
+\item{excess}{A logical variable with default TRUE, which results in the
+computation of excess kurtosis, and FALSE results ordinary kurtosis.}
 }
 \value{
 The value of excess kurtosis or ordinary kurtosis
 }
 \description{
-Sample estimate of excess kurtosis, with option for kurtosis
-This function will eventually have a robust estimation option
+Sample estimate of excess kurtosis, with option for ordinary
+kurtosis. This function will eventually have a robust estimation option.
 }
 \examples{
 args(KRest)

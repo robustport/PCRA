@@ -2,13 +2,13 @@
 % Please edit documentation in R/mathEfront.R
 \name{mathEfront}
 \alias{mathEfront}
-\title{mathEfront}
+\title{Efficient Frontier from Returns}
 \usage{
 mathEfront(
   returns,
   mu.max = NULL,
   sigma.max = NULL,
-  rf = 0.005,
+  rf = 0.003,
   rf.line = T,
   stocks = T,
   stock.names = T,
@@ -18,32 +18,32 @@ mathEfront(
 )
 }
 \arguments{
-\item{returns}{}
+\item{returns}{Multivariate xts object of portfolio returns}
 
-\item{mu.max}{}
+\item{mu.max}{Numeric value, default NULL}
 
-\item{sigma.max}{}
+\item{sigma.max}{Numeric value, default NULL}
 
-\item{rf}{}
+\item{rf}{Numeric value with default 0.003}
 
-\item{rf.line}{}
+\item{rf.line}{Logical variable with default TRUE}
 
-\item{stocks}{}
+\item{stocks}{Logical variable with default TRUE}
 
-\item{stock.names}{}
+\item{stock.names}{Logical variable with default TRUE}
 
-\item{values}{}
+\item{values}{Logical variable with default TRUE}
 
-\item{npoints}{}
+\item{npoints}{Integer number of efficient frontier points wotj default 100}
 
-\item{digits}{}
+\item{digits}{Integer variable with default NULL}
 }
 \value{
-Efficient frontier values using returns to compute mean vector
-and covariance matrix
+Efficient frontiers with cash and risky assets, and risky assets only
 }
 \description{
-mathEfront
+Computes and plots the efficient frontier using a multivariate
+time series of returns to compute the mean vector and covariance matrix
 }
 \examples{
 args(mathEfront)

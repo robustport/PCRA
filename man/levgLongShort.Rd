@@ -13,9 +13,9 @@ levgLongShort(w)
 levg   a univariate xts time series of portfolio leverages
 }
 \description{
-This function computes a time series of portfolio leverages, defined  as
-the sum of the absolute portfolio weights divided by the sum of the long
-position weights
+This function computes a time series of portfolio leverages,
+defined  as the sum of the absolute portfolio weights divided by the sum of
+the long position weights
 }
 \examples{
 args(levgLongShort)
