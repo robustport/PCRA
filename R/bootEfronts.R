@@ -1,7 +1,7 @@
 #' @title Bootstrapped Efficient Frontiers
 #'
-#' @description Computes and plots bootstrapped portfolio efficient frontiers, with 
-#' optional points for GMV portfolios and tangency portfolios.
+#' @description Computes and plots bootstrapped portfolio efficient frontiers, 
+#' with optional bullet points for GMV portfolios and tangency portfolios.
 #' 
 #' @param returns A multivarite xts returns object
 #' @param pspec PortfolioAnalytics portfolio specification object
@@ -29,7 +29,7 @@
 #'
 #' @examples
 #' args(bootEfronts)
-bootEfronts <- function(returns,pspec, rf = 0.003, npoints = 20, B = 3, 
+bootEfronts <- function(returns, pspec, rf = 0.003, npoints = 20, B = 3, 
               Seed = NULL, gmv = TRUE, maxSR = FALSE, xlim  = NULL, ylim = NULL,
               k.sigma = 2, k.mu = 2, digits = 4, figTitle = NULL)
 {

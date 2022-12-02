@@ -54,8 +54,8 @@ bootEfronts(
 Bootstrapped efficient frontiers plot
 }
 \description{
-Computes and plots bootstrapped portfolio efficient frontiers, with 
-optional points for GMV portfolios and tangency portfolios.
+Computes and plots bootstrapped portfolio efficient frontiers, 
+with optional bullet points for GMV portfolios and tangency portfolios.
 }
 \details{
 k.sigma controls horizontal axis plotting range if xlim = NULL, and

@@ -2,7 +2,7 @@
 % Please edit documentation in R/chart.Efront.R
 \name{chart.Efront}
 \alias{chart.Efront}
-\title{chart.Efront}
+\title{Create Efficient Frontier}
 \usage{
 chart.Efront(
   returns,
@@ -10,7 +10,7 @@ chart.Efront(
   firstEfront = T,
   gmv = T,
   maxSR = T,
-  rf = 0,
+  rf = 0.003,
   xlim = NULL,
   ylim = NULL,
   xlab = NULL,
@@ -19,33 +19,41 @@ chart.Efront(
 )
 }
 \arguments{
-\item{returns}{}
+\item{returns}{A multivarite xts returns object}
 
-\item{pspec}{}
+\item{pspec}{PortfolioAnalytics portfolio specification object}
 
-\item{firstEfront}{}
+\item{firstEfront}{Logical variable, default TRUE}
 
-\item{gmv}{}
+\item{gmv}{Logical variable, default TRUE}
 
-\item{maxSR}{}
+\item{maxSR}{Logical variable, default TRUE}
 
-\item{rf}{}
+\item{rf}{Risk-free rate, default 0.003}
 
-\item{xlim}{}
+\item{xlim}{Numeric value, default NULL}
 
-\item{ylim}{}
+\item{ylim}{Numeric value, default NULL}
 
-\item{xlab}{}
+\item{xlab}{Numeric value, default NULL}
 
-\item{ylab}{}
+\item{ylab}{Numeric value, default NULL}
 
-\item{n.portfolios}{}
+\item{n.portfolios}{Number of efficient frontier portfolios, default 10}
 }
 \value{
 Plots of efficient frontiers for use by bootEfronts()
 }
 \description{
-chart.Efront
+Utility function for creating initial efficient frontier, and
+for creating subsequent bootstrap efficient frontiers created, all of which
+are created by the PortfolioAnalytics function create.EfficientFrontier.
+}
+\details{
+The variable firstEfront is set to TRUE for the initial efficient
+frontier plot, but is set to FALSE for the bootstrap replicate efficient
+frontier plots. The choices gmv = TRUE and maxSR = TRUE result in bullet points
+at those locations on the initial efficient frontier plot
 }
 \examples{
 args(chart.Efront)
