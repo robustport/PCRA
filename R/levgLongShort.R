@@ -1,8 +1,8 @@
-#' Long Short Portfolio Leverage
+#' @title Long Short Portfolio Leverage
 #'
-#' This function computes a time series of portfolio leverages, defined  as
-#' the sum of the absolute portfolio weights divided by the sum of the long
-#' position weights
+#' @description This function computes a time series of portfolio leverages,
+#' defined  as the sum of the absolute portfolio weights divided by the sum of
+#' the long position weights
 #'
 #' @param w a multivariate xts portfolio weights object
 #'
@@ -17,7 +17,7 @@
 #' @export
 levgLongShort <- function(w)
 {
-  # Input w must be a multivariate xts object (change code to allow matrix)
+  # Input w must be a multivariate xts object (change code to allow a matrix)
   wMat <- coredata(w)
   n <- dim(wMat)[1]
   levg <- rep(0,n)

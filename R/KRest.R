@@ -1,11 +1,11 @@
-#' KRest
+#' @title Kurtosis Estimator
 #' 
-#' Sample estimate of excess kurtosis, with option for kurtosis
-#' This function will eventually have a robust estimation option
+#' @description Sample estimate of excess kurtosis, with option for ordinary
+#' kurtosis. This function will eventually have a robust estimation option.
 #'
 #' @param x A numeric vector
-#' @param excess A logical variable with TRUE resulting in computation
-#' of excess kurtosis, and FALSE resulting in ordinary kurtosis
+#' @param excess A logical variable with default TRUE, which results in the
+#' computation of excess kurtosis, and FALSE results ordinary kurtosis.
 #'
 #' @return The value of excess kurtosis or ordinary kurtosis
 #'
