@@ -1,6 +1,6 @@
 #' @title Math Efficient Frontier: Cash and Risky Assets
 #' 
-#' @Description This function computes and plots a linear efficient frontier that is
+#' @description This function computes and plots a linear efficient frontier that is
 #' a mix of a risk-free asset ("cash") and risky stocks (or other assets).
 #' It optionally returns the weights along the linear efficient frontier.
 #'

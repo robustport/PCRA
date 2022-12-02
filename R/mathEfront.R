@@ -1,9 +1,9 @@
-#' @title Efficient Frontier from Returns
+#' @title Efficient Frontiers from Returns
 #' 
-#' @description Computes and plots the efficient frontier using a multivariate
-#' time series of returns to compute the mean vector and covariance matrix
+#' @description Computes and plots the efficient frontier with and without 
+#' risk-free asset, using a multivariate time series of returns to compute
+#' the mean vector and covariance matrix
 #' 
-#'
 #' @param returns Multivariate xts object of portfolio returns
 #' @param mu.max Numeric value, default NULL
 #' @param sigma.max Numeric value, default NULL
@@ -12,10 +12,16 @@
 #' @param stocks Logical variable with default TRUE
 #' @param stock.names Logical variable with default TRUE
 #' @param values Logical variable with default TRUE
-#' @param npoints Integer number of efficient frontier points wotj default 100
-#' @param digits Integer variable with default NULL
+#' @param npoints Integer number of efficient frontier points, default 100
+#' @param digits Integer variable number of significant digits, default NULL
+#' 
+#' @details When rf.line = TRUE, the linear efficient frontier is displayed,
+#' and it is not displayed when rf.line = FALSE.
+#' When values = TRUE, the Sharpe ratio and risk-free rate values are displayed
+#' in the plot as SHARPE RATIO and RISK-FREE values.
 #'
-#' @return Efficient frontiers with cash and risky assets, and risky assets only
+#' @return Plot of efficient frontiers with cash and risky assets, and with
+#' risky assets only
 #' @export
 #'
 #' @examples

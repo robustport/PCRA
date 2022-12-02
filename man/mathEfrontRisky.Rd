@@ -2,10 +2,7 @@
 % Please edit documentation in R/mathEfrontRisky.R
 \name{mathEfrontRisky}
 \alias{mathEfrontRisky}
-\title{Compute the efficient frontier of a fully invested portfolio
-based on a data set of returns.  Uses the mathematical formula based on
-the estimated mean return vector and estimated covariance matrix.  Can
-have short positions.}
+\title{Efficient Frontier of Risky Stocks}
 \usage{
 mathEfrontRisky(
   returns,
@@ -21,12 +18,11 @@ mathEfrontRisky(
 )
 }
 \arguments{
-\item{returns}{A multivariate xts object of returns}
+\item{returns}{Multivariate xts object of portfolio returns}
 
-\item{npoints}{The number of points computed on the efficient frontier}
+\item{npoints}{Integer number of efficient frontier points, with default 100}
 
-\item{efront.only}{If true only the efficient frontier is computed, and 
-otherwise the entire frontier is computed}
+\item{efront.only}{Logical variable with default TRUE}
 
 \item{display}{If TRUE the efficient frontier is plotted}
 
@@ -38,19 +34,24 @@ otherwise the entire frontier is computed}
 
 \item{cexText}{A size parameter of text}
 
-\item{values}{If TRUE efficient frontier values are returned}
+\item{values}{Logical variable with default TRUE}
 
-\item{digits}{If NULL no rounding is done, else specifies the number of significant digits}
+\item{digits}{Integer variable number of significant digits, default NULL}
 }
 \value{
-Optionally, a plot of a risky assets only efficient frontier, and
-optionally return the efficient frontier mean and standard deviation values.
+A plot of a risky assets only efficient frontier, or optionally
+a plot of the entier frontier
 }
 \description{
-Compute the efficient frontier of a fully invested portfolio
-based on a data set of returns.  Uses the mathematical formula based on
-the estimated mean return vector and estimated covariance matrix.  Can
-have short positions.
+Computes and plots the efficient frontier of risky assets
+only, using a multivariate time series of returns to compute the mean
+vector and covariance matrix
+}
+\details{
+When efront.only = TRUE only the efficient frontier is computed,
+and if FALSE the entire frontier is computed.  When value = TRUE the
+efficient frontier mean and volatility values are returned, and when
+value = FALSE these values are not returned.
 }
 \examples{
 args(mathEfrontRisky)

@@ -2,12 +2,12 @@
 % Please edit documentation in R/mathEfrontCashRisky.R
 \name{mathEfrontCashRisky}
 \alias{mathEfrontCashRisky}
-\title{mathEfrontCashRisky}
+\title{Math Efficient Frontier: Cash and Risky Assets}
 \usage{
 mathEfrontCashRisky(
   returns,
   npoints = 10,
-  rf = 0.005,
+  rf = 0.003,
   plot.efront = TRUE,
   stock.names = TRUE,
   values = FALSE,
@@ -18,31 +18,29 @@ mathEfrontCashRisky(
 )
 }
 \arguments{
-\item{returns}{Risky asset returns in the form of an xts object}
+\item{returns}{Risky asset returns multivariate xts object}
 
-\item{npoints}{Number of points at which to compute efront values and
-weights}
+\item{npoints}{Number of efficient frontier points with default 10}
 
-\item{rf}{A risk-free rate}
+\item{rf}{A risk-free rate with default 0.003}
 
 \item{plot.efront}{Logical variable which if TRUE results in a plot of}
 
-\item{stock.names}{Logical variable which if TRUE results in stock names being displayed}
+\item{stock.names}{Logical variable with default TRUE}
 
-\item{values}{Logical whether to return values in output}
+\item{values}{Logical variable for returning efront values with default FALSE}
 
-\item{scalex}{A scale parameter for scaling the horizontal axis}
+\item{scalex}{Horizontal axis scale parameter with default 1.1}
 
-\item{scaley}{A scale parameter for scaling the vertical axis}
+\item{scaley}{Vertical axis scale parameter with default 1.1}
 
-\item{cexPoints}{A size parameter for points}
+\item{cexPoints}{Numerical size parameter for points with default 0.8}
 
-\item{cexText}{A size parameter for text
-the linear efficient frontier and the stock positions}
+\item{cexText}{Numerical size parameter for text with default 0.8}
 }
 \value{
 A plot of the linear efficient frontier or the weights along the
-efficient frontier.  Optionally output the mean and vol values
+efficient frontier.  Optionally output the mean and volatility values
 of the linear efficient frontier or its weights, or both.
 }
 \description{

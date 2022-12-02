@@ -2,7 +2,7 @@
 % Please edit documentation in R/mathEfront.R
 \name{mathEfront}
 \alias{mathEfront}
-\title{Efficient Frontier from Returns}
+\title{Efficient Frontiers from Returns}
 \usage{
 mathEfront(
   returns,
@@ -34,16 +34,24 @@ mathEfront(
 
 \item{values}{Logical variable with default TRUE}
 
-\item{npoints}{Integer number of efficient frontier points wotj default 100}
+\item{npoints}{Integer number of efficient frontier points, default 100}
 
-\item{digits}{Integer variable with default NULL}
+\item{digits}{Integer variable number of significant digits, default NULL}
 }
 \value{
-Efficient frontiers with cash and risky assets, and risky assets only
+Plot of efficient frontiers with cash and risky assets, and with
+risky assets only
 }
 \description{
-Computes and plots the efficient frontier using a multivariate
-time series of returns to compute the mean vector and covariance matrix
+Computes and plots the efficient frontier with and without 
+risk-free asset, using a multivariate time series of returns to compute
+the mean vector and covariance matrix
+}
+\details{
+When rf.line = TRUE, the linear efficient frontier is displayed,
+and it is not displayed when rf.line = FALSE.
+When values = TRUE, the Sharpe ratio and risk-free rate values are displayed
+in the plot as SHARPE RATIO and RISK-FREE values.
 }
 \examples{
 args(mathEfront)

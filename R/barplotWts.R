@@ -1,4 +1,4 @@
-#' barplotWts
+#' Barplot Weights
 #' 
 #' Uses the R barplot() function to make a barplot of efficient frontier weights
 #' See the manual page for barplot()

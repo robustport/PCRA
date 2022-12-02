@@ -2,7 +2,7 @@
 % Please edit documentation in R/barplotWts.R
 \name{barplotWts}
 \alias{barplotWts}
-\title{barplotWts}
+\title{Barplot Weights}
 \usage{
 barplotWts(
   wts.efront,
