@@ -2,7 +2,7 @@
 % Please edit documentation in R/SKest.R
 \name{SKest}
 \alias{SKest}
-\title{SKest}
+\title{Skewness estimator}
 \usage{
 SKest(x)
 }
@@ -10,7 +10,7 @@ SKest(x)
 \item{x}{A numeric vector}
 }
 \value{
-Value of sample skewness
+The estimate of skewness
 }
 \description{
 Sample estimate of skewness
