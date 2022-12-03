@@ -7,11 +7,11 @@
 winsorMean(x, trim = 0, na.rm = FALSE, ...)
 }
 \arguments{
-\item{x}{numeric vector}
+\item{x}{Numeric vector}
 
-\item{trim}{fraction of data to be Winsorized}
+\item{trim}{Fraction of data to be Winsorized}
 
-\item{na.rm}{}
+\item{na.rm}{Logical variable with default FALSE}
 
 \item{...}{}
 }

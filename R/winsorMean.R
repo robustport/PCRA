@@ -1,8 +1,8 @@
-#' Winsorized Mean
+#' @title Winsorized Mean
 #'
-#' @param x numeric vector
-#' @param trim fraction of data to be Winsorized
-#' @param na.rm 
+#' @param x Numeric vector
+#' @param trim Fraction of data to be Winsorized
+#' @param na.rm Logical variable with default FALSE
 #' @param ... 
 #'
 #' @return Value of Winsorized mean

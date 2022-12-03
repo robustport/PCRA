@@ -2,21 +2,20 @@
 % Please edit documentation in R/turnOver.R
 \name{turnOver}
 \alias{turnOver}
-\title{Calculate Portfolio Turnover}
+\title{Portfolio Turnover}
 \usage{
 turnOver(weights)
 }
 \arguments{
-\item{weights}{multivariate xts object of portfolio weights}
+\item{weights}{Multivariate xts object of portfolio weights}
 }
 \value{
-Time series of turnover values
+Time series of T-1 turnover values
 }
 \description{
-turnOver is the function to calculate a times series of n-1 turn-over
-values for a times of n portfolio weight vectors, where the turnover
-from time i to time i+1 is the sum of the absolute differences 
-between the portfolio weights at time i and time i+1
+Calculates n-1 turn-over values for a times of n portfolio
+weight vectors, where the turnover from time t to time t+1 is the sum of the
+absolute differences between the portfolio weights at time t and time t+1.
 }
 \examples{
 args(turnOver)

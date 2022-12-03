@@ -1,13 +1,12 @@
-#' Calculate Portfolio Turnover
+#' @title Portfolio Turnover
 #' 
-#' turnOver is the function to calculate a times series of n-1 turn-over
-#' values for a times of n portfolio weight vectors, where the turnover
-#' from time i to time i+1 is the sum of the absolute differences 
-#' between the portfolio weights at time i and time i+1
+#' @description Calculates n-1 turn-over values for a times of n portfolio
+#' weight vectors, where the turnover from time t to time t+1 is the sum of the
+#' absolute differences between the portfolio weights at time t and time t+1.
 #' 
-#' @param weights multivariate xts object of portfolio weights
+#' @param weights Multivariate xts object of portfolio weights
 #'
-#' @return Time series of turnover values
+#' @return Time series of T-1 turnover values
 #' @export
 #'
 #' @examples
@@ -17,7 +16,7 @@ turnOver <- function(weights){
   weights <- coredata(weights)
   n.asset <- ncol(weights)
   n.dates <- nrow(weights)
-  if(n.dates <2){
+  if(n.dates < 2){
     print("Less than 2 rebalancing dates!")
     return()
   }
@@ -26,7 +25,7 @@ turnOver <- function(weights){
     TurnOver[i] <- sum(abs(weights[i+1,] - weights[i,]))
   }
   dates <- dates[-1]
-  out <- zoo(TurnOver,order.by = dates)
+  out <- zoo(TurnOver, order.by = dates)
   out
 }
 
