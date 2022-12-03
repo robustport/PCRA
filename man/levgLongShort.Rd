@@ -4,13 +4,13 @@
 \alias{levgLongShort}
 \title{Long Short Portfolio Leverage}
 \usage{
-levgLongShort(w)
+levgLongShort(wts)
 }
 \arguments{
-\item{w}{a multivariate xts portfolio weights object}
+\item{wts}{Multivariate xts portfolio weights object}
 }
 \value{
-levg   a univariate xts time series of portfolio leverages
+Univariate xts time series of portfolio leverages
 }
 \description{
 This function computes a time series of portfolio leverages,

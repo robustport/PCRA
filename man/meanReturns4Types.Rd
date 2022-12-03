@@ -2,7 +2,7 @@
 % Please edit documentation in R/meanReturns4Types.R
 \name{meanReturns4Types}
 \alias{meanReturns4Types}
-\title{Four types of returns means for reporting}
+\title{Four Types of Mean Returns}
 \usage{
 meanReturns4Types(ret, robust = FALSE, eff = 0.95)
 }
@@ -16,7 +16,8 @@ mean and standard deviation is computed. Default is FALSE}
 fourMeans
 }
 \description{
-Computes arithmetic mean, logarithmic mean, geometric mean and an approximate
+Computation of arithmetic mean, logarithmic mean, geometric,
+mean and an approximate
 geometric mean.
 }
 \examples{

@@ -1,18 +1,26 @@
-#' opt.outputMvo
+#' @title Optimal Portfolio Weights and Performance
+#' 
+#' @description Converts output of PortfolioAnalytics function
+#' optimize.portfolio to a list of portfolio optimal weights, mean, volatility
+#'  and Sharpe Ratio.
+#' 
+#' @param opt List output of optimize.portfolio 
+#' @param returns Multivariate xts object of portfolio assets returns
+#' @param digits Integer number of significant digits with default NULL
+#' @param names Character vector of names assigned to function output list
+#' @param rf Numeric value with default 0.003
+#' 
+#' @details This functions uses the weights returned by optimize.portfolio,
+#' along with the returns to compute the portfolio mean return and volatility,
+#' and along with the risk-free rate rf it computes the Sharpe Ratio.
 #'
-#' @param opt 
-#' @param returns 
-#' @param digits 
-#' @param names 
-#' @param rf 
-#'
-#' @return MVO portfolio weights, mean, volatility, and Sharpe ratio
+#' @return Optimal portfolio weights, mean, volatility, Sharpe ratio
 #' @export
 #'
 #' @examples
 #' args(opt.outputMvo)
 opt.outputMvo <-
-function(opt, returns, digits = NULL, names = NULL, rf = 0)
+function(opt, returns, digits = NULL, names = NULL, rf = 0.003)
 {
 wts <- opt$weights
 sigmasq <- as.numeric(t(wts)%*%var(returns)%*%wts)

@@ -1,6 +1,7 @@
-#' Four types of returns means for reporting
+#' @title Four Types of Mean Returns
 #' 
-#' Computes arithmetic mean, logarithmic mean, geometric mean and an approximate
+#' @description Computation of arithmetic mean, logarithmic mean, geometric,
+#' mean and an approximate
 #' geometric mean.
 #'
 #' @param x An xts or numeric vector of returns

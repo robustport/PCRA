@@ -2,26 +2,33 @@
 % Please edit documentation in R/opt.outputMvo.R
 \name{opt.outputMvo}
 \alias{opt.outputMvo}
-\title{opt.outputMvo}
+\title{Optimal Portfolio Weights and Performance}
 \usage{
-opt.outputMvo(opt, returns, digits = NULL, names = NULL, rf = 0)
+opt.outputMvo(opt, returns, digits = NULL, names = NULL, rf = 0.003)
 }
 \arguments{
-\item{opt}{}
+\item{opt}{List output of optimize.portfolio}
 
-\item{returns}{}
+\item{returns}{Multivariate xts object of portfolio assets returns}
 
-\item{digits}{}
+\item{digits}{Integer number of significant digits with default NULL}
 
-\item{names}{}
+\item{names}{Character vector of names assigned to function output list}
 
-\item{rf}{}
+\item{rf}{Numeric value with default 0.003}
 }
 \value{
-MVO portfolio weights, mean, volatility, and Sharpe ratio
+Optimal portfolio weights, mean, volatility, Sharpe ratio
 }
 \description{
-opt.outputMvo
+Converts output of PortfolioAnalytics function
+optimize.portfolio to a list of portfolio optimal weights, mean, volatility
+ and Sharpe Ratio.
+}
+\details{
+This functions uses the weights returned by optimize.portfolio,
+along with the returns to compute the portfolio mean return and volatility,
+and along with the risk-free rate rf it computes the Sharpe Ratio.
 }
 \examples{
 args(opt.outputMvo)
