@@ -2,7 +2,7 @@
 % Please edit documentation in R/stocksCRSPxts.R
 \name{stocksCRSPxts}
 \alias{stocksCRSPxts}
-\title{stocksCRSPxts}
+\title{Select CRSP Stocks Returns V0}
 \usage{
 stocksCRSPxts(
   data,
@@ -12,7 +12,7 @@ stocksCRSPxts(
 }
 \arguments{
 \item{data}{One of the data.table objects stocksCRSP, stocksCRSPweekly,
-stocksCRSPdaily.  Referred to collectively as the stocksCRSP data.}
+stocksCRSPdaily}
 
 \item{dateRange}{Character vector with two components a start date
 and an end date using format "yyyy-mm-dd".  Default is the entire
@@ -23,12 +23,12 @@ default is tickerSet = NULL, which results in selection of all stocks
 in stocksCRSP.}
 }
 \value{
-An xts time series object
+Multivariate xts object of stock returns
 }
 \description{
-Function to extract a set of stocksCRSP data specified by a date
-range, and a set of tickers, with convenient defaults, and convert it
-to an xts time series object
+A function to extract a subset of the stocksCRSP data.table
+specified by a date range and a set of tickers, with convenient defaults,
+and convert it to an xts object
 }
 \examples{
 library(PCRA)

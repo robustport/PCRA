@@ -1,16 +1,15 @@
-#' returnsCRSPxts
+#' @title Select CRSP Stocks Returns
 #' 
-#' This function uses the data.table created by selectCRSPandSPGMI to create
-#' a multivarite xts time series object that contains the returns of the stocks
-#' with tickers in the TickerLast component of the data.table, the MktIndexCRSP
-#' Ret13WkBill returns.  
+#' @description Uses selectCRSPandSPGMI to select a subset of the stocksCRSP
+#' data, and convert it to an xts object that contains the returns of a set
+#' of stocks, along with those of the MktIndexCRSP and the Ret13WkBill.
 #' 
 #' NOTE:  For this function to work, the selectCRSPandSPGMI must include the 
 #' the stockItems TickerLast, MktIndexCRSP and Ret13WkBill.
 #'
 #' @param stocksDT The data.table created by selectCRSPandSPGMI 
 #'
-#' @return A multivariate times series object described above
+#' @return A multivariate xts object
 #' @export
 #'
 #' @examples
