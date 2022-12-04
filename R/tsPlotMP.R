@@ -15,7 +15,7 @@
 #' @param scaleType Character variable that controls scale of y-axis, choose 
 #' from c('same', 'free')
 #' @param stripLeft Logical variable to choose the position of Lattice strip,
-#' 'TRUE' for drawing strips at the left of each panel, 'FALSE' for drawing
+#' TRUE for drawing strips at the left of each panel, FALSE for drawing
 #' strips at the top of each panel
 #' @param main A character string, or possibly an expression, for main title 
 #' @param lwd The line width, a positive number, defaulting to 1

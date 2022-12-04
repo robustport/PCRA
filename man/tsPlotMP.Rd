@@ -39,7 +39,7 @@ point, and 'b' and 'o' both denote both together, deafault 'l'.}
 from c('same', 'free')}
 
 \item{stripLeft}{Logical variable to choose the position of Lattice strip,
-'TRUE' for drawing strips at the left of each panel, 'FALSE' for drawing
+TRUE for drawing strips at the left of each panel, FALSE for drawing
 strips at the top of each panel}
 
 \item{main}{A character string, or possibly an expression, for main title}
