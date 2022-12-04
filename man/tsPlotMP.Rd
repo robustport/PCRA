@@ -2,7 +2,7 @@
 % Please edit documentation in R/tsPlotMP.R
 \name{tsPlotMP}
 \alias{tsPlotMP}
-\title{Time Series Plots}
+\title{Lattice Multi-Panel Time Series Plots}
 \usage{
 tsPlotMP(
   ret,
@@ -22,39 +22,51 @@ tsPlotMP(
 )
 }
 \arguments{
-\item{add.grid}{logical varible.If 'TRUE', type = c('l', 'g'); If 'FALSE', type = c('l')}
+\item{add.grid}{Logical variable, if 'TRUE', type = c('l', 'g'), and if
+'FALSE', type = c('l')}
 
-\item{layout}{layout is a numeric vector of length 2 or 3 giving the number of columns, rows, and pages (optional) in a multipanel display.}
+\item{layout}{Numeric vector of length 2 or 3 giving the number of columns,
+rows, and pages (optional) for a multipanel lattice display.}
 
-\item{type}{character. type of the plot; 'l' denotes a line, 'p' denotes a point, and 'b' and 'o' both denote both together.deafault is 'l'.}
+\item{type}{Character variable type of plot: 'l' for a line, 'p' for a
+point, and 'b' and 'o' both denote both together, deafault 'l'.}
 
-\item{yname}{character or espression giving label(s) for the y-axis}
+\item{yname}{Character or expression giving label(s) for the y-axis}
 
-\item{Pct}{Pct controls if use the percentage value.}
+\item{Pct}{Logical variable with default TRUE}
 
-\item{scaleType}{scaleType controls if use a same scale of y-axis, choose from c('same', 'free')}
+\item{scaleType}{Character variable that controls scale of y-axis, choose 
+from c('same', 'free')}
 
-\item{stripLeft}{logical variable to choose the position of strip, 'TRUE' for drawing strips on the left of each panel, 'FALSE' for drawing strips on the top of each panel}
+\item{stripLeft}{Logical variable to choose the position of Lattice strip,
+'TRUE' for drawing strips at the left of each panel, 'FALSE' for drawing
+strips at the top of each panel}
 
-\item{main}{Typically a character string or expression describing the main title.}
+\item{main}{A character string, or possibly an expression, for main title}
 
 \item{lwd}{The line width, a positive number, defaulting to 1}
 
-\item{stripText.cex}{a number indicating the amount by which strip text in the plot(s) should be scaled relative to the default. 1=default, 1.5 is 50\% larger, 0.5 is 50\% smaller, etc.}
+\item{stripText.cex}{Numeric factor by which strip text in the plot(s)
+are scaled relative to the default 1, 1.5 is 50% larger, etc.}
 
-\item{axis.cex}{a number indicating the amount by which axis in the plot(s) should be scaled relative to the default. 1=default, 1.5 is 50\% larger, 0.5 is 50\% smaller, etc.}
+\item{axis.cex}{Numeric factor by which axis in the plot(s) are scaled
+relative to default of 1, 1.5 is 50\% larger, 0.5 is 50\% smaller, etc.}
 
-\item{color}{A specification for the default plotting color. Default is black.}
+\item{color}{Specification of plotting color, with default "black"}
 
-\item{zeroLine}{logical varible to choose add a dotted horizontal line at the zero vertical distance}
+\item{zeroLine}{Logical variable specifying whether or not a dotted 
+horizontal line is location at the zero vertical distance, default TRUE}
 
-\item{data}{an time series exposure/return object}
+\item{data}{A multivariate xts object}
+}
+\value{
+Multi-panel Lattice time series plot
 }
 \description{
-Plot time series with specific plotting parameters
+Lattice multi-panel time series with several plotting style
+control parameters
 }
 \examples{
-
 #Load the data
 data("stocksCRSP")
 dat = stocksCRSP
@@ -65,9 +77,7 @@ ret = xts(returns[,1:5],as.yearmon(rownames(returns)))
 tsPlotMP(ret, color = 'Blue')
 tsPlotMP(ret, scaleType = "same", zeroLine = FALSE)
 tsPlotMP(ret, stripLeft = FALSE, main = 'Time Series Plot')
- 
-   
 }
 \author{
-Douglas Martin, Lingjie Yi
+Kirk Li and Doug Martin
 }

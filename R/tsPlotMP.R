@@ -1,26 +1,37 @@
-#' @title Time Series Plots
+#' @title Lattice Multi-Panel Time Series Plots
 #' 
-#' @description Plot time series with specific plotting parameters 
+#' @description Lattice multi-panel time series with several plotting style
+#' control parameters 
 #'
-#' 
-#' @param data an time series exposure/return object 
-#' @param add.grid logical varible.If 'TRUE', type = c('l', 'g'); If 'FALSE', type = c('l')
-#' @param layout layout is a numeric vector of length 2 or 3 giving the number of columns, rows, and pages (optional) in a multipanel display.
-#' @param type character. type of the plot; 'l' denotes a line, 'p' denotes a point, and 'b' and 'o' both denote both together.deafault is 'l'.
-#' @param yname character or espression giving label(s) for the y-axis 
-#' @param Pct Pct controls if use the percentage value. 
-#' @param scaleType scaleType controls if use a same scale of y-axis, choose from c('same', 'free')
-#' @param stripLeft logical variable to choose the position of strip, 'TRUE' for drawing strips on the left of each panel, 'FALSE' for drawing strips on the top of each panel
-#' @param main Typically a character string or expression describing the main title. 
+#' @param data A multivariate xts object 
+#' @param add.grid Logical variable, if 'TRUE', type = c('l', 'g'), and if
+#' 'FALSE', type = c('l')
+#' @param layout Numeric vector of length 2 or 3 giving the number of columns,
+#' rows, and pages (optional) for a multipanel lattice display.
+#' @param type Character variable type of plot: 'l' for a line, 'p' for a
+#' point, and 'b' and 'o' both denote both together, deafault 'l'.
+#' @param yname Character or expression giving label(s) for the y-axis 
+#' @param Pct Logical variable with default TRUE
+#' @param scaleType Character variable that controls scale of y-axis, choose 
+#' from c('same', 'free')
+#' @param stripLeft Logical variable to choose the position of Lattice strip,
+#' 'TRUE' for drawing strips at the left of each panel, 'FALSE' for drawing
+#' strips at the top of each panel
+#' @param main A character string, or possibly an expression, for main title 
 #' @param lwd The line width, a positive number, defaulting to 1
-#' @param stripText.cex a number indicating the amount by which strip text in the plot(s) should be scaled relative to the default. 1=default, 1.5 is 50\% larger, 0.5 is 50\% smaller, etc.
-#' @param axis.cex a number indicating the amount by which axis in the plot(s) should be scaled relative to the default. 1=default, 1.5 is 50\% larger, 0.5 is 50\% smaller, etc.
-#' @param color A specification for the default plotting color. Default is black.
-#' @param zeroLine logical varible to choose add a dotted horizontal line at the zero vertical distance
+#' @param stripText.cex Numeric factor by which strip text in the plot(s)
+#' are scaled relative to the default 1, 1.5 is 50% larger, etc.
+#' @param axis.cex Numeric factor by which axis in the plot(s) are scaled
+#' relative to default of 1, 1.5 is 50\% larger, 0.5 is 50\% smaller, etc.
+#' @param color Specification of plotting color, with default "black"
+#' @param zeroLine Logical variable specifying whether or not a dotted 
+#' horizontal line is location at the zero vertical distance, default TRUE
 #' 
-#' @author Douglas Martin, Lingjie Yi
+#' @return Multi-panel Lattice time series plot
+#' @export
+#' 
+#' @author Kirk Li and Doug Martin
 #' @examples 
-#'
 #' #Load the data
 #' data("stocksCRSP")
 #' dat = stocksCRSP
@@ -31,23 +42,18 @@
 #' tsPlotMP(ret, color = 'Blue')
 #' tsPlotMP(ret, scaleType = "same", zeroLine = FALSE)
 #' tsPlotMP(ret, stripLeft = FALSE, main = 'Time Series Plot')
-#'  
-#'    
-#' @export
-
-# Lattice type time series plotting function
-
-tsPlotMP = function (ret, add.grid = FALSE, layout = NULL, type = "l", yname = "RETURNS (%)", 
-                      Pct = F, scaleType = "free", stripLeft = TRUE, main = NULL, lwd = 1, 
-                      stripText.cex = 1, axis.cex = 1, color = "black", zeroLine = TRUE) 
+tsPlotMP <- function (ret, add.grid = FALSE, layout = NULL, type = "l",
+              yname = "RETURNS (%)", Pct = F, scaleType = "free", 
+              stripLeft = TRUE, main = NULL, lwd = 1, stripText.cex = 1,
+              axis.cex = 1, color = "black", zeroLine = TRUE) 
 {
-  strip.left = stripLeft
-  strip = !strip.left
+  strip.left <- stripLeft
+  strip <- !strip.left
   if (add.grid) {
     type = c("l", "g")
   }
   else {
-    type = type
+    type <- type
   }
   if (zeroLine) {
     panel = function(...) {
@@ -60,13 +66,13 @@ tsPlotMP = function (ret, add.grid = FALSE, layout = NULL, type = "l", yname = "
       panel.xyplot(...)
     }
   }
-  if(Pct) ret = ret*100
+  if(Pct) ret <- ret*100
   pl = xyplot(ret, par.strip.text = list(cex = stripText.cex), 
-              type = type, xlab = "", ylab = list(label = yname, cex = stripText.cex), 
-              lwd = lwd, scales = list(y = list(cex = axis.cex, relation = scaleType, 
-                                                rot = 0), x = list(cex = axis.cex)), layout = layout, 
-              main = main, col = color, strip = strip, strip.left = strip.left, 
-              panel = panel)
+          type = type, xlab = "", ylab = list(label = yname, 
+          cex = stripText.cex), lwd = lwd, 
+          scales = list(y = list(cex = axis.cex, relation = scaleType, rot = 0),
+          x = list(cex = axis.cex)), layout = layout, main = main, col = color,
+          strip = strip, strip.left = strip.left, panel = panel)
   print(pl)
 }
 
