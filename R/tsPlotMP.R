@@ -50,7 +50,7 @@ tsPlotMP <- function (ret, add.grid = FALSE, layout = NULL, type = "l",
   strip.left <- stripLeft
   strip <- !strip.left
   if (add.grid) {
-    type = c("l", "g")
+    type <- c("l", "g")
   }
   else {
     type <- type
