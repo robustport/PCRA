@@ -7,18 +7,17 @@
 meanReturns4Types(ret, robust = FALSE, eff = 0.95)
 }
 \arguments{
-\item{robust}{A logical value controlling whether a classical or robust sample
-mean and standard deviation is computed. Default is FALSE}
+\item{robust}{A logical value controlling whether a classical or robust
+sample mean and standard deviation is computed. Default is FALSE}
 
-\item{x}{An xts or numeric vector of returns}
+\item{x}{An xts object or a numeric vector of returns}
 }
 \value{
-fourMeans
+fourMeans numeric vector of the four means
 }
 \description{
 Computation of arithmetic mean, logarithmic mean, geometric,
-mean and an approximate
-geometric mean.
+mean and an approximate geometric mean.
 }
 \examples{
 args(meanReturns4Types)
