@@ -26,10 +26,10 @@ tsPlotMP(
 'FALSE', type = c('l')}
 
 \item{layout}{Numeric vector of length 2 or 3 giving the number of columns,
-rows, and pages (optional) for a multipanel lattice display.}
+rows, and pages (optional) for a multipanel lattice display}
 
 \item{type}{Character variable type of plot: 'l' for a line, 'p' for a
-point, and 'b' and 'o' both denote both together, deafault 'l'.}
+point, and 'b' and 'o' both denote both together, deafault 'l'}
 
 \item{yname}{Character or expression giving label(s) for the y-axis}
 
@@ -47,10 +47,10 @@ strips at the top of each panel}
 \item{lwd}{The line width, a positive number, defaulting to 1}
 
 \item{stripText.cex}{Numeric factor by which strip text in the plot(s)
-are scaled relative to the default 1, 1.5 is 50% larger, etc.}
+are scaled relative to the default 1, 1.5 is 50% larger}
 
 \item{axis.cex}{Numeric factor by which axis in the plot(s) are scaled
-relative to default of 1, 1.5 is 50\% larger, 0.5 is 50\% smaller, etc.}
+relative to default of 1, 1.5 is 50% larger, 0.5 is 50% smaller}
 
 \item{color}{Specification of plotting color, with default "black"}
 

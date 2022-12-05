@@ -7,9 +7,9 @@
 #' @param add.grid Logical variable, if 'TRUE', type = c('l', 'g'), and if
 #' 'FALSE', type = c('l')
 #' @param layout Numeric vector of length 2 or 3 giving the number of columns,
-#' rows, and pages (optional) for a multipanel lattice display.
+#' rows, and pages (optional) for a multipanel lattice display
 #' @param type Character variable type of plot: 'l' for a line, 'p' for a
-#' point, and 'b' and 'o' both denote both together, deafault 'l'.
+#' point, and 'b' and 'o' both denote both together, deafault 'l'
 #' @param yname Character or expression giving label(s) for the y-axis 
 #' @param Pct Logical variable with default TRUE
 #' @param scaleType Character variable that controls scale of y-axis, choose 
@@ -20,9 +20,9 @@
 #' @param main A character string, or possibly an expression, for main title 
 #' @param lwd The line width, a positive number, defaulting to 1
 #' @param stripText.cex Numeric factor by which strip text in the plot(s)
-#' are scaled relative to the default 1, 1.5 is 50% larger, etc.
+#' are scaled relative to the default 1, 1.5 is 50% larger
 #' @param axis.cex Numeric factor by which axis in the plot(s) are scaled
-#' relative to default of 1, 1.5 is 50\% larger, 0.5 is 50\% smaller, etc.
+#' relative to default of 1, 1.5 is 50% larger, 0.5 is 50% smaller
 #' @param color Specification of plotting color, with default "black"
 #' @param zeroLine Logical variable specifying whether or not a dotted 
 #' horizontal line is location at the zero vertical distance, default TRUE
