@@ -20,10 +20,10 @@
 #' @param main A character string, or possibly an expression, for main title 
 #' @param lwd The line width, a positive number, defaulting to 1
 #' @param stripText.cex Numeric factor by which strip text in the plot(s)
-#' are scaled relative to the default 1, 1.5 is 50% larger
+#' are scaled relative to the default 1, 1.5 is 50 percent larger
 #' @param axis.cex Numeric factor by which axis in the plot(s) are scaled
-#' relative to default of 1, 1.5 is 50% larger, 0.5 is 50% smaller
-#' @param color Specification of plotting color, with default "black"
+#' relative to default of 1, 1.5 is 50 larger larger, 0.5 is 50 percent smaller
+#' @param color Specification of plotting color, with default black
 #' @param zeroLine Logical variable specifying whether or not a dotted 
 #' horizontal line is location at the zero vertical distance, default TRUE
 #' 

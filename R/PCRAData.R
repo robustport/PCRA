@@ -5,13 +5,12 @@
 #' @param cache whether to cache the operation so that when calling the function
 #' using the same dataset it will be loaded from cache rather than re-downloading
 #' @param refresh whether to re-download a cached dataset
+#' 
 #' @details The following are valid names of datasets available:
 #' \itemize{
 #' \item{"stocksCRSP"}{"Details are available in the stocksCRSP man page"}
-#' \item{"stocksCRSPdaily"}{"Details are the same as for stocksCRSP except
-#' the frequency is now daily"}
-#' \item{"stocksCRSPweekly"}{""Details are the same as for stocksCRSP except
-#' the frequency is now weekly""}
+#' \item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
+#' \item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
 #' }
 #' @return An object of class \dQuote{data.table}.
 #' @aliases getPCRAData

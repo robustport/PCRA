@@ -24,9 +24,7 @@ Downloads stocksCRSPweekly and stocksCRSPdaily
 The following are valid names of datasets available:
 \itemize{
 \item{"stocksCRSP"}{"Details are available in the stocksCRSP man page"}
-\item{"stocksCRSPdaily"}{"Details are the same as for stocksCRSP except
-the frequency is now daily"}
-\item{"stocksCRSPweekly"}{""Details are the same as for stocksCRSP except
-the frequency is now weekly""}
+\item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
+\item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
 }
 }
