@@ -1,30 +1,17 @@
-#' PCRA Sample Datasets
+#' Download CRSP and SPGMI Data
 #'
-#' @description Downloads PCRA sample datasets
+#' @description Downloads stocksCRSPweekly and stocksCRSPdaily
 #' @param dataset a valid dataset name (see details)
 #' @param cache whether to cache the operation so that when calling the function
 #' using the same dataset it will be loaded from cache rather than re-downloading
 #' @param refresh whether to re-download a cached dataset
 #' @details The following are valid names of datasets available:
 #' \itemize{
-#' \item{"stocksCRSP"}{"Add Description"}
-#' \item{"stocksCRSPdaily"}{"Add Description"}
-#' \item{"stocksCRSPweekly"}{"Add Description"}
-#' \item{"crsp.returns8"}{"Add Description"}
-#' \item{"crsp.short"}{"Add Description"}
-#' \item{"factorsSPGMI"}{"Add Description"}
-#' \item{"FRBrates1934to2014"}{"Add Description"}
-#' \item{"smallcapM"}{"Add Description"}
-#' \item{"smallcapW"}{"Add Description"}
-#' \item{"largecapM"}{"Add Description"}
-#' \item{"largecapW"}{"Add Description"}
-#' \item{"normalVsHectic"}{"Add Description"}
-#' \item{"ret4withOutliers"}{"Add Description"}
-#' \item{"strategies"}{"Add Description"}
-#' \item{"WeeklyReturns1980"}{"Add Description"}
-#' \item{"wtsGmvLS"}{"Add Description"}
-#' \item{"gfunds5"}{"Add Description"}
-#' \item{"invensysEPS"}{"Add Description"}
+#' \item{"stocksCRSP"}{"Details are available in the stocksCRSP man page"}
+#' \item{"stocksCRSPdaily"}{"Details are the same as for stocksCRSP except
+#' the frequency is now daily"}
+#' \item{"stocksCRSPweekly"}{""Details are the same as for stocksCRSP except
+#' the frequency is now weekly""}
 #' }
 #' @return An object of class \dQuote{data.table}.
 #' @aliases getPCRAData
@@ -32,17 +19,9 @@
 #' @export
 #'
 #'
-getPCRAData <- function(dataset = "crsp.returns8", cache = TRUE, refresh = FALSE)
+getPCRAData <- function(dataset = "stocksCRSPweekly", cache = TRUE, refresh = FALSE)
 {
-  valid_datasets <- c("stocksCRSP","stocksCRSPdaily",
-                      "stocksCRSPweekly","crsp.returns8",
-                      "crsp.short","factorsSPGMI",
-                      "FRBrates1934to2014",
-                      "smallcapM","smallcapW",
-                      "largecapM","largecapW",
-                      "normalVsHectic", "ret4withOutliers",
-                      "strategies","WeeklyReturns1980",
-                      "wtsGmvLS","gfunds5","invensysEPS")
+  valid_datasets <- c("stocksCRSP", "stocksCRSPdaily", "stocksCRSPweekly")
   dataset <- match.arg(dataset[1], valid_datasets)
   base_url <- "https://github.com/robustport/PCRA/raw/main/DataPlus/"
   data_url <- paste(base_url,dataset,".rds", sep = "")
