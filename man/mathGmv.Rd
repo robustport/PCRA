@@ -7,7 +7,7 @@
 mathGmv(returns, digits = NULL)
 }
 \arguments{
-\item{returns}{Matrix of asset returns}
+\item{returns}{Matrix or xts object of returns}
 
 \item{digits}{Integer value of number of significant digits, default NULL}
 }
@@ -16,7 +16,7 @@ List of GMV portfolio weights, mean return and volatility
 }
 \description{
 Computes the weights of a GMV portfolio, and its mean return
-and volatility
+and volatility based on portfolio asset returns
 }
 \examples{
 args(mathGmv)

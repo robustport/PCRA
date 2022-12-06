@@ -1,9 +1,9 @@
 #' @title Global Minimum Variance Portfolio (GMV)
 #' 
 #' @description Computes the weights of a GMV portfolio, and its mean return
-#' and volatility
+#' and volatility based on portfolio asset returns
 #' 
-#' @param returns Matrix of asset returns
+#' @param returns Matrix or xts object of returns
 #' @param digits Integer value of number of significant digits, default NULL
 #' 
 #' @return List of GMV portfolio weights, mean return and volatility
@@ -28,40 +28,5 @@ mathGmv <- function(returns, digits = NULL)
 	else
 	{out = list(WTS.GMV = wtsGmv, MU.GMV = muGmv, VOL.GMV = volGmv)
 		out = lapply(out,round,digits=digits)}
-	out
-}
-
-#' Global Minimum Variance (GMV) Portfolio
-#' 
-#' Compute the weights, mean return and volatility of a GMV portfolio.
-#' 
-#' 
-#' @param returns matrix of asset returns
-#' @param digits integer indicating the number of decimal places
-#' @examples
-#' data(midcap.ts)
-#' returns = midcap.ts[, 1:10]
-#' mathGmv(returns)
-#' @export
-mathGmvMuCov <- function(muRet,volRet,corrRet, digits = 3) 
-{
-	covRet = diag(volRet)%*%corrRet%*%diag(volRet)
-	names(muRet) = c("Stock 1","Stock 2","Stock 3")
-	mu = muRet
-	V = covRet
-	one = rep(1, nrow(V))
-	z1 = solve(V, one)  # Vinv*one
-	a = as.numeric(t(mu) %*% z1) # a = mu*Vinv*one
-	cc = as.numeric(t(one) %*% z1) # c = one*Vinv*one
-	z2 = solve(V, mu) # Vinv*mu
-	b = as.numeric(t(mu) %*% z2) # b = mu*Vinv*mu
-	d = b * cc - a^2
-	wtsGmv = z1/cc
-	names(wtsGmv) = c("Stock 1","Stock 2","Stock 3")
-	muGmv = a/cc
-	varGmv = 1/cc
-	volGmv = sqrt(varGmv)
-	out = list(volGmv = volGmv, muGmv = muGmv, wtsGmv = wtsGmv)
-	if (!is.null(digits)) {out = lapply(out,round, digits = 3)}
 	out
 }
