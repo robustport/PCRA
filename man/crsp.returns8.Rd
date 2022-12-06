@@ -25,6 +25,6 @@ EMN, AMAT, AMGN from 1997 to 2001
 data(crsp.returns8)
 names(crsp.returns8)
 dim(crsp.returns8)
-range(index(crsp.returns8)
+range(index(crsp.returns8))
 }
 \keyword{datasets}

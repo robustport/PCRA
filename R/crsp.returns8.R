@@ -19,5 +19,5 @@
 #' data(crsp.returns8)
 #' names(crsp.returns8)
 #' dim(crsp.returns8)
-#' range(index(crsp.returns8)
+#' range(index(crsp.returns8))
 "crsp.returns8"
