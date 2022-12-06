@@ -1,19 +1,22 @@
 #' Robust and LS SFM Fits
 #' 
-#' @description LS and Robust mOpt Single Factor Model (SFM) Fits and Plot
-#'       with outliers identified, and legend with coefficents and (SE's).
+#' @description Least squares and robust single factor model (SFM) fits plot,
+#' with outliers identified, and legend with slope and intercept coefficent
+#' estimates and standard errors in parentheses.
 #'
 #' @param x A univariate xts object.
-#' @param family Robust loss function choice.
-#' @param efficiency Normal distribution estimator efficiency.
+#' @param family Robust loss function choice with default mopt
+#' @param efficiency Estimator Normal distribution efficiency, default 0.95
 #' @param mainText Main title, if any.
 #' @param ylimits Vertical axis limits.
 #' @param legendPos Legend position.
-#' @param goodOutlier  
-#' @param makePct 
+#' @param makePct Logical variable with default FALSE
+#' 
+#' @details The robust fit is computed using the lmrobdetMM() function in the
+#' R package RobStatTM. For other choices of efficiency and family see the
+#' RobStatTM package help(lmrobdetMM)
 #'
-#' @return The plot with straight line fits and legend coefficient estimates
-#'          estimates and their standard errors
+#' @return The plot with straight line fits and legend
 #'  
 #' @export
 #'
@@ -22,7 +25,7 @@
 #' plotLSandRobustSFM(retEDS,legendPos = "bottomright")
 plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
                 mainText = NULL, ylimits = NULL, legendPos = "topleft",
-                goodOutlier = F, makePct = FALSE)
+                makePct = FALSE)
 {
   ret = coredata(x)
   x = ret[,2]-ret[,3]

@@ -11,16 +11,15 @@ plotLSandRobustSFM(
   mainText = NULL,
   ylimits = NULL,
   legendPos = "topleft",
-  goodOutlier = F,
   makePct = FALSE
 )
 }
 \arguments{
 \item{x}{A univariate xts object.}
 
-\item{family}{Robust loss function choice.}
+\item{family}{Robust loss function choice with default mopt}
 
-\item{efficiency}{Normal distribution estimator efficiency.}
+\item{efficiency}{Estimator Normal distribution efficiency, default 0.95}
 
 \item{mainText}{Main title, if any.}
 
@@ -28,17 +27,20 @@ plotLSandRobustSFM(
 
 \item{legendPos}{Legend position.}
 
-\item{goodOutlier}{}
-
-\item{makePct}{}
+\item{makePct}{Logical variable with default FALSE}
 }
 \value{
-The plot with straight line fits and legend coefficient estimates
-         estimates and their standard errors
+The plot with straight line fits and legend
 }
 \description{
-LS and Robust mOpt Single Factor Model (SFM) Fits and Plot
-      with outliers identified, and legend with coefficents and (SE's).
+Least squares and robust single factor model (SFM) fits plot,
+with outliers identified, and legend with slope and intercept coefficent
+estimates and standard errors in parentheses.
+}
+\details{
+The robust fit is computed using the lmrobdetMM() function in the
+R package RobStatTM. For other choices of efficiency and family see the
+RobStatTM package help(lmrobdetMM)
 }
 \examples{
 data("ret4withOutliers")
