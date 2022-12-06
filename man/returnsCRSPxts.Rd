@@ -7,7 +7,7 @@
 returnsCRSPxts(stocksData)
 }
 \arguments{
-\item{stocksDT}{The data.table created by selectCRSPandSPGMI}
+\item{stocksData}{The data.table created by selectCRSPandSPGMI}
 }
 \value{
 A multivariate xts object

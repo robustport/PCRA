@@ -3,7 +3,7 @@
 #' @param x Numeric vector
 #' @param trim Fraction of data to be Winsorized
 #' @param na.rm Logical variable with default FALSE
-#' @param ... 
+#' @param ... Pass-through parameters
 #'
 #' @return Value of Winsorized mean
 #' @export

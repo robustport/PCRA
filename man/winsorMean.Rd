@@ -13,7 +13,7 @@ winsorMean(x, trim = 0, na.rm = FALSE, ...)
 
 \item{na.rm}{Logical variable with default FALSE}
 
-\item{...}{}
+\item{...}{Pass-through parameters}
 }
 \value{
 Value of Winsorized mean

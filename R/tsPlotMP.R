@@ -3,7 +3,7 @@
 #' @description Lattice multi-panel time series with several plotting style
 #' control parameters 
 #'
-#' @param data A multivariate xts object 
+#' @param ret A multivariate xts object 
 #' @param add.grid Logical variable, if 'TRUE', type = c('l', 'g'), and if
 #' 'FALSE', type = c('l')
 #' @param layout Numeric vector of length 2 or 3 giving the number of columns,

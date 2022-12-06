@@ -4,13 +4,16 @@
 \alias{meanReturns4Types}
 \title{Four Types of Mean Returns}
 \usage{
-meanReturns4Types(ret, robust = FALSE, eff = 0.95)
+meanReturns4Types(return, robust = FALSE, eff = 0.95)
 }
 \arguments{
+\item{return}{An xts object or a numeric vector of returns}
+
 \item{robust}{A logical value controlling whether a classical or robust
 sample mean and standard deviation is computed. Default is FALSE}
 
-\item{x}{An xts object or a numeric vector of returns}
+\item{eff}{Normal distribution efficiency of RobStatTM function locScaleM()
+used for computing a robust location estimate}
 }
 \value{
 fourMeans numeric vector of the four means

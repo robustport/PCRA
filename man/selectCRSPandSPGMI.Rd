@@ -36,10 +36,6 @@ all CapGroups.}
 
 \item{tickerList}{A character vector that contains a subset of tickerLast 
 items. Set to NULL to return all tickers.}
-
-\item{returnsTS}{Boolean, TRUE if the user wants xts return output in wide
-format. Any other value for this variable will return just the stock data
-data.table.}
 }
 \value{
 A data.table consisting of selected stocks and factor/stock data.

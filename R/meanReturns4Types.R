@@ -3,16 +3,18 @@
 #' @description Computation of arithmetic mean, logarithmic mean, geometric,
 #' mean and an approximate geometric mean.
 #'
-#' @param x An xts object or a numeric vector of returns
+#' @param return An xts object or a numeric vector of returns
 #' @param robust A logical value controlling whether a classical or robust
-#' sample mean and standard deviation is computed. Default is FALSE 
+#' sample mean and standard deviation is computed. Default is FALSE
+#' @param eff Normal distribution efficiency of RobStatTM function locScaleM()
+#' used for computing a robust location estimate 
 #'
 #' @return fourMeans numeric vector of the four means
 #' @export
 #'
 #' @examples
 #' args(meanReturns4Types)
-meanReturns4Types <- function(ret, robust = FALSE, eff = 0.95)
+meanReturns4Types <- function(return, robust = FALSE, eff = 0.95)
 {
   if(robust == FALSE) {retMu <- mean(ret)} else
   {x <- locScaleM(ret, eff = eff)

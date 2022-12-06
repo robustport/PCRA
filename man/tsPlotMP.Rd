@@ -22,6 +22,8 @@ tsPlotMP(
 )
 }
 \arguments{
+\item{ret}{A multivariate xts object}
+
 \item{add.grid}{Logical variable, if 'TRUE', type = c('l', 'g'), and if
 'FALSE', type = c('l')}
 
@@ -56,8 +58,6 @@ relative to default of 1, 1.5 is 50 larger larger, 0.5 is 50 percent smaller}
 
 \item{zeroLine}{Logical variable specifying whether or not a dotted 
 horizontal line is location at the zero vertical distance, default TRUE}
-
-\item{data}{A multivariate xts object}
 }
 \value{
 Multi-panel Lattice time series plot

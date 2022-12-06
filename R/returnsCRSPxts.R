@@ -7,7 +7,7 @@
 #' NOTE:  For this function to work, the selectCRSPandSPGMI must include the 
 #' the stockItems TickerLast, MktIndexCRSP and Ret13WkBill.
 #'
-#' @param stocksDT The data.table created by selectCRSPandSPGMI 
+#' @param stocksData The data.table created by selectCRSPandSPGMI 
 #'
 #' @return A multivariate xts object
 #' @export
