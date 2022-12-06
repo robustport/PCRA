@@ -6,6 +6,6 @@
 \alias{PCRA-package}
 \title{PCRA: Companion to Portfolio Construction and Risk Analysis}
 \description{
-PCRA is a companion package to the text Portfolio Construction and Risk Analysis.
+PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
 }
 \keyword{internal}
