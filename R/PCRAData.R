@@ -36,7 +36,7 @@ getPCRAData <- function(dataset = "stocksCRSPweekly", cache = TRUE, refresh = FA
     return(data)
   } else {
     temp <- tempfile(pattern = paste("foo", Sys.getpid(), sep = "")) #create temp file
-    x <- try(download.file(get_url,temp, quiet = TRUE), silent = TRUE)
+    x <- try(download.file(data_url,temp, quiet = TRUE), silent = TRUE)
     data <- readRDS(temp)
     unlink(temp)
     if (cache) saveCache(data, key = key)
