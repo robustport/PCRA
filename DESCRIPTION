@@ -26,7 +26,7 @@ Imports:
 	R.cache
 Suggests:
 	testthat, MASS, shiny, Rglpk
-LazyLoad: yes
-LazyData: yes
-LazyDataCompression: yes
+LazyLoad: true
+LazyData: true
+LazyDataCompression: true
 RoxygenNote: 7.2.2
