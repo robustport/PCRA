@@ -24,6 +24,27 @@
 "crsp.returns8"
 
 
+#' @title Hedge Fund Strategies Returns
+#' 
+#' @description Monthly returns of 9 hedge fund strategies from 1994 to 2004
+#'
+#' @docType data
+#'
+#' @usage data(strategies)
+#'
+#' @format A multivariate xts object
+#' 
+#' @source Unknown
+#' 
+#' @examples
+#' library(PCRA)
+#' data(strategies)
+#' names(strategies)
+#' dim(strategies)
+#' range(index(strategies))
+"strategies"
+
+
 #' @title Federal Reserve Board Interest Rates
 #' 
 #' @description Federal Reserve Board monthly interest rates of 90 day Bill from 1934
@@ -178,3 +199,23 @@
 #' head(retVHI)
 #' range(index(retVHI))
 "retVHI"
+
+
+#' @title Earnings per Share of Invensys
+#' 
+#' @description Yearly earnings-per-share of company Invensys for 17 years.
+#' The company's name was invensys prior to 2004.
+#'  
+#' @docType data
+#'
+#' @usage data(invensysEPS)
+#'
+#' @format A numeric vector
+#' 
+#' @source Corporate Finance Department of Dupont
+#' 
+#' @examples
+#' library(PCRA)
+#' data(invensysEPS)
+#' invensysEPS
+"invensysEPS"
