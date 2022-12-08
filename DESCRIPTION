@@ -8,7 +8,7 @@ Maintainer: Jon Spinney <Jon.Spinney@vestcor.org>
 Description: PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
 License: GPL-2 | file LICENSE
 Depends:
-	R (>= 4.0.3),
+	R (>= 4.0.0),
 	PortfolioAnalytics
 Encoding: UTF-8
 Imports:
@@ -28,5 +28,5 @@ Suggests:
 	testthat, MASS, shiny, Rglpk
 LazyLoad: true
 LazyData: true
-LazyDataCompression: true
+LazyDataCompression:xz
 RoxygenNote: 7.2.2
