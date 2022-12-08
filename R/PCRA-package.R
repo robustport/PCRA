@@ -19,3 +19,6 @@
 #' @importFrom utils download.file
 
 "_PACKAGE"
+
+
+globalVariables(c("Date", "MktIndexCRSP", "Ret13WkBill","stocksCRSP","stocksCRSPweekly","stocksCRSPdaily","factorsSPGMI"))
