@@ -18,6 +18,7 @@
 #'
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' library(data.table)
 #' class(stocksCRSP)
 #' args(stocksCRSPxts)

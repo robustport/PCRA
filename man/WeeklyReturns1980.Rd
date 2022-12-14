@@ -20,6 +20,7 @@ Weekly returns of 10 stocks and 90 day T-Bill from November
 }
 \examples{
 library(PCRA)
+library(zoo)
 data(WeeklyReturns1980)
 class(WeeklyReturns1980)
 names(WeeklyReturns1980)

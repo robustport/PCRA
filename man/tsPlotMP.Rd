@@ -68,6 +68,7 @@ control parameters
 }
 \examples{
 #Load the data
+library(xts)
 data("stocksCRSP")
 dat = stocksCRSP
 returns = tapply(dat$Return,list(dat$Date,dat$TickerLast),I)

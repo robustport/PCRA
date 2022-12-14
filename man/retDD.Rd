@@ -20,6 +20,7 @@ and 1987, along with market returns (MKT) and risk-free rate (RF).
 }
 \examples{
 library(PCRA)
+library(zoo)
 data(retDD)
 head(retDD)
 range(index(retDD))

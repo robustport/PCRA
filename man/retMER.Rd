@@ -20,6 +20,7 @@ and 2003, along with market returns (MKT) and risk-free rate (RF).
 }
 \examples{
 library(PCRA)
+library(zoo)
 data(retMER)
 head(retMER)
 range(index(retMER))

@@ -18,6 +18,7 @@ Monthly returns of 9 hedge fund strategies from 1994 to 2004
 }
 \examples{
 library(PCRA)
+library(zoo)
 data(strategies)
 names(strategies)
 dim(strategies)

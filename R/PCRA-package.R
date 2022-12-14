@@ -1,6 +1,5 @@
 #' @keywords internal
 #' @import data.table
-#' @import PortfolioAnalytics
 #' @importFrom grDevices topo.colors
 #' @importFrom graphics abline arrows axis barplot box boxplot identify legend lines mtext par points polygon segments strheight strwidth text title
 #' @importFrom methods cbind2
@@ -11,6 +10,7 @@
 #' @importFrom zoo zoo coredata index index<-
 #' @importFrom boot boot
 #' @importFrom PerformanceAnalytics checkData		
+#' @importFrom PortfolioAnalytics create.EfficientFrontier		
 #' @importFrom corpcor make.positive.definite
 #' @importFrom quadprog solve.QP
 #' @importFrom RobStatTM locScaleM lmrobdet.control lmrobdetMM

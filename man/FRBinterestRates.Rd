@@ -19,6 +19,7 @@ to 2014.
 }
 \examples{
 library(PCRA)
+library(zoo)
 data(FRBinterestRates)
 class(FRBinterestRates)
 range(index(FRBinterestRates))

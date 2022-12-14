@@ -20,6 +20,7 @@ and 1991, along with market returns (MKT) and risk-free rate (RF).
 }
 \examples{
 library(PCRA)
+library(zoo)
 data(retVHI)
 head(retVHI)
 range(index(retVHI))

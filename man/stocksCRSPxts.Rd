@@ -32,6 +32,7 @@ and convert it to an xts object
 }
 \examples{
 library(PCRA)
+library(zoo)
 library(data.table)
 class(stocksCRSP)
 args(stocksCRSPxts)

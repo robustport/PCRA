@@ -20,6 +20,7 @@ ALT (alternatives), and BND (fixed income)
 }
 \examples{
 library(PCRA)
+library(zoo)
 data(gfunds5)
 class(gfunds5)
 names(gfunds5)

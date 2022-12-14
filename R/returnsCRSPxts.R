@@ -14,6 +14,7 @@
 #'
 #' @examples
 #' library(PCRA)
+#' library(xts)
 #' library(data.table)
 #' stockItems <- c("Date","TickerLast","CapGroupLast","Return","MktIndexCRSP",
 #'                "Ret13WkBill")

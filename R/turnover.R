@@ -11,6 +11,7 @@
 #'
 #' @examples
 #' args(turnOver)
+#' 
 turnOver <- function(weights){
   dates <- index(weights)
   weights <- coredata(weights)

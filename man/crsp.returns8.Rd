@@ -35,11 +35,14 @@ Monthly returns of 8 stocks with tickers GHI, PBCI, MODI, MGJ, MAT,
 EMN, AMAT, AMGN from 1997 to 2001
 }
 \examples{
+library(PCRA)
+library(zoo)
 data(crsp.returns8)
 names(crsp.returns8)
 dim(crsp.returns8)
 range(index(crsp.returns8))
 library(PCRA)
+library(zoo)
 data(crsp.returns8)
 names(crsp.returns8)
 dim(crsp.returns8)

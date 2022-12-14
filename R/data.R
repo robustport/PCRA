@@ -17,6 +17,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(crsp.returns8)
 #' names(crsp.returns8)
 #' dim(crsp.returns8)
@@ -38,6 +39,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(strategies)
 #' names(strategies)
 #' dim(strategies)
@@ -60,6 +62,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(FRBinterestRates)
 #' class(FRBinterestRates)
 #' range(index(FRBinterestRates))
@@ -82,6 +85,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(WeeklyReturns1980)
 #' class(WeeklyReturns1980)
 #' names(WeeklyReturns1980)
@@ -106,6 +110,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(gfunds5)
 #' class(gfunds5)
 #' names(gfunds5)
@@ -129,6 +134,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(retDD)
 #' head(retDD)
 #' range(index(retDD))
@@ -151,6 +157,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(retEDS)
 #' head(retEDS)
 #' range(index(retEDS))
@@ -173,6 +180,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(retMER)
 #' head(retMER)
 #' range(index(retMER))
@@ -195,6 +203,7 @@
 #' 
 #' @examples
 #' library(PCRA)
+#' library(zoo)
 #' data(retVHI)
 #' head(retVHI)
 #' range(index(retVHI))
