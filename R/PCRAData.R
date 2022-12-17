@@ -8,7 +8,6 @@
 #' 
 #' @details The following are valid names of datasets available:
 #' \itemize{
-#' \item{"stocksCRSP"}{"Details are available in the stocksCRSP man page"}
 #' \item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
 #' \item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
 #' }
@@ -17,7 +16,15 @@
 #' @rdname getPCRAData
 #' @export
 #'
-#'
+#' @examples
+#' stocksCRSPweekly <- getPCRAData(stocksCRSPweekly)
+#' class(stocksCRSPweekly)
+#' names(stocksCRSPweekly)
+#' 
+#' stocksCRSPdaily <- getPCRAData(stocksCRSPdaily)
+#' class(stocksCRSPdaily)
+#' names(stocksCRSPdaily)
+#' 
 getPCRAData <- function(dataset = "stocksCRSPweekly", cache = TRUE, refresh = FALSE)
 {
   valid_datasets <- c("stocksCRSP", "stocksCRSPdaily", "stocksCRSPweekly")
