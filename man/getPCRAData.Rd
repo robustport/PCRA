@@ -28,11 +28,11 @@ The following are valid names of datasets available:
 }
 }
 \examples{
-stocksCRSPweekly <- getPCRAData(stocksCRSPweekly)
+stocksCRSPweekly <- getPCRAData(data = stocksCRSPweekly)
 class(stocksCRSPweekly)
 names(stocksCRSPweekly)
 
-stocksCRSPdaily <- getPCRAData(stocksCRSPdaily)
+stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
 class(stocksCRSPdaily)
 names(stocksCRSPdaily)
 
