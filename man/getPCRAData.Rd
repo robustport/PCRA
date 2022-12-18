@@ -28,6 +28,7 @@ The following are valid names of datasets available:
 }
 }
 \examples{
+\dontrun{
 stocksCRSPweekly <- getPCRAData(data = stocksCRSPweekly)
 class(stocksCRSPweekly)
 names(stocksCRSPweekly)
@@ -35,5 +36,5 @@ names(stocksCRSPweekly)
 stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
 class(stocksCRSPdaily)
 names(stocksCRSPdaily)
-
+}
 }

@@ -17,6 +17,7 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' stocksCRSPweekly <- getPCRAData(data = stocksCRSPweekly)
 #' class(stocksCRSPweekly)
 #' names(stocksCRSPweekly)
@@ -24,7 +25,7 @@
 #' stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
 #' class(stocksCRSPdaily)
 #' names(stocksCRSPdaily)
-#' 
+#' }
 getPCRAData <- function(dataset = "stocksCRSPweekly", cache = TRUE, refresh = FALSE)
 {
   valid_datasets <- c("stocksCRSP", "stocksCRSPdaily", "stocksCRSPweekly")
