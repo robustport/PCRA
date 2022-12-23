@@ -1,10 +1,18 @@
 Package: PCRA
 Type: Package
 Title: Companion to Portfolio Construction and Risk Analysis
-Version: 0.01
-Date: 2022-05-05
-Author: Doug Martin <>, Thomas Philips <>, Bernd Scherer <>, Ke Li <kirkli@stat.washington.edu>
-Maintainer: Jon Spinney <Jon.Spinney@vestcor.org>
+Version: 1.00
+Date: 2022-12-20
+Authors@R: c(
+    person(given=c("Doug"),family="Martin",role=c("cre","aut"),
+    email="martinrd3d@gmail.com") ,
+    person(given="Thomas",family="Philips",role=c("ctb"),
+    email="tkpmep@gmail.com") ,
+    person(given="Stoyan",family="Stoyanov",role=c("ctb"),
+    email="stoyan.stoyanov@gmail.com") ,
+    person(given="Kirk",family="Li",role=c("ctb"),
+    email="cocokecoli@gmail.com"))
+Maintainer: Kirk Li <cocokecoli@gmail.com>
 Description: PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
 License: GPL-2 | file LICENSE
 Depends:
@@ -24,9 +32,8 @@ Imports:
 	RobStatTM,
 	robustbase,
 	R.cache
-Suggests:
-	testthat, MASS, shiny, Rglpk
 LazyLoad: true
 LazyData: true
 LazyDataCompression: xz
+Copyright: (c) 2022-2022
 RoxygenNote: 7.2.3
