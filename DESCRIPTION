@@ -3,18 +3,15 @@ Type: Package
 Title: Companion to Portfolio Construction and Risk Analysis
 Version: 1.00
 Date: 2022-12-20
-Authors@R: c(
-    person(given=c("Doug"),family="Martin",role=c("cre","aut"),
+Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
     email="martinrd3d@gmail.com") ,
-    person(given="Thomas",family="Philips",role=c("ctb"),
-    email="tkpmep@gmail.com") ,
-    person(given="Stoyan",family="Stoyanov",role=c("ctb"),
-    email="stoyan.stoyanov@gmail.com") ,
+    person(given="Jon",family="Spinney",role=c("ctb"),
+    email="Jon.Spinney@vestcor.org") ,
     person(given="Kirk",family="Li",role=c("ctb"),
     email="cocokecoli@gmail.com"))
 Maintainer: Kirk Li <cocokecoli@gmail.com>
 Description: PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
-License: GPL-2 | file LICENSE
+License: GPL-2
 Depends:
 	R (>= 4.0.0),
 Encoding: UTF-8
