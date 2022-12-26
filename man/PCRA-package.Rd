@@ -8,4 +8,15 @@
 \description{
 PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
 }
+\author{
+\strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
+
+Other contributors:
+\itemize{
+  \item Thomas Philips \email{tkpmep@gmail.com} [contributor]
+  \item Stoyan Stoyanov \email{stoyan.stoyanov@gmail.com} [contributor]
+  \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
+}
+
+}
 \keyword{internal}
