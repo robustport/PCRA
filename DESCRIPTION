@@ -15,7 +15,7 @@ Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
     email="Jon.Spinney@vestcor.org"))
 Maintainer: Kirk Li <cocokecoli@gmail.com>
 Description: PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
-License: GPL-2 | File
+License: GPL-2 | file LICENSE
 Depends:
 	R (>= 4.0.0),
 Encoding: UTF-8
