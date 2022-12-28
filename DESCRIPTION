@@ -7,6 +7,10 @@ Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
     email="martinrd3d@gmail.com") ,
     person(given="Jon",family="Spinney",role=c("ctb"),
     email="Jon.Spinney@vestcor.org") ,
+    person(given="Alexios",family="Galanos",role=c("ctb"),
+    email="alexios@4dscape.com") ,
+    person(given="Casey",family="Li",role=c("ctb"),
+    email="Casey.Li@vestcor.org") ,
     person(given="Kirk",family="Li",role=c("ctb"),
     email="cocokecoli@gmail.com"))
 Maintainer: Kirk Li <cocokecoli@gmail.com>
