@@ -50,34 +50,37 @@
 #' market return values or a data.table consisting of selected stocks and 
 #' factor/stock data.
 #' 
-#' @export 
-#' 
-#' @examples
-#' data(stocksCRSP)
-#' data(factorsSPGMI)
-#' return_data <- selectCRSPandSPGMI(periodicity = "monthly",
-#'                                     dateRange = c("2006-01-31", "2010-12-31"),
-#'                                     stockItems = c("Date", "TickerLast",
-#'                                     "CapGroupLast", "Sector", "Return",
-#'                                     "Ret13WkBill", "MktIndexCRSP"),
-#'                                     factorItems = NULL,
-#'                                     subSetType = NULL,
-#'                                     subSetValues = NULL,
-#'                                     outputType = "xts")
-#'
-#' length(unique(stocksCRSP$TickerLast)) 
-#' dim(return_data) #includes all tickers plus rf & market return columns
-#'
-#' stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
-#'                                     dateRange = c("2006-01-31", "2010-12-31"),
-#'                                     stockItems = c("Date", "TickerLast",
-#'                                     "CapGroupLast", "Sector", "Return",
-#'                                     "Ret13WkBill", "MktIndexCRSP"),
-#'                                     factorItems = c("BP", "LogMktCap", "SEV"),
-#'                                     subSetType = NULL,
-#'                                     subSetValues = NULL,
-#'                                     outputType = "data.table")
-#' names(stocks_factors)
+#'@examples
+# data(stocksCRSP)
+# data(factorsSPGMI)
+# 
+# return_data <- selectCRSPandSPGMI(periodicity = "monthly",
+#                                     dateRange = c("2006-01-31", "2010-12-31"),
+#                                     stockItems = c("Date", "TickerLast",
+#                                     "CapGroupLast", "Sector", "Return",
+#                                     "Ret13WkBill", "MktIndexCRSP"),
+#                                     factorItems = NULL,
+#                                     subSetType = NULL,
+#                                     subSetValues = NULL,
+#                                     outputType = "xts")
+#
+# length(unique(stocksCRSP$TickerLast)) 
+# dim(return_data) #includes all tickers plus rf & market return columns
+#
+# stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
+#                                     dateRange = c("2006-01-31", "2010-12-31"),
+#                                     stockItems = c("Date", "TickerLast",
+#                                     "CapGroupLast", "Sector", "Return",
+#                                     "Ret13WkBill", "MktIndexCRSP"),
+#                                     factorItems = c("BP", "LogMktCap", "SEV"),
+#                                     subSetType = NULL,
+#                                     subSetValues = NULL,
+#                                     outputType = "data.table")
+# names(stocks_factors)
+# str(stocks_factors)
+#
+#'@export
+
 selectCRSPandSPGMI <- function(periodicity = "monthly",
                                dateRange = c("1993-01-31","2015-12-31"), 
                                stockItems = c("Date", "TickerLast", 
@@ -142,23 +145,33 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   }
   
   # get combined returns xts matrix
+  
   returns_mat <- tapply(merged_data[["Return"]], list(merged_data$Date,merged_data$TickerLast), I)
   returns <- xts(returns_mat, order.by = as.Date(rownames(returns_mat)))
   
-  market_dt <- unique(stock_data[,c("Date","MktIndexCRSP")])
-  market <- xts(market_dt[,MktIndexCRSP],order.by = as.Date(market_dt[,Date]))
-  colnames(market) <- "MktIndexCRSP"
-  market <- market[index(returns),]
+  # check whether user requested the MktIndexCRSP variable in the returns matrix
+  # if so, append to xts output matrix
+  if ("MktIndexCRSP" %in% stockItems) {
+    market_dt <- unique(stock_data[,c("Date","MktIndexCRSP")])
+    market <- xts(market_dt[,MktIndexCRSP],order.by = as.Date(market_dt[,Date]))
+    colnames(market) <- "MktIndexCRSP"
+    market <- market[index(returns),]
+  } else {market <- NULL}
   
-  rf_dt <- unique(stock_data[,c("Date","Ret13WkBill")])
-  rf <- xts(rf_dt[,Ret13WkBill],order.by = as.Date(rf_dt[,Date]))
-  colnames(rf) <- "Ret13WkBill"
-  rf <- rf[index(returns),]
+  # check whether user requested the Ret13WkBill variable in the returns matrix
+  # if so, append to xts output matrix
+  if ("Ret13WkBill" %in% stockItems) {
+    rf_dt <- unique(stock_data[,c("Date","Ret13WkBill")])
+    rf <- xts(rf_dt[,Ret13WkBill],order.by = as.Date(rf_dt[,Date]))
+    colnames(rf) <- "Ret13WkBill"
+    rf <- rf[index(returns),]
+  } else {rf <- NULL}
   
+  # create final combined_ret xts object with optional MktIndexCRSP and Ret13WkBill variables
   combined_ret <- cbind(returns,market,rf)
   
-  # output
-  if(outputType == "xts"){
+  # determine final output type
+  if(outputType == "xts") {
     final_data <- combined_ret
   } else {
     final_data <- merged_data
