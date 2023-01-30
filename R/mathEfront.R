@@ -14,6 +14,8 @@
 #' @param values Logical variable with default TRUE
 #' @param npoints Integer number of efficient frontier points, default 100
 #' @param digits Integer variable number of significant digits, default NULL
+#' @param cexText Character expansion factor for text
+#' @param cexPoints Expansion factor for points
 #' 
 #' @details When rf.line = TRUE, the linear efficient frontier is displayed,
 #' and it is not displayed when rf.line = FALSE.

@@ -38,6 +38,10 @@ mathEfront(
 
 \item{npoints}{Integer number of efficient frontier points, default 100}
 
+\item{cexText}{Character expansion factor for text}
+
+\item{cexPoints}{Expansion factor for points}
+
 \item{digits}{Integer variable number of significant digits, default NULL}
 }
 \value{
