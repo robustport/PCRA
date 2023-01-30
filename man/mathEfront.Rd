@@ -14,6 +14,8 @@ mathEfront(
   stock.names = T,
   values = T,
   npoints = 100,
+  cexText = 0.8,
+  cexPoints = 0.8,
   digits = NULL
 )
 }

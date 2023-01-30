@@ -4,7 +4,7 @@
 #' for use in risk model estimation or returns analysis. This version of 
 #' selectCRSPandSPGMI allows various options for subsetting. Users may specify 
 #' a dateRange for the data as well as specifying specific lists of tickers, 
-#' market capitalization groups, or sectors via the subSetType and subSetValues
+#' market capitalization groups, or sectors via the subsetType and subsetValues
 #' parameters. Additionally, for data.table output,  users may select specific 
 #' columns for each of stocksCRSP and factorsSPGMI to be included in the final 
 #' output via the stockItems and factorItems parameters.
@@ -25,7 +25,7 @@
 #' Smaller sub-samples of the data (fewer rows) can be returned by
 #' selecting a specific Sectors, CapGroupLast (MicroCap, SmallCap, etc.) of 
 #' interest, or by specifying a list of TickerLast values for which data can be
-#' returned. This is accomplished via the subSetType and subSetValues 
+#' returned. This is accomplished via the subsetType and subsetValues 
 #' parameters.
 #' 
 #' @param periodicity Character "monthly","weekly","daily". Currently only 
@@ -38,9 +38,9 @@
 #' @param factorItems A character vector that is a subset of the names
 #' of columns in the factorsSPGMI data.table. Set to "NULL" when no data from this
 #' data set is desired in the final output.
-#' @param subSetType Character "TickerLast", "sector" or "CapGroupLast". Default 
+#' @param subsetType Character "TickerLast", "sector" or "CapGroupLast". Default 
 #' NULL for no sub-setting.
-#' @param subSetValues Character vector containing either a list of TickerLast
+#' @param subsetValues Character vector containing either a list of TickerLast
 #' values, Sector values, or CapGroup values.
 #' @param outputType Character "xts" for a wide xts returns matrix or 
 #' "data.table" for a long format data.table for risk model estimation. Set to
@@ -50,36 +50,36 @@
 #' market return values or a data.table consisting of selected stocks and 
 #' factor/stock data.
 #' 
-#'@examples
-# data(stocksCRSP)
-# data(factorsSPGMI)
-# 
-# return_data <- selectCRSPandSPGMI(periodicity = "monthly",
-#                                     dateRange = c("2006-01-31", "2010-12-31"),
-#                                     stockItems = c("Date", "TickerLast",
-#                                     "CapGroupLast", "Sector", "Return",
-#                                     "Ret13WkBill", "MktIndexCRSP"),
-#                                     factorItems = NULL,
-#                                     subSetType = NULL,
-#                                     subSetValues = NULL,
-#                                     outputType = "xts")
-#
-# length(unique(stocksCRSP$TickerLast)) 
-# dim(return_data) #includes all tickers plus rf & market return columns
-#
-# stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
-#                                     dateRange = c("2006-01-31", "2010-12-31"),
-#                                     stockItems = c("Date", "TickerLast",
-#                                     "CapGroupLast", "Sector", "Return",
-#                                     "Ret13WkBill", "MktIndexCRSP"),
-#                                     factorItems = c("BP", "LogMktCap", "SEV"),
-#                                     subSetType = NULL,
-#                                     subSetValues = NULL,
-#                                     outputType = "data.table")
-# names(stocks_factors)
-# str(stocks_factors)
-#
-#'@export
+#' @examples
+#' data(stocksCRSP)
+#' data(factorsSPGMI)
+#'
+#' return_data <- selectCRSPandSPGMI(periodicity = "monthly",
+#'                                     dateRange = c("2006-01-31", "2010-12-31"),
+#'                                     stockItems = c("Date", "TickerLast",
+#'                                     "CapGroupLast", "Sector", "Return",
+#'                                     "Ret13WkBill", "MktIndexCRSP"),
+#'                                     factorItems = NULL,
+#'                                     subsetType = NULL,
+#'                                     subsetValues = NULL,
+#'                                     outputType = "xts")
+#'
+#' length(unique(stocksCRSP$TickerLast)) 
+#' dim(return_data) #includes all tickers plus rf & market return columns
+#'
+#' stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
+#'                                     dateRange = c("2006-01-31", "2010-12-31"),
+#'                                     stockItems = c("Date", "TickerLast",
+#'                                     "CapGroupLast", "Sector", "Return",
+#'                                     "Ret13WkBill", "MktIndexCRSP"),
+#'                                     factorItems = c("BP", "LogMktCap", "SEV"),
+#'                                     subsetType = NULL,
+#'                                     subsetValues = NULL,
+#'                                     outputType = "data.table")
+#' names(stocks_factors)
+#' str(stocks_factors)
+#'
+#' @export
 
 selectCRSPandSPGMI <- function(periodicity = "monthly",
                                dateRange = c("1993-01-31","2015-12-31"), 
@@ -87,8 +87,8 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
                                               "CapGroupLast", "Sector", "Return",
                                               "Ret13WkBill", "MktIndexCRSP"),
                                factorItems = c("BP", "LogMktCap", "SEV"),
-                               subSetType = NULL,
-                               subSetValues = NULL,
+                               subsetType = NULL,
+                               subsetValues = NULL,
                                outputType= "xts")
 {
   
@@ -102,7 +102,7 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   # stop if incorrect outputType selected
   stopifnot(outputType %in% c("xts", "data.table")) 
   # stop if incorrect subsetting varible selected
-  stopifnot(subSetType %in% c("TickerLast","Sector","CapGroupLast"))
+  stopifnot(subsetType %in% c("TickerLast","Sector","CapGroupLast"))
   
   # merge data (resamples factorsSPGMI to higher frequency is daily or 
   # weekly stocksCRSP data are used)
@@ -126,21 +126,21 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   
   # subset by column and row based on user input
   # date sub-setting
-  if (!is.null(subSetType)) {
+  if (!is.null(subsetType)) {
     merged_data <- merged_data[merged_data$Date >= dateRange[1] & merged_data$Date <= dateRange[2],]
   }
   
-  # subSetType sub-setting
-  if (!is.null(subSetType)) {
-    if (subSetType == "TickerLast") {
-      stopifnot(subSetValues %in% unique(stocksCRSP$TickerLast))
-      merged_data <- merged_data[merged_data$TickerLast %in% subSetValues,]
-    } else if (subSetType == "Sector") {
-      stopifnot(subSetValues %in% unique(stocksCRSP$Sector))
-      merged_data <- merged_data[merged_data$Sector %in% subSetValues,]
+  # subsetType sub-setting
+  if (!is.null(subsetType)) {
+    if (subsetType == "TickerLast") {
+      stopifnot(subsetValues %in% unique(stocksCRSP$TickerLast))
+      merged_data <- merged_data[merged_data$TickerLast %in% subsetValues,]
+    } else if (subsetType == "Sector") {
+      stopifnot(subsetValues %in% unique(stocksCRSP$Sector))
+      merged_data <- merged_data[merged_data$Sector %in% subsetValues,]
     } else {
-      stopifnot(subSetValues %in% unique(stocksCRSP$CapGroupLast))
-      merged_data <- merged_data[merged_data$CapGroupLast %in% subSetValues,]
+      stopifnot(subsetValues %in% unique(stocksCRSP$CapGroupLast))
+      merged_data <- merged_data[merged_data$CapGroupLast %in% subsetValues,]
     }
   }
   

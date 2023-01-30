@@ -10,8 +10,8 @@ selectCRSPandSPGMI(
   stockItems = c("Date", "TickerLast", "CapGroupLast", "Sector", "Return", "Ret13WkBill",
     "MktIndexCRSP"),
   factorItems = c("BP", "LogMktCap", "SEV"),
-  subSetType = NULL,
-  subSetValues = NULL,
+  subsetType = NULL,
+  subsetValues = NULL,
   outputType = "xts"
 )
 }
@@ -30,10 +30,10 @@ data set is desired in the final output.}
 of columns in the factorsSPGMI data.table. Set to "NULL" when no data from this
 data set is desired in the final output.}
 
-\item{subSetType}{Character "TickerLast", "sector" or "CapGroupLast". Default 
+\item{subsetType}{Character "TickerLast", "sector" or "CapGroupLast". Default 
 NULL for no sub-setting.}
 
-\item{subSetValues}{Character vector containing either a list of TickerLast
+\item{subsetValues}{Character vector containing either a list of TickerLast
 values, Sector values, or CapGroup values.}
 
 \item{outputType}{Character "xts" for a wide xts returns matrix or 
@@ -50,7 +50,7 @@ Select data from stocksCRSP and merge with factorsSPGMI
 for use in risk model estimation or returns analysis. This version of 
 selectCRSPandSPGMI allows various options for subsetting. Users may specify 
 a dateRange for the data as well as specifying specific lists of tickers, 
-market capitalization groups, or sectors via the subSetType and subSetValues
+market capitalization groups, or sectors via the subsetType and subsetValues
 parameters. Additionally, for data.table output,  users may select specific 
 columns for each of stocksCRSP and factorsSPGMI to be included in the final 
 output via the stockItems and factorItems parameters.
@@ -71,20 +71,21 @@ Users may select a specific range of dates ("dateRange") for the data.
 Smaller sub-samples of the data (fewer rows) can be returned by
 selecting a specific Sectors, CapGroupLast (MicroCap, SmallCap, etc.) of 
 interest, or by specifying a list of TickerLast values for which data can be
-returned. This is accomplished via the subSetType and subSetValues 
+returned. This is accomplished via the subsetType and subsetValues 
 parameters.
 }
 \examples{
 data(stocksCRSP)
 data(factorsSPGMI)
+
 return_data <- selectCRSPandSPGMI(periodicity = "monthly",
                                     dateRange = c("2006-01-31", "2010-12-31"),
                                     stockItems = c("Date", "TickerLast",
                                     "CapGroupLast", "Sector", "Return",
                                     "Ret13WkBill", "MktIndexCRSP"),
                                     factorItems = NULL,
-                                    subSetType = NULL,
-                                    subSetValues = NULL,
+                                    subsetType = NULL,
+                                    subsetValues = NULL,
                                     outputType = "xts")
 
 length(unique(stocksCRSP$TickerLast)) 
@@ -96,8 +97,10 @@ stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
                                     "CapGroupLast", "Sector", "Return",
                                     "Ret13WkBill", "MktIndexCRSP"),
                                     factorItems = c("BP", "LogMktCap", "SEV"),
-                                    subSetType = NULL,
-                                    subSetValues = NULL,
+                                    subsetType = NULL,
+                                    subsetValues = NULL,
                                     outputType = "data.table")
 names(stocks_factors)
+str(stocks_factors)
+
 }
