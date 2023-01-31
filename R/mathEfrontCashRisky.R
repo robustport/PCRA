@@ -55,7 +55,7 @@ mathEfrontCashRisky <-
 		    y <- ylim[2] - .02 * (ylim[2] - ylim[1])
 		    text(x,y,paste("SR = ", round(sr.opt,2), sep = ""), pos = 4)
 		    y <- y - .07*(ylim[2] - ylim[1])
-		    text(x,y,paste("RF = ",round(rf,3),sep = ""), pos = 4)
+		    text(x,y,paste("RF = ",round(rf,4),sep = ""), pos = 4)
 		  }
 		  
 		  # Compute cash and risky assets weights
