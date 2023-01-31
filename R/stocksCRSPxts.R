@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' library(PCRA)
-#' library(zoo)
+#' library(xts)
 #' library(data.table)
 #' class(stocksCRSP)
 #' args(stocksCRSPxts)
@@ -30,12 +30,10 @@
 #' dim(returns4)
 #' names(returns4)
 #' range(index(returns4))                         
-stocksCRSPxts <- function(data,
-                          dateRange = c("1993-01-31","2015-12-31"),
+stocksCRSPxts <- function(data, dateRange = c("1993-01-31","2015-12-31"),
                           tickerSet = NULL)
 {
-  # This is a first version. To be expanded for capgroup selection
-  select_cols   <- c("Date","Return","TickerLast","CapGroupLast")
+  select_cols   <- c("Date","Return","TickerLast")
   stocksAllTime <- data[, select_cols, with = FALSE]
   Date1 <- dateRange[1]
   Date2 <- dateRange[2]
