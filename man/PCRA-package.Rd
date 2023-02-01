@@ -14,7 +14,6 @@ PCRA is a companion package to the text Robust Portfolio Construction and Risk A
 Other contributors:
 \itemize{
   \item Alexios Galanos \email{alexios@4dscape.com} [contributor]
-  \item Casey Li \email{Casey.Li@vestcor.org} [contributor]
   \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
   \item Jon Spinney \email{Jon.Spinney@vestcor.org} [contributor]
 }
