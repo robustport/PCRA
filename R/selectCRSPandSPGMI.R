@@ -126,7 +126,7 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   
   # subset by column and row based on user input
   # date sub-setting
-  if (!is.null(subsetType)) {
+  if (!is.null(dateRange)) {
     merged_data <- merged_data[merged_data$Date >= dateRange[1] & merged_data$Date <= dateRange[2],]
   }
   
@@ -138,14 +138,13 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
     } else if (subsetType == "Sector") {
       stopifnot(subsetValues %in% unique(stocksCRSP$Sector))
       merged_data <- merged_data[merged_data$Sector %in% subsetValues,]
-    } else {
+    } else if (subsetType == "CapGroupLast") {
       stopifnot(subsetValues %in% unique(stocksCRSP$CapGroupLast))
       merged_data <- merged_data[merged_data$CapGroupLast %in% subsetValues,]
     }
   }
   
   # get combined returns xts matrix
-  
   returns_mat <- tapply(merged_data[["Return"]], list(merged_data$Date,merged_data$TickerLast), I)
   returns <- xts(returns_mat, order.by = as.Date(rownames(returns_mat)))
   
