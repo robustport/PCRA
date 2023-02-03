@@ -114,7 +114,7 @@ Sector, followed by the GICS sector name:
  
 GICS is a joint product of SPGMI and MSCI.
 For details, see the GICS Global Industry Classification Standard document
-(The GICS MAP Book) available at \url{https://www.spglobal.com/en}, and the MSCI
+(The GICS MAP Book) available at \url{https://www.spglobal.com/en/}, and the MSCI
 GICS Methodology 2020 document available at \url{https://www.msci.com/}.
 }
 \examples{
