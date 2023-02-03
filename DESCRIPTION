@@ -3,15 +3,14 @@ Type: Package
 Title: Companion to Portfolio Construction and Risk Analysis
 Version: 1.0.0
 Date: 2023-2-2
-Authors@R: c(person(given="Doug",family="Martin",role=c("aut"),
+Authors@R: c(person(given="Doug",family="Martin",role=c("cre","aut"),
     email="martinrd3d@gmail.com"),
     person(given="Alexios",family="Galanos",role=c("ctb"),
     email="alexios@4dscape.com"),
-    person(given="Kirk",family="Li",role=c("cre","ctb"),
+    person(given="Kirk",family="Li",role=c("aut","ctb"),
     email="cocokecoli@gmail.com") ,
     person(given="Jon",family="Spinney",role=c("ctb"),
     email="Jon.Spinney@vestcor.org"))
-Maintainer: Kirk Li <cocokecoli@gmail.com>
 Description: A companion package to the text Robust Portfolio Construction and Risk Analysis.
 License: GPL-2 | file LICENSE
 Depends:

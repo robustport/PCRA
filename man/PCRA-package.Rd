@@ -9,11 +9,11 @@
 A companion package to the text Robust Portfolio Construction and Risk Analysis.
 }
 \author{
-\strong{Maintainer}: Kirk Li \email{cocokecoli@gmail.com} [contributor]
+\strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
 
 Authors:
 \itemize{
-  \item Doug Martin \email{martinrd3d@gmail.com}
+  \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
 }
 
 Other contributors:
