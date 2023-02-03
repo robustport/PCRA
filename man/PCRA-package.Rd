@@ -6,15 +6,19 @@
 \alias{PCRA-package}
 \title{PCRA: Companion to Portfolio Construction and Risk Analysis}
 \description{
-PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
+A companion package to the text Robust Portfolio Construction and Risk Analysis.
 }
 \author{
-\strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
+\strong{Maintainer}: Kirk Li \email{cocokecoli@gmail.com} [contributor]
+
+Authors:
+\itemize{
+  \item Doug Martin \email{martinrd3d@gmail.com}
+}
 
 Other contributors:
 \itemize{
   \item Alexios Galanos \email{alexios@4dscape.com} [contributor]
-  \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
   \item Jon Spinney \email{Jon.Spinney@vestcor.org} [contributor]
 }
 

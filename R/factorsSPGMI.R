@@ -72,7 +72,7 @@
 #' which SPGMI also refers to as "scores" or "alpha factors". 
 #' Our names for the the 14 factors are identical to those used by SPGMI in
 #' their AFL library.  For an introduction to the AFL library see:
-#' \url{https://www.spglobal.com/marketintelligence/en/solutions/alpha-factor-library}
+#' \url{https://www.marketplace.spglobal.com/en/datasets/alpha-factor-library-(3)}
 #' 
 #' The four CapGroupLast categorizations of the stocks were determined using the
 #' three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the
