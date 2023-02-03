@@ -11,7 +11,7 @@ Authors@R: c(person(given="Doug",family="Martin",role=c("cre","aut"),
     email="cocokecoli@gmail.com") ,
     person(given="Jon",family="Spinney",role=c("ctb"),
     email="Jon.Spinney@vestcor.org"))
-Description: A companion package to the text Robust Portfolio Construction and Risk Analysis.
+Description: A companion package to the textbook Robust Portfolio Construction and Risk Analysis.
 License: GPL-2 | file LICENSE
 Depends:
 	R (>= 4.0.0),
