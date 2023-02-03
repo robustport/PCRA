@@ -2,7 +2,7 @@ Package: PCRA
 Type: Package
 Title: Companion to Portfolio Construction and Risk Analysis
 Version: 1.00
-Date: 2022-12-20
+Date: 2023-2-2
 Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
     email="martinrd3d@gmail.com"),
     person(given="Alexios",family="Galanos",role=c("ctb"),
@@ -34,5 +34,5 @@ Imports:
 LazyLoad: true
 LazyData: true
 LazyDataCompression: xz
-Copyright: (c) 2022-2022
+Copyright: (c) 2022-2023
 RoxygenNote: 7.2.3
