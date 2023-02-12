@@ -37,7 +37,7 @@
 #' 
 #' @details
 #' The four CapGroupLast categorizations of the stocks were determined using the
-#' three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the
+#' three capitalization breakpoints $15.6B, $5.4B, $600M. Details concerning the
 #' construction of the monthly CapGroup categorizations will eventually be
 #' provided in a Vignette.
 #' 
