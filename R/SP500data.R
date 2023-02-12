@@ -6,7 +6,8 @@
 #'
 #' @usage data(SP500data)
 #'
-#' @format A data.frame with 82000 observations on 15 variables:
+#' @format A data.frame with observations on the SP500 1925 to the most recent 
+#' year end for which final data is available:
 #' \itemize{
 #'  \item \strong{Date:} type `Date`.
 #'  \item \strong{TickerLast:} type `chr`. The ticker as of December 2015
