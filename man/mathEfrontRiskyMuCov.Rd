@@ -9,9 +9,9 @@ mathEfrontRiskyMuCov(
   volRet,
   corrRet,
   npoints = 100,
-  display = T,
-  efront.only = T,
-  values = F,
+  display = TRUE,
+  efront.only = TRUE,
+  values = FALSE,
   digits = NULL
 )
 }

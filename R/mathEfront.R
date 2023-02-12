@@ -29,8 +29,8 @@
 #' @examples
 #' args(mathEfront)
 mathEfront <- function (returns, mu.max = NULL, sigma.max = NULL, 
-                         rf = 0.003, rf.line = T, stocks = T, 
-                         stock.names = T, values = T, npoints = 100, 
+                         rf = 0.003, rf.line = TRUE, stocks = TRUE, 
+                         stock.names = TRUE, values = TRUE, npoints = 100, 
                          cexText = 0.8, cexPoints = 0.8, digits = NULL) 
 {
   C <- var(returns)

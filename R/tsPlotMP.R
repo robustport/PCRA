@@ -44,7 +44,7 @@
 #' tsPlotMP(ret, scaleType = "same", zeroLine = FALSE)
 #' tsPlotMP(ret, stripLeft = FALSE, main = 'Time Series Plot')
 tsPlotMP <- function (ret, add.grid = FALSE, layout = NULL, type = "l",
-              yname = "RETURNS (%)", Pct = F, scaleType = "free", 
+              yname = "RETURNS (%)", Pct = FALSE, scaleType = "free", 
               stripLeft = TRUE, main = NULL, lwd = 1, stripText.cex = 1,
               axis.cex = 1, color = "black", zeroLine = TRUE) 
 {

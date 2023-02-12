@@ -26,7 +26,8 @@
 #' @examples
 #' args(mathEfrontRiskyMuCov)
 mathEfrontRiskyMuCov <- function(muRet, volRet, corrRet, npoints = 100,
-                display = T, efront.only = T, values = F, digits = NULL) 
+                display = TRUE, efront.only = TRUE, values = FALSE, 
+                digits = NULL) 
 {
   covRet <- diag(volRet)%*%corrRet%*%diag(volRet)
   names(muRet) <- c("Stock 1", "Stock 2", "Stock 3")

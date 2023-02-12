@@ -12,7 +12,15 @@ Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
     person(given="Jon",family="Spinney",role=c("ctb"),
     email="Jon.Spinney@vestcor.org"))
 Maintainer: Kirk Li <cocokecoli@gmail.com>
-Description: PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
+Description: PCRA is a companion package to the text Robust Portfolio Construction 
+  and Risk Analysis authored by R. Douglas Martin, Thomas K. Philips, Bernd Scherer,
+  Stoyan Stoyanov and Kirk Li, to be published by Springer in 2023. The package includes
+  cross-sections of data for approximately 300 stocks from the Center for Research on
+  Security Prices, LLC (CRS{}), and 14 corresponding factor exposures from S&P Global.       The book covers
+  The book covers classical and modern robust methods of portfolio construction and
+  risk analysis with a reproducibality focus.  The data and function in the package  
+  support this focus. Extensive R scripts based on package functions for each chapter
+  reproduce most of the tables and figures in the chapter.  
 License: GPL-2 | file LICENSE
 Depends:
 	R (>= 4.0.0),

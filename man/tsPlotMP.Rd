@@ -10,7 +10,7 @@ tsPlotMP(
   layout = NULL,
   type = "l",
   yname = "RETURNS (\%)",
-  Pct = F,
+  Pct = FALSE,
   scaleType = "free",
   stripLeft = TRUE,
   main = NULL,

@@ -7,9 +7,9 @@
 chart.Efront(
   returns,
   pspec,
-  firstEfront = T,
-  gmv = T,
-  maxSR = T,
+  firstEfront = TRUE,
+  gmv = TRUE,
+  maxSR = TRUE,
   rf = 0.003,
   xlim = NULL,
   ylim = NULL,

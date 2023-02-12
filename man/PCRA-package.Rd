@@ -6,7 +6,7 @@
 \alias{PCRA-package}
 \title{PCRA: Companion to Portfolio Construction and Risk Analysis}
 \description{
-PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
+PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis authored by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, Stoyan Stoyanov and Kirk Li, to be published by Springer in 2023. The package includes cross-sections of data for approximately 300 stocks from the Center for Research on Security Prices, LLC (CRS{}), and 14 corresponding factor exposures from S&P Global. The book covers The book covers classical and modern robust methods of portfolio construction and risk analysis with a reproducibality focus. The data and function in the package support this focus. Extensive R scripts based on package functions for each chapter reproduce most of the tables and figures in the chapter.
 }
 \author{
 \strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
