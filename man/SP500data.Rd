@@ -62,9 +62,9 @@ Final year-end numbers are typically reported in April or May of the following y
  
 data(SP500data)
 names(SP500data)
-unique(SP500data$Sector)
-unique(SP500data$CapGroup)
-head(SP500data,2)
+View(SP500data)
+head(SP500data, 5)
+tail(SP500data, 5)
 }
 \references{
 Chapter 13 (Expected Returns) of Martin, Philips, Scherer, Stoyanov and Li, 

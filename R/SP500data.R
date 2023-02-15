@@ -58,7 +58,7 @@
 #' @examples  
 #' data(SP500data)
 #' names(SP500data)
-#' unique(SP500data$Sector)
-#' unique(SP500data$CapGroup)
-#' head(SP500data,2)
+#' View(SP500data)
+#' head(SP500data, 5)
+#' tail(SP500data, 5)
 "SP500data"
