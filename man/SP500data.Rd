@@ -30,7 +30,7 @@ to the most recent year end for which final data is available:
  \item \strong{CPIAUCNS:} type `num`. Consumer Price Index for All Urban 
  Consumers: All Items in U.S. City Average, as of year end. 
  \item \strong{GDPA:} type `num`. Nominal GDP at an annual frequency.
- Reserve's FRED database at https://fred.stlouisfed.org/series/CPIAUCNS
+ 
 }
 }
 \source{
@@ -62,12 +62,11 @@ Final year-end numbers are typically reported in April or May of the following y
  
 data(SP500data)
 names(SP500data)
-View(SP500data)
 head(SP500data, 5)
 tail(SP500data, 5)
 }
 \references{
 Chapter 13 (Expected Returns) of Martin, Philips, Scherer, Stoyanov and Li, 
-Portfolio Contstruction and Risk Analysis, Springer, 2024.
+Portfolio Construction and Risk Analysis, Springer, 2024.
 }
 \keyword{datasets}
