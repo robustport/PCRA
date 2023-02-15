@@ -18,7 +18,7 @@ turnOver <- function(weights){
   n.asset <- ncol(weights)
   n.dates <- nrow(weights)
   if(n.dates < 2){
-    print("Less than 2 rebalancing dates!")
+    warning("Less than 2 rebalancing dates!")
     return()
   }
   TurnOver <- rep(0,n.dates-1)

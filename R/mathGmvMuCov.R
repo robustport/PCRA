@@ -7,6 +7,7 @@
 #' @param volRet Volatility vector
 #' @param corrRet matrix of correlations
 #' @param digits Integer value number of decimal places, default 3
+#' @return a list contains weights, mean return and volatility of a GMV portfolio
 #' @examples
 #' args(mathGmvMuCov)
 #' @export

@@ -15,6 +15,9 @@ mathGmvMuCov(muRet, volRet, corrRet, digits = 3)
 
 \item{digits}{Integer value number of decimal places, default 3}
 }
+\value{
+a list contains weights, mean return and volatility of a GMV portfolio
+}
 \description{
 Compute the weights, mean return and volatility of a GMV portfolio based on
 user specified mean vector and covariance matrix
