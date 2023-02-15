@@ -5,49 +5,58 @@
 \alias{SP500data}
 \title{SP500data}
 \format{
-A data.frame with observations on the SP500 1925 to the most recent 
-year end for which final data is available:
+A data.frame with observations on the S&P500 from 1925 
+to the most recent year end for which final data is available:
 \itemize{
- \item \strong{Date:} type `Date`.
- \item \strong{TickerLast:} type `chr`. The ticker as of December 2015
- \item \strong{Ticker:} type `chr`. Monthly ticker
- period
- \item \strong{Company:} type `chr`. The name of company with TickerLast
- \item \strong{CapGroupLast:} type `chr`. Company market capitalization group
- as of December 2015, one of: MicroCap, SmallCap, MidCap or LargeCap
- \item \strong{CapGroup:} type `chr`. Monthly market capitalization group
- \item \strong{GICS:} type `chr`. 6 digit S&P GICS code
- \item \strong{Sector:} type `chr`. One of 10 sectors specified by the first
- two digits of the GICS code
- \item \strong{Return:} type `num`. Arithmetic stock return from one period
- to the next in decimal form
- \item \strong{RetExDiv:} type `num`.
- \item \strong{Price:} type `num`. Stock price at each time period in decimal
- form
- \item \strong{PrcSplitAdj:} type `num`.
- \item \strong{Ret4WkBill:} type `num`. Return of 4 week Treasury bill
- \item \strong{Ret13WkBill:} type `num`. Return of 13 week Treasury bill
- \item \strong{Ret1YrBill:} type `num`. Return of 1 year Treasury bill
- \item \strong{mktIndexCRSP:} type `num`. CRSP value weighted market return
+ \item \strong{Year:} type `num`.
+ \item \strong{SP500Price:} type `num`. Year-end (12/31) price of the S&P 500
+ \item \strong{SP500EpsAll4Q:} type `num`. As-Reported Earnings per share
+ for the S&P 500 for the entire calendar year.
+ \item \strong{SP500EpsBest3Q:} type `num`. 4/3 x Sum of the three highest
+ quarterly earnings per share for the S&P 500 during the calendar year.
+ \item \strong{SP500EpsBest2Q:} type `num`. 2 x Sum of the two highest
+ quarterly earnings per share for the S&P 500 during the calendar year.
+ \item \strong{SP500EpsBest1Q:} type `num`. 4 x the highest earnings per share
+ in a quarter for the S&P 500 during the calendar year.
+ \item \strong{SP500Revenue:} type `num`. Annual Revenues per share 
+ for the S&P 500 during the calendar year.
+ \item \strong{SP500DPS:} type `num`. Annual Dividends per share 
+ for the S&P 500 during the calendar year.
+ \item \strong{SP500OperatingEPS:} type `num`. Operating Earnings 
+ per share for the S&P 500 for the calendar year.
+ \item \strong{SP500Nom1YrFwdRet:} type `num`. Nominal total return including
+ both change in price and dividends and not adjusted for inflation for the 
+ S&P 500 for the FOLLOWING calendar year.
+ \item \strong{CPIAUCNS:} type `num`. Consumer Price Index for All Urban 
+ Consumers: All Items in U.S. City Average, as of year end. 
+ \item \strong{GDPA:} type `num`. Nominal GDP at an annual frequency.
+ Reserve's FRED database at https://fred.stlouisfed.org/series/CPIAUCNS
 }
 }
 \source{
-Center for Research in Security Prices (CRSP) at the University of
-Chicago's Booth School of Business (CRSP). NOTE: CRSP data is not covered by
-the GPL. Redistribution of the data is not permitted, and use of the data in
-derivative works is not permitted without the written permission of CRSP.
+S&P Dow Jones Indices. S&P® and S&P 500® are registered trademarks of 
+Standard & Poor’s Financial Services LLC, and Dow Jones® is a registered 
+trademark of Dow Jones Trademark Holdings LLC. © 2022 S&P Dow Jones Indices LLC, 
+its affiliates and/or its licensors. All rights reserved.
+Redistribution of the data is not permitted, and use of the data in
+derivative works is not permitted without the written permission of 
+S&P Dow Jones Indices LLC.
 }
 \usage{
 data(SP500data)
 }
 \description{
-CRSP monthly stocks data for 294 stocks 1993 to 2015
+Year-end data on the S&P 500, Nominal GDP and Consumer Prices from 
+1925 to the most recent year-end for which final data is available.
 }
 \details{
-The four CapGroupLast categorizations of the stocks were determined using the
-three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the
-construction of the monthly CapGroup categorizations will eventually be
-provided in a Vignette.
+CPIAUCNS is obtained from the Federal Reserve's FRED database at 
+https://fred.stlouisfed.org/series/CPIAUCNS
+GDPA is obtained from the Federal Reserve's FRED database at 
+https://fred.stlouisfed.org/series/CPIAUCNS
+Data for the S&P 500 is updated using the QUARTERLY DATA tab of
+https://www.spglobal.com/spdji/en/documents/additional-material/sp-500-eps-est.xlsx
+Final year-end numbers are typically reported in April or May of the following year.
 }
 \examples{
  
@@ -58,7 +67,7 @@ unique(SP500data$CapGroup)
 head(SP500data,2)
 }
 \references{
-A standard corporate finance textbook:  Ross, Westerfield, Jaffe and
-Jordan (2019). Corporate Finance, McGraw-Hill Education.
+Chapter 13 (Expected Returns) of Martin, Philips, Scherer, Stoyanov and Li, 
+Portfolio Contstruction and Risk Analysis, Springer, 2024.
 }
 \keyword{datasets}
