@@ -1,8 +1,8 @@
-#' Robust and LS SFM Fits
+#' Robust and Least Square Single Factor Model (SFM) Fits
 #' 
-#' @description Least squares and robust single factor model (SFM) fits plot,
-#' with outliers identified, and legend with slope and intercept coefficent
-#' estimates and standard errors in parentheses.
+#' @description Plot of Least squares and robust single factor model (SFM) fits,
+#' with outliers identified, and legend containing slope and intercept coefficient
+#' estimates with standard errors in parentheses.
 #'
 #' @param x A univariate xts object.
 #' @param family Robust loss function choice with default mopt
@@ -16,13 +16,13 @@
 #' R package RobStatTM. For other choices of efficiency and family see the
 #' RobStatTM package help(lmrobdetMM)
 #'
-#' @return The plot with straight line fits and legend
+#' @return No value returned, instead plot with straight line fits and legend
+#' is displayed
 #'  
 #' @export
 #'
 #' @examples
-#' data("ret4withOutliers")
-#' plotLSandRobustSFM(retEDS,legendPos = "bottomright")
+#' args(ret4withOutliers)
 plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
                 mainText = NULL, ylimits = NULL, legendPos = "topleft",
                 makePct = FALSE)

@@ -1,8 +1,9 @@
 #' @title Optimal Portfolio Weights and Performance
 #' 
 #' @description Converts output of PortfolioAnalytics function
-#' optimize.portfolio to a list of portfolio optimal weights, mean, volatility
-#'  and Sharpe Ratio.
+#' optimize.portfolio which computes a minimum variance portfolio
+#' to a list containing the portfolio weights vector, mean, volatility
+#' and Sharpe Ratio.
 #' 
 #' @param opt List output of optimize.portfolio 
 #' @param returns Multivariate xts object of portfolio assets returns
@@ -14,7 +15,8 @@
 #' along with the returns to compute the portfolio mean return and volatility,
 #' and along with the risk-free rate rf it computes the Sharpe Ratio.
 #'
-#' @return Optimal portfolio weights, mean, volatility, Sharpe ratio
+#' @return Optimal a list containing the numeric weight vector, and the 
+#' numeric values of the portfolio return mean, volatility, and Sharpe ratio
 #' @export
 #'
 #' @examples
