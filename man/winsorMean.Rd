@@ -9,11 +9,11 @@ winsorMean(x, winFrac = 0, na.rm = FALSE, ...)
 \arguments{
 \item{x}{Numeric vector}
 
+\item{winFrac}{Fraction of data to be Winsorized}
+
 \item{na.rm}{Logical variable with default FALSE}
 
 \item{...}{Pass-through parameters}
-
-\item{trim}{Fraction of data to be Winsorized}
 }
 \value{
 Numeric value of Winsorized mean
