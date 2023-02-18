@@ -7,7 +7,7 @@
 #' @param excess A logical variable with default TRUE, which results in the
 #' computation of excess kurtosis, and FALSE results ordinary kurtosis.
 #'
-#' @return The estimate of excess kurtosis or ordinary kurtosis
+#' @return numeric value of excess kurtosis or ordinary kurtosis
 #'
 #' @examples
 #' args(KRest)

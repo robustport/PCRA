@@ -11,7 +11,7 @@
 #' @param rf.line Logical variable with default TRUE
 #' @param stocks Logical variable with default TRUE
 #' @param stock.names Logical variable with default TRUE
-#' @param values Logical variable with default TRUE
+#' @param SRvalue Logical variable with default TRUE
 #' @param npoints Integer number of efficient frontier points, default 100
 #' @param digits Integer variable number of significant digits, default NULL
 #' @param cexText Character expansion factor for text
@@ -22,15 +22,15 @@
 #' When values = TRUE, the Sharpe ratio and risk-free rate values are displayed
 #' in the plot as SHARPE RATIO and RISK-FREE values.
 #'
-#' @return Plot of efficient frontiers with cash and risky assets, and with
-#' risky assets only
+#' @return No value returned, instead a plot is displayed of the efficient frontier with
+#' cash and risky assets, with risky assets only efficient frontier overlaid
 #' @export
 #'
 #' @examples
 #' args(mathEfront)
 mathEfront <- function (returns, mu.max = NULL, sigma.max = NULL, 
                          rf = 0.003, rf.line = TRUE, stocks = TRUE, 
-                         stock.names = TRUE, values = TRUE, npoints = 100, 
+                         stock.names = TRUE, SRvalue = TRUE, npoints = 100, 
                          cexText = 0.8, cexPoints = 0.8, digits = NULL) 
 {
   C <- var(returns)
@@ -68,7 +68,7 @@ mathEfront <- function (returns, mu.max = NULL, sigma.max = NULL,
     points(tanp$vol, tanp$mu, pch = 16)
     text(tanp$vol, tanp$mu, "T", pos = 2)
     abline(rf, (tanp$mu - rf)/tanp$vol, lwd = 1.0)
-    if (values) {
+    if (SRvalue) {
       text(x, y, paste("SR = ", round(sharpe,2)), adj = 0, 
            cex = cexText)
       y <- ylim[2] - 0.13 * (ylim[2] - ylim[1])
