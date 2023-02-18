@@ -7,15 +7,16 @@
 turnOver(weights)
 }
 \arguments{
-\item{weights}{Multivariate xts object of portfolio weights}
+\item{weights}{A multivariate xts object of portfolio weights}
 }
 \value{
-Time series of T-1 turnover values
+A zoo time series object containing T-1 turnover values
 }
 \description{
-Calculates n-1 turn-over values for a times of n portfolio
-weight vectors, where the turnover from time t to time t+1 is the sum of the
-absolute differences between the portfolio weights at time t and time t+1.
+Calculates T-1 turn-over values for a times of portfolio
+weight vectors from time t = 1 to time t = T, where the turnover from time
+t-1 to time t is the sum of the absolute differences between the portfolio
+weights at time t-1 and time t.
 }
 \examples{
 args(turnOver)

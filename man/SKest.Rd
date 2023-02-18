@@ -10,7 +10,7 @@ SKest(x)
 \item{x}{A numeric vector}
 }
 \value{
-The estimate of skewness
+numeric value of estimate of skewness
 }
 \description{
 Sample estimate of skewness
