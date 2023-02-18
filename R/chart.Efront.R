@@ -21,7 +21,7 @@
 #' frontier plots. The choices gmv = TRUE and maxSR = TRUE result in bullet points
 #' at those locations on the initial efficient frontier plot
 #'
-#' @return Plots of efficient frontiers for use by bootEfronts()
+#' @return No value returned, instead plots of efficient frontiers for use by bootEfronts()
 #' @export
 #'
 #' @examples
