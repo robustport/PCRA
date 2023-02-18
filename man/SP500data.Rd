@@ -9,7 +9,7 @@ A data frame with observations on the S&P500 from 1925
 to the most recent year end for which final data is available:
 \itemize{
  \item \strong{Year:} type `num`.
- \item \strong{SP500Price:} type `num`. Year-end (12/31) price of the S&P 500
+ \item \strong{SP500ClosingPrice:} type `num`. Year-end (12/31) price of the S&P 500
  \item \strong{SP500EpsAll4Q:} type `num`. As-Reported Earnings per share
  for the S&P 500 for the entire calendar year
  \item \strong{SP500EpsBest3Q:} type `num`. 4/3 x Sum of the three highest
