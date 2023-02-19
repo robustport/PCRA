@@ -44,5 +44,5 @@ R package RobStatTM. For other choices of efficiency and family see the
 RobStatTM package help(lmrobdetMM)
 }
 \examples{
-args(ret4withOutliers)
+args(plotLSandRobustSFM)
 }

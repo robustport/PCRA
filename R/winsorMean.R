@@ -20,7 +20,7 @@ winsorMean <- function(x, winFrac = 0, na.rm = FALSE, ...) {
   if (!is.numeric(winFrac) || length(winFrac) != 1L)
     stop("'winFrac' must be numeric of length one")
   n <- length(x)
-  if (trim > 0 && n) {
+  if (winFrac > 0 && n) {
     if (is.complex(x))
       stop("trimmed means are not defined for complex data")
     if (winFrac >= 0.5)

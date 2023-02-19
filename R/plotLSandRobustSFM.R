@@ -22,7 +22,7 @@
 #' @export
 #'
 #' @examples
-#' args(ret4withOutliers)
+#' args(plotLSandRobustSFM)
 plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
                 mainText = NULL, ylimits = NULL, legendPos = "topleft",
                 makePct = FALSE)
