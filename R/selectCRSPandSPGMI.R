@@ -23,8 +23,8 @@
 #' Users may select a specific range of dates ("dateRange") for the data.
 #' 
 #' Smaller sub-samples of the data (fewer rows) can be returned by
-#' selecting a specific Sectors, CapGroupLast (MicroCap, SmallCap, etc.) of 
-#' interest, or by specifying a list of TickerLast values for which data can be
+#' selecting a specific Sectors, CapGroupLast (MicroCap, SmallCap, MidCap, LargeCap) 
+#' of interest, or by specifying a list of TickerLast values for which data can be
 #' returned. This is accomplished via the subsetType and subsetValues 
 #' parameters.
 #' 
@@ -54,71 +54,74 @@
 #' data(stocksCRSP)
 #' data(factorsSPGMI)
 #'
-#' return_data <- selectCRSPandSPGMI(periodicity = "monthly",
-#'                                     dateRange = c("2006-01-31", "2010-12-31"),
+#' return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
+#'                                     dateRange  = c("2006-01-31", "2010-12-31"),
 #'                                     stockItems = c("Date", "TickerLast",
 #'                                     "CapGroupLast", "Sector", "Return",
 #'                                     "Ret13WkBill", "MktIndexCRSP"),
-#'                                     factorItems = NULL,
-#'                                     subsetType = NULL,
+#'                                     factorItems  = NULL,
+#'                                     subsetType   = NULL,
 #'                                     subsetValues = NULL,
-#'                                     outputType = "xts")
+#'                                     outputType   = "xts")
 #'
 #' length(unique(stocksCRSP$TickerLast)) 
-#' dim(return_data) #includes all tickers plus rf & market return columns
+#' dim(return_data) #includes all tickers plus risk free rate & market return columns
 #'
 #' stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
-#'                                     dateRange = c("2006-01-31", "2010-12-31"),
-#'                                     stockItems = c("Date", "TickerLast",
+#'                                     dateRange    = c("2006-01-31", "2010-12-31"),
+#'                                     stockItems   = c("Date", "TickerLast",
 #'                                     "CapGroupLast", "Sector", "Return",
 #'                                     "Ret13WkBill", "MktIndexCRSP"),
-#'                                     factorItems = c("BP", "LogMktCap", "SEV"),
-#'                                     subsetType = NULL,
+#'                                     factorItems  = c("BP", "LogMktCap", "SEV"),
+#'                                     subsetType   = NULL,
 #'                                     subsetValues = NULL,
-#'                                     outputType = "data.table")
+#'                                     outputType   = "data.table")
 #' names(stocks_factors)
 #' str(stocks_factors)
 #'
 #' @export
 
 selectCRSPandSPGMI <- function(periodicity = "monthly",
-                               dateRange = c("1993-01-31","2015-12-31"), 
-                               stockItems = c("Date", "TickerLast", 
+                               dateRange   = c("1993-01-31","2015-12-31"), 
+                               stockItems  = c("Date", "TickerLast", 
                                               "CapGroupLast", "Sector", "Return",
                                               "Ret13WkBill", "MktIndexCRSP"),
-                               factorItems = c("BP", "LogMktCap", "SEV"),
-                               subsetType = NULL,
+                               factorItems  = c("BP", "LogMktCap", "SEV"),
+                               subsetType   = NULL,
                                subsetValues = NULL,
-                               outputType= "xts")
+                               outputType   = "xts")
 {
   
   ### input checking
-  # stop if incorrect periodicity selected
+  # stop if incorrect periodicity is selected
   stopifnot(periodicity %in% c("monthly","weekly","daily")) 
-  # stop if incorrect columns selected from stocksCRSP
+  
+  # stop if incorrect columns are selected from stocksCRSP
   stopifnot(stockItems %in% colnames(stocksCRSP))
-  # stop if incorrect columns selected from factorsSPGMI
+  
+  # stop if incorrect columns are selected from factorsSPGMI
   stopifnot(factorItems %in% colnames(factorsSPGMI)) 
-  # stop if incorrect outputType selected
+  # stop if incorrect outputType is selected
   stopifnot(outputType %in% c("xts", "data.table")) 
-  # stop if incorrect subsetting varible selected
+  
+  # stop if incorrect subsetting variable is selected
   stopifnot(subsetType %in% c("TickerLast","Sector","CapGroupLast"))
   
-  # merge data (resamples factorsSPGMI to higher frequency is daily or 
+  # merge data (resamples factorsSPGMI to a higher frequency if daily or 
   # weekly stocksCRSP data are used)
   stock_data <- switch(periodicity,
                        "monthly" = stocksCRSP,
-                       "weekly" = stocksCRSPweekly, 
-                       "daily" = stocksCRSPdaily)
+                       "weekly"  = stocksCRSPweekly, 
+                       "daily"   = stocksCRSPdaily)
   stock_data <- stock_data[, ..stockItems]
   stock_data$key <- substr(as.character(stock_data$Date),
-                           1,nchar(as.character(stock_data$Date[1]))-3)
+                           1,nchar(as.character(stock_data$Date[1])) - 3)
   factor_data <- factorsSPGMI
   fac_sel_idx <- which(colnames(stock_data) %in% colnames(factor_data))
-  fac_sel <- c("Date","TickerLast",factorItems)
+  fac_sel     <- c("Date", "TickerLast", factorItems)
   factor_data <- factor_data[, ..fac_sel]
   factor_data$key <- substr(as.character(factor_data$Date),
-                            1,nchar(as.character(factor_data$Date[1]))-3)
+                            1, nchar(as.character(factor_data$Date[1])) - 3)
   merged_data <- merge(stock_data, factor_data, by = c("key", "TickerLast"), 
                        all.x=TRUE)
   merged_data <- merged_data[, c("key", "Date.y"):=NULL]
@@ -135,45 +138,50 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
     if (subsetType == "TickerLast") {
       stopifnot(subsetValues %in% unique(stocksCRSP$TickerLast))
       merged_data <- merged_data[merged_data$TickerLast %in% subsetValues,]
+      
     } else if (subsetType == "Sector") {
       stopifnot(subsetValues %in% unique(stocksCRSP$Sector))
       merged_data <- merged_data[merged_data$Sector %in% subsetValues,]
+      
     } else if (subsetType == "CapGroupLast") {
       stopifnot(subsetValues %in% unique(stocksCRSP$CapGroupLast))
       merged_data <- merged_data[merged_data$CapGroupLast %in% subsetValues,]
+      
     }
   }
   
   # get combined returns xts matrix
   returns_mat <- tapply(merged_data[["Return"]], list(merged_data$Date,merged_data$TickerLast), I)
-  returns <- xts(returns_mat, order.by = as.Date(rownames(returns_mat)))
+  returns     <- xts(returns_mat, order.by = as.Date(rownames(returns_mat)))
   
   # check whether user requested the MktIndexCRSP variable in the returns matrix
   # if so, append to xts output matrix
   if ("MktIndexCRSP" %in% stockItems) {
-    market_dt <- unique(stock_data[,c("Date","MktIndexCRSP")])
-    market <- xts(market_dt[,MktIndexCRSP],order.by = as.Date(market_dt[,Date]))
+    market_dt <- unique(stock_data[, c("Date", "MktIndexCRSP")])
+    market    <- xts(market_dt[, MktIndexCRSP], order.by = as.Date(market_dt[, Date]))
     colnames(market) <- "MktIndexCRSP"
-    market <- market[index(returns),]
+    market    <- market[index(returns), ]
   } else {market <- NULL}
   
   # check whether user requested the Ret13WkBill variable in the returns matrix
   # if so, append to xts output matrix
   if ("Ret13WkBill" %in% stockItems) {
-    rf_dt <- unique(stock_data[,c("Date","Ret13WkBill")])
-    rf <- xts(rf_dt[,Ret13WkBill],order.by = as.Date(rf_dt[,Date]))
+    rf_dt <- unique(stock_data[,c("Date", "Ret13WkBill")])
+    rf    <- xts(rf_dt[, Ret13WkBill], order.by = as.Date(rf_dt[, Date]))
     colnames(rf) <- "Ret13WkBill"
-    rf <- rf[index(returns),]
+    rf <- rf[index(returns), ]
   } else {rf <- NULL}
   
   # create final combined_ret xts object with optional MktIndexCRSP and Ret13WkBill variables
-  combined_ret <- cbind(returns,market,rf)
+  combined_ret <- cbind(returns, market, rf)
   
   # determine final output type
   if(outputType == "xts") {
     final_data <- combined_ret
+    
   } else {
     final_data <- merged_data
+    
   }
   
   return(final_data)
