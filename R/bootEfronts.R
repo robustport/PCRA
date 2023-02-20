@@ -24,7 +24,9 @@
 #' gmv = TRUE to display a bullet at global minimum variance portfolio
 #' maxSR = TRUE to display a bullet at tangency portfolio 
 #'
-#' @return Bootstrapped efficient frontiers plot
+#' @return No value returned, instead a bootstrapped efficient frontiers plot
+#' with options described in the above details.
+#' 
 #' @export
 #'
 #' @examples

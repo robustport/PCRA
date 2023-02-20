@@ -39,8 +39,10 @@ mathEfrontRisky(
 \item{digits}{Integer variable number of significant digits, default NULL}
 }
 \value{
-A plot of a risky assets only efficient frontier, or optionally
-a plot of the entier frontier
+no values are returned by default, and a plot is displayed of the
+either the risky assets only efficient frontier, or the entire frontier.
+Optionally, the values of the mean and volatility along the efficient
+frontier are returned.
 }
 \description{
 Computes and plots the efficient frontier of risky assets

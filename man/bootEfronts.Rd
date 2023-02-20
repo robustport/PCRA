@@ -51,7 +51,8 @@ bootEfronts(
 \item{figTitle}{Optional figure title, default NULL}
 }
 \value{
-Bootstrapped efficient frontiers plot
+No value returned, instead a bootstrapped efficient frontiers plot
+with options described in the above details.
 }
 \description{
 Computes and plots bootstrapped portfolio efficient frontiers, 

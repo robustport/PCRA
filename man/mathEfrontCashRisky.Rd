@@ -39,9 +39,9 @@ mathEfrontCashRisky(
 \item{cexText}{Numerical size parameter for text with default 0.8}
 }
 \value{
-A plot of the linear efficient frontier or the weights along the
-efficient frontier.  Optionally output the mean and volatility values
-of the linear efficient frontier or its weights, or both.
+default is no value returned, and a plot is displayed of the linear
+efficient frontier.  Optionally, a numeric object containing the weights along
+the linear efficient frontier are displayed. Optionally no plot is displayed.
 }
 \description{
 This function computes and plots a linear efficient frontier that is

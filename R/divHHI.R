@@ -8,7 +8,7 @@
 #'
 #' @param weights A numeric vector of portfolio weights
 #'
-#' @return Time series of portfolio diversification values
+#' @return a zoo time series object containing portfolio diversification values
 #' @export
 #'
 #' @examples

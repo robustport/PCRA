@@ -1,10 +1,13 @@
 #' Download CRSP and SPGMI Data
 #'
 #' @description Downloads stocksCRSPweekly and stocksCRSPdaily
+#' 
 #' @param dataset a valid dataset name (see details)
-#' @param cache whether to cache the operation so that when calling the function
-#' using the same dataset it will be loaded from cache rather than re-downloading
-#' @param refresh whether to re-download a cached dataset
+#' @param cache logical variable controlling whether or not to cache the data so
+#' that when calling the function for the same dataset it will be loaded from cache
+#' rather than re-downloading from the github site
+#' @param refresh logical variable controlling whether or not to re-download a
+#' cached dataset
 #' 
 #' @details The following are valid names of datasets available:
 #' \itemize{

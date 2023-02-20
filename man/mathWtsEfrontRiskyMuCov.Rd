@@ -18,10 +18,9 @@ mathWtsEfrontRiskyMuCov(muRet, volRet, corrRet, mu.efront, digits = NULL)
 \item{digits}{Integer number of significant digits with default NULL}
 }
 \value{
-A matrix whose first row contains the volatilities along the efficient
-at specified mean returns contained in the second row, and the remaining
-n rows contain contain the n weight vectors at each of the efficient
-frontier mean return values
+A matrix whose first row contains the mean returns along the efficient
+frontier, the second row contains the corresponding volatilities, and the
+remaining rows contain the components of the corresponding weight vectors.
 }
 \description{
 Same as function \code{"mathWtsEfrontRisky"} except that

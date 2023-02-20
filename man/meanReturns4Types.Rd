@@ -16,11 +16,11 @@ sample mean and standard deviation is computed. Default is FALSE}
 used for computing a robust location estimate}
 }
 \value{
-fourMeans numeric vector of the four means
+fourMeans numeric values of the four means in the Description
 }
 \description{
-Computation of arithmetic mean, logarithmic mean, geometric,
-mean and an approximate geometric mean.
+Computation of arithmetic mean, logarithmic mean, geometric
+mean, and an approximate geometric mean.
 }
 \examples{
 args(meanReturns4Types)

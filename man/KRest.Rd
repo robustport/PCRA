@@ -13,7 +13,7 @@ KRest(x, excess = TRUE)
 computation of excess kurtosis, and FALSE results ordinary kurtosis.}
 }
 \value{
-The estimate of excess kurtosis or ordinary kurtosis
+numeric value of excess kurtosis or ordinary kurtosis
 }
 \description{
 Sample estimate of excess kurtosis, with option for ordinary
