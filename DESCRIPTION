@@ -39,8 +39,10 @@ Imports:
 	RobStatTM,
 	robustbase,
 	R.cache
+Suggests: R.rsp
 LazyLoad: true
 LazyData: true
 LazyDataCompression: xz
 Copyright: (c) 2022-2022
 RoxygenNote: 7.2.3
+VignetteBuilder: R.rsp
