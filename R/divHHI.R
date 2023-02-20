@@ -16,7 +16,7 @@
 divHHI <- function(weights){
   n.dates <- nrow(weights)
   if(n.dates < 1){
-    print("empty data set")
+    warning("empty data set")
     return()
   }
   diversification <- rep(0, n.dates)

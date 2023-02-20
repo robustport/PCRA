@@ -18,12 +18,14 @@ opt.outputMvo(opt, returns, digits = NULL, names = NULL, rf = 0.003)
 \item{rf}{Numeric value with default 0.003}
 }
 \value{
-Optimal portfolio weights, mean, volatility, Sharpe ratio
+Optimal a list containing the numeric weight vector, and the 
+numeric values of the portfolio return mean, volatility, and Sharpe ratio
 }
 \description{
 Converts output of PortfolioAnalytics function
-optimize.portfolio to a list of portfolio optimal weights, mean, volatility
- and Sharpe Ratio.
+optimize.portfolio which computes a minimum variance portfolio
+to a list containing the portfolio weights vector, mean, volatility
+and Sharpe Ratio.
 }
 \details{
 This functions uses the weights returned by optimize.portfolio,

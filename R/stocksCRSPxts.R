@@ -1,4 +1,4 @@
-#' @title Select CRSP Stocks Returns V0
+#' @title Select CRSP Stocks Returns
 #'
 #' @description A function to extract a subset of the stocksCRSP data.table
 #' specified by a date range and a set of tickers, with convenient defaults,
@@ -13,7 +13,7 @@
 #' default is tickerSet = NULL, which results in selection of all stocks
 #' in stocksCRSP.
 #'
-#' @return Multivariate xts object of stock returns
+#' @return A multivariate xts object of stock returns
 #' @export
 #'
 #' @examples

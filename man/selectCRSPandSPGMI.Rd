@@ -36,14 +36,14 @@ NULL for no sub-setting.}
 \item{subsetValues}{Character vector containing either a list of TickerLast
 values, Sector values, or CapGroup values.}
 
-\item{outputType}{Character "xts" for a wide xts returns matrix or 
-"data.table" for a long format data.table for risk model estimation. Set to
-"xts" by default.}
+\item{outputType}{Character "xts" for a wide multivariate xts returns object,
+or a long format "data.table" object foranalysis and risk model estimation.
+Set to "xts" by default.}
 }
 \value{
-Either an xts returns matrix augmented with the risk free rate and 
-market return values or a data.table consisting of selected stocks and 
-factor/stock data.
+Either a multivariate xts object of returns, plus the risk-free rate
+("Ret13WkBill") and market return ("MktIndexCRSP") values, or a data.table
+consisting of selected stocks and/or factor exposures data.
 }
 \description{
 Select data from stocksCRSP and merge with factorsSPGMI 

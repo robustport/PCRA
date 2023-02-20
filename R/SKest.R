@@ -5,7 +5,7 @@
 #'
 #' @param x A numeric vector
 #'
-#' @return The estimate of skewness
+#' @return numeric value of estimate of skewness
 #' 
 #' @examples
 #' args(SKest)
