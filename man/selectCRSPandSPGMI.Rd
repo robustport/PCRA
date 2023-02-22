@@ -69,8 +69,8 @@ desired, set factorItems to NULL).
 Users may select a specific range of dates ("dateRange") for the data.
 
 Smaller sub-samples of the data (fewer rows) can be returned by
-selecting a specific Sectors, CapGroupLast (MicroCap, SmallCap, etc.) of 
-interest, or by specifying a list of TickerLast values for which data can be
+selecting a specific Sectors, CapGroupLast (MicroCap, SmallCap, MidCap, LargeCap) 
+of interest, or by specifying a list of TickerLast values for which data can be
 returned. This is accomplished via the subsetType and subsetValues 
 parameters.
 }
@@ -78,28 +78,28 @@ parameters.
 data(stocksCRSP)
 data(factorsSPGMI)
 
-return_data <- selectCRSPandSPGMI(periodicity = "monthly",
-                                    dateRange = c("2006-01-31", "2010-12-31"),
+return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
+                                    dateRange  = c("2006-01-31", "2010-12-31"),
                                     stockItems = c("Date", "TickerLast",
                                     "CapGroupLast", "Sector", "Return",
                                     "Ret13WkBill", "MktIndexCRSP"),
-                                    factorItems = NULL,
-                                    subsetType = NULL,
+                                    factorItems  = NULL,
+                                    subsetType   = NULL,
                                     subsetValues = NULL,
-                                    outputType = "xts")
+                                    outputType   = "xts")
 
 length(unique(stocksCRSP$TickerLast)) 
-dim(return_data) #includes all tickers plus rf & market return columns
+dim(return_data) #includes all tickers plus risk free rate & market return columns
 
 stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
-                                    dateRange = c("2006-01-31", "2010-12-31"),
-                                    stockItems = c("Date", "TickerLast",
+                                    dateRange    = c("2006-01-31", "2010-12-31"),
+                                    stockItems   = c("Date", "TickerLast",
                                     "CapGroupLast", "Sector", "Return",
                                     "Ret13WkBill", "MktIndexCRSP"),
-                                    factorItems = c("BP", "LogMktCap", "SEV"),
-                                    subsetType = NULL,
+                                    factorItems  = c("BP", "LogMktCap", "SEV"),
+                                    subsetType   = NULL,
                                     subsetValues = NULL,
-                                    outputType = "data.table")
+                                    outputType   = "data.table")
 names(stocks_factors)
 str(stocks_factors)
 
