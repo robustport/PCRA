@@ -1,7 +1,13 @@
 #' @title SP500from1967to2007
 #'
 #' @description Year-end data on the S&P 500® Index from 1967 to 2007 
-#' extracted from a paper copy of the S&P Analysts' Handbook.
+#' extracted from a paper copy of the S&P Analysts' Handbook.  
+#' The title of the page from which this data was extracted says 
+#' "Historical Index - S&P 500 Composite - 500 stocks". It includes some 
+#' information (e.g. Cash Flow) that is no longer provided. An extensive dataset
+#' for the S&P 500® and various other S&P® indices can be downloaded from
+#' https://www.spglobal.com/spdji/en/documents/additional-material/sp-500-eps-est.xlsx. 
+#' Final year-end numbers are typically reported in April or May of the following year.
 #' 
 #' @docType data
 #'
@@ -55,15 +61,21 @@
 #' Portfolio Construction and Risk Analysis, Springer, 2024.
 #' 
 #' @details
-
+#' Data for the S&P® Industrials is taken from a paper copy of the 
+#' S&P® Analysts' Handbook published in 2008. It includes one variable (Cash Flow)
+#' that is no longer provided, and excludes many others (Operating Earnings, 
+#' Capital Expenditures, Earnings Estimates, Index Divisor, % of firms that have
+#' beaten estimates, sector breakdowns, projected growth rates by sector, 
+#' effective tax rate etc.) that are now provided by S&P® in the spreadsheet
+#' https://www.spglobal.com/spdji/en/documents/additional-material/sp-500-eps-est.xlsx. 
+#' Final year-end numbers are typically reported in April or May of the following year.
 #' 
 #' @source S&P Dow Jones Indices. 
 #' S&P®, S&P 400 Industrials®, S&P 425 Industrials®, S&P Industrials®and S&P 500® 
 #' are registered trademarks of Standard & Poor’s Financial Services LLC, 
 #' and Dow Jones® is a registered trademark of Dow Jones Trademark Holdings LLC. 
-#' © 2022 S&P Dow Jones Indices LLC, #' its affiliates and/or its licensors. 
-#' All rights reserved.
-#' Redistribution of the data is not permitted, and use of the data in
+#' © 2023 S&P Dow Jones Indices LLC, its affiliates and/or its licensors. 
+#' All rights reserved. ' Redistribution of the data is not permitted, and use of the data in
 #' derivative works is not permitted without the written permission of 
 #' S&P Dow Jones Indices LLC.
 #' 

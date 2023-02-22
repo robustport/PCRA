@@ -45,19 +45,27 @@
 #' Portfolio Construction and Risk Analysis, Springer, 2024.
 #' 
 #' @details
-
+#' This dataset was constructed by combining information in various datasets, and
+#' is updated annually using data published in
+#' https://www.spglobal.com/spdji/en/documents/additional-material/sp-500-eps-est.xlsx. Final year-end numbers
+#' Revenues per share from 1992 to 199 are taken from SP500from1967to2007,
+#' and prior to this are estimated from the per-share revenues of the 
+#' S&P 425 Industrials® and S&P Industrials® indices, using the procedure described in 
+#' Philips, Thomas and Ural, Cenk, "Uncloaking Campbell and Shiller’s CAPE: A
+#' Comprehensive Guide to its Construction and Use", Journal of Portfolio Management,
+#' Vol 43, No. 1, Fall 2016, pp. 109-125.
 #' 
 #' @source S&P Dow Jones Indices and Federal Reserve Bank of St. Louis. 
 #' S&P®, S&P 400 Industrials®, S&P 425 Industrials®, S&P Industrials®and S&P 500® 
 #' are registered trademarks of Standard & Poor’s Financial Services LLC, 
 #' and Dow Jones® is a registered trademark of Dow Jones Trademark Holdings LLC. 
-#' © 2022 S&P Dow Jones Indices LLC, #' its affiliates and/or its licensors. 
+#' © 2023 S&P Dow Jones Indices LLC, #' its affiliates and/or its licensors. 
 #' All rights reserved.
 #' Redistribution of the data is not permitted, and use of the data in
 #' derivative works is not permitted without the written permission of 
-#' S&P Dow Jones Indices LLC. Data for the S&P 500 is updated using the QUARTERLY DATA tab of
-#' https://www.spglobal.com/spdji/en/documents/additional-material/sp-500-eps-est.xlsx. Final year-end numbers
-#' are typically reported in April or May of the following year.
+#' S&P Dow Jones Indices LLC. Data for the S&P 500® is updated using the QUARTERLY DATA tab of
+#' https://www.spglobal.com/spdji/en/documents/additional-material/sp-500-eps-est.xlsx. 
+#' Final year-end numbers are typically reported in April or May of the following year.
 #' CPIAUCNS is obtained from the Federal Reserve Bank of St. Louis' FRED database at 
 #' https://fred.stlouisfed.org/series/CPIAUCNS. 
 #' GDPA is obtained from the Federal Reserve Bank of St. Louis' FRED database at 

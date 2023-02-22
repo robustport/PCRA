@@ -66,16 +66,18 @@
 #' Portfolio Construction and Risk Analysis, Springer, 2024.
 #' 
 #' @details
-
-#' 
+#' Data for the S&P® Industrials is taken from a paper copy of the 
+#' S&P® Analysts' Handbook published in 2008. The average price level of the
+#' index in 1941-1943 was set to 100. See https://globalfinancialdata.com/the-sp-composite-before-1957
+#' for a useful history of the various S&P® indices.
+#'  
 #' @source S&P Dow Jones Indices. 
 #' S&P®, S&P 400 Industrials®, S&P 425 Industrials®, S&P Industrials®and S&P 500® 
 #' are registered trademarks of Standard & Poor’s Financial Services LLC, 
 #' and Dow Jones® is a registered trademark of Dow Jones Trademark Holdings LLC. 
-#' © 2022 S&P Dow Jones Indices LLC, #' its affiliates and/or its licensors. 
-#' All rights reserved.
-#' Redistribution of the data is not permitted, and use of the data in
-#' derivative works is not permitted without the written permission of 
+#' © 2023 S&P Dow Jones Indices LLC, #' its affiliates and/or its licensors. 
+#' All rights reserved. Redistribution of the data is not permitted, and use of 
+#' the data in derivative works is not permitted without the written permission of 
 #' S&P Dow Jones Indices LLC.
 #' 
 #' @examples  
