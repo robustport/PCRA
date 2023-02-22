@@ -20,4 +20,4 @@
 
 "_PACKAGE"
 
-globalVariables(c("Date", "MktIndexCRSP", "Ret13WkBill","stocksCRSP","stocksCRSPweekly","stocksCRSPdaily","factorsSPGMI","..stockItems","..fac_sel"))
+globalVariables(c("Date", "MktIndexCRSP", "Ret13WkBill","stocksCRSP","stocksCRSPweekly","stocksCRSPdaily","factorsSPGMI","..stockItems","..fac_sel","CapGroupLast"))

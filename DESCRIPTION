@@ -11,7 +11,6 @@ Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
     email="cocokecoli@gmail.com") ,
     person(given="Jon",family="Spinney",role=c("ctb"),
     email="Jon.Spinney@vestcor.org"))
-Maintainer: Kirk Li <cocokecoli@gmail.com>
 Description: PCRA is a companion package to the text Robust Portfolio Construction 
   and Risk Analysis authored by R. Douglas Martin, Thomas K. Philips, Bernd Scherer,
   Stoyan Stoyanov and Kirk Li, to be published by Springer in 2023. The package includes
@@ -43,6 +42,6 @@ Suggests: R.rsp
 LazyLoad: true
 LazyData: true
 LazyDataCompression: xz
-Copyright: (c) 2022-2022
+Copyright: (c) 2022-2023
 RoxygenNote: 7.2.3
 VignetteBuilder: R.rsp
