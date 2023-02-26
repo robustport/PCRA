@@ -37,7 +37,8 @@
 #' }
 getPCRAData <- function(dataset = "stocksCRSPweekly", cache = TRUE, refresh = FALSE)
 {
-  valid_datasets <- c("stocksCRSP", "stocksCRSPdaily", "stocksCRSPweekly")
+  valid_datasets <- c("stocksCRSP", "stocksCRSPdaily", "stocksCRSPweekly", 
+                      "factorsSPGMI")
   dataset <- match.arg(dataset[1], valid_datasets)
   base_url <- "https://github.com/robustport/PCRA/raw/main/DataPlus/"
   data_url <- paste(base_url,dataset,".rds", sep = "")

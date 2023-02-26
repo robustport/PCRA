@@ -52,7 +52,7 @@
 #' 
 #' @examples
 #' data(stocksCRSP)
-#' data(factorsSPGMI)
+#' factorsSPGMI <- getPCRAData(factorsSPGMI)
 #'
 #' return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
 #'                                     dateRange  = c("2006-01-31", "2010-12-31"),
