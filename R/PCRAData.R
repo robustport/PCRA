@@ -1,6 +1,6 @@
 #' Download CRSP and SPGMI Data
 #'
-#' @description Downloads stocksCRSPweekly and stocksCRSPdaily
+#' @description Downloads stocksCRSPweekly, stocksCRSPdaily, factorsSPGMI
 #' 
 #' @param dataset a valid dataset name (see details)
 #' @param cache logical variable controlling whether or not to cache the data so
@@ -13,7 +13,9 @@
 #' \itemize{
 #' \item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
 #' \item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
+#' \item{"factorsSPGMI"}{"Details same as for factprsSPGMI"}
 #' }
+#' User must install R.cache package
 #' @return An object of class \dQuote{data.table}.
 #' @aliases getPCRAData
 #' @rdname getPCRAData
@@ -28,6 +30,10 @@
 #' stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
 #' class(stocksCRSPdaily)
 #' names(stocksCRSPdaily)
+#' 
+#' factorsSPGMI <- getPCRAData(data = factorsSPGMI)
+#' class(factorsSPGMI)
+#' names(factorsSPGMI)
 #' }
 getPCRAData <- function(dataset = "stocksCRSPweekly", cache = TRUE, refresh = FALSE)
 {
