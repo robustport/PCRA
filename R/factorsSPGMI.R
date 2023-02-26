@@ -4,7 +4,7 @@
 #' 
 #' @docType data
 #'
-#' @usage data('factorsSPGMI')
+#' @usage getPCRAData('factorsSPGMI')
 #'
 #' @format A data.frame containing 14 SPGMI monthly factor exposures (alpha
 #' factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21
@@ -117,7 +117,8 @@
 #' the written permission of SPGMI
 #' 
 #' @examples  
-#' data(factorsSPGMI)
+#' factorsSPGMI <- getPCRAData(factorsSPGMI)
+#' class(factorSPGMI)
 #' names(factorsSPGMI)
 #' head(factorsSPGMI, 2)
 #' str(factorsSPGMI) # MORE EXAMPLE CODE MAY BE ADDED
