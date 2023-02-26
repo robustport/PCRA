@@ -47,6 +47,9 @@ The four CapGroupLast categorizations of the stocks were determined using the
 three capitalization breakpoints $15.6B, $5.4B, $600M. Details concerning the
 construction of the monthly CapGroup categorizations will eventually be
 provided in a Vignette.
+
+Weekly and daily versions stocksCRSPweekly and stocksCRSPdaily may be
+obtained using the function getPCRAData() - see PCRAData.R.
 }
 \examples{
  

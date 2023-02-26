@@ -41,6 +41,9 @@
 #' construction of the monthly CapGroup categorizations will eventually be
 #' provided in a Vignette.
 #' 
+#' Weekly and daily versions stocksCRSPweekly and stocksCRSPdaily may be
+#' obtained using the function getPCRAData() - see PCRAData.R. 
+#' 
 #' @source Center for Research in Security Prices (CRSP) at the University of
 #' Chicago's Booth School of Business (CRSP). NOTE: CRSP data is not covered by
 #' the GPL. Redistribution of the data is not permitted, and use of the data in
