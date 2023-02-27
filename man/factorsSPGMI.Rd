@@ -68,7 +68,7 @@ permitted, and use of the data in derivative works is not permitted without
 the written permission of SPGMI
 }
 \usage{
-getPCRAData(factorsSPGMI)
+data(factorsSPGMI)
 }
 \description{
 14 SPGMI monthly factor exposures for 294 CRSP stocks from 1993 to 2015
