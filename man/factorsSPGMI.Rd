@@ -119,7 +119,7 @@ GICS Methodology 2020 document available at \url{https://www.msci.com/}.
 }
 \examples{
  
-factorsSPGMI <- getPCRAData(factorsSPGMI)
+factorsSPGMI <- data(factorsSPGMI)
 class(factorSPGMI)
 names(factorsSPGMI)
 head(factorsSPGMI, 2)
