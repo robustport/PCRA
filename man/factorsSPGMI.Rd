@@ -120,7 +120,7 @@ GICS Methodology 2020 document available at \url{https://www.msci.com/}.
 \examples{
  
 factorsSPGMI <- data(factorsSPGMI)
-class(factorSPGMI)
+class(factorsSPGMI)
 names(factorsSPGMI)
 head(factorsSPGMI, 2)
 str(factorsSPGMI) # MORE EXAMPLE CODE MAY BE ADDED
