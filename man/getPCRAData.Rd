@@ -20,14 +20,13 @@ cached dataset}
 An object of class \dQuote{data.table}.
 }
 \description{
-Downloads stocksCRSPweekly, stocksCRSPdaily, factorsSPGMI
+Downloads stocksCRSPweekly, stocksCRSPdaily
 }
 \details{
 The following are valid names of datasets available:
 \itemize{
 \item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
 \item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
-\item{"factorsSPGMI"}{"Details same as for factprsSPGMI"}
 }
 User must install R.cache package
 }
@@ -40,9 +39,5 @@ names(stocksCRSPweekly)
 stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
 class(stocksCRSPdaily)
 names(stocksCRSPdaily)
-
-factorsSPGMI <- getPCRAData(data = factorsSPGMI)
-class(factorsSPGMI)
-names(factorsSPGMI)
 }
 }

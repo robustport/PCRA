@@ -1,6 +1,6 @@
 #' Download CRSP and SPGMI Data
 #'
-#' @description Downloads stocksCRSPweekly, stocksCRSPdaily, factorsSPGMI
+#' @description Downloads stocksCRSPweekly, stocksCRSPdaily
 #' 
 #' @param dataset a valid dataset name (see details)
 #' @param cache logical variable controlling whether or not to cache the data so
@@ -13,7 +13,6 @@
 #' \itemize{
 #' \item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
 #' \item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
-#' \item{"factorsSPGMI"}{"Details same as for factprsSPGMI"}
 #' }
 #' User must install R.cache package
 #' @return An object of class \dQuote{data.table}.
@@ -30,15 +29,10 @@
 #' stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
 #' class(stocksCRSPdaily)
 #' names(stocksCRSPdaily)
-#' 
-#' factorsSPGMI <- getPCRAData(data = factorsSPGMI)
-#' class(factorsSPGMI)
-#' names(factorsSPGMI)
 #' }
 getPCRAData <- function(dataset = "stocksCRSPweekly", cache = TRUE, refresh = FALSE)
 {
-  valid_datasets <- c("stocksCRSP", "stocksCRSPdaily", "stocksCRSPweekly", 
-                      "factorsSPGMI")
+  valid_datasets <- c("stocksCRSP", "stocksCRSPdaily", "stocksCRSPweekly")
   dataset <- match.arg(dataset[1], valid_datasets)
   base_url <- "https://github.com/robustport/PCRA/raw/main/DataPlus/"
   data_url <- paste(base_url,dataset,".rds", sep = "")
