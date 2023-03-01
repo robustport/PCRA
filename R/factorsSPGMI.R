@@ -118,7 +118,7 @@
 #' 
 #' @examples  
 #' data(factorsSPGMI)
-#' class(factorSPGMI)
+#' class(factorsSPGMI)
 #' names(factorsSPGMI)
 #' head(factorsSPGMI, 2)
 #' str(factorsSPGMI) # MORE EXAMPLE CODE MAY BE ADDED
