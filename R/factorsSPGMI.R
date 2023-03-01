@@ -117,7 +117,7 @@
 #' the written permission of SPGMI
 #' 
 #' @examples  
-#' factorsSPGMI <- getPCRAData(factorsSPGMI)
+#' data(factorsSPGMI)
 #' class(factorSPGMI)
 #' names(factorsSPGMI)
 #' head(factorsSPGMI, 2)
