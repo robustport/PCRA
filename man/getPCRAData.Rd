@@ -32,11 +32,11 @@ User must install R.cache package
 }
 \examples{
 \dontrun{
-stocksCRSPweekly <- getPCRAData(data = stocksCRSPweekly)
+stocksCRSPweekly <- getPCRAData(data = "stocksCRSPweekly")
 class(stocksCRSPweekly)
 names(stocksCRSPweekly)
 
-stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
+stocksCRSPdaily <- getPCRAData(data = "stocksCRSPdaily")
 class(stocksCRSPdaily)
 names(stocksCRSPdaily)
 }
