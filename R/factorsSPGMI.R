@@ -115,11 +115,4 @@
 #' data is not covered by the GPL. Redistribution of this SPGMI data is not
 #' permitted, and use of the data in derivative works is not permitted without
 #' the written permission of SPGMI
-#' 
-#' @examples  
-#' data(factorsSPGMI)
-#' class(factorsSPGMI)
-#' names(factorsSPGMI)
-#' head(factorsSPGMI, 2)
-#' str(factorsSPGMI) # MORE EXAMPLE CODE MAY BE ADDED
 "factorsSPGMI"

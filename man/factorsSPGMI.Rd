@@ -117,14 +117,6 @@ For details, see the GICS Global Industry Classification Standard document
 (The GICS MAP Book) available at \url{https://www.spglobal.com/en/}, and the MSCI
 GICS Methodology 2020 document available at \url{https://www.msci.com/}.
 }
-\examples{
- 
-data(factorsSPGMI)
-class(factorsSPGMI)
-names(factorsSPGMI)
-head(factorsSPGMI, 2)
-str(factorsSPGMI) # MORE EXAMPLE CODE MAY BE ADDED
-}
 \references{
 A standard corporate finance textbook:  Ross, Westerfield, Jaffe and
 Jordan (2019). Corporate Finance, McGraw-Hill Education.
