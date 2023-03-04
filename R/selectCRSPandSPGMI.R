@@ -53,7 +53,7 @@
 #' @examples
 #' data(stocksCRSP)
 #' return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
-#'                                     dateRange  = c("2006-01-31", "2010-12-31"),
+#'                                     dateRange  = c("2006-01-31", "2006-07-31"),
 #'                                     stockItems = c("Date", "TickerLast",
 #'                                     "CapGroupLast", "Sector", "Return",
 #'                                     "Ret13WkBill", "MktIndexCRSP"),
@@ -66,7 +66,7 @@
 #' dim(return_data) #includes all tickers plus risk free rate & market return columns
 #'
 #' stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
-#'                                     dateRange    = c("2006-01-31", "2010-12-31"),
+#'                                     dateRange    = c("2006-01-31", "2006-07-31"),
 #'                                     stockItems   = c("Date", "TickerLast",
 #'                                     "CapGroupLast", "Sector", "Return",
 #'                                     "Ret13WkBill", "MktIndexCRSP"),
