@@ -15,6 +15,10 @@
 #' function re-samples the lower frequency factorsSPGMI data up to the 
 #' chosen stocksCRSP frequency.
 #' 
+#' IMPORTANT:  When using selectCRSPandSPGMI with periodicity = "weekly", you must
+#' first use the code line stocksCRSPweekly <- getPCRAData(data = "stocksCRSPweekly"),
+#' and for "daily" data use stocksCRSPdaily <- getPCRAData(data = "stocksCRSPdaily"). 
+#' 
 #' Users may select all columns from both data sets, a specified set of columns,
 #' or by setting either stockItems or factorItems to "NULL", may select only 
 #' items from the other data set (that is, if only the stocksCRSP data is 
