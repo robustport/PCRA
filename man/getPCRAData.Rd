@@ -31,7 +31,7 @@ The following are valid names of datasets available:
 User must install R.cache package
 }
 \examples{
-\dontrun{
+\donttest{
 stocksCRSPweekly <- getPCRAData(data = "stocksCRSPweekly")
 class(stocksCRSPweekly)
 names(stocksCRSPweekly)

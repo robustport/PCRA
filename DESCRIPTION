@@ -12,16 +12,15 @@ Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
     person(given="Jon",family="Spinney",role=c("ctb"),
     email="Jon.Spinney@vestcor.org"))
 Description: A collection of functions and data sets to support teaching a
-quantitative finance MS level course on Robust Portfolio Construction and Risk
-Analysis.  The package is unique in providing functions for both classical and
-modern analytic methods.  The latter includes robust regression and robust
-covariance matrix estimation methods that are not much influenced by outliers,
-minimum downside risk portfolio construction, and computation of accurate
-standard errors for risk and performance estimators with non-normal and serially
-dependent returns.  The data sets include cross-sections of stock data from the
-Center for Research on Security Prices, LLC (CRSP), and corresponding factor
-exposures from S&P Global.
-
+  quantitative finance MS level course on Robust Portfolio Construction and Risk
+  Analysis.  The package is unique in providing functions for both classical and
+  modern analytic methods.  The latter includes robust regression and robust
+  covariance matrix estimation methods that are not much influenced by outliers,
+  minimum downside risk portfolio construction, and computation of accurate
+  standard errors for risk and performance estimators with non-normal and
+  serially dependent returns.  The data sets include cross-sections of stock
+  data from the Center for Research on Security Prices, LLC (CRSP), and factor
+  exposures for those stocks from S&P Global.
 License: GPL-2
 Depends:
 	R (>= 4.0.0),
