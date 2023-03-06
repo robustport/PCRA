@@ -21,7 +21,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' stocksCRSPweekly <- getPCRAData(data = "stocksCRSPweekly")
 #' class(stocksCRSPweekly)
 #' names(stocksCRSPweekly)

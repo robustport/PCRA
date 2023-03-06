@@ -11,15 +11,17 @@ Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
     email="cocokecoli@gmail.com") ,
     person(given="Jon",family="Spinney",role=c("ctb"),
     email="Jon.Spinney@vestcor.org"))
-Description: Companion to the text Robust Portfolio Construction 
-  and Risk Analysis authored by R. Douglas Martin, Thomas K. Philips, Bernd Scherer,
-  Stoyan Stoyanov and Kirk Li, to be published by Springer in 2023. The package includes
-  cross-sections of data for approximately 300 stocks from the Center for Research on
-  Security Prices, LLC (CRSP), and 14 corresponding factor exposures from S&P Global.
-  The book covers classical and modern robust methods of portfolio construction and
-  risk analysis with a reproducibility focus.  The data and function in the package  
-  support this focus. Extensive R scripts based on package functions for each chapter
-  reproduce most of the tables and figures in the chapter.  
+Description: A collection of functions and data sets to support teaching a
+quantitative finance MS level course on Robust Portfolio Construction and Risk
+Analysis.  The package is unique in providing functions for both classical and
+modern analytic methods.  The latter includes robust regression and robust
+covariance matrix estimation methods that are not much influenced by outliers,
+minimum downside risk portfolio construction, and computation of accurate
+standard errors for risk and performance estimators with non-normal and serially
+dependent returns.  The data sets include cross-sections of stock data from the
+Center for Research on Security Prices, LLC (CRSP), and corresponding factor
+exposures from S&P Global.
+
 License: GPL-2
 Depends:
 	R (>= 4.0.0),
