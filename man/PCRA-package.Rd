@@ -6,7 +6,7 @@
 \alias{PCRA-package}
 \title{PCRA: Companion to Portfolio Construction and Risk Analysis}
 \description{
-A collection of functions and data sets to support teaching a quantitative finance MS level course on Robust Portfolio Construction and Risk Analysis. The package is unique in providing functions for both classical and modern analytic methods. The latter includes robust regression and robust covariance matrix estimation methods that are not much influenced by outliers, minimum downside risk portfolio construction, and computation of accurate standard errors for risk and performance estimators with non-normal and serially dependent returns. The data sets include cross-sections of stock data from the Center for Research on Security Prices, LLC (CRSP), and factor exposures for those stocks from S&P Global.
+A collection of functions and data sets that support teaching a quantitative finance MS level course on Portfolio Construction and Risk Analysis, and the writing of a textbook for such a course. The package is unique in providing several real-world data sets that may be used for problem assignments and student projects. The data sets include cross-sections of stock data from the Center for Research on Security Prices, LLC (CRSP), corresponding factor exposures data from S&P Global, and several SP500 data sets.
 }
 \author{
 \strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
@@ -20,6 +20,7 @@ Other contributors:
 \itemize{
   \item Alexios Galanos \email{alexios@4dscape.com} [contributor]
   \item Jon Spinney \email{Jon.Spinney@vestcor.org} [contributor]
+  \item Thomas Philips \email{tkpmep@gmail.com} [contributor]
 }
 
 }

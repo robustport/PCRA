@@ -3,24 +3,24 @@ Type: Package
 Title: Companion to Portfolio Construction and Risk Analysis
 Version: 1.0
 Date: 2023-02-26
-Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
+Authors@R: c(person(given="Doug",family="Martin",role=c("cre","aut"),
     email="martinrd3d@gmail.com"),
     person(given="Alexios",family="Galanos",role=c("ctb"),
     email="alexios@4dscape.com"),
     person(given="Kirk",family="Li",role=c("aut","ctb"),
-    email="cocokecoli@gmail.com") ,
+    email="cocokecoli@gmail.com"),
     person(given="Jon",family="Spinney",role=c("ctb"),
-    email="Jon.Spinney@vestcor.org"))
-Description: A collection of functions and data sets to support teaching a
-  quantitative finance MS level course on Robust Portfolio Construction and Risk
-  Analysis.  The package is unique in providing functions for both classical and
-  modern analytic methods.  The latter includes robust regression and robust
-  covariance matrix estimation methods that are not much influenced by outliers,
-  minimum downside risk portfolio construction, and computation of accurate
-  standard errors for risk and performance estimators with non-normal and
-  serially dependent returns.  The data sets include cross-sections of stock
-  data from the Center for Research on Security Prices, LLC (CRSP), and factor
-  exposures for those stocks from S&P Global.
+    email="Jon.Spinney@vestcor.org"),
+    person(given="Thomas",family="Philips",role=c("ctb"),
+    email="tkpmep@gmail.com"))
+Description: A collection of functions and data sets that support teaching
+  a quantitative finance MS level course on Portfolio Construction and Risk
+  Analysis, and the writing of a textbook for such a course.  The package is
+  unique in providing several real-world data sets that may be used for problem
+  assignments and student projects.  The data sets include cross-sections of
+  stock data from the Center for Research on Security Prices, LLC (CRSP),
+  corresponding factor exposures data from S&P Global, and several SP500 data
+  sets.
 License: GPL-2
 Depends:
 	R (>= 4.0.0),
