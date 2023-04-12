@@ -23,7 +23,7 @@ qqnormDatWindat <- function(dat, windat, fraction = 0.01, ylim = NULL,
 {
   qqnorm(dat, pch = 16, cex = 0.5, ylim = ylim, main = main,
          xlab = "N(0,1) Quantiles", ylab = facName, cex.lab = 1.2)
-  n = length(fac)
+  n = length(dat)
   p = (seq(1,n) - 0.5)/n
   qtile = qnorm(p)
   y = sort(windat)
