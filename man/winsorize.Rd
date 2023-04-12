@@ -15,12 +15,12 @@ winsorize(x, fraction = 0.1)
 The Winsorized numeric data
 }
 \description{
-This function Winsorizes a fraction \gamma of a numeric data
+This function Winsorizes a fraction gamma of a numeric data
 set.
 }
 \details{
-The Winsorized data is obtained by by setting the \gamma smallest
-data values equal to the next smallest value, and setting the \gamma largest
+The Winsorized data is obtained by by setting the gamma smallest
+data values equal to the next smallest value, and setting the gamma largest
 data values equal to the next largest data value.
 }
 \examples{

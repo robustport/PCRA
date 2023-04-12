@@ -1,13 +1,13 @@
 #' @title Winsorize Data
 #' 
-#' @description  This function Winsorizes a fraction \gamma of a numeric data
+#' @description  This function Winsorizes a fraction gamma of a numeric data
 #' set.
 #'
 #' @param x A numeric data set
 #' @param fraction A fraction greater than 0 and less than 0.5
 #' 
-#' @details The Winsorized data is obtained by by setting the \gamma smallest
-#' data values equal to the next smallest value, and setting the \gamma largest
+#' @details The Winsorized data is obtained by by setting the gamma smallest
+#' data values equal to the next smallest value, and setting the gamma largest
 #' data values equal to the next largest data value. 
 #'
 #' @return The Winsorized numeric data
