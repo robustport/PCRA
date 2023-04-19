@@ -19,7 +19,7 @@
 winsorize <- function(x,fraction = 0.1)
 {
   n <- length(x)
-  lo <- floor(n * fraction) + 1
+  lo <- ceiling(n * fraction) + 1
   hi <- n + 1 - lo
   x <- sort(x)
   if (lo > 0) 
