@@ -1,7 +1,7 @@
 Package: PCRA
 Type: Package
 Title: Companion to Portfolio Construction and Risk Analysis
-Version: 1.0
+Version: 1.01
 Date: 2023-02-26
 Authors@R: c(person(given="Doug",family="Martin",role=c("cre","aut"),
     email="martinrd3d@gmail.com"),
