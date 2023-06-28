@@ -8,6 +8,7 @@ opt.outputMvoPCRA(
   opt,
   returns,
   digits = NULL,
+  itemNames = NULL,
   annualize = TRUE,
   frequency = "monthly",
   rf = 0
@@ -20,19 +21,25 @@ opt.outputMvoPCRA(
 
 \item{digits}{Integer number of significant digits with default NULL}
 
+\item{itemNames}{character vector of use-supplied names for portfolio
+weights, mean, standard deviation and Sharpe Ratio}
+
 \item{annualize}{Logical with default TRUE}
 
-\item{frequency}{Returns frequency: "monthly", "weekly" or "daily"}
+\item{frequency}{Returns frequency: "monthly", "weekly" or "daily", with 
+default "monthly"}
 
-\item{rf}{Numeric value with default 0.0}
+\item{rf}{Numeric value of risk-free rate with default 0.0}
 }
 \value{
 A list containing the portfolio numeric weights, mean value,
-volatility and Sharpe Ratio.
+standard deviation and Sharpe Ratio, with default names Wgts, Mean, 
+StdDev, and SR, or user-supplied names as a character vector value for
+the argument `itemNames`.
 }
 \description{
 Converts output of PortfolioAnalytics function
-optimize.portfolio which computes a minimum variance portfolio
+optimize.portfolio, which computes a minimum variance portfolio,
 to a list containing the portfolio weights vector, mean, volatility
 and Sharpe Ratio.
 
@@ -41,8 +48,10 @@ portfolio weights, mean, volatility and Sharpe Ratio.
 }
 \details{
 This function uses the weights returned by optimize.portfolio,
-along with the portfolio assets returns, and a risk-free rate, to
-to compute the portfolio mean return, volatility, and Sharpe Ratio.
+along with the portfolio monthly, weekly or daily assets returns, and a
+risk-free rate, to compute the portfolio mean return, volatility, and
+Sharpe Ratio.  By default the latter three are annualized, but the user
+may choose to return non-annualized performance values.
 }
 \examples{
 args(opt.outputMvoPCRA)
