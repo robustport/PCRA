@@ -9,11 +9,11 @@ A data frame with observations on the S&P 500® from 1925
 to the most recent year end for which final data is available:
 \itemize{
  \item \strong{Year:} type `num`.
- \item \strong{SP500PriceClose:} type `num`. Year-end (12/31) price of the S&P 500.
  \item \strong{SP500PriceHigh:} type `num`. Highest price level achieved by the 
  S&P 500 during the calendar year.
  \item \strong{SP500PriceLow:} type `num`. Lowest price level achieved by the 
  S&P 500 during the calendar year.
+ \item \strong{SP500PriceClose:} type `num`. Year-end (12/31) price of the S&P 500.
  \item \strong{SP500EpsAll4Q:} type `num`. As-Reported Earnings per share
  for the S&P 500 for the entire calendar year.
  \item \strong{SP500EpsBest3Q:} type `num`. 4/3 x Sum of the three highest
@@ -30,9 +30,14 @@ to the most recent year end for which final data is available:
  during the calendar year.
  \item \strong{SP500OperatingEPS:} type `num`. Operating Earnings 
  per share for the S&P 500 for the calendar year.
+ \item \strong{SP500NomRet:} type `num`. Nominal total return including
+ both change in price and dividends and not adjusted for inflation for the 
+ S&P 500 for the current calendar year.
  \item \strong{SP500Nom1YrFwdRet:} type `num`. Nominal total return including
  both change in price and dividends and not adjusted for inflation for the 
- S&P 500 for the FOLLOWING calendar year.
+ S&P 500 for the FOLLOWING calendar year. This is the same as SP500NomRet
+ with a one year lag. It is included primarily to make it easy to build
+ forecasting models without any need to apply a lag operator to SP500NomRet.
  \item \strong{CPIAUCNS:} type `num`. Consumer Price Index for All Urban 
  Consumers: All Items in U.S. City Average, as of year end.
  \item \strong{GDPA:} type `num`. Nominal GDP at an annual frequency.
@@ -53,7 +58,7 @@ Final year-end numbers are typically reported in April or May of the following y
 CPIAUCNS is obtained from the Federal Reserve Bank of St. Louis' FRED database at 
 https://fred.stlouisfed.org/series/CPIAUCNS. 
 GDPA is obtained from the Federal Reserve Bank of St. Louis' FRED database at 
-https://fred.stlouisfed.org/series/CPIAUCNS.
+https://fred.stlouisfed.org/series/GDPA.
 }
 \usage{
 data(SP500)
