@@ -74,7 +74,7 @@
 #' CPIAUCNS is obtained from the Federal Reserve Bank of St. Louis' FRED database at 
 #' https://fred.stlouisfed.org/series/CPIAUCNS. 
 #' GDPA is obtained from the Federal Reserve Bank of St. Louis' FRED database at 
-#' https://fred.stlouisfed.org/series/CPIAUCNS. 
+#' https://fred.stlouisfed.org/series/GDPA. 
 #' 
 #' @examples  
 #' data(SP500)
