@@ -1,6 +1,3 @@
-Companion to PCRA book
+PCRA 1.1.1 Release Notes:
 
-Please update to latest R, R-3.4.4 (as of March 2018) 
-
- 
- 
+Updated S&P Datasets
