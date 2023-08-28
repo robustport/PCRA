@@ -171,7 +171,7 @@
 #'
 #' @format Multivariate time series xts object
 #' 
-#' @source \link{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}
+#' @source \url{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}
 #' 
 #' @examples
 #' library(PCRA)
@@ -192,7 +192,7 @@
 #'
 #' @format Multivariate time series xts object
 #' 
-#' @source \link{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}
+#' @source \url{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}
 #' 
 #' @examples
 #' library(PCRA)

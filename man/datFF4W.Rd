@@ -8,7 +8,7 @@
 Multivariate time series xts object
 }
 \source{
-\link{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}
+\url{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}
 }
 \usage{
 data(datFF4W)
