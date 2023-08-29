@@ -4,4 +4,4 @@ The paper "Robust Statistics for Portfolio Construction and Analysis" by R. Doug
 
 The R script file `RobustStatisticsForPortfoliosJPM2023.R` for reproducing most of the Figures and Tables in the above paper is available in the PCRA package folder `PCRA/demo`.  Download that R script by going to `PCRA/demo` and double clicking on the file, which then allows you to either click on the "Download raw file" link or the "Copy raw file" link.  If you have RStudio installed, the first choice may open the file in RStudio.  Otherwise you can paste the file into an empty R script.
 
-If you have any problems with the code, please send emails to both Doug Martin at .link-style1[[martinrd3d@gmail.com](mailto:martinrd3d@gmail.com)] and Kirk Li at  .link-style1[[cocokecoli@gmail.com](mailto:cocokecoli@gmail.com)].  We will post responses here.
+If you have any problems with the code, please send emails to both Doug Martin at `martinrd3d@gmail.com` and Kirk Li at `cocokecoli@gmail.com`. We will post responses in this README file.
