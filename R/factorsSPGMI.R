@@ -4,7 +4,7 @@
 #' 
 #' @docType data
 #'
-#' @usage data('factorsSPGMI')
+#' @usage data(factorsSPGMI)
 #'
 #' @format A data.frame containing 14 SPGMI monthly factor exposures (alpha
 #' factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21
@@ -72,7 +72,7 @@
 #' which SPGMI also refers to as "scores" or "alpha factors". 
 #' Our names for the the 14 factors are identical to those used by SPGMI in
 #' their AFL library.  For an introduction to the AFL library see:
-#' \url{https://www.spglobal.com/marketintelligence/en/solutions/alpha-factor-library}
+#' \url{https://www.marketplace.spglobal.com/en/datasets/alpha-factor-library-(3)}
 #' 
 #' The four CapGroupLast categorizations of the stocks were determined using the
 #' three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the
@@ -108,17 +108,11 @@
 #'  
 #' GICS is a joint product of SPGMI and MSCI.
 #' For details, see the GICS Global Industry Classification Standard document
-#' (The GICS MAP Book) available at \url{https://www.spglobal.com}, and the MSCI
+#' (The GICS MAP Book) available at \url{https://www.spglobal.com/en/}, and the MSCI
 #' GICS Methodology 2020 document available at \url{https://www.msci.com/}.
 #' 
 #' @source Standard and Poors Global Market Intelligence (SPGMI). NOTE: SPGMI
 #' data is not covered by the GPL. Redistribution of this SPGMI data is not
 #' permitted, and use of the data in derivative works is not permitted without
 #' the written permission of SPGMI
-#' 
-#' @examples  
-#' data(factorsSPGMI)
-#' names(factorsSPGMI)
-#' head(factorsSPGMI, 2)
-#' str(factorsSPGMI) # MORE EXAMPLE CODE MAY BE ADDED
 "factorsSPGMI"

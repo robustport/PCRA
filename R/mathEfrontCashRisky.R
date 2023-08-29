@@ -14,9 +14,9 @@
 #' @param values Logical variable for returning efront values with default FALSE
 #' @param cexPoints Numerical size parameter for points with default 0.8
 #' @param cexText Numerical size parameter for text with default 0.8
-#' @return  A plot of the linear efficient frontier or the weights along the
-#' efficient frontier.  Optionally output the mean and volatility values
-#' of the linear efficient frontier or its weights, or both.
+#' @return default is no value returned, and a plot is displayed of the linear
+#' efficient frontier.  Optionally, a numeric object containing the weights along
+#' the linear efficient frontier are displayed. Optionally no plot is displayed.
 #' @export
 #'
 #' @examples
@@ -55,7 +55,7 @@ mathEfrontCashRisky <-
 		    y <- ylim[2] - .02 * (ylim[2] - ylim[1])
 		    text(x,y,paste("SR = ", round(sr.opt,2), sep = ""), pos = 4)
 		    y <- y - .07*(ylim[2] - ylim[1])
-		    text(x,y,paste("RF = ",round(rf,3),sep = ""), pos = 4)
+		    text(x,y,paste("RF = ",round(rf,4),sep = ""), pos = 4)
 		  }
 		  
 		  # Compute cash and risky assets weights

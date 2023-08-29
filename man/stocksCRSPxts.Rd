@@ -2,7 +2,7 @@
 % Please edit documentation in R/stocksCRSPxts.R
 \name{stocksCRSPxts}
 \alias{stocksCRSPxts}
-\title{Select CRSP Stocks Returns V0}
+\title{Select CRSP Stocks Returns}
 \usage{
 stocksCRSPxts(
   data,
@@ -23,7 +23,7 @@ default is tickerSet = NULL, which results in selection of all stocks
 in stocksCRSP.}
 }
 \value{
-Multivariate xts object of stock returns
+A multivariate xts object of stock returns
 }
 \description{
 A function to extract a subset of the stocksCRSP data.table
@@ -32,7 +32,7 @@ and convert it to an xts object
 }
 \examples{
 library(PCRA)
-library(zoo)
+library(xts)
 library(data.table)
 class(stocksCRSP)
 args(stocksCRSPxts)

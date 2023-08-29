@@ -15,7 +15,7 @@
 #' 
 #' @param shrink A logical variable whose default is TRUE.
 #'
-#' @return Outlier cleaned data
+#' @return an outlier cleaned numeric object
 #' @export
 #'
 #' @examples

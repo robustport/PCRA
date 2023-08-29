@@ -9,16 +9,18 @@ getPCRAData(dataset = "stocksCRSPweekly", cache = TRUE, refresh = FALSE)
 \arguments{
 \item{dataset}{a valid dataset name (see details)}
 
-\item{cache}{whether to cache the operation so that when calling the function
-using the same dataset it will be loaded from cache rather than re-downloading}
+\item{cache}{logical variable controlling whether or not to cache the data so
+that when calling the function for the same dataset it will be loaded from cache
+rather than re-downloading from the github site}
 
-\item{refresh}{whether to re-download a cached dataset}
+\item{refresh}{logical variable controlling whether or not to re-download a
+cached dataset}
 }
 \value{
 An object of class \dQuote{data.table}.
 }
 \description{
-Downloads stocksCRSPweekly and stocksCRSPdaily
+Downloads stocksCRSPweekly, stocksCRSPdaily
 }
 \details{
 The following are valid names of datasets available:
@@ -26,14 +28,15 @@ The following are valid names of datasets available:
 \item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
 \item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
 }
+User must install R.cache package
 }
 \examples{
-\dontrun{
-stocksCRSPweekly <- getPCRAData(data = stocksCRSPweekly)
+\donttest{
+stocksCRSPweekly <- getPCRAData(data = "stocksCRSPweekly")
 class(stocksCRSPweekly)
 names(stocksCRSPweekly)
 
-stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
+stocksCRSPdaily <- getPCRAData(data = "stocksCRSPdaily")
 class(stocksCRSPdaily)
 names(stocksCRSPdaily)
 }

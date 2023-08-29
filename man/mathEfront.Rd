@@ -9,11 +9,13 @@ mathEfront(
   mu.max = NULL,
   sigma.max = NULL,
   rf = 0.003,
-  rf.line = T,
-  stocks = T,
-  stock.names = T,
-  values = T,
+  rf.line = TRUE,
+  stocks = TRUE,
+  stock.names = TRUE,
+  SRvalue = TRUE,
   npoints = 100,
+  cexText = 0.8,
+  cexPoints = 0.8,
   digits = NULL
 )
 }
@@ -32,15 +34,19 @@ mathEfront(
 
 \item{stock.names}{Logical variable with default TRUE}
 
-\item{values}{Logical variable with default TRUE}
+\item{SRvalue}{Logical variable with default TRUE}
 
 \item{npoints}{Integer number of efficient frontier points, default 100}
+
+\item{cexText}{Character expansion factor for text}
+
+\item{cexPoints}{Expansion factor for points}
 
 \item{digits}{Integer variable number of significant digits, default NULL}
 }
 \value{
-Plot of efficient frontiers with cash and risky assets, and with
-risky assets only
+No value returned, instead a plot is displayed of the efficient frontier with
+cash and risky assets, with risky assets only efficient frontier overlaid
 }
 \description{
 Computes and plots the efficient frontier with and without 

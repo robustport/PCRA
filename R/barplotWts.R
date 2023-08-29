@@ -9,8 +9,10 @@
 #' @param ylab  A label for the y axis
 #' @param xlab  A label for the x axis
 #' @param bar.ylim  Limits of the y axis for barplot
-#' @param ...  additional parameters from barplot 
-#' @return  A barplot of efficient frontier weights
+#' @param ...  additional parameters from barplot
+#'  
+#' @return  No return value, just a barplot of efficient frontier weights
+#' 
 #' @export
 #'
 #' @examples

@@ -5,7 +5,7 @@
 \alias{stocksCRSP}
 \title{stocksCRSP}
 \format{
-A data.frame with 82000 observations on 15 variables:
+A data.table object with 82000 observations on 15 variables:
 \itemize{
  \item \strong{Date:} type `Date`.
  \item \strong{TickerLast:} type `chr`. The ticker as of December 2015
@@ -44,9 +44,12 @@ CRSP monthly stocks data for 294 stocks 1993 to 2015
 }
 \details{
 The four CapGroupLast categorizations of the stocks were determined using the
-three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the
+three capitalization breakpoints $15.6B, $5.4B, $600M. Details concerning the
 construction of the monthly CapGroup categorizations will eventually be
 provided in a Vignette.
+
+Weekly and daily versions stocksCRSPweekly and stocksCRSPdaily may be
+obtained using the function getPCRAData() - see PCRAData.R.
 }
 \examples{
  

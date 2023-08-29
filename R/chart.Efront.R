@@ -21,14 +21,14 @@
 #' frontier plots. The choices gmv = TRUE and maxSR = TRUE result in bullet points
 #' at those locations on the initial efficient frontier plot
 #'
-#' @return Plots of efficient frontiers for use by bootEfronts()
+#' @return No value returned, instead plots of efficient frontiers for use by bootEfronts()
 #' @export
 #'
 #' @examples
 #' args(chart.Efront)
-chart.Efront <- function(returns, pspec, firstEfront = T, gmv = T, maxSR = T,
-                         rf = 0.003, xlim = NULL, ylim = NULL, xlab = NULL, 
-                         ylab = NULL, n.portfolios = 10)
+chart.Efront <- function(returns, pspec, firstEfront = TRUE, gmv = TRUE, 
+                         maxSR = TRUE, rf = 0.003, xlim = NULL, ylim = NULL,
+                         xlab = NULL, ylab = NULL, n.portfolios = 10)
 {
   efront <- create.EfficientFrontier(returns, pspec, type = "mean-StdDev",
                                      n.portfolios)
@@ -48,14 +48,14 @@ chart.Efront <- function(returns, pspec, firstEfront = T, gmv = T, maxSR = T,
   names(port.maxSR) <- c("SD.maxSR", "MU.maxSR")
   
   # Plot results
-  if(firstEfront == T)
+  if(firstEfront == TRUE)
   {plot(ef.sd, ef.mu, xlim = xlim, ylim = ylim, xlab = xlab, ylab = ylab, 
         lwd = 2, type = "l")} 
   else 
   {lines(ef.sd, ef.mu, lty = "dashed")}
-  if(gmv == T)
+  if(gmv == TRUE)
     points(port.gmv[1], port.gmv[2], pch = 19)
-  if(maxSR == T)
+  if(maxSR == TRUE)
     points(port.maxSR[1], port.maxSR[2], pch = 19)
   round(c(port.gmv, port.maxSR, sharpe.max),4)
 }

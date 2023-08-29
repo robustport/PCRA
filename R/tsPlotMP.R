@@ -1,7 +1,7 @@
 #' @title Lattice Multi-Panel Time Series Plots
 #' 
-#' @description Lattice multi-panel time series with several plotting style
-#' control parameters 
+#' @description Lattice multi-panel time series plot with several plotting
+#' style control parameters 
 #'
 #' @param ret A multivariate xts object 
 #' @param add.grid Logical variable, if 'TRUE', type = c('l', 'g'), and if
@@ -27,7 +27,7 @@
 #' @param zeroLine Logical variable specifying whether or not a dotted 
 #' horizontal line is location at the zero vertical distance, default TRUE
 #' 
-#' @return Multi-panel Lattice time series plot
+#' @return No value returned, instead a time series multi-panel Lattice plot
 #' @export
 #' 
 #' @author Kirk Li and Doug Martin
@@ -44,7 +44,7 @@
 #' tsPlotMP(ret, scaleType = "same", zeroLine = FALSE)
 #' tsPlotMP(ret, stripLeft = FALSE, main = 'Time Series Plot')
 tsPlotMP <- function (ret, add.grid = FALSE, layout = NULL, type = "l",
-              yname = "RETURNS (%)", Pct = F, scaleType = "free", 
+              yname = "RETURNS (%)", Pct = FALSE, scaleType = "free", 
               stripLeft = TRUE, main = NULL, lwd = 1, stripText.cex = 1,
               axis.cex = 1, color = "black", zeroLine = TRUE) 
 {

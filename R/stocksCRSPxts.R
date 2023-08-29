@@ -1,4 +1,4 @@
-#' @title Select CRSP Stocks Returns V0
+#' @title Select CRSP Stocks Returns
 #'
 #' @description A function to extract a subset of the stocksCRSP data.table
 #' specified by a date range and a set of tickers, with convenient defaults,
@@ -13,12 +13,12 @@
 #' default is tickerSet = NULL, which results in selection of all stocks
 #' in stocksCRSP.
 #'
-#' @return Multivariate xts object of stock returns
+#' @return A multivariate xts object of stock returns
 #' @export
 #'
 #' @examples
 #' library(PCRA)
-#' library(zoo)
+#' library(xts)
 #' library(data.table)
 #' class(stocksCRSP)
 #' args(stocksCRSPxts)
@@ -30,12 +30,10 @@
 #' dim(returns4)
 #' names(returns4)
 #' range(index(returns4))                         
-stocksCRSPxts <- function(data,
-                          dateRange = c("1993-01-31","2015-12-31"),
+stocksCRSPxts <- function(data, dateRange = c("1993-01-31","2015-12-31"),
                           tickerSet = NULL)
 {
-  # This is a first version. To be expanded for capgroup selection
-  select_cols   <- c("Date","Return","TickerLast","CapGroupLast")
+  select_cols   <- c("Date","Return","TickerLast")
   stocksAllTime <- data[, select_cols, with = FALSE]
   Date1 <- dateRange[1]
   Date2 <- dateRange[2]

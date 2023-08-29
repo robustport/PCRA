@@ -10,7 +10,7 @@ tsPlotMP(
   layout = NULL,
   type = "l",
   yname = "RETURNS (\%)",
-  Pct = F,
+  Pct = FALSE,
   scaleType = "free",
   stripLeft = TRUE,
   main = NULL,
@@ -60,11 +60,11 @@ relative to default of 1, 1.5 is 50 larger larger, 0.5 is 50 percent smaller}
 horizontal line is location at the zero vertical distance, default TRUE}
 }
 \value{
-Multi-panel Lattice time series plot
+No value returned, instead a time series multi-panel Lattice plot
 }
 \description{
-Lattice multi-panel time series with several plotting style
-control parameters
+Lattice multi-panel time series plot with several plotting
+style control parameters
 }
 \examples{
 #Load the data

@@ -30,7 +30,7 @@ barplotWts(
 \item{...}{additional parameters from barplot}
 }
 \value{
-A barplot of efficient frontier weights
+No return value, just a barplot of efficient frontier weights
 }
 \description{
 Uses the R barplot function to make a barplot of efficient 

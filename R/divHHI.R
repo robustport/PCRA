@@ -8,7 +8,7 @@
 #'
 #' @param weights A numeric vector of portfolio weights
 #'
-#' @return Time series of portfolio diversification values
+#' @return a zoo time series object containing portfolio diversification values
 #' @export
 #'
 #' @examples
@@ -16,7 +16,7 @@
 divHHI <- function(weights){
   n.dates <- nrow(weights)
   if(n.dates < 1){
-    print("empty data set")
+    warning("empty data set")
     return()
   }
   diversification <- rep(0, n.dates)
