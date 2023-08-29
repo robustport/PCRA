@@ -1,7 +1,5 @@
-#################################################################
-
-## The following packages need to be installed on your computer,
-## which can be easily done in RStudio using Tools/Install Packages
+# The first 9 R packages below need to be installed on your computer,
+# which can be easily done in RStudio using Tools/Install Packages
 
 # PCRA
 # data.table
@@ -11,15 +9,19 @@
 # fit.models
 # sandwhich
 # MASS
+# tensr
 
-## The R package optimalRhoPsi is also needed, and can be installed
-## at the R Console with:
-## > devtools::install_github("kjellpk/optimalRhoPsi")
-
+# The R package optimalRhoPsi is also needed, and it can be installed
+# at the R Console with:
+# devtools::install_github("kjellpk/optimalRhoPsi")
 
 
 ##################################################################
 ##################################################################
+
+# title: "Reproducibility Code for September 2023 JPM Paper"
+# authors:  Doug Martin and Stoyan Stoyanov
+# date: 8/28/2023
 
 # Load  auxiliary functions needed for EXHIBITS code
 
@@ -187,10 +189,157 @@ fitReturnsToFF4model <- function(returns,datFF,digits = 2, title = NULL, QQplots
   list("LSRobfit" = LSRobFit,"pvalsCompare" = pvals)
 }
 
-############################################################
+plotLSandRobustWithHuber = function(x,mainText = NULL, ylimits = NULL,
+                                    legendPos = "topleft",goodOutlier = F, 
+                                    makePct = FALSE)
+{
+  ret = coredata(x)
+  x = ret[,2]-ret[,3]
+  y = ret[,1]-ret[,3]
+  if (makePct) {
+    x = x * 100
+    y = y * 100
+  }
+  control <- RobStatTM::lmrobdet.control(efficiency=0.95,family="mopt")
+  fit.mOpt = RobStatTM::lmrobdetMM(y~x, control=control)
+  fit.ls = lm(y~x)
+  plot(x,y, xlab="Market Returns", ylab="Asset Returns", type="n",
+       ylim = ylimits, main = mainText, cex.main =1.5, cex.lab=1.5)
+  fit.huber = MASS::rlm(y~x)
+  abline(fit.mOpt, col="black", lty=1, lwd=2)
+  abline(fit.ls, col="red", lty=2, lwd=2)
+  abline(fit.huber,col ="blue", lty = 5, lwd = 2)
+  abline(fit.mOpt$coef[1]+3*fit.mOpt$scale.S, fit.mOpt$coef[2], lty=3, col="black")
+  abline(fit.mOpt$coef[1]-3*fit.mOpt$scale.S, fit.mOpt$coef[2], lty=3, col="black")
+  ids=which(fit.mOpt$rweights==0)
+  if (length(ids) == 0) {
+    points(x, y, pch = 20)
+  } else {
+    points(x[-ids], y[-ids], pch = 19)
+    points(x[ids], y[ids], pch = 1, cex = 2.0)
+  }
+  legend(x = legendPos,
+         legend = as.expression(c(bquote("  mOpt   " ~ hat(beta) == .(round(summary(fit.mOpt)$coefficients[2, 1], 2)) ~
+                                           "(" ~ .(round(summary(fit.mOpt)$coefficients[2, 2], 2)) ~ ")"),
+                                  bquote("  Huber  " ~ hat(beta) == .(round(summary(fit.huber)$coefficients[2, 1], 2)) ~
+                                           "(" ~ .(round(summary(fit.huber)$coefficients[2, 2], 2)) ~ ")"),
+                                  bquote("  LS       " ~ hat(beta) == .(round(summary(fit.ls)$coefficients[2, 1], 2)) ~
+                                           "(" ~ .(round(summary(fit.ls)$coefficients[2, 2], 2)) ~ ")"))),
+         lty=c(1,2,5), col=c("black","blue", "red"), bty="n", cex=1.5 )
+  if(goodOutlier) {
+    id = which(x <=-20)
+    print(id)
+    arrows(x[id]+1, y[id]+11, x[id]+0.1, y[id]+1, angle=15, length=0.1)
+    text(x[id]+1, y[id]+12.5, labels="Oct. 20 1987", cex=1.2)}
+}
+
+lsRobTestMM <- function(object, test = c("T2", "T1"), ...)
+{
+  # require(RobStatTM)
+  test <- match.arg(test)
+  
+  # family: one of bisquare, opt and mopt
+  family <- object$control$family
+  tune <- object$control$tuning.psi
+  
+  # the prefix probably can be removed when added into RobStatTM
+  eff = RobStatTM:::computeGaussianEfficiencyFromFamily(family, tune)
+  
+  if(is.null(object$weights)) {
+    LS <- lm(formula(object$terms), data = object$model)
+  } else {
+    LS <- lm(formula(object$terms), data = object$model, weights = object$weights)
+  }
+  
+  rmm <- residuals(object)
+  rls <- residuals(LS)
+  rob.sigma <- object$scale
+  
+  # require(robust) # probably not needed anymore, check later
+  # tune <- lmRob.effvy(eff, ipsi) # control$tuning.psi
+  # rw <- object$T.M.weights 
+  
+  rw <- object$rweights
+  
+  X <- model.matrix(object)
+  n <- nrow(X)
+  p <- ncol(X)
+  
+  if (!is.null(object$weights)) {
+    X <- X * sqrt(object$weights)
+  }
+  
+  V <- (t(rw * X) %*% X) / sum(rw) 
+  V.inv <- solve(V)
+  
+  if(test == "T1") {
+    d <- mean(rhoprime2(rmm/rob.sigma, family=family,cc=tune))
+    tau <- n * mean( (rhoprime(rmm/rob.sigma, family=family,cc=tune)/d)^2 ) / (n - p)
+    mat <- (1 - eff)/n * tau * rob.sigma^2 * V.inv 
+  }
+  
+  if(test == "T2") {
+    d <- mean(rhoprime2(rmm/rob.sigma, family=family,cc=tune))
+    delta2 <- mean( (rls - (rob.sigma * rhoprime(rmm/rob.sigma, family=family,cc=tune)) / d)^2 )
+    mat <- delta2 / n * V.inv
+  }
+  
+  brob <- coef(object)
+  coef.names <- names(brob)
+  bls <- coef(LS)
+  x <- bls - brob
+  
+  if(attributes(object$terms)$intercept) {
+    brob <- brob[-1]
+    bls <- bls[-1]
+    x <- x[-1]
+    mat <- mat[-1, -1, drop = FALSE]
+    coef.names <- coef.names[-1]
+  }
+  
+  se <- sqrt(diag(mat))
+  uniV <- x / se
+  coefs <- cbind(bls, brob, x, se, uniV, 2*pnorm(-abs(uniV)))
+  dimnames(coefs) <- list(coef.names, c("LS", "Robust", "Delta", "Std. Error", "Stat", "p-value"))
+  T <- drop(t(x) %*% solve(mat) %*% x)
+  
+  ans <- list(coefs = coefs,
+              full = list(stat = T, df = length(x), p.value = 1 - pchisq(T, length(x))),
+              test = test,
+              efficiency = eff)
+  
+  # class here is not changed yet, also the postfix in the name of print
+  oldClass(ans) <- "lsRobTest"
+  ans
+}
+
+print.lsRobTest <- function(x, digits = 4, ...)
+{
+  cat("Test for least squares bias\n")
+  if(x$test == "T1")
+    cat("H0: normal regression error distribution\n")
+  if(x$test == "T2")
+    cat("H0: composite normal/non-normal regression error distribution\n")
+  
+  cat("\n")
+  cat("Individual coefficient tests:\n")
+  print(format(as.data.frame(x$coefs), digits = digits, ...))
+  cat("\n")
+  cat("Joint test for bias:\n")
+  cat("Test statistic: ")
+  cat(format(x$full$stat, digits = digits, ...))
+  cat(" on ")
+  cat(format(x$full$df, digits = digits, ...))
+  cat(" DF, p-value: ")
+  cat(format(x$full$p.value, digits = digits, ...))
+  cat("\n")
+  
+  invisible(x)
+}
+
 ############################################################
 
-# Load the following packages needed for much of the code below
+# Load the following packages needed for parts of the code below
 library(PCRA)
 library(data.table)
 library(facmodCS)
@@ -198,12 +347,9 @@ library(xts)
 library(RobStatTM)
 library(fit.models)
 
-# The following are loaded in the EXHIBITS where they are needed:
-# optimalRhoPsi, sandwhich, MASS
+# The following packages are loaded in the EXHIBITS where they are
+# needed:  optimalRhoPsi, sandwhich, MASS
 
-
-#############################################################
-#############################################################
 
 ## EXHIBIT 1
 
@@ -265,13 +411,11 @@ plot(x, wgt_modOpt(x, cc = ccopt), type = "l", ylim = c(0,1.1),
 abline(h = 1.0, lty = "dotted")
 
 
-## Load libraries and functions needed below
-
-
 # Load data needed
 stocks_factors <- selectCRSPandSPGMI(dateRange = c("1993-01-31", "2015-12-31"), 
                                      stockItems = c("Date", "TickerLast", "CapGroupLast", "Return"), 
                                      factorItems = c('BP', 'EP'), outputType = 'data.table') 
+
 
 ## EXHIBIT 4 (takes about 15 seconds on a fast laptop)
 # Fit LS and mOpt single factor BP and EP models
@@ -341,6 +485,7 @@ x <- as.matrix(stocks_factors[Date == date_max_m1, get('EP')])
 to_plot_EP <- data.frame(y = y, x = x, rf = rep(0, length(x))) 
 plotLSandRobustSFM_SS(to_plot_EP, xlab = 'EP', ylab = 'Returns', 
                       mainText = paste0('EP, scatter plot as of ', date_max), legendPos = 'bottomleft') 
+
 
 ## EXHIBIT 6
 # This plot uses the same data as the EP plot in EXHIBIT 5
@@ -469,9 +614,9 @@ par(mfrow = c(1,1))
 ## https://link.springer.com/content/pdf/10.1057/s41260-022-00258-0.pdf
 ## in your browser.
 
+
 ## EXHIBIT 12
 par(mfrow = c(1,2))
-source("plotLSandRobustWithHuber.R")
 plotLSandRobustWithHuber(retPSC,mainText = "Stock PSC 1987-1988")
 plotLSandRobustWithHuber(retKBH,mainText = "Stock KBH 2007-2008")
 par(mfrow = c(1,1))
@@ -525,8 +670,6 @@ fitFF4tab5row
 ## EXHIBIT 15
 fitFFC4 <- lmrobdetMM(FNB ~ ., data = regDatFFC4.df)
 step.lmrobdetMM(fitFFC4) 
-# The above line computes the RFPE4 and RFPE3 values below
-# Not sure why they are a little off, and need to check
 Factors4 <- c("ALL","MKT","SMB","HML","MOM")
 RFPE4 <- c(0.221,0.235,0.234,0.217,0.230)
 Factors3 <- c("ALL","MKT","SMB","MOM","")
