@@ -21,6 +21,7 @@ NOTE:  For this function to work, the selectCRSPandSPGMI must include the
 the stockItems TickerLast, MktIndexCRSP and Ret13WkBill.
 }
 \examples{
+data.table::setDTthreads(1)
 library(PCRA)
 library(xts)
 library(data.table)
