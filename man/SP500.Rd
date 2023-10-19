@@ -48,7 +48,7 @@ S&P Dow Jones Indices and Federal Reserve Bank of St. Louis.
 S&P®, S&P 400 Industrials®, S&P 425 Industrials®, S&P Industrials®and S&P 500® 
 are registered trademarks of Standard & Poor’s Financial Services LLC, 
 and Dow Jones® is a registered trademark of Dow Jones Trademark Holdings LLC. 
-© 2023 S&P Dow Jones Indices LLC, #' its affiliates and/or its licensors. 
+© 2023 S&P Dow Jones Indices LLC, its affiliates and/or its licensors. 
 All rights reserved.
 Redistribution of the data is not permitted, and use of the data in
 derivative works is not permitted without the written permission of 
