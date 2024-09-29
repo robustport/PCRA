@@ -2,27 +2,31 @@
 % Please edit documentation in R/minVarCashRisky.R
 \name{minVarCashRisky}
 \alias{minVarCashRisky}
-\title{A Simple Minimum Variance Portfolio}
+\title{Minimum Variance Portfolio}
 \usage{
-minVarCashRisky(returns, mu0, min = -1000, max = +1000)
+minVarCashRisky(returns, mu0, LO = FALSE, bnd = 1000, bndRF = 100)
 }
 \arguments{
-\item{returns}{an xts multivariate returns object}
+\item{returns}{xts multivariate returns object that contains
+the returns of the risk-free T-Bill in the last column}
 
-\item{mu0}{a specified minimum variance portfolio mean return}
+\item{mu0}{Minimum variance portfolio mean return}
 
-\item{min}{a minimum weight constrain}
+\item{LO}{Logical variable with default FALSE}
 
-\item{max}{a maximum weight constrain}
+\item{bnd}{Bound on asset weights}
+
+\item{bndRF}{a bound on the risk-free T-Bill weight}
 }
 \value{
 A list of the minimum variance portfolio numeric weights, 
 mean value, volatility, and Sharpe Ratio.
 }
 \description{
-Given a time series of returns that includes a 
-risk-free rate, a target mean return and set of weights constraints,
-this function the weights of a minimum variance portfolio
+Given a time series of asset returns and risk-free T-Bill
+returns, a target mean return, and a specification of whether the asset
+weights are constrained to be long-only, this function compputes the 
+weights of a fully-invested minimum variance portfolio
 }
 \examples{
 args(minVarCashRisky)
