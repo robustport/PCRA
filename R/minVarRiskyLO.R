@@ -15,8 +15,6 @@
 #' and Sharpe ratio, with default names Wgts, Mean, StdDeve, SR
 #'
 #' @author R. Douglas Martin
-#' 
-#' @rdnanme minVarRiskyLO
 #'
 #' @examples
 #' args(minVarRiskyLO)
