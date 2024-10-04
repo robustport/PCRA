@@ -3,7 +3,7 @@ and Risk Analysis* by R. Douglas Martin, Thomas K. Philips, Stoyan Stoyanov,
 Bernd Scherer and Kirk Li, scheduled for publication by Springer in 2025.
 
 The paper "Robust Statistics for Portfolio Construction and Analysis" by 
-R. Douglas Martin, Stoyan V. Stoyanov, Kirk Li and Mahmoud Shammaa, published
+R. Douglas Martin, Stoyan V. Stoyanov, Kirk Li and Mahmoud Shammaa, was published
 in 2023 by *The Journal of Portfolio Management*, 49  ( 9) 105 - 139.  See the
  [Paper Abstract](https://www.pm-research.com/content/iijpormgmt/49/9/105),
 where JPM Subscribers can also download the paper.
