@@ -1,12 +1,12 @@
 This PCRA R package is a companion to the book *Robust Portfolio Construction
 and Risk Analysis* by R. Douglas Martin, Thomas K. Philips, Stoyan Stoyanov, 
-dBernd Scherer and Kirk Li, scheduled for publication by Springer in 2025.
+Bernd Scherer and Kirk Li, scheduled for publication by Springer in 2025.
 
 The paper "Robust Statistics for Portfolio Construction and Analysis" by 
 R. Douglas Martin, Stoyan V. Stoyanov, Kirk Li and Mahmoud Shammaa, published
-in 2023 by *The Journal of Portfolio Management*, 49  ( 9) 105 - 139.
-See [Paper Abstract](https://www.dropbox.com/scl/fi/yx8whhs3mxbxx5lhl1y7d/JPM-Paper-Abstract.pdf?rlkey=ekro0jkipjy4fe766ntwf1uvi&st=kmt0is50&dl=0).
-Subscribers to JPM can obtain the paper at (https://www.pm-research.com/content/iijpormgmt/49/9/105).
+in 2023 by *The Journal of Portfolio Management*, 49  ( 9) 105 - 139.  See the
+ [Paper Abstract](https://www.pm-research.com/content/iijpormgmt/49/9/105),
+where JPM Subscribers can also download the paper.
 
 The R script file `RobustStatisticsForPortfoliosJPM2023.R` for reproducing most
 of the Figures and Tables in the above paper is available in the PCRA package at 
