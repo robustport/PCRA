@@ -10,7 +10,7 @@
 #' cached dataset
 #' 
 #' @details The following are valid names of datasets available:
-#' \itemize{
+#' \describe{
 #' \item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
 #' \item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
 #' }
