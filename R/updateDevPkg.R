@@ -17,10 +17,10 @@ getVersionGithub = function(repo, field) {
 
 #' Update to Developer version on Github
 #'
-#' @param pkg 
-#' @param repo 
-#' @param field 
-#' @param lib 
+#' @param pkg Default to "PCRA" package name. 
+#' @param repo Default to "https://github.com/robustport/PCRA"
+#' @param field Default to "Version" field under Package Description file.
+#' @param lib Path to install the package
 #'
 #' @return
 #' @export
@@ -34,6 +34,10 @@ update_dev_pkg = function(pkg="PCRA", repo="https://github.com/robustport/PCRA",
             is.character(field), length(field)==1L, !is.na(field),
             is.null(lib) || (is.character(lib) && length(lib)==1L && !is.na(lib)))
   # get Revision field from remote repository PACKAGES file
+  
+  if(!is.null(lib) && !lib%in%.libPaths())
+    .libPaths(lib)
+  
   una = is.na(ups<-.getVersionGithub(repo, field))
   if (una)
     catf("No revision information found in DESCRIPTION file for %s package. Make sure that '%s' is correct field in PACKAGES file in your package repository. Otherwise package will be re-installed every time, proceeding to installation.\n",
