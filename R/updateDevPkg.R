@@ -15,17 +15,16 @@ getVersionGithub = function(repo, field) {
 }
 
 
-#' Update to Developer version on Github
+#' Update to Developer version on Github that have access to additional functions and data
 #'
 #' @param pkg Default to "PCRA" package name. 
 #' @param repo Default to "https://github.com/robustport/PCRA"
 #' @param field Default to "Version" field under Package Description file.
-#' @param lib Path to install the package
+#' @param lib library path where the package would be installed.
 #'
-#' @return
+#' @return NULL
 #' @export
 #'
-#' @examples
 update_dev_pkg = function(pkg="PCRA", repo="https://github.com/robustport/PCRA",field= "Version", lib=NULL) {
   # this works for any package, not just data.table
   # perform package upgrade when new Revision present
