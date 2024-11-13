@@ -37,12 +37,12 @@ update_dev_pkg = function(pkg="PCRA", repo="https://github.com/robustport/PCRA",
   if(!is.null(lib) && !lib%in%.libPaths())
     .libPaths(lib)
   
-  una = is.na(ups<-.getVersionGithub(repo, field))
+  una = is.na(ups<-getVersionGithub(repo, field))
   if (una)
-    catf("No revision information found in DESCRIPTION file for %s package. Make sure that '%s' is correct field in PACKAGES file in your package repository. Otherwise package will be re-installed every time, proceeding to installation.\n",
+    cat("No revision information found in DESCRIPTION file for %s package. Make sure that '%s' is correct field in PACKAGES file in your package repository. Otherwise package will be re-installed every time, proceeding to installation.\n",
          pkg, field)
   # see if Revision is different then currently installed Revision, note that installed package will have Revision info only when it was installed from remote devel repo
-  upg = una || !identical(ups,.getVersionLocal(pkg, field))
+  upg = una || !identical(ups,getVersionLocal(pkg, field))
   # update_dev_pkg fails on windows R 4.0.0, we have to unload package namespace before installing new version #4403
   on.exit({
     if (upg) {
