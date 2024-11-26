@@ -47,7 +47,7 @@ update_dev_pkg = function(pkg="PCRA", repo="https://github.com/robustport/PCRA",
   on.exit({
     if (upg) {
       unloadNamespace(pkg) ## hopefully will release dll lock on Windows
-      devtools::install_github(repo=repo)
+      install_github(repo=repo)
       msg_fmt = gettext("R %s package has been updated to %s (from %s)\n")
     } else {
       msg_fmt = gettext("R %s package is up-to-date at %s (from %s)\n")

@@ -39,11 +39,12 @@ Imports:
 	quadprog,
 	RobStatTM,
 	robustbase,
-	R.cache
+	R.cache,
+	devtools
 Suggests: R.rsp
 LazyLoad: true
 LazyData: true
 LazyDataCompression: xz
-Copyright: (c) 2022-2023
+Copyright: (c) 2022-2024
 RoxygenNote: 7.3.2
 VignetteBuilder: R.rsp

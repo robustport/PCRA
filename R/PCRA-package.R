@@ -17,6 +17,7 @@
 #' @importFrom robustbase scaleTau2
 #' @importFrom R.cache loadCache saveCache
 #' @importFrom utils download.file
+#' @importFrom devtools install_github
 
 "_PACKAGE"
 
