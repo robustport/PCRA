@@ -26,5 +26,5 @@ distribution efficiency for the Huber location M-estimator.
 The default value cc = 2.0 is better for EWMA robust filters.
 }
 \examples{
-psi(0.5)
+psiHuber(0.5)
 }

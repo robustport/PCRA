@@ -16,7 +16,7 @@
 #' @export
 #'
 #' @examples
-#' psi(0.5)
+#' psiHuber(0.5)
 psiHuber <-  function(x, cc = 2.0)
 {
   psi = ifelse(abs(x/cc) < 1, x, cc) 
