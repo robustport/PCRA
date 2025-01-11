@@ -31,7 +31,7 @@ results in a Help tab display with the followng two links:
 * *PCRS::Ch2_Code*
 * (*Run demo*).
 
-Use the first link, which results in a display of the entire R script in the Help tab.  Then copy/paste the script into your own new R file, and run it in chunks that are of interest to you. Many of the chunks will run quite quickly, e.g., a few seconds, but a few of them may take 2-4 minutes. Doing so for the Ch2_Code.R will help you learn the portfolio methods in the PCRA book Ch 2 Foundations, and apply them to different stocks data in the *stocksPCRA* data set.
+Use the first link, which results in a display of the entire R script in the Help tab.  Then copy/paste the script into your own new R file, and run it in chunks that are of interest to you. Many of the chunks will run quite quickly, e.g., a few seconds, but a few of them may take 2-4 minutes. Doing so for the Ch2_Code.R will help you learn the portfolio methods in the PCRA book Ch 2 Foundations, and apply them to different stocks data in the *stocksCRSP* data set.
 
 NOTE: We do not recommend general use of (*Run demo*). This is because it runs the entire demo script, which will often take much too long. Furthermore, some scripts may fail to execute properly when run this way. That said, the (*Run demo*) link can be handy for running R demo scripts that execute quickly.
 
