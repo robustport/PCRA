@@ -1,2 +1,5 @@
-Ch2_Foundations_demo.R  Code that computes most Chapter 2 figures and tables.
+Ch 2 Foundations demo.R Code that computes most Chapter 2 figures and tables.
+Ch 3 Modeling Asset Returns.R Code that computes most Chapter 3 figures and tables.
+Ch 4 Covariance Matrices.R  Code that computes most Chapter 4 figures and tables.
+Introduction to CRSP Stocks andd SPGMI Factors in PCRA.R  Code for Vignette with same name.
 RobustStatisticsForPortfoliosJPM2023.R  Reproduces figures in JPM 2023 paper.
