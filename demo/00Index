@@ -1,5 +1,6 @@
 Ch2_Foundations_demo   Computes Chapter 2 figures and tables.
 Ch3_ModelingAssetReturns_demo   Computes Chapter 3 figures and tables.
 Ch4_CovarianceMatrices_demo   Computes Chapter 4 figures and tables.
+Ch5_Portfolio_Constraints_and_Penalties_demo   Computes Chapter 4 figures and tables.
 IntroductionCRSPstocksAndSPGMIfactors   Code for Vignette with same name.
 RobustStatisticsForPortfoliosJPM2023  Reproduces figures in JPM 2023 paper.
