@@ -36,6 +36,7 @@ Imports:
 	lattice,
 	corpcor,
 	data.table,
+	MASS,
 	quadprog,
 	RobStatTM,
 	robustbase,
