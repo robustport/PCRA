@@ -1,3 +1,30 @@
+#' @title CRSP Liquid Stocks Market Cap Group Counts
+#' 
+#' @description Biennial counts of bigcap, smallcap, microcap stocks among
+#' liquid CRSP database stocks from 1964 to 2018 using weekly returns.  Bigcap
+#' stocks consist of midcap, largecap, and megacap stocks.  For each contiguous
+#' two-year interval, liquid stocks are those with no missing returns and at
+#' most 4 returns with value 0. 
+#'
+#' @docType data
+#'
+#' @usage data(CRSPLiquidMktCapGrpsCnts)
+#'
+#' @format A multivariate xts object
+#' 
+#' @source The microcap, smallcap and bigcap groups were defined using the
+#' using the 20th and 50th percentiles of the NYSE capitalization data as
+#' breakpoints to separate these three market cap groups.  
+#' 
+#' @examples
+#' library(PCRA)
+#' library(zoo)
+#' data(CRSPLiquidMktCapGrpsCnts)
+#' names(CRSPLiquidMktCapGrpsCnts)
+#' dim(CRSPLiquidMktCapGrpsCnts)
+#' range(index(CRSPLiquidMktCapGrpsCnts))
+
+
 #' @title crsp.returns8
 #' 
 #' @description Monthly returns of 8 stocks with tickers GHI, PBCI, MODI, MGJ, MAT,
