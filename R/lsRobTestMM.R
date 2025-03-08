@@ -36,7 +36,7 @@ lsRobTestMM <- function(object, test = c("T2", "T1"), ...)
   tune <- object$control$tuning.psi
   
   # the prefix probably can be removed when added into RobStatTM
-  eff = RobStatTM:::computeGaussianEfficiencyFromFamily(family, tune)
+  eff = RobStatTM::computeGaussianEfficiencyFromFamily(family, tune)
   
   if(is.null(object$weights)) {
     LS <- lm(formula(object$terms), data = object$model)
