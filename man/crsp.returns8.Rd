@@ -3,17 +3,11 @@
 \docType{data}
 \name{crsp.returns8}
 \alias{crsp.returns8}
-\title{CRSP Liquid Stocks Market Cap Group Counts}
+\title{crsp.returns8}
 \format{
-A multivariate xts object
-
 A multivariate xts object
 }
 \source{
-The microcap, smallcap and bigcap groups were defined using the
-using the 20th and 50th percentiles of the NYSE capitalization data as
-breakpoints to separate these three market cap groups.
-
 Center for Research in Security Prices, LLC (CRSP), an Affiliate of
 the University of Chicago Booth School of Business. NOTE: CRSP data is not
 covered by the GPL. Redistribution of the data in any form is not permitted,
@@ -21,27 +15,13 @@ and use of the data in derivative works is not permitted without the written
 permission of CRSP.
 }
 \usage{
-data(CRSPLiquidMktCapGrpsCnts)
-
 data(crsp.returns8)
 }
 \description{
-Biennial counts of bigcap, smallcap, microcap stocks among
-liquid CRSP database stocks from 1964 to 2018 using weekly returns.  Bigcap
-stocks consist of midcap, largecap, and megacap stocks.  For each contiguous
-two-year interval, liquid stocks are those with no missing returns and at
-most 4 returns with value 0.
-
 Monthly returns of 8 stocks with tickers GHI, PBCI, MODI, MGJ, MAT,
 EMN, AMAT, AMGN from 1997 to 2001
 }
 \examples{
-library(PCRA)
-library(zoo)
-data(CRSPLiquidMktCapGrpsCnts)
-names(CRSPLiquidMktCapGrpsCnts)
-dim(CRSPLiquidMktCapGrpsCnts)
-range(index(CRSPLiquidMktCapGrpsCnts))
 library(PCRA)
 library(zoo)
 data(crsp.returns8)
