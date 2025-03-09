@@ -8,6 +8,13 @@
 \description{
 A collection of functions and data sets that support teaching a quantitative finance MS level course on Portfolio Construction and Risk Analysis, and the writing of a textbook for such a course. The package is unique in providing several real-world data sets that may be used for problem assignments and student projects. The data sets include cross-sections of stock data from the Center for Research on Security Prices, LLC (CRSP), corresponding factor exposures data from S&P Global, and several SP500 data sets.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/robustport/PCRA}
+}
+
+}
 \author{
 \strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
 

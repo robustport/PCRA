@@ -55,6 +55,7 @@
 #' consisting of selected stocks and/or factor exposures data.
 #' 
 #' @examples
+#' data.table::setDTthreads(1)
 #' data(stocksCRSP)
 #' return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
 #'                                     dateRange  = c("2006-01-31", "2006-07-31"),

@@ -10,13 +10,14 @@
 #' @importFrom zoo zoo coredata index index<-
 #' @importFrom boot boot
 #' @importFrom PerformanceAnalytics checkData		
-#' @importFrom PortfolioAnalytics create.EfficientFrontier		
+#' @importFrom PortfolioAnalytics create.EfficientFrontier portfolio.spec add.constraint  add.objective optimize.portfolio
 #' @importFrom corpcor make.positive.definite
 #' @importFrom quadprog solve.QP
 #' @importFrom RobStatTM locScaleM lmrobdet.control lmrobdetMM
 #' @importFrom robustbase scaleTau2
 #' @importFrom R.cache loadCache saveCache
 #' @importFrom utils download.file
+#' @importFrom devtools install_github
 
 "_PACKAGE"
 

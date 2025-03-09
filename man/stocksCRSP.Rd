@@ -52,7 +52,7 @@ Weekly and daily versions stocksCRSPweekly and stocksCRSPdaily may be
 obtained using the function getPCRAData() - see PCRAData.R.
 }
 \examples{
- 
+data.table::setDTthreads(1)  
 data(stocksCRSP)
 names(stocksCRSP)
 unique(stocksCRSP$Sector)

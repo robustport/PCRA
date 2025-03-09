@@ -12,7 +12,7 @@
 #' @examples
 #' args(KRest)
 #' @export
-KRest <- function(x,excess = TRUE)
+KRest <- function(x, excess = TRUE)
 {
   n <- length(x)
   k <- 1/n

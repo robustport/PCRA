@@ -1,6 +1,6 @@
-#' crsp.returns8
+#' @title crsp.returns8
 #' 
-#' Monthly returns of 8 stocks with tickers GHI, PBCI, MODI, MGJ, MAT,
+#' @description Monthly returns of 8 stocks with tickers GHI, PBCI, MODI, MGJ, MAT,
 #' EMN, AMAT, AMGN from 1997 to 2001
 #'
 #' @docType data
