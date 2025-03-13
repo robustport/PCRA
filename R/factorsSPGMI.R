@@ -120,7 +120,7 @@
 
 
 
-#' @title factorsSPGMIround
+#' @title Rounded Version of factorsSPGMI
 #'
 #' @description Rounded version of factorsSPGMI to 6 decimal place. 14 SPGMI monthly factor exposures for 294 CRSP stocks from 1993 to 2015
 #' 
