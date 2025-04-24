@@ -35,8 +35,8 @@ plotLSandRobustSFM_SS <- function (x, family = "mopt", efficiency = 0.95, mainTe
     x = x * 100
     y = y * 100
   }
-  control <- lmrobdet.control(efficiency = efficiency, family = family)
-  fit.mOpt = lmrobdetMM(y ~ x, control = control)
+  control <- RobStatTM::lmrobdet.control(efficiency = efficiency, family = family)
+  fit.mOpt = RobStatTM::lmrobdetMM(y ~ x, control = control)
   fit.ls = lm(y ~ x)
   x = fit.ls$model$x
   y = fit.ls$model$y
@@ -142,7 +142,7 @@ fitReturnsToFF3model <- function(returns,datFF,digits = 2, title = NULL, QQplots
   #tsPlotMP(reg)
   regdf <- as.data.frame(reg)
   fitLS <- lm(RET ~ .,data = regdf)
-  fitRob <- lmrobdetMM(RET~.,data = regdf)
+  fitRob <- RobStatTM::lmrobdetMM(RET~.,data = regdf)
   fitRobLS <- fit.models(fitLS,fitRob)
   if(QQplots){
     sideBySideQQPlot(fitRobLS,fun = residuals,main = title,xlab = "Standard Normal Quantiles",
@@ -169,7 +169,7 @@ fitReturnsToFF4model <- function(returns,datFF,digits = 2, title = NULL, QQplots
   #tsPlotMP(reg)
   regdf <- as.data.frame(reg)
   fitLS <- lm(RET ~ .,data = regdf)
-  fitRob <- lmrobdetMM(RET~.,data = regdf)
+  fitRob <- RobStatTM::lmrobdetMM(RET~.,data = regdf)
   fitRobLS <- fit.models(fitLS,fitRob)
   if(QQplots){
     sideBySideQQPlot(fitRobLS,fun = residuals,xlab = "Standard Normal Quantiles",
@@ -357,8 +357,8 @@ y <- invensysEPS
 x = seq(1984,2000,1)
 plot(x,y,pch = 19, xlab ="YEAR",ylab = "EARNINGS PER SHARE", ylim =c(-0.09,0.21),
      main = "", cex = 1.0)
-ctrl=lmrobdet.control(efficiency=0.99,family="mopt")
-fitMM = lmrobdetMM(y~x,control = ctrl)
+ctrl=RobStatTM::lmrobdet.control(efficiency=0.99,family="mopt")
+fitMM = RobStatTM::lmrobdetMM(y~x,control = ctrl)
 fitLS = lm(y~x)
 # Add lines
 abline(fitMM,lwd = 1.0)
@@ -668,7 +668,7 @@ fitFF4tab5row
 
 
 ## EXHIBIT 15
-fitFFC4 <- lmrobdetMM(FNB ~ ., data = regDatFFC4.df)
+fitFFC4 <- RobStatTM::lmrobdetMM(FNB ~ ., data = regDatFFC4.df)
 step.lmrobdetMM(fitFFC4) 
 Factors4 <- c("ALL","MKT","SMB","HML","MOM")
 RFPE4 <- c(0.221,0.235,0.234,0.217,0.230)
