@@ -126,7 +126,7 @@
 #' 
 #' @docType data
 #'
-#' @usage data(factorsSPGMIr)
+#' @usage data(factorsSPGMIrounded)
 #'
 #' @format A data.frame containing 14 SPGMI monthly factor exposures (alpha
 #' factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21
@@ -237,4 +237,4 @@
 #' data is not covered by the GPL. Redistribution of this SPGMI data is not
 #' permitted, and use of the data in derivative works is not permitted without
 #' the written permission of SPGMI
-"factorsSPGMIr"
+"factorsSPGMIrounded"
