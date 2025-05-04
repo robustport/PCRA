@@ -41,6 +41,7 @@ Imports:
 	RobStatTM,
 	robustbase,
 	R.cache,
+	scales,
 	devtools
 Suggests: R.rsp
 LazyLoad: true
