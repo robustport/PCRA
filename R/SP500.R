@@ -31,7 +31,10 @@
 #'  \item \strong{SP500DPS:} type `num`. Dividends per share for the S&P 500 
 #'  during the calendar year.
 #'  \item \strong{SP500OperatingEPS:} type `num`. Operating Earnings 
-#'  per share for the S&P 500 for the calendar year.
+#'  per share for the S&P 500 for the calendar year. S&P's definition of 
+#'  Operating Earnings is different from the industry standard of Earnings
+#'  Before Interest and Taxes (EBIT). It is closer to As-Reported Earnings
+#'  + non-recurring items, but with judgement about what is added back.
 #'  \item \strong{SP500NomRet:} type `num`. Nominal total return including
 #'  both change in price and dividends and not adjusted for inflation for the 
 #'  S&P 500 for the current calendar year.
