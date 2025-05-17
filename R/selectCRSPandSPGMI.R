@@ -56,7 +56,7 @@
 #' 
 #' @examples
 #' data.table::setDTthreads(1)
-#' data(stocksCRSP)
+#' data(stocksCRSPmonthly)
 #' return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
 #'                                     dateRange  = c("2006-01-31", "2006-07-31"),
 #'                                     stockItems = c("Date", "TickerLast",
@@ -67,7 +67,7 @@
 #'                                     subsetValues = NULL,
 #'                                     outputType   = "xts")
 #'
-#' length(unique(stocksCRSP$TickerLast)) 
+#' length(unique(stocksCRSPmonthly$TickerLast)) 
 #' dim(return_data) #includes all tickers plus risk free rate & market return columns
 #'
 #' stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
@@ -100,7 +100,7 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   stopifnot(periodicity %in% c("monthly","weekly","daily")) 
   
   # stop if incorrect columns are selected from stocksCRSP
-  stopifnot(stockItems %in% colnames(stocksCRSP))
+  stopifnot(stockItems %in% colnames(stocksCRSP)) # Is stocksCRSP generic here?
   
   # stop if incorrect columns are selected from factorsSPGMI
   stopifnot(factorItems %in% colnames(factorsSPGMI)) 
@@ -113,7 +113,7 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   # merge data (resamples factorsSPGMI to a higher frequency if daily or 
   # weekly stocksCRSP data are used)
   stock_data <- switch(periodicity,
-                       "monthly" = stocksCRSP,
+                       "monthly" = stocksCRSPmonthly,
                        "weekly"  = stocksCRSPweekly, 
                        "daily"   = stocksCRSPdaily)
   stock_data <- stock_data[, ..stockItems]
@@ -139,15 +139,15 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   # subsetType sub-setting
   if (!is.null(subsetType)) {
     if (subsetType == "TickerLast") {
-      stopifnot(subsetValues %in% unique(stocksCRSP$TickerLast))
+      stopifnot(subsetValues %in% unique(stocksCRSPmonthly$TickerLast))
       merged_data <- merged_data[merged_data$TickerLast %in% subsetValues,]
       
     } else if (subsetType == "Sector") {
-      stopifnot(subsetValues %in% unique(stocksCRSP$Sector))
+      stopifnot(subsetValues %in% unique(stocksCRSPmonthly$Sector))
       merged_data <- merged_data[merged_data$Sector %in% subsetValues,]
       
     } else if (subsetType == "CapGroupLast") {
-      stopifnot(subsetValues %in% unique(stocksCRSP$CapGroupLast))
+      stopifnot(subsetValues %in% unique(stocksCRSPmonthly$CapGroupLast))
       merged_data <- merged_data[merged_data$CapGroupLast %in% subsetValues,]
       
     }
