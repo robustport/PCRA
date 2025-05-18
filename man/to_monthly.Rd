@@ -22,9 +22,9 @@ monthly
 to_monthly will convert daily returns to monthly returns.
 }
 \details{
-tbc
+These will be added
 }
 \examples{
-tbc
+args(to.monthly)
 
 }

@@ -34,10 +34,9 @@ to_weekly will convert daily returns to weekly returns, while allowing the
 user flexibility in the choice of which day to end the week.
 }
 \details{
-tbc
+These will be added.
 }
 \examples{
-my_wkly_rets <- to_weekly(dlyrets,
-                          )
+args(to_weekly)
 
 }

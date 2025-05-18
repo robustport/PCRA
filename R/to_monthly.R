@@ -3,8 +3,7 @@
 #' @description 
 #' to_monthly will convert daily returns to monthly returns.
 #'
-#' @details
-#' tbc
+#' @details These will be added
 #' 
 #' @importFrom utils globalVariables
 #' @import data.table
@@ -19,7 +18,7 @@
 #' @return monthly
 #' 
 #' @examples
-#' tbc
+#' args(to.monthly)
 #' 
 #' @export
 

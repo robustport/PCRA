@@ -4,8 +4,7 @@
 #' to_weekly will convert daily returns to weekly returns, while allowing the 
 #' user flexibility in the choice of which day to end the week.
 #'
-#' @details
-#' tbc
+#' @details These will be added.
 #' 
 #' @importFrom utils globalVariables
 #' @import data.table
@@ -25,8 +24,7 @@
 #' @return rets
 #' 
 #' @examples
-#' my_wkly_rets <- to_weekly(dlyrets,
-#'                           )
+#' args(to_weekly)
 #' 
 #' @export
 
