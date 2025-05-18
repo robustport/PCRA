@@ -18,7 +18,7 @@
 #' @return monthly
 #' 
 #' @examples
-#' args(to.monthly)
+#' args(to_monthly)
 #' 
 #' @export
 

@@ -25,6 +25,6 @@ to_monthly will convert daily returns to monthly returns.
 These will be added
 }
 \examples{
-args(to.monthly)
+args(to_monthly)
 
 }
