@@ -27,7 +27,7 @@ week_ending_day is ’’Friday” and 2015-12-31 is a Thursday, then the last
 four day return will be labeled as 2016-01-01.}
 }
 \value{
-rets
+returns
 }
 \description{
 to_weekly will convert daily returns to weekly returns, while allowing the 

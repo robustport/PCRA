@@ -21,7 +21,7 @@
 #' week_ending_day is ’’Friday” and 2015-12-31 is a Thursday, then the last 
 #' four day return will be labeled as 2016-01-01.
 #'
-#' @return rets
+#' @return returns
 #' 
 #' @examples
 #' args(to_weekly)
