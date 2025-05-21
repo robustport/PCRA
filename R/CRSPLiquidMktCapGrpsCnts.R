@@ -1,4 +1,4 @@
-#' @title CRSP Liquid Stocks Cap Groups Counts
+#' @title CRSP Stocks Cap Groups Counts
 #' 
 #' @description Biennial counts of bigcap, smallcap, microcap stocks among
 #' liquid CRSP database stocks from 1964 to 2018 using weekly returns.  Bigcap
