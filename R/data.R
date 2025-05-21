@@ -1,4 +1,4 @@
-#' @title crsp.returns8
+#' @title Returns of 8 CRSP stocks
 #' 
 #' @description Monthly returns of 8 stocks with tickers GHI, PBCI, MODI, MGJ, MAT,
 #' EMN, AMAT, AMGN from 1997 to 2001
@@ -31,7 +31,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(strategies)
+#' @usage data(HFstrategies)
 #'
 #' @format A multivariate xts object
 #' 
@@ -40,11 +40,11 @@
 #' @examples
 #' library(PCRA)
 #' library(zoo)
-#' data(strategies)
-#' names(strategies)
-#' dim(strategies)
-#' range(index(strategies))
-"strategies"
+#' data(HFstrategies)
+#' names(HFstrategies)
+#' dim(HFstrategies)
+#' range(index(HFstrategies))
+"HFstrategies"
 
 
 #' @title Federal Reserve Board Interest Rates
@@ -69,7 +69,7 @@
 "FRBinterestRates"
 
 
-#' @title gfunds5
+#' @title Five German Investment Funds
 #' 
 #' @description Monthly returns of 5 German investment funds November 1989
 #' to July 2001: EM (emerging markets), PE (private equity), HY (high yield),
@@ -93,7 +93,7 @@
 "gfunds5"
 
 
-#' @title Stock with Ticker DD
+#' @title CRSP Returns of Stock with Ticker DD
 #' 
 #' @description Weekly returns (RET) of stock with ticker DD for 1986
 #' and 1987, along with market returns (MKT) and risk-free rate (RF).
@@ -116,7 +116,7 @@
 "retDD"
 
 
-#' @title Stock with Ticker EDS
+#' @title CRSP Returns of Stock with Ticker EDS
 #' 
 #' @description Weekly returns (RET) of stock with ticker EDS for 2002
 #' and 2003, along with market returns (MKT) and risk-free rate (RF).
@@ -139,7 +139,7 @@
 "retEDS"
 
 
-#' @title Stock with Ticker FNB
+#' @title CRSP Returns of Stock with Ticker FNB
 #' 
 #' @description Weekly returns (RET) of stock with ticker FNB for 2008
 #'  
@@ -161,7 +161,7 @@
 "retFNB"
 
 
-#' @title Fama-French Weekly 3-Factor Model
+#' @title Fama-French Weekly 3-Factor Model Time Series
 #' 
 #' @description Weekly values of the 3 factors MKT, SMB and HML
 #' 
@@ -182,7 +182,7 @@
 "datFF3W"
 
 
-#' @title Fama-French-Carhart Weekly 4-Factor Model
+#' @title Fama-French Weekly 4-Factor Model Time Series
 #' 
 #' @description Weekly values of the 4 factors MKT, SMB, HML and MOM
 #' 
@@ -203,7 +203,7 @@
 "datFF4W"
 
 
-#' @title Stock with Ticker KBH
+#' @title CRSP Returns of Stock with Ticker KBH
 #' 
 #' @description Weekly returns (RET) of stock with ticker KBH for 2007
 #' and 2008, along with market returns (MKT) and risk-free rate (RF).
@@ -226,7 +226,7 @@
 "retKBH"
 
 
-#' @title Stock with Ticker MER
+#' @title CRSP Returns of Stock with Ticker MER
 #' 
 #' @description Weekly returns (RET) of stock with ticker MER for 2002
 #' and 2003, along with market returns (MKT) and risk-free rate (RF).
@@ -249,7 +249,7 @@
 "retMER"
 
 
-#' @title Stock with Ticker OFG
+#' @title CRSP Returns of Stock with Ticker OFG
 #' 
 #' @description Weekly returns (RET) of stock with ticker OFG for 2007
 #' and 2008, along with market returns (MKT) and risk-free rate (RF).
@@ -294,7 +294,7 @@
 "retPSC"
 
 
-#' @title Stock with Ticker VHI
+#' @title CRSP Returns of Stock with Ticker VHI
 #' 
 #' @description Weekly returns (RET) of stock with ticker VHI for 1990
 #' and 1991, along with market returns (MKT) and risk-free rate (RF).
@@ -317,7 +317,7 @@
 "retVHI"
 
 
-#' @title Stock with Ticker WTS
+#' @title CRSP Returns of Stock with Ticker WTS
 #' 
 #' @description Weekly returns (RET) of stock with ticker WTS for 2009
 #' and 2010, along with market returns (MKT) and risk-free rate (RF).
@@ -340,7 +340,7 @@
 "retWTS"
 
 
-#' @title Earnings per Share of Invensys
+#' @title Invensys Earnings per Share
 #' 
 #' @description Yearly earnings-per-share of company Invensys for 17 years.
 #' The company's name was invensys prior to 2004.
