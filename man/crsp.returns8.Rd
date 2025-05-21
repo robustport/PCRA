@@ -3,7 +3,7 @@
 \docType{data}
 \name{crsp.returns8}
 \alias{crsp.returns8}
-\title{Returns of 8 CRSP stocks}
+\title{CRSP Returns for 8 stocks in 4 cap groups}
 \format{
 A multivariate xts object
 }
@@ -19,7 +19,7 @@ data(crsp.returns8)
 }
 \description{
 Monthly returns of 8 stocks with tickers GHI, PBCI, MODI, MGJ, MAT,
-EMN, AMAT, AMGN from 1997 to 2001
+EMN, AMAT, AMGN, two in each of for capitalization groups from 1997 to 2001
 }
 \examples{
 library(PCRA)
