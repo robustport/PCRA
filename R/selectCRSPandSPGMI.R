@@ -99,8 +99,9 @@ selectCRSPandSPGMI <- function(periodicity = "monthly",
   # stop if incorrect periodicity is selected
   stopifnot(periodicity %in% c("monthly","weekly","daily")) 
   
-  # stop if incorrect columns are selected from stocksCRSP
-  stopifnot(stockItems %in% colnames(stocksCRSP)) # Is stocksCRSP generic here?
+  # stop if incorrect columns are selected for stocksCRSPmonthly,
+  # stopsCRSPweekly, or stocksCRSPdaily (correct columns are the same for all 3)
+  stopifnot(stockItems %in% colnames(stocksCRSPmonthly))
   
   # stop if incorrect columns are selected from factorsSPGMI
   stopifnot(factorItems %in% colnames(factorsSPGMI)) 
