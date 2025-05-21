@@ -3,7 +3,7 @@
 \docType{data}
 \name{CRSPLiquidMktCapGrpsCnts}
 \alias{CRSPLiquidMktCapGrpsCnts}
-\title{CRSP Liquid Stocks Market Cap Groups Counts}
+\title{CRSP Liquid Stocks Cap Groups Counts}
 \format{
 A multivariate xts object
 }

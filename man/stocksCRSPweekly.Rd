@@ -3,7 +3,7 @@
 \docType{data}
 \name{stocksCRSPweekly}
 \alias{stocksCRSPweekly}
-\title{stocksCRSP Weekly data}
+\title{CRSP weekly stocks data for 294 stocks}
 \format{
 A data.table object with 82000 observations on 15 variables:
 \itemize{
@@ -37,7 +37,7 @@ Unknown
 data(stocksCRSPweekly)
 }
 \description{
-CRSP Weekly stocks data for 294 stocks 1993 to 2015
+CRSP Weekly stocks data for 294 stocks for 1993 to 2015
 }
 \examples{
 data(stocksCRSPweekly)

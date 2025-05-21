@@ -1,7 +1,7 @@
-#' @title Returns of 8 CRSP stocks
+#' @title CRSP Returns for 8 stocks in 4 cap groups
 #' 
 #' @description Monthly returns of 8 stocks with tickers GHI, PBCI, MODI, MGJ, MAT,
-#' EMN, AMAT, AMGN from 1997 to 2001
+#' EMN, AMAT, AMGN, two in each of for capitalization groups from 1997 to 2001
 #'
 #' @docType data
 #'
@@ -161,7 +161,7 @@
 "retFNB"
 
 
-#' @title Fama-French Weekly 3-Factor Model Time Series
+#' @title Fama-French 3-Factor Model Weekly Time Series
 #' 
 #' @description Weekly values of the 3 factors MKT, SMB and HML
 #' 
@@ -182,7 +182,7 @@
 "datFF3W"
 
 
-#' @title Fama-French Weekly 4-Factor Model Time Series
+#' @title Fama-French 4-Factor Model Weekly Time Series
 #' 
 #' @description Weekly values of the 4 factors MKT, SMB, HML and MOM
 #' 
@@ -271,7 +271,7 @@
 #' range(index(retOFG))
 "retOFG"
 
-#' @title Stock with Ticker PSC
+#' @title CRSP Returns of Stock with Ticker PSC
 #' 
 #' @description Weekly returns (RET) of stock with ticker PSC for 1987
 #' and 1088, along with market returns (MKT) and risk-free rate (RF).

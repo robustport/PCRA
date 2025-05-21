@@ -3,7 +3,7 @@
 \docType{data}
 \name{crsp.returns8}
 \alias{crsp.returns8}
-\title{crsp.returns8}
+\title{Returns of 8 CRSP stocks}
 \format{
 A multivariate xts object
 }

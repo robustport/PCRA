@@ -3,7 +3,7 @@
 \docType{data}
 \name{factorsSPGMIr}
 \alias{factorsSPGMIr}
-\title{Rounded Version of factorsSPGMI}
+\title{Rounded Version of SPGMI Data 14 Factors}
 \format{
 A data.frame containing 14 SPGMI monthly factor exposures (alpha
 factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21
@@ -71,7 +71,7 @@ the written permission of SPGMI
 data(factorsSPGMIr)
 }
 \description{
-Rounded version of factorsSPGMI to 6 decimal place. 14 SPGMI monthly factor exposures for 294 CRSP stocks from 1993 to 2015
+Rounded version of factorsSPGMI to 4 decimal places.
 }
 \details{
 The term "factor exposures" is often used for the values of the 14 factors,
@@ -79,6 +79,9 @@ which SPGMI also refers to as "scores" or "alpha factors".
 Our names for the the 14 factors are identical to those used by SPGMI in
 their AFL library.  For an introduction to the AFL library see:
 \url{https://www.marketplace.spglobal.com/en/datasets/alpha-factor-library-(3)}
+
+For details concerning the very small effects of rounding, see the Vignette 
+"PCRA Package Overview.
 
 The four CapGroupLast categorizations of the stocks were determined using the
 three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the

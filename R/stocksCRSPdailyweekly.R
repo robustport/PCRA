@@ -1,6 +1,6 @@
-#' @title stocksCRSP daily data
+#' @title CRSP daily stocks data for 294 stocks
 #' 
-#' @description CRSP daily stocks data for 294 stocks 1993 to 2015
+#' @description CRSP daily stocks data for 294 stocks for 1993 to 2015
 #' 
 #' @docType data
 #'
@@ -41,9 +41,9 @@
 
 
 
-#' @title stocksCRSP Weekly data
+#' @title CRSP weekly stocks data for 294 stocks
 #' 
-#' @description CRSP Weekly stocks data for 294 stocks 1993 to 2015
+#' @description CRSP Weekly stocks data for 294 stocks for 1993 to 2015
 #' 
 #' @docType data
 #'

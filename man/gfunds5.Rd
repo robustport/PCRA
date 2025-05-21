@@ -3,7 +3,7 @@
 \docType{data}
 \name{gfunds5}
 \alias{gfunds5}
-\title{gfunds5}
+\title{Five German Investment Funds}
 \format{
 Multivariate xts object
 }
