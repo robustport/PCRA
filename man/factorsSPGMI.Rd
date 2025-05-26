@@ -3,7 +3,7 @@
 \docType{data}
 \name{factorsSPGMI}
 \alias{factorsSPGMI}
-\title{factorsSPGMI}
+\title{SPGMI Data  14 Factors for 294 Stocks}
 \format{
 A data.frame containing 14 SPGMI monthly factor exposures (alpha
 factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21

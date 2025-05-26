@@ -3,7 +3,7 @@
 \docType{data}
 \name{retMER}
 \alias{retMER}
-\title{Stock with Ticker MER}
+\title{CRSP Returns of Stock with Ticker MER}
 \format{
 Multivariate time series xts object
 }

@@ -10,34 +10,40 @@
 #' @format A data frame with observations on the S&P 500® from 1925 
 #' to the most recent year end for which final data is available:
 #' \itemize{
-#'  \item \strong{Year:} type `num`.
+#'  \item \strong{Date:} type `Date`. End of year date formatted as YYYY-12-31. 
+#'  Useful when creating a time series object for exploratory time series plots. 
+#'  Convert the data frame to an xts object using xts::as.xts(SP500).
+#'  \item \strong{Year:} type `num`. Year corresponding to Date.
 #'  \item \strong{SP500PriceHigh:} type `num`. Highest price level achieved by the 
 #'  S&P 500 during the calendar year.
 #'  \item \strong{SP500PriceLow:} type `num`. Lowest price level achieved by the 
 #'  S&P 500 during the calendar year.
-#'  \item \strong{SP500PriceClose:} type `num`. Year-end (12/31) price of the S&P 500.
+#'  \item \strong{SP500PriceClose:} type `num`. Year-end (12/31) price of the S&P 500®.
 #'  \item \strong{SP500EpsAll4Q:} type `num`. As-Reported Earnings per share
-#'  for the S&P 500 for the entire calendar year.
+#'  for the S&P 500® for the entire calendar year.
 #'  \item \strong{SP500EpsBest3Q:} type `num`. 4/3 x Sum of the three highest
-#'  quarterly earnings per share for the S&P 500 during the calendar year.
+#'  quarterly earnings per share for the S&P 500® during the calendar year.
 #'  \item \strong{SP500EpsBest2Q:} type `num`. 2 x Sum of the two highest
-#'  quarterly earnings per share for the S&P 500 during the calendar year.
+#'  quarterly earnings per share for the S&P 500® during the calendar year.
 #'  \item \strong{SP500EpsBest1Q:} type `num`. 4 x the highest earnings per share
-#'  in a quarter for the S&P 500 during the calendar year.
+#'  in a quarter for the S&P 500® during the calendar year.
 #'  \item \strong{SP500RevenuePS:} type `num`. Annual Revenues per share 
-#'  for the S&P 500 during the calendar year.
+#'  for the S&P 500® during the calendar year.
 #'  \item \strong{SP500BookValuePS:} type `num`. Year-end (12/31) Book Value 
-#'  (or Shareholders' Equity) per share for the S&P 500.
-#'  \item \strong{SP500DPS:} type `num`. Dividends per share for the S&P 500 
+#'  (or Shareholders' Equity) per share for the S&P 500®.
+#'  \item \strong{SP500DPS:} type `num`. Dividends per share for the S&P 500® 
 #'  during the calendar year.
 #'  \item \strong{SP500OperatingEPS:} type `num`. Operating Earnings 
-#'  per share for the S&P 500 for the calendar year.
+#'  per share for the S&P 500® for the calendar year. S&P's definition of 
+#'  Operating Earnings is different from the industry standard of Earnings
+#'  Before Interest and Taxes (EBIT). It is closer to As-Reported Earnings
+#'  + non-recurring items, but with judgement about what is added back.
 #'  \item \strong{SP500NomRet:} type `num`. Nominal total return including
 #'  both change in price and dividends and not adjusted for inflation for the 
-#'  S&P 500 for the current calendar year.
+#'  S&P 500® for the current calendar year.
 #'  \item \strong{SP500Nom1YrFwdRet:} type `num`. Nominal total return including
 #'  both change in price and dividends and not adjusted for inflation for the 
-#'  S&P 500 for the FOLLOWING calendar year. This is the same as SP500NomRet
+#'  S&P 500® for the FOLLOWING calendar year. This is the same as SP500NomRet
 #'  with a one year lag. It is included primarily to make it easy to build
 #'  forecasting models without any need to apply a lag operator to SP500NomRet.
 #'  \item \strong{CPIAUCNS:} type `num`. Consumer Price Index for All Urban 
@@ -46,8 +52,8 @@
 #' }
 #' 
 #' @references
-#' Chapter 13 (Expected Returns) of Martin, Philips, Scherer, Stoyanov and Li, 
-#' Portfolio Construction and Risk Analysis, Springer, 2024.
+#' Chapter 12 (Expected Returns) of Martin, Philips, Scherer, Stoyanov and Li, 
+#' Portfolio Construction and Risk Analysis, Springer, 2026.
 #' 
 #' @details
 #' This dataset was constructed by combining information in various datasets, and

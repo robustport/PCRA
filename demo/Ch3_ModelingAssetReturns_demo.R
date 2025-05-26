@@ -974,7 +974,7 @@ index(retFIA) <- as.yearmon(index(retFIA))
 # Plot FIA returns with sample mean and robust mean
 mu <- 100*mean(retFIA)
 se.mu <- 100*sd(retFIA)/sqrt(24)
-x <- locScaleM(retFIA, eff = .95)
+x <- RobStatTM::locScaleM(retFIA, eff = .95)
 muRob <- 100*x$mu
 se.muRob <- 100*x$std.mu
 plot.zoo(retFIA, type ="b", xlab = "", ylab = "FIA Returns")

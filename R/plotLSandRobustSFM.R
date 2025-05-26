@@ -34,9 +34,9 @@ plotLSandRobustSFM = function(x,family = "mopt", efficiency = 0.95,
     x = x * 100
     y = y * 100
   }
-  control <- lmrobdet.control(efficiency=efficiency,
+  control <- RobStatTM::lmrobdet.control(efficiency=efficiency,
                                          family=family)
-  fit.mOpt = lmrobdetMM(y~x, control=control)
+  fit.mOpt = RobStatTM::lmrobdetMM(y~x, control=control)
   fit.ls = lm(y~x)
   
   x = fit.ls$model$x

@@ -15,12 +15,12 @@
 meansReturns4Report <- function(ret,robust = FALSE,eff = 0.95)
 {
   if(robust == FALSE) {retMu <- mean(ret)} else
-  {x <- locScaleM(ret,eff = eff)
+  {x <- RobStatTM::locScaleM(ret,eff = eff)
   retMu <- x$mu
   }
   logret <- log(ret+1)
   if(robust == FALSE) {logretMu <- mean(logret)} else
-  {x <- locScaleM(logret,eff = eff)
+  {x <- RobStatTM::locScaleM(logret,eff = eff)
   logretMu <- x$mu
   }
   g <- exp(logretMu)-1

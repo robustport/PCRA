@@ -1,4 +1,4 @@
-#' @title factorsSPGMI
+#' @title SPGMI Data  14 Factors for 294 Stocks
 #'
 #' @description 14 SPGMI monthly factor exposures for 294 CRSP stocks from 1993 to 2015
 #' 
@@ -120,9 +120,9 @@
 
 
 
-#' @title factorsSPGMIround
+#' @title Rounded Version of SPGMI Data 14 Factors
 #'
-#' @description Rounded version of factorsSPGMI to 6 decimal place. 14 SPGMI monthly factor exposures for 294 CRSP stocks from 1993 to 2015
+#' @description Rounded version of factorsSPGMI to 4 decimal places. 
 #' 
 #' @docType data
 #'
@@ -195,6 +195,9 @@
 #' Our names for the the 14 factors are identical to those used by SPGMI in
 #' their AFL library.  For an introduction to the AFL library see:
 #' \url{https://www.marketplace.spglobal.com/en/datasets/alpha-factor-library-(3)}
+#' 
+#' For details concerning the very small effects of rounding, see the Vignette 
+#' "PCRA Package Overview.
 #' 
 #' The four CapGroupLast categorizations of the stocks were determined using the
 #' three capitalization breakpoints $xxxM, $yyyM, $zzzM. Details concerning the

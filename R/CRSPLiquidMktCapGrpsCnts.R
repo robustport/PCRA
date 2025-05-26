@@ -1,4 +1,4 @@
-#' @title CRSP Liquid Stocks Market Cap Group Counts
+#' @title CRSP Liquid Stocks Cap Groups Counts
 #' 
 #' @description Biennial counts of bigcap, smallcap, microcap stocks among
 #' liquid CRSP database stocks from 1964 to 2018 using weekly returns.  Bigcap
@@ -17,9 +17,7 @@
 #' breakpoints to separate these three market cap groups.  
 #' 
 #' @examples
-#' library(PCRA)
-#' library(zoo)
 #' data(CRSPLiquidMktCapGrpsCnts)
 #' names(CRSPLiquidMktCapGrpsCnts)
 #' dim(CRSPLiquidMktCapGrpsCnts)
-#' range(index(CRSPLiquidMktCapGrpsCnts))
+"CRSPLiquidMktCapGrpsCnts"
