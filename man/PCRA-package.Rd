@@ -31,14 +31,4 @@ Other contributors:
 }
 
 }
-\author{
-\strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
-
-Other contributors:
-\itemize{
-  \item Jon Spinney \email{Jon.Spinney@vestcor.org} [contributor]
-  \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
-}
-
-}
 \keyword{internal}
