@@ -358,3 +358,40 @@
 #' data(invensysEPS)
 #' invensysEPS
 "invensysEPS"
+
+
+
+#' @title CBOE S&P 500 BuyWrite Index
+#' 
+#' @description Monthly data for the S&P500 index, the S&P 500 BuyWrite Index, and the risk-free rate
+#'
+#' @docType data
+#'
+#' @usage data(BXM)
+#'
+#' @format A data.frame object
+#' 
+#' @source TO BE ADDED.
+#' 
+#' @examples
+#' library(PCRA)
+#' range(range(BXM$SP))
+"BXM"
+
+
+#' @title Global Baskets of Equity and Bonds
+#' 
+#' @description Daily price data for a global equity basket, a global bond basket, and cash
+#'
+#' @docType data
+#'
+#' @usage data(MarketData)
+#'
+#' @format An xts object
+#' 
+#' @source TO BE ADDED.
+#' 
+#' @examples
+#' library(PCRA)
+#' range(range(MarketData$global.equity.basket))
+"MarketData"
