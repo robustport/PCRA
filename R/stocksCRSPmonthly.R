@@ -1,5 +1,3 @@
-<<<<<<< HEAD:R/stocksCRSP.R
-=======
 #' @title CRSP monthly stocks data for 294 stocks
 #'
 #' @description CRSP monthly stocks data for 294 stocks for 1993 to 2015
