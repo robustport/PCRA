@@ -3,7 +3,7 @@
 \docType{data}
 \name{datFF3W}
 \alias{datFF3W}
-\title{Fama-French Weekly 3-Factor Model}
+\title{Fama-French 3-Factor Model Weekly Time Series}
 \format{
 Multivariate time series xts object
 }

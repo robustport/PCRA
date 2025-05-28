@@ -11,22 +11,22 @@ stocksCRSPxts(
 )
 }
 \arguments{
-\item{data}{One of the data.table objects stocksCRSP, stocksCRSPweekly,
+\item{data}{One of the data.table objects stocksCRSPmonthly, stocksCRSPweekly,
 stocksCRSPdaily}
 
 \item{dateRange}{Character vector with two components a start date
 and an end date using format "yyyy-mm-dd".  Default is the entire
-stocksCRSP data dates range c("1993-01-31","2015-12-32")}
+data dates range c("1993-01-31","2015-12-32")}
 
-\item{tickerSet}{A subset of tickers of the stocks in stocksCRSP. The
-default is tickerSet = NULL, which results in selection of all stocks
-in stocksCRSP.}
+\item{tickerSet}{A subset of tickers of the stocks in stocksCRSPmonthly,
+stocksCRSPweekly, or stocksCRSPdaily. The default is tickerSet = NULL, which
+results in selection of all the stocks.}
 }
 \value{
 A multivariate xts object of stock returns
 }
 \description{
-A function to extract a subset of the stocksCRSP data.table
+A function to extract a subset of the stocksCRSPmonthly data.table
 specified by a date range and a set of tickers, with convenient defaults,
 and convert it to an xts object
 }

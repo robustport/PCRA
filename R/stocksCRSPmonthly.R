@@ -1,10 +1,12 @@
-#' @title CRSP daily stocks data for 294 stocks
-#' 
-#' @description CRSP daily stocks data for 294 stocks for 1993 to 2015
+<<<<<<< HEAD:R/stocksCRSP.R
+=======
+#' @title CRSP monthly stocks data for 294 stocks
+#'
+#' @description CRSP monthly stocks data for 294 stocks for 1993 to 2015
 #' 
 #' @docType data
 #'
-#' @usage data(stocksCRSPdaily)
+#' @usage data(stocksCRSPmonthly)
 #'
 #' @format A data.table object with 82000 observations on 15 variables:
 #' \itemize{
@@ -31,23 +33,44 @@
 #'  \item \strong{mktIndexCRSP:} type `num`. CRSP value weighted market return
 #' }
 #' 
-#' @source Unknown
+#' @references
+#' A standard corporate finance textbook:  Ross, Westerfield, Jaffe and
+#' Jordan (2019). Corporate Finance, McGraw-Hill Education.
+#' 
+#' @details
+#' The four CapGroupLast categorizations of the stocks were determined using the
+#' three capitalization breakpoints $15.6B, $5.4B, $600M. Details concerning the
+#' construction of the monthly CapGroup categorizations will eventually be
+#' provided in a Vignette.
+#' 
+#' Weekly and daily versions stocksCRSPweekly and stocksCRSPdaily may be
+#' obtained using the function getPCRAData() - see PCRAData.R. 
+#' 
+#' @source Center for Research in Security Prices (CRSP) at the University of
+#' Chicago's Booth School of Business (CRSP). NOTE: CRSP data is not covered by
+#' the GPL. Redistribution of the data is not permitted, and use of the data in
+#' derivative works is not permitted without the written permission of CRSP.
 #' 
 #' @examples
-#' data(stocksCRSPdaily)
+#' data.table::setDTthreads(1)  
+#' data(stocksCRSPmonthly)
+#' names(stocksCRSPmonthly)
+#' unique(stocksCRSPmonthly$Sector)
+#' unique(stocksCRSPmonthly$CapGroup)
+#' head(stocksCRSPmonthly,2)
 #' 
-  
-"stocksCRSPdaily"
+"stocksCRSPmonthly"
 
 
 
-#' @title CRSP weekly stocks data for 294 stocks
-#' 
-#' @description CRSP Weekly stocks data for 294 stocks for 1993 to 2015
+>>>>>>> e6c67721c6f9bb48de4a17acdcd5f184fb31882a:R/stocksCRSPmonthly.R
+#' @title stocksCRSPmonthly
+#'
+#' @description CRSP monthly stocks data for 294 stocks 1993 to 2015
 #' 
 #' @docType data
 #'
-#' @usage data(stocksCRSPweekly)
+#' @usage data(stocksCRSPmonthly)
 #'
 #' @format A data.table object with 82000 observations on 15 variables:
 #' \itemize{
@@ -74,10 +97,32 @@
 #'  \item \strong{mktIndexCRSP:} type `num`. CRSP value weighted market return
 #' }
 #' 
-#' @source Unknown
+#' @references
+#' A standard corporate finance textbook:  Ross, Westerfield, Jaffe and
+#' Jordan (2019). Corporate Finance, McGraw-Hill Education.
+#' 
+#' @details
+#' The four CapGroupLast categorizations of the stocks were determined using the
+#' three capitalization breakpoints $15.6B, $5.4B, $600M. Details concerning the
+#' construction of the monthly CapGroup categorizations will eventually be
+#' provided in a Vignette.
+#' 
+#' Weekly and daily versions stocksCRSPweekly and stocksCRSPdaily may be
+#' obtained using the function getPCRAData() - see PCRAData.R. 
+#' 
+#' @source Center for Research in Security Prices (CRSP) at the University of
+#' Chicago's Booth School of Business (CRSP). NOTE: CRSP data is not covered by
+#' the GPL. Redistribution of the data is not permitted, and use of the data in
+#' derivative works is not permitted without the written permission of CRSP.
 #' 
 #' @examples
-#' data(stocksCRSPweekly)
-#' 
+#' data.table::setDTthreads(1)  
+#' data(stocksCRSPmonthly)
+#' names(stocksCRSPmonthly)
+#' unique(stocksCRSPmonthly$Sector)
+#' unique(stocksCRSPmonthly$CapGroup)
+#' head(stocksCRSPmonthly,2)
+"stocksCRSPmonthly"
 
-"stocksCRSPweekly"
+
+

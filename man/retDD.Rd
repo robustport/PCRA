@@ -3,7 +3,7 @@
 \docType{data}
 \name{retDD}
 \alias{retDD}
-\title{Stock with Ticker DD}
+\title{CRSP Returns of Stock with Ticker DD}
 \format{
 Multivariate time series xts object
 }
