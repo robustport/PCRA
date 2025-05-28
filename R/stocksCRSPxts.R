@@ -21,11 +21,11 @@
 #' library(PCRA)
 #' library(xts)
 #' library(data.table)
-#' class(stocksCRSP)
+#' class(stocksCRSPmonthly)
 #' args(stocksCRSPxts)
 #' tickers4 <- c("DHR","CSL","AVP","AMWD")
 #' dateRange <- c("2011-01-31","2015-12-31")
-#' returns4 <- stocksCRSPxts(stocksCRSP, dateRange = dateRange,
+#' returns4 <- stocksCRSPxts(stocksCRSPmonthly, dateRange = dateRange,
 #'                            tickerSet = tickers4) 
 #' class(returns4)
 #' dim(returns4)

@@ -2,20 +2,20 @@
 
 library(PCRA)
 library(data.table)
-class(stocksCRSP)
-dim(stocksCRSP)   # Number of rows and columns
-names(stocksCRSP) # Names of items in each column
+class(stocksCRSPmonthly)
+dim(stocksCRSPmonthly)   # Number of rows and columns
+names(stocksCRSPmonthly) # Names of items in each column
 
 class(factorsSPGMI)
 dim(factorsSPGMI) 
 names(factorsSPGMI)
 
-# help(stocksCRSP)
+# help(stocksCRSPmonthly)
 # help(factorsSPGMI)
 
-stocksCRSP[,1:4]
+stocksCRSPmonthly[,1:4]
 
-dat.df <- data.frame(stocksCRSP)
+dat.df <- data.frame(stocksCRSPmonthly)
 class(dat.df)
 names(dat.df)
 
@@ -26,7 +26,7 @@ class(dat.Return)
 dat.DateAndReturn <- dat.df[, c("Date","Return")]
 class(dat.DateAndReturn)
 
-dat <- stocksCRSP # This is a data.table
+dat <- stocksCRSPmonthly # This is a data.table
 dat.Return <- dat[, Return]
 class(dat.Return)
 dat.Return <- dat[, list(Return)]
@@ -36,10 +36,10 @@ class(dat.Return)
 dat.DateAndReturn <- dat[, .(Date, Return)]
 class(dat.DateAndReturn)
 
-nMonths <- length(unique(stocksCRSP[,Date]))
-nStocks <- length(unique(stocksCRSP[,TickerLast])) 
+nMonths <- length(unique(stocksCRSPmonthly[,Date]))
+nStocks <- length(unique(stocksCRSPmonthly[,TickerLast])) 
 nMonths*nStocks # Number of rows
-range(stocksCRSP[,Date]) # First and last date
+range(stocksCRSPmonthly[,Date]) # First and last date
 
 
 ### SECTION 2 Selecting stocksCRSP and factorsSPGMI
@@ -112,7 +112,7 @@ range(datesIndex)
 
 args(stocksCRSPxts)
 
-stocksAll <- stocksCRSPxts(stocksCRSP)
+stocksAll <- stocksCRSPxts(stocksCRSPmonthly)
 class(stocksAll)
 dim(stocksAll)
 library(xts)
@@ -126,11 +126,11 @@ dates3 <- c("2000-01-31","2003-12-31")
 dates4 <- c("2004-01-31","2007-12-31")
 dates5 <- c("2008-01-31","2011-12-31")
 dates6 <- c("2012-01-31","2015-12-31")
-ret1  <- stocksCRSPxts(stocksCRSP,dateRange = dates1)
-ret2  <- stocksCRSPxts(stocksCRSP,dateRange = dates2)
-ret3  <- stocksCRSPxts(stocksCRSP,dateRange = dates3)
-ret4  <- stocksCRSPxts(stocksCRSP,dateRange = dates4)
-ret5  <- stocksCRSPxts(stocksCRSP,dateRange = dates5)
+ret1  <- stocksCRSPxts(stocksCRSPmonthly,dateRange = dates1)
+ret2  <- stocksCRSPxts(stocksCRSPmonthly,dateRange = dates2)
+ret3  <- stocksCRSPxts(stocksCRSPmonthly,dateRange = dates3)
+ret4  <- stocksCRSPxts(stocksCRSPmonthly,dateRange = dates4)
+ret5  <- stocksCRSPxts(stocksCRSPmonthly,dateRange = dates5)
 ret6  <- stocksCRSPxts(stocksCRSP,dateRange = dates6)
 
 # Compute cross-section of excess kurtosis values on those time intervals

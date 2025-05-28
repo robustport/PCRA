@@ -69,8 +69,8 @@ style control parameters
 \examples{
 #Load the data
 library(xts)
-data("stocksCRSP")
-dat = stocksCRSP
+data("stocksCRSPmonthly")
+dat = stocksCRSPmonthly
 returns = tapply(dat$Return,list(dat$Date,dat$TickerLast),I)
 ret = xts(returns[,1:5],as.yearmon(rownames(returns)))
 
