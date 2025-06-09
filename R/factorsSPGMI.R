@@ -6,9 +6,9 @@
 #'
 #' @usage data(factorsSPGMI)
 #'
-#' @format A data.frame containing 14 SPGMI monthly factor exposures (alpha
-#' factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21
-#' variables that include the 14 factor exposures, for each of 294 stocks
+#' @format A data.frame containing 14 SPGMI numeric factor exposures (alpha
+#' factors) for each of 294 stocks from 1993 to 2015 (276 months), among a
+#' total of 22 variables, that also include 4 categorical factor exposures.
 #' \itemize{
 #'  \item \strong{Date:} type `Date`.
 #'  \item \strong{TickerLast:} type `chr`. This is the ticker as of December 2015
@@ -128,9 +128,9 @@
 #'
 #' @usage data(factorsSPGMIr)
 #'
-#' @format A data.frame containing 14 SPGMI monthly factor exposures (alpha
-#' factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21
-#' variables that include the 14 factor exposures, for each of 294 stocks
+#' @format A data.frame containing 14 SPGMI numeric factor exposures (alpha
+#' factors) for each of 294 stocks from 1993 to 2015 (276 months), among a
+#' total of 22 variables, that also include 4 categorical factor exposures.
 #' \itemize{
 #'  \item \strong{Date:} type `Date`.
 #'  \item \strong{TickerLast:} type `chr`. This is the ticker as of December 2015
