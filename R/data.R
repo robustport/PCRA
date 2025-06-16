@@ -375,8 +375,8 @@
 #' 
 #' @examples
 #' library(PCRA)
-#' range(range(BXM$SP))
-"BXM"
+#' range(range(BXMdata$BXM))
+"BXMdata"
 
 
 #' @title Global Baskets of Equity and Bonds
