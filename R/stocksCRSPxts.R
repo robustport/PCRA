@@ -12,7 +12,6 @@
 #' @param tickerSet A subset of tickers of the stocks in stocksCRSPmonthly,
 #' stocksCRSPweekly, or stocksCRSPdaily. The default is tickerSet = NULL, which
 #' results in selection of all the stocks.
-#'
 #' @return A multivariate xts object of stock returns
 #' @export
 #'
