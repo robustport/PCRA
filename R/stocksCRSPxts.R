@@ -11,7 +11,8 @@
 #' data dates range c("1993-01-31","2015-12-32")
 #' @param tickerSet A subset of tickers of the stocks in stocksCRSPmonthly,
 #' stocksCRSPweekly, or stocksCRSPdaily. The default is tickerSet = NULL, which
-#' results in selection of all the stocks.
+#' results in selection of all the stocks. 
+#' 
 #' @return A multivariate xts object of stock returns
 #' @export
 #'
