@@ -367,7 +367,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(BXM)
+#' @usage data(BXMdata)
 #'
 #' @format A data.frame object
 #' 
@@ -375,7 +375,7 @@
 #' 
 #' @examples
 #' library(PCRA)
-#' range(range(BXMdata$BXM))
+#' names(BXMdata)
 "BXMdata"
 
 
