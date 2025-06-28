@@ -15,6 +15,7 @@
 KRest <- function(x, excess = TRUE)
 {
   n <- length(x)
+  # this is a github learning comments
   k <- 1/n
   KR <- k*sum(((x-mean(x))/(sd(x)*sqrt((n-1)/n)))^4)
   if(excess){
