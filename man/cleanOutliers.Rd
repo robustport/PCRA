@@ -2,7 +2,7 @@
 % Please edit documentation in R/cleanOutliers.R
 \name{cleanOutliers}
 \alias{cleanOutliers}
-\title{Clean Returns Outliers}
+\title{Clean Returns Outliers Effectively}
 \usage{
 cleanOutliers(x, k = 3, shrink = TRUE)
 }
