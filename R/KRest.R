@@ -1,7 +1,7 @@
 #' @title Kurtosis Estimator
 #' 
 #' @description Sample estimate of excess kurtosis, with option for ordinary
-#' kurtosis. This function will eventually have a robust estimator option.
+#' kurtosis. 
 
 #' @param x A numeric vector
 #' @param excess A logical variable with default TRUE, which results in the
