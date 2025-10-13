@@ -1,4 +1,4 @@
-#' @title Tangency Portfolio Weights 
+#' @title Tangency Portfolio Weights
 #' 
 #' @description Computes the portfolio weights of the tangency portfolio, and
 #' its mean return and volatility.  The tangency portfolio is defined by the
