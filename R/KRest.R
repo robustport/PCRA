@@ -1,4 +1,4 @@
-#' @title Kurtosis Estimator
+#' @title Kurtosis Estimator 
 #' 
 #' @description Sample estimate of excess kurtosis, with option for ordinary
 #' kurtosis. 
