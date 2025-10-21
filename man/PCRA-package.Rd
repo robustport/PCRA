@@ -26,6 +26,8 @@ Authors:
 Other contributors:
 \itemize{
   \item Alexios Galanos \email{alexios@4dscape.com} [contributor]
+  \item Casey Li \email{Casey.Li@vestcor.org} [contributor]
+  \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
   \item Jon Spinney \email{Jon.Spinney@vestcor.org} [contributor]
   \item Thomas Philips \email{tkpmep@gmail.com} [contributor]
 }
