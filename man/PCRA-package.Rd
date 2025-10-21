@@ -6,10 +6,22 @@
 \alias{PCRA-package}
 \title{PCRA: Companion to Portfolio Construction and Risk Analysis}
 \description{
-PCRA is a companion package to the text Robust Portfolio Construction and Risk Analysis.
+A collection of functions and data sets that support teaching a quantitative finance MS level course on Portfolio Construction and Risk Analysis, and the writing of a textbook for such a course. The package is unique in providing several real-world data sets that may be used for problem assignments and student projects. The data sets include cross-sections of stock data from the Center for Research on Security Prices, LLC (CRSP), corresponding factor exposures data from S&P Global, and several SP500 data sets.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/robustport/PCRA}
+}
+
 }
 \author{
 \strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
+
+Authors:
+\itemize{
+  \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
+}
 
 Other contributors:
 \itemize{
@@ -17,6 +29,7 @@ Other contributors:
   \item Casey Li \email{Casey.Li@vestcor.org} [contributor]
   \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
   \item Jon Spinney \email{Jon.Spinney@vestcor.org} [contributor]
+  \item Thomas Philips \email{tkpmep@gmail.com} [contributor]
 }
 
 }

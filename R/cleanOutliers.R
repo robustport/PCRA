@@ -1,4 +1,4 @@
-#' @title Clean Returns Outliers
+#' @title Clean Returns Outliers Effectively
 #'
 #' @description Outliers are "cleaned" by shrinking or rejecting data whose
 #' distance from the median (med) is larger in absolute value than a specified
@@ -15,7 +15,7 @@
 #' 
 #' @param shrink A logical variable whose default is TRUE.
 #'
-#' @return Outlier cleaned data
+#' @return an outlier cleaned numeric object
 #' @export
 #'
 #' @examples

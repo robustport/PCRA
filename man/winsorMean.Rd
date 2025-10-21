@@ -4,19 +4,19 @@
 \alias{winsorMean}
 \title{Winsorized Mean}
 \usage{
-winsorMean(x, trim = 0, na.rm = FALSE, ...)
+winsorMean(x, winFrac = 0, na.rm = FALSE, ...)
 }
 \arguments{
 \item{x}{Numeric vector}
 
-\item{trim}{Fraction of data to be Winsorized}
+\item{winFrac}{Fraction of data to be Winsorized}
 
 \item{na.rm}{Logical variable with default FALSE}
 
 \item{...}{Pass-through parameters}
 }
 \value{
-Value of Winsorized mean
+Numeric value of Winsorized mean
 }
 \description{
 Winsorized Mean

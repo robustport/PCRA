@@ -2,7 +2,7 @@
 % Please edit documentation in R/cleanOutliers.R
 \name{cleanOutliers}
 \alias{cleanOutliers}
-\title{Clean Returns Outliers}
+\title{Clean Returns Outliers Effectively}
 \usage{
 cleanOutliers(x, k = 3, shrink = TRUE)
 }
@@ -17,7 +17,7 @@ shrunk or rejected.}
 \item{shrink}{A logical variable whose default is TRUE.}
 }
 \value{
-Outlier cleaned data
+an outlier cleaned numeric object
 }
 \description{
 Outliers are "cleaned" by shrinking or rejecting data whose

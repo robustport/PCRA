@@ -1,7 +1,7 @@
 #' @title Four Types of Mean Returns
 #' 
-#' @description Computation of arithmetic mean, logarithmic mean, geometric,
-#' mean and an approximate geometric mean.
+#' @description Computation of arithmetic mean, logarithmic mean, geometric
+#' mean, and an approximate geometric mean.
 #'
 #' @param return An xts object or a numeric vector of returns
 #' @param robust A logical value controlling whether a classical or robust
@@ -9,7 +9,7 @@
 #' @param eff Normal distribution efficiency of RobStatTM function locScaleM()
 #' used for computing a robust location estimate 
 #'
-#' @return fourMeans numeric vector of the four means
+#' @return fourMeans numeric values of the four means in the Description
 #' @export
 #'
 #' @examples
@@ -17,12 +17,12 @@
 meanReturns4Types <- function(return, robust = FALSE, eff = 0.95)
 {
   if(robust == FALSE) {retMu <- mean(return)} else
-  {x <- locScaleM(return, eff = eff)
+  {x <- RobStatTM::locScaleM(return, eff = eff)
   retMu <- x$mu
   }
   logret <- log(return+1)
   if(robust == FALSE) {logretMu <- mean(logret)} else
-  {x <- locScaleM(logret, eff = eff)
+  {x <- RobStatTM::locScaleM(logret, eff = eff)
   logretMu <- x$mu
   }
   g <- exp(logretMu)-1

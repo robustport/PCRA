@@ -6,7 +6,7 @@
 #'
 #' @param wts Multivariate xts portfolio weights object
 #'
-#' @return Univariate xts time series of portfolio leverages
+#' @return an xts time series of portfolio leverages
 #'  
 #' @rdname levgLongShort
 #' @author Doug Martin

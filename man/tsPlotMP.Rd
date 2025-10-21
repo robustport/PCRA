@@ -10,7 +10,7 @@ tsPlotMP(
   layout = NULL,
   type = "l",
   yname = "RETURNS (\%)",
-  Pct = F,
+  Pct = FALSE,
   scaleType = "free",
   stripLeft = TRUE,
   main = NULL,
@@ -60,17 +60,17 @@ relative to default of 1, 1.5 is 50 larger larger, 0.5 is 50 percent smaller}
 horizontal line is location at the zero vertical distance, default TRUE}
 }
 \value{
-Multi-panel Lattice time series plot
+No value returned, instead a time series multi-panel Lattice plot
 }
 \description{
-Lattice multi-panel time series with several plotting style
-control parameters
+Lattice multi-panel time series plot with several plotting
+style control parameters
 }
 \examples{
 #Load the data
 library(xts)
-data("stocksCRSP")
-dat = stocksCRSP
+data("stocksCRSPmonthly")
+dat = stocksCRSPmonthly
 returns = tapply(dat$Return,list(dat$Date,dat$TickerLast),I)
 ret = xts(returns[,1:5],as.yearmon(rownames(returns)))
 

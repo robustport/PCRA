@@ -21,6 +21,7 @@ NOTE:  For this function to work, the selectCRSPandSPGMI must include the
 the stockItems TickerLast, MktIndexCRSP and Ret13WkBill.
 }
 \examples{
+data.table::setDTthreads(1)
 library(PCRA)
 library(xts)
 library(data.table)
@@ -28,7 +29,8 @@ stockItems <- c("Date","TickerLast","CapGroupLast","Return","MktIndexCRSP",
                "Ret13WkBill")
 dateRange <- c("1997-01-31","2002-12-31")
 stocksDT <- selectCRSPandSPGMI("monthly",dateRange = dateRange, stockItems =
-                                 stockItems, factorItems = NULL)
+                                 stockItems, factorItems = NULL,
+                                 outputType   = "data.table")
 stocksDT <- stocksDT[CapGroupLast == "SmallCap"]
 ret <- returnsCRSPxts(stocksDT)
 tickers <- unique(stocksDT[,TickerLast])

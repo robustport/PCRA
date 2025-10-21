@@ -3,7 +3,7 @@
 \docType{data}
 \name{invensysEPS}
 \alias{invensysEPS}
-\title{Earnings per Share of Invensys}
+\title{Invensys Earnings per Share}
 \format{
 A numeric vector
 }

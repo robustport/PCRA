@@ -7,9 +7,9 @@
 chart.Efront(
   returns,
   pspec,
-  firstEfront = T,
-  gmv = T,
-  maxSR = T,
+  firstEfront = TRUE,
+  gmv = TRUE,
+  maxSR = TRUE,
   rf = 0.003,
   xlim = NULL,
   ylim = NULL,
@@ -42,7 +42,7 @@ chart.Efront(
 \item{n.portfolios}{Number of efficient frontier portfolios, default 10}
 }
 \value{
-Plots of efficient frontiers for use by bootEfronts()
+No value returned, instead plots of efficient frontiers for use by bootEfronts()
 }
 \description{
 Utility function for creating initial efficient frontier, and

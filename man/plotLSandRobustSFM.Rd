@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotLSandRobustSFM.R
 \name{plotLSandRobustSFM}
 \alias{plotLSandRobustSFM}
-\title{Robust and LS SFM Fits}
+\title{Robust and Least Square Single Factor Model (SFM) Fits}
 \usage{
 plotLSandRobustSFM(
   x,
@@ -30,12 +30,13 @@ plotLSandRobustSFM(
 \item{makePct}{Logical variable with default FALSE}
 }
 \value{
-The plot with straight line fits and legend
+No value returned, instead plot with straight line fits and legend
+is displayed
 }
 \description{
-Least squares and robust single factor model (SFM) fits plot,
-with outliers identified, and legend with slope and intercept coefficent
-estimates and standard errors in parentheses.
+Plot of Least squares and robust single factor model (SFM) fits,
+with outliers identified, and legend containing slope and intercept coefficient
+estimates with standard errors in parentheses.
 }
 \details{
 The robust fit is computed using the lmrobdetMM() function in the
@@ -43,6 +44,5 @@ R package RobStatTM. For other choices of efficiency and family see the
 RobStatTM package help(lmrobdetMM)
 }
 \examples{
-data("ret4withOutliers")
-plotLSandRobustSFM(retEDS,legendPos = "bottomright")
+args(plotLSandRobustSFM)
 }

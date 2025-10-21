@@ -20,8 +20,10 @@
 #' efficient frontier mean and volatility values are returned, and when
 #' value = FALSE these values are not returned.
 #'
-#' @return A plot of a risky assets only efficient frontier, or optionally
-#' a plot of the entier frontier
+#' @return no values are returned by default, and a plot is displayed of the
+#' either the risky assets only efficient frontier, or the entire frontier.
+#' Optionally, the values of the mean and volatility along the efficient
+#' frontier are returned.
 #' @export
 #'
 #' @examples

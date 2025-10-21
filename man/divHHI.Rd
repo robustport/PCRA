@@ -10,7 +10,7 @@ divHHI(weights)
 \item{weights}{A numeric vector of portfolio weights}
 }
 \value{
-Time series of portfolio diversification values
+a zoo time series object containing portfolio diversification values
 }
 \description{
 divHHI calculates a portfolio diversification index DIV. The DIV

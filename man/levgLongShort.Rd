@@ -10,7 +10,7 @@ levgLongShort(wts)
 \item{wts}{Multivariate xts portfolio weights object}
 }
 \value{
-Univariate xts time series of portfolio leverages
+an xts time series of portfolio leverages
 }
 \description{
 This function computes a time series of portfolio leverages,
