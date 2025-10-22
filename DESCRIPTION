@@ -30,22 +30,36 @@ Imports:
 	PerformanceAnalytics,
 	PortfolioAnalytics,
 	boot,
-	methods,
-	xts,
-	zoo,
-	lattice,
 	corpcor,
+	CVXR, 
 	data.table,
+	dplyr, 
+	ellipse,
+	facmodCS
+	fit.models,
+	foreach,
+	ggplot2,
+	hitandrun, 
+	lattice,
+	methods,
+	Matrix, 
 	MASS,
 	quadprog,
+	reshape2,
 	RobStatTM,
 	robustbase,
+	RPEIF,
+	RPESE, 
 	R.cache,
+	sandwich,
+	tensr, 
+	xts,
+	zoo,
 	devtools
 Suggests: R.rsp
 LazyLoad: true
 LazyData: true
 LazyDataCompression: xz
 Copyright: (c) 2022-2024
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 VignetteBuilder: R.rsp
