@@ -1,4 +1,4 @@
-#' @title Skewness estimator
+#' @title Skewness estimator 
 #' 
 #' @description Sample estimate of skewness
 #' This function will eventually have a robust estimation option
