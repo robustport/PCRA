@@ -2,6 +2,7 @@
 
 export(KRest)
 export(SKest)
+export(abbreviate_name)
 export(barplotWts)
 export(bootEfronts)
 export(chart.Efront)
