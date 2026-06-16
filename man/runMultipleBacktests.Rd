@@ -10,7 +10,7 @@ runMultipleBacktests(
   seed = NULL,
   return_portfolio,
   stock_list,
-  portfolio_list,
+  buildPortfolios = buildPortfolios,
   market_return = NULL,
   rebalance_on,
   rolling_window,
@@ -41,9 +41,11 @@ match the assets in \code{stock_list}.}
 \item{stock_list}{Character vector. Universe of stock tickers from which
 \code{portfolio_size} tickers are drawn at random in each simulation.}
 
-\item{portfolio_list}{A named list of \code{portfolio.spec} objects built
-with \code{PortfolioAnalytics}. The names of the list elements are used 
-as strategy labels in plot legends and all other outputs.}
+\item{buildPortfolios}{A function that accepts a character vector of
+selected stock tickers and returns a named list of
+\code{portfolio.spec} objects, one per strategy. The names of the list
+elements are used as strategy labels in plot legends and all other
+outputs. Typically built with \code{\link{buildPortfolios}} and can be customized.}
 
 \item{market_return}{An \code{xts} single-column object of benchmark returns.}
 

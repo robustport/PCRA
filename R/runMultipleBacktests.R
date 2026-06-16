@@ -18,9 +18,11 @@
 #' @param stock_list Character vector. Universe of stock tickers from which
 #'   \code{portfolio_size} tickers are drawn at random in each simulation.
 #' @param market_return An \code{xts} single-column object of benchmark returns.
-#' @param portfolio_list A named list of \code{portfolio.spec} objects built
-#'   with \code{PortfolioAnalytics}. The names of the list elements are used 
-#'   as strategy labels in plot legends and all other outputs.
+#' @param buildPortfolios A function that accepts a character vector of
+#'   selected stock tickers and returns a named list of
+#'   \code{portfolio.spec} objects, one per strategy. The names of the list
+#'   elements are used as strategy labels in plot legends and all other
+#'   outputs. Typically built with \code{\link{buildPortfolios}} and can be customized.
 #' @param rebalance_on Character string passed to \code{optimize.portfolio.rebalancing()}. 
 #'   See \code{\link[xts]{endpoints}} for valid names.
 #' @param rolling_window Positive integer. Length of the rolling estimation
@@ -64,7 +66,7 @@ runMultipleBacktests <- function(
     seed = NULL,
     return_portfolio,
     stock_list,
-    portfolio_list,
+    buildPortfolios = buildPortfolios,
     market_return = NULL,
     rebalance_on,
     rolling_window,
@@ -82,9 +84,6 @@ runMultipleBacktests <- function(
   # Input validation
   if (!xts::is.xts(return_portfolio)) {
     stop("'return_portfolio' must be an xts object.")
-  }
-  if (!is.list(portfolio_list) || length(portfolio_list) == 0) {
-    stop("'portfolio_list' must be a non-empty list of portfolio.spec objects.")
   }
   if (save_plot && is.null(plot_path)) {
     stop("Please provide 'plot_path' when 'save_plot = TRUE'.")
@@ -105,6 +104,8 @@ runMultipleBacktests <- function(
     
     # Return Matrix
     retPort <- return_portfolio[, colnames(return_portfolio) %in% selectStock]
+    
+    portfolio_list <- buildPortfolios(selectStock)
     
     # Run Backtest
     bt_result <- runPortfolioBacktest(
