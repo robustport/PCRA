@@ -48,8 +48,8 @@ runPortfolioBacktest <- function(
     portfolio_list,
     portfolio_names,
     market_return = NULL,
-    rebalance_on,
-    rolling_window,
+    rebalance_on = NULL,
+    rolling_window = NULL,
     optimize_method = "CVXR",
     moment_list = NULL,
     ...,
@@ -95,7 +95,7 @@ runPortfolioBacktest <- function(
         optimize_method = optimize_method,
         rebalance_on = rebalance_on,
         rolling_window = rolling_window,
-        momentFun = moment_list[[i]],
+        momentFUN = moment_list[[i]],
         ... = ...
       )
     } else {

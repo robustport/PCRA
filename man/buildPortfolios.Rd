@@ -30,7 +30,7 @@ named list of \code{portfolio.spec} objects), and pass it to
 \code{runMultipleBacktests()} via the \code{buildPortfolios} argument.
 }
 \examples{
-args(buildPortfolios)
+body(buildPortfolios)
 }
 \seealso{
 \code{\link{runMultipleBacktests}},

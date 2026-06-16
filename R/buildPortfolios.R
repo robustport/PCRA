@@ -31,7 +31,7 @@
 #' @export
 #'
 #' @examples
-#' args(buildPortfolios)
+#' body(buildPortfolios)
 buildPortfolios <- function(selected_stocks){
   pspec <- portfolio.spec(assets = selected_stocks)
   pspec <- add.constraint(pspec, type = "full_investment")

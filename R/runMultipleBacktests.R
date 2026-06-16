@@ -72,8 +72,8 @@ runMultipleBacktests <- function(
     stock_list,
     buildPortfolios = buildPortfolios,
     market_return = NULL,
-    rebalance_on,
-    rolling_window,
+    rebalance_on = NULL,
+    rolling_window = NULL,
     optimize_method = "CVXR",
     moment_list = NULL,
     ...,
@@ -114,10 +114,10 @@ runMultipleBacktests <- function(
     
     # Run Backtest
     bt_result <- runPortfolioBacktest(
-      retPort = retPort,
+      return_portfolio = retPort,
       portfolio_list = portfolio_list,
       portfolio_names = names(portfolio_list),
-      market_ret = market_return,
+      market_return = market_return,
       rebalance_on = rebalance_on,
       rolling_window = rolling_window,
       optimize_method = optimize_method,
