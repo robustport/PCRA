@@ -36,11 +36,13 @@
 #' @param plot_path Character string. Full file path for the each simulation output.
 #'   Required when \code{save_plot = TRUE}.
 #' @param plot_name Plot name for each simulation output. Default \code{"backtest"}
+#' @param plot_main Plot title for each simulation PNG output.
 #' @param save_avg_plot Logical. Whether to save the the average cumulative 
 #'   returns plot to a PNG file. Default \code{TRUE}.
 #' @param avg_plot_path Character string. Full file path for the average simulation output.
 #'   Required when \code{save_avg_plot = TRUE}.
 #' @param avg_plot_name Plot name for average simulation output. Default \code{"avg_backtest"}.
+#' @param avg_plot_main Plot title for the average simulation PNG output.
 #' @param colorSet Optional character vector of colors passed to \code{backtest.plot()}.
 #' @param ltySet Optional integer vector of line types passed to \code{backtest.plot()}.
 #' 
@@ -80,9 +82,11 @@ runMultipleBacktests <- function(
     save_plot = TRUE,
     plot_path = "./",
     plot_name = "backtest",
+    plot_main = NULL,
     save_avg_plot = TRUE,
     avg_plot_path = "./",
     avg_plot_name = "avg_backtest",
+    avg_plot_main = NULL,
     colorSet = NULL,
     ltySet = NULL
 ){
@@ -126,6 +130,7 @@ runMultipleBacktests <- function(
       save_plot = save_plot,
       plot_path = plot_path,
       plot_name = paste(plot_name, k),
+      plot_main = plot_main,
       colorSet = colorSet,
       ltySet = ltySet
     )
@@ -143,6 +148,7 @@ runMultipleBacktests <- function(
   if(save_avg_plot){
     p <- backtest.plot(
       ret_avg,
+      main = avg_plot_main,
       colorSet = colorSet,
       ltySet = ltySet
     )

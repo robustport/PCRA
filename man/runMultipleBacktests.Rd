@@ -20,9 +20,11 @@ runMultipleBacktests(
   save_plot = TRUE,
   plot_path = "./",
   plot_name = "backtest",
+  plot_main = NULL,
   save_avg_plot = TRUE,
   avg_plot_path = "./",
   avg_plot_name = "avg_backtest",
+  avg_plot_main = NULL,
   colorSet = NULL,
   ltySet = NULL
 )
@@ -70,6 +72,8 @@ Required when \code{save_plot = TRUE}.}
 
 \item{plot_name}{Plot name for each simulation output. Default \code{"backtest"}}
 
+\item{plot_main}{Plot title for each simulation PNG output.}
+
 \item{save_avg_plot}{Logical. Whether to save the the average cumulative 
 returns plot to a PNG file. Default \code{TRUE}.}
 
@@ -77,6 +81,8 @@ returns plot to a PNG file. Default \code{TRUE}.}
 Required when \code{save_avg_plot = TRUE}.}
 
 \item{avg_plot_name}{Plot name for average simulation output. Default \code{"avg_backtest"}.}
+
+\item{avg_plot_main}{Plot title for the average simulation PNG output.}
 
 \item{colorSet}{Optional character vector of colors passed to \code{backtest.plot()}.}
 

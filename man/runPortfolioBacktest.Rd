@@ -17,6 +17,7 @@ runPortfolioBacktest(
   save_plot = TRUE,
   plot_path = "./",
   plot_name = "backtest",
+  plot_main = NULL,
   colorSet = NULL,
   ltySet = NULL
 )
@@ -52,6 +53,8 @@ portfolio that do not require moment function, please pass NULL. Example:
 Required when \code{save_plot = TRUE}.}
 
 \item{plot_name}{Plot name for the PNG output. Default \code{"backtest"}.}
+
+\item{plot_main}{Plot title for the PNG output.}
 
 \item{colorSet}{Optional character vector of colors passed to \code{backtest.plot()}.}
 

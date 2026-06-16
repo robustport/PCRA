@@ -24,6 +24,7 @@
 #' @param plot_path Character string. Full file path for the PNG output.
 #'   Required when \code{save_plot = TRUE}.
 #' @param plot_name Plot name for the PNG output. Default \code{"backtest"}.
+#' @param plot_main Plot title for the PNG output.
 #' @param colorSet Optional character vector of colors passed to \code{backtest.plot()}.
 #' @param ltySet Optional integer vector of line types passed to \code{backtest.plot()}.
 #'
@@ -56,6 +57,7 @@ runPortfolioBacktest <- function(
     save_plot = TRUE,
     plot_path = "./",
     plot_name = "backtest",
+    plot_main = NULL,
     colorSet = NULL,
     ltySet = NULL
 ) {
@@ -137,6 +139,7 @@ runPortfolioBacktest <- function(
   # Plot
   p <- backtest.plot(
     ret_comb,
+    main = plot_main,
     colorSet = colorSet,
     ltySet = ltySet
   )
