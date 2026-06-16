@@ -16,6 +16,10 @@
 #' @param rolling_window Positive integer. Length of the rolling estimation
 #'   window in periods.
 #' @param optimize_method Character string specifying the solver. Default \code{"CVXR"}.
+#' @param moment_list If different moment functions are passed into multiple GMV
+#'   portfolios, please define each moment function via this parameter. For the
+#'   portfolio that do not require moment function, please pass NULL. Example:
+#'   \code{list('custom.covRob.Rocke', NULL, NULL)}.
 #' @param save_plot Logical. Whether to save the plot to a PNG file. Default \code{TRUE}.
 #' @param plot_path Character string. Full file path for the PNG output.
 #'   Required when \code{save_plot = TRUE}.
@@ -47,6 +51,7 @@ runPortfolioBacktest <- function(
     rebalance_on,
     rolling_window,
     optimize_method = "CVXR",
+    moment_list = NULL,
     ...,
     save_plot = TRUE,
     plot_path = "./",
@@ -70,20 +75,39 @@ runPortfolioBacktest <- function(
   if (length(portfolio_list) != length(portfolio_names)) {
     stop("'portfolio_list' and 'portfolio_names' must have the same length.")
   }
+  if (!is.null(moment_list) && (length(portfolio_list) != length(moment_list))) {
+    stop("'portfolio_list' and 'moment_list' must have the same length.")
+  }
   
   # Optimize each portfolio and extract returns
   bt_returns <- list()
   
+  if(is.null(moment_list)){
+    moment_list <- vector("list", length(portfolio_list))
+  }
+  
   for(i in seq_along(portfolio_list)){
     ## Optimize portfolio
-    bt <- PortfolioAnalytics::optimize.portfolio.rebalancing(
-      R = return_portfolio,
-      portfolio = portfolio_list[[i]],
-      optimize_method = optimize_method,
-      rebalance_on = rebalance_on,
-      rolling_window = rolling_window,
-      ... = ...
-    )
+    if(!is.null(moment_list[[i]])){
+      bt <- PortfolioAnalytics::optimize.portfolio.rebalancing(
+        R = return_portfolio,
+        portfolio = portfolio_list[[i]],
+        optimize_method = optimize_method,
+        rebalance_on = rebalance_on,
+        rolling_window = rolling_window,
+        momentFun = moment_list[[i]],
+        ... = ...
+      )
+    } else {
+      bt <- PortfolioAnalytics::optimize.portfolio.rebalancing(
+        R = return_portfolio,
+        portfolio = portfolio_list[[i]],
+        optimize_method = optimize_method,
+        rebalance_on = rebalance_on,
+        rolling_window = rolling_window,
+        ... = ...
+      )
+    }
     
     ## Extract weights
     wts <- PortfolioAnalytics::extractWeights(bt)

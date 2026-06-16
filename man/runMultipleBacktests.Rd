@@ -15,6 +15,7 @@ runMultipleBacktests(
   rebalance_on,
   rolling_window,
   optimize_method = "CVXR",
+  moment_list = NULL,
   ...,
   save_plot = TRUE,
   plot_path = "./",
@@ -56,6 +57,11 @@ See \code{\link[xts]{endpoints}} for valid names.}
 window in periods.}
 
 \item{optimize_method}{Character string specifying the solver. Default \code{"CVXR"}.}
+
+\item{moment_list}{If different moment functions are passed into multiple GMV
+portfolios, please define each moment function via this parameter. For the
+portfolio that do not require moment function, please pass NULL. Example:
+\code{list('custom.covRob.Rocke', NULL, NULL)}.}
 
 \item{save_plot}{Logical. Whether to save the plot to a PNG file. Default \code{TRUE}.}
 

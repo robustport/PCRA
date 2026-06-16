@@ -28,6 +28,10 @@
 #' @param rolling_window Positive integer. Length of the rolling estimation
 #'   window in periods.
 #' @param optimize_method Character string specifying the solver. Default \code{"CVXR"}.
+#' @param moment_list If different moment functions are passed into multiple GMV
+#'   portfolios, please define each moment function via this parameter. For the
+#'   portfolio that do not require moment function, please pass NULL. Example:
+#'   \code{list('custom.covRob.Rocke', NULL, NULL)}.
 #' @param save_plot Logical. Whether to save the plot to a PNG file. Default \code{TRUE}.
 #' @param plot_path Character string. Full file path for the each simulation output.
 #'   Required when \code{save_plot = TRUE}.
@@ -71,6 +75,7 @@ runMultipleBacktests <- function(
     rebalance_on,
     rolling_window,
     optimize_method = "CVXR",
+    moment_list = NULL,
     ...,
     save_plot = TRUE,
     plot_path = "./",
@@ -115,6 +120,8 @@ runMultipleBacktests <- function(
       market_ret = market_return,
       rebalance_on = rebalance_on,
       rolling_window = rolling_window,
+      optimize_method = optimize_method,
+      moment_list = moment_list,
       ... = ...,
       save_plot = save_plot,
       plot_path = plot_path,
