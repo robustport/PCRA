@@ -18,6 +18,7 @@ runPortfolioBacktest(
   plot_path = "./",
   plot_name = "backtest",
   plot_main = NULL,
+  plotType = "both",
   colorSet = NULL,
   ltySet = NULL
 )
@@ -55,6 +56,8 @@ Required when \code{save_plot = TRUE}.}
 \item{plot_name}{Plot name for the PNG output. Default \code{"backtest"}.}
 
 \item{plot_main}{Plot title for the PNG output.}
+
+\item{plotType}{"cumRet", "drawdown", or the default is "both"}
 
 \item{colorSet}{Optional character vector of colors passed to \code{backtest.plot()}.}
 
