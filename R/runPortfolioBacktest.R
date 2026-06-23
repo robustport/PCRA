@@ -117,8 +117,10 @@ runPortfolioBacktest <- function(
     wts <- PortfolioAnalytics::extractWeights(bt)
     wts <- wts[complete.cases(wts), ]
     
-    ## Portfolio returns
-    bt_ret <- PerformanceAnalytics::Return.rebalancing(return_portfolio, wts)
+    ## Portfolio returns (returns start date should be the same as wts start date)
+    start_date <- names(bt$opt_rebalancing)[1]
+    return_wts <- return_portfolio[index(return_portfolio) > start_date]
+    bt_ret <- PerformanceAnalytics::Return.rebalancing(return_wts, wts)
     
     ## Save into list
     bt_returns[[portfolio_names[i]]] <- bt_ret
