@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' args(ewmaMeanVol)
-ewmaMeanVol <- function(x,nstart = 10, robMean = T, robVol = T, 
+ewmaMeanVol <- function(x,nstart = 10, robMean = TRUE, robVol = TRUE, 
                         cc = 2.5, lambdaMean = 0.9, lambdaVol = 0.9)
 { 
   n <- length(x)

@@ -30,8 +30,8 @@ barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,
 	xpos = (abs(x)+x)/2
 	xneg = (x-abs(x))/2
 	if(is.null(bar.ylim))
-	{ymax <- max(colSums(xpos,na.rm=T))
-		ymin <- min(colSums(xneg,na.rm=T))
+	{ymax <- max(colSums(xpos,na.rm=TRUE))
+		ymin <- min(colSums(xneg,na.rm=TRUE))
 		ylim = c(ymin*1.2,ymax*1.2)}   else {ylim = bar.ylim}
 	colnames(xpos) <- xlab
 
@@ -42,7 +42,7 @@ barplotWts <- function(wts.efront, legend.text = NULL,col = NULL,ylab = NULL ,
 			  bty = "n"
 			),...)
 	
-	barplot(xneg,add = T,col = col,axisnames=FALSE,axes=FALSE)
+	barplot(xneg,add = TRUE,col = col,axisnames=FALSE,axes=FALSE)
 	abline(h=0)
 }
 

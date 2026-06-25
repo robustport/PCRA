@@ -40,13 +40,13 @@ bootEfronts <- function(returns, pspec, rf = 0.003, npoints = 20, B = 3,
   {sigma <- apply(returns, 2, sd); xlim <- k.sigma*c(0, max(sigma))} else
   {xlim <- xlim}
   if(is.null(ylim))
-  {mu <- apply(returns, 2, mean); xlim <- k.mu*c(0, max(mu))} else
-  {xlim <- xlim}
+  {mu <- apply(returns, 2, mean); ylim <- k.mu*c(0, max(mu))} else
+  {ylim <- ylim}
   
   # Plot Original Mean-Variance Efficient Frontier
   xlab <- "STANDARD DEVIATION"
   ylab <- "MEAN RETURN"
-  chart.Efront(returns, pspec, firstEfront = T, gmv = gmv, maxSR = maxSR, 
+  chart.Efront(returns, pspec, firstEfront = TRUE, gmv = gmv, maxSR = maxSR, 
                rf = rf, xlim = xlim, ylim = ylim, xlab = xlab, ylab = ylab,
                n.portfolios = 20)
   if(!is.null(figTitle)) {title(main = figTitle)}
@@ -56,13 +56,13 @@ bootEfronts <- function(returns, pspec, rf = 0.003, npoints = 20, B = 3,
   n <- nrow(returns.df)
   m <- ncol(returns.df)
   if(!is.null(Seed)) {set.seed(Seed)}
-  boot.idx <- sample(n, n*B, replace=T)
+  boot.idx <- sample(n, n*B, replace=TRUE)
   boot.index <- matrix(boot.idx,n,B)
   gmvMaxSR <- matrix(rep(0,5*B),B)
   
   # Compute and Plot Classic Bootstrapped EfficientFrontiers
   for(i in 1:B) 
-  {gmvMaxSR[i,] = chart.Efront(returns[boot.index[,i],], pspec, firstEfront = F,
+  {gmvMaxSR[i,] = chart.Efront(returns[boot.index[,i],], pspec, firstEfront = FALSE,
                     gmv = gmv, maxSR = maxSR, rf = rf, xlim=xlim, ylim = ylim,
                     xlab = xlab, ylab = ylab ,n.portfolios = 20)}
   out = round(apply(gmvMaxSR, 2, sd), digits)

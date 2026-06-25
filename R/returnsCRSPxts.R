@@ -27,8 +27,8 @@
 #' ret <- returnsCRSPxts(stocksDT)
 #' tickers <- unique(stocksDT[,TickerLast])
 #' tickers10 <- tickers[11:20]
-#' colnames <- c(tickers10,"Market","RiskFree")
-#' head(ret[,colnames],1)
+#' colSel <- c(tickers10,"Market","RiskFree")
+#' head(ret[,colSel],1)
 returnsCRSPxts <- function(stocksData)
 {
   returnsMat <- tapply(stocksData[["Return"]], list(stocksData$Date, 

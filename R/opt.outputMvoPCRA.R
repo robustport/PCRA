@@ -1,10 +1,3 @@
-#' @title Optimal Portfolio Weights and Performance
-#' 
-#' @description Converts output of PortfolioAnalytics function
-#' optimize.portfolio, which computes a minimum variance portfolio,
-#' to a list containing the portfolio weights vector, mean, volatility
-#' and Sharpe Ratio.
-#' 
 #' @title Optimal Portfolio Weights and Performance Values
 #' 
 #' @description Converts output of `optimize.portfolio` to a list of the
@@ -39,7 +32,7 @@
 opt.outputMvoPCRA <- function(opt, returns, digits = NULL, itemNames = NULL, 
                            annualize = TRUE, frequency = "monthly", rf = 0.0) 
 {
-  if(class(returns)[1] == "xts"){
+  if(inherits(returns, "xts")){
     returns <- coredata(returns)
   }
   Wgts <- opt$weights

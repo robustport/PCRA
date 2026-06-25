@@ -39,15 +39,17 @@ update_dev_pkg = function(pkg="PCRA", repo="https://github.com/robustport/PCRA",
   
   una = is.na(ups<-getVersionGithub(repo, field))
   if (una)
-    cat("No revision information found in DESCRIPTION file for %s package. Make sure that '%s' is correct field in PACKAGES file in your package repository. Otherwise package will be re-installed every time, proceeding to installation.\n",
-         pkg, field)
+    cat(sprintf("No revision information found in DESCRIPTION file for %s package. Make sure that '%s' is correct field in PACKAGES file in your package repository. Otherwise package will be re-installed every time, proceeding to installation.\n",
+         pkg, field))
   # see if Revision is different then currently installed Revision, note that installed package will have Revision info only when it was installed from remote devel repo
   upg = una || !identical(ups,getVersionLocal(pkg, field))
   # update_dev_pkg fails on windows R 4.0.0, we have to unload package namespace before installing new version #4403
   on.exit({
     if (upg) {
       unloadNamespace(pkg) ## hopefully will release dll lock on Windows
-      install_github(repo=repo)
+      if (!requireNamespace("devtools", quietly = TRUE))
+        stop("Package 'devtools' is needed for update_dev_pkg(). Please install it.", call. = FALSE)
+      devtools::install_github(repo=repo)
       msg_fmt = gettext("R %s package has been updated to %s (from %s)\n")
     } else {
       msg_fmt = gettext("R %s package is up-to-date at %s (from %s)\n")

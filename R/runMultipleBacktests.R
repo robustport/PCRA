@@ -64,6 +64,8 @@
 #' }
 #' 
 #' @importFrom PortfolioAnalytics backtest.plot
+#' @importFrom grDevices png dev.off
+#' @importFrom stats na.omit
 #' @export
 #'
 #' @examples

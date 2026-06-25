@@ -6,7 +6,6 @@
 #'
 #' @details These will be added.
 #' 
-#' @importFrom utils globalVariables
 #' @import data.table
 #' 
 #' @param daily An xts object of daily returns.

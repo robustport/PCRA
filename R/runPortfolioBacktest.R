@@ -41,6 +41,7 @@
 #' @importFrom PerformanceAnalytics Return.rebalancing
 #' @importFrom xts merge.xts
 #' @importFrom stats complete.cases
+#' @importFrom grDevices png dev.off
 #' @export
 #' 
 #' @examples

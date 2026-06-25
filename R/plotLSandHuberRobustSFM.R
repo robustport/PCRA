@@ -10,7 +10,7 @@
 #' @param goodOutlier Logical variable with default FALSE
 #' @param makePct Logical variable with default FALSE
 #'
-#' @returns A plot of the LS and robust Huber SFM fits
+#' @importFrom MASS rlm
 #' @export
 #'
 #' @examples

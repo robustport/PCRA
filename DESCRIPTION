@@ -40,10 +40,11 @@ Imports:
 	robustbase,
 	R.cache,
 	xts,
-	zoo,
+	zoo
+Suggests:
+	R.rsp,
 	devtools
-Suggests: R.rsp
-LazyLoad: true
+LazyLoad: yes
 LazyData: true
 LazyDataCompression: xz
 Copyright: (c) 2022-2024

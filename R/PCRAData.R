@@ -22,11 +22,11 @@
 #'
 #' @examples
 #' \donttest{
-#' stocksCRSPweekly <- getPCRAData(data = "stocksCRSPweekly")
+#' stocksCRSPweekly <- getPCRAData(dataset = "stocksCRSPweekly")
 #' class(stocksCRSPweekly)
 #' names(stocksCRSPweekly)
 #' 
-#' stocksCRSPdaily <- getPCRAData(data = "stocksCRSPdaily")
+#' stocksCRSPdaily <- getPCRAData(dataset = "stocksCRSPdaily")
 #' class(stocksCRSPdaily)
 #' names(stocksCRSPdaily)
 #' }
