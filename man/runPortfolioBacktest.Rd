@@ -48,6 +48,8 @@ portfolios, please define each moment function via this parameter. For the
 portfolio that do not require moment function, please pass NULL. Example:
 \code{list('custom.covRob.Rocke', NULL, NULL)}.}
 
+\item{...}{Additional arguments passed to \code{optimize.portfolio.rebalancing()}.}
+
 \item{save_plot}{Logical. Whether to save the plot to a PNG file. Default \code{TRUE}.}
 
 \item{plot_path}{Character string. Full file path for the PNG output.

@@ -28,6 +28,7 @@
 #' @param plotType "cumRet", "drawdown", or the default is "both"
 #' @param colorSet Optional character vector of colors passed to \code{backtest.plot()}.
 #' @param ltySet Optional integer vector of line types passed to \code{backtest.plot()}.
+#' @param ... Additional arguments passed to \code{optimize.portfolio.rebalancing()}.
 #'
 #' @return A list:
 #' \describe{
@@ -41,6 +42,7 @@
 #' @importFrom PerformanceAnalytics Return.rebalancing
 #' @importFrom xts merge.xts
 #' @importFrom stats complete.cases
+#' @importFrom grDevices png dev.off
 #' @export
 #' 
 #' @examples

@@ -47,7 +47,7 @@
 #' @param avgPlotType "cumRet", "drawdown", or the default is "both"
 #' @param colorSet Optional character vector of colors passed to \code{backtest.plot()}.
 #' @param ltySet Optional integer vector of line types passed to \code{backtest.plot()}.
-#' 
+#' @param ... Additional arguments passed to \code{runPortfolioBacktest()}.
 #'
 #' @return A named list with four elements:
 #' \describe{
@@ -64,6 +64,8 @@
 #' }
 #' 
 #' @importFrom PortfolioAnalytics backtest.plot
+#' @importFrom grDevices png dev.off
+#' @importFrom stats lag na.omit
 #' @export
 #'
 #' @examples
