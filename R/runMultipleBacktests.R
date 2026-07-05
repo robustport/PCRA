@@ -82,7 +82,6 @@ runMultipleBacktests <- function(
     rolling_window = NULL,
     optimize_method = "CVXR",
     moment_list = NULL,
-    ...,
     save_plot = TRUE,
     plot_path = "./",
     plot_name = "backtest",
