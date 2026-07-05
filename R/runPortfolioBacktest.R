@@ -28,7 +28,7 @@
 #' @param plotType "cumRet", "drawdown", or the default is "both"
 #' @param colorSet Optional character vector of colors passed to \code{backtest.plot()}.
 #' @param ltySet Optional integer vector of line types passed to \code{backtest.plot()}.
-#' @param ... Additional arguments passed to \code{optimize.portfolio.rebalancing()}.
+#' @param lwdSet Optional integer vector of line width passed to \code{backtest.plot()}.
 #'
 #' @return A list:
 #' \describe{
@@ -63,7 +63,8 @@ runPortfolioBacktest <- function(
     plot_main = NULL,
     plotType = "both",
     colorSet = NULL,
-    ltySet = NULL
+    ltySet = NULL,
+    lwdSet = NULL
 ) {
   # Input validation
   if (!xts::is.xts(return_portfolio)) {
@@ -148,7 +149,8 @@ runPortfolioBacktest <- function(
     main = plot_main,
     plotType = plotType,
     colorSet = colorSet,
-    ltySet = ltySet
+    ltySet = ltySet,
+    lwdSet = lwdSet
   )
   
   # Save plot

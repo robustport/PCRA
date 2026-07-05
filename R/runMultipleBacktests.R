@@ -47,7 +47,7 @@
 #' @param avgPlotType "cumRet", "drawdown", or the default is "both"
 #' @param colorSet Optional character vector of colors passed to \code{backtest.plot()}.
 #' @param ltySet Optional integer vector of line types passed to \code{backtest.plot()}.
-#' @param ... Additional arguments passed to \code{runPortfolioBacktest()}.
+#' @param lwdSet Optional integer vector of line width passed to \code{backtest.plot()}.
 #'
 #' @return A named list with four elements:
 #' \describe{
@@ -94,7 +94,8 @@ runMultipleBacktests <- function(
     avg_plot_main = NULL,
     avgPlotType = "both",
     colorSet = NULL,
-    ltySet = NULL
+    ltySet = NULL,
+    lwdSet = NULL
 ){
   # Input validation
   if (!xts::is.xts(return_portfolio)) {
@@ -139,7 +140,8 @@ runMultipleBacktests <- function(
       plot_main = plot_main,
       plotType = plotType,
       colorSet = colorSet,
-      ltySet = ltySet
+      ltySet = ltySet,
+      lwdSet = lwdSet
     )
     results[[k]] <- bt_result$returns
     
@@ -158,7 +160,8 @@ runMultipleBacktests <- function(
       main = avg_plot_main,
       plotType = avgPlotType,
       colorSet = colorSet,
-      ltySet = ltySet
+      ltySet = ltySet,
+      lwdSet = lwdSet
     )
     png(paste0(avg_plot_path, avg_plot_name, ".png"), width = 800, height = 600)
     plot(p)
