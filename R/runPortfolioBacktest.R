@@ -56,7 +56,6 @@ runPortfolioBacktest <- function(
     rolling_window = NULL,
     optimize_method = "CVXR",
     moment_list = NULL,
-    ...,
     save_plot = TRUE,
     plot_path = "./",
     plot_name = "backtest",
@@ -102,8 +101,7 @@ runPortfolioBacktest <- function(
         optimize_method = optimize_method,
         rebalance_on = rebalance_on,
         rolling_window = rolling_window,
-        momentFUN = moment_list[[i]],
-        ... = ...
+        momentFUN = moment_list[[i]]
       )
     } else {
       bt <- PortfolioAnalytics::optimize.portfolio.rebalancing(
@@ -111,8 +109,7 @@ runPortfolioBacktest <- function(
         portfolio = portfolio_list[[i]],
         optimize_method = optimize_method,
         rebalance_on = rebalance_on,
-        rolling_window = rolling_window,
-        ... = ...
+        rolling_window = rolling_window
       )
     }
     

@@ -132,7 +132,6 @@ runMultipleBacktests <- function(
       rolling_window = rolling_window,
       optimize_method = optimize_method,
       moment_list = moment_list,
-      ... = ...,
       save_plot = save_plot,
       plot_path = plot_path,
       plot_name = paste(plot_name, k),
