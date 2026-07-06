@@ -49,7 +49,8 @@
 #' the GPL. Redistribution of the data is not permitted, and use of the data in
 #' derivative works is not permitted without the written permission of CRSP.
 #' 
-#' @examples  
+#' @examples
+#' data.table::setDTthreads(1)  
 #' data(stocksCRSP)
 #' names(stocksCRSP)
 #' unique(stocksCRSP$Sector)

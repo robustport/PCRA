@@ -1,47 +1,23 @@
 Package: PCRA
 Type: Package
 Title: Companion to Portfolio Construction and Risk Analysis
-Version: 1.0
-Date: 2023-02-26
-Authors@R: c(person(given=c("Doug"),family="Martin",role=c("cre","aut"),
-    email="martinrd3d@gmail.com"),
-    person(given="Alexios",family="Galanos",role=c("ctb"),
-    email="alexios@4dscape.com"),
-    person(given="Kirk",family="Li",role=c("aut","ctb"),
-    email="cocokecoli@gmail.com") ,
-    person(given="Jon",family="Spinney",role=c("ctb"),
-    email="Jon.Spinney@vestcor.org"))
-Description: Companion to the text Robust Portfolio Construction 
-  and Risk Analysis authored by R. Douglas Martin, Thomas K. Philips, Bernd Scherer,
-  Stoyan Stoyanov and Kirk Li, to be published by Springer in 2023. The package includes
-  cross-sections of data for approximately 300 stocks from the Center for Research on
-  Security Prices, LLC (CRSP), and 14 corresponding factor exposures from S&P Global.
-  The book covers classical and modern robust methods of portfolio construction and
-  risk analysis with a reproducibility focus.  The data and function in the package  
-  support this focus. Extensive R scripts based on package functions for each chapter
-  reproduce most of the tables and figures in the chapter.  
+Version: 1.2.2
+Date: 2026-07-05
+Authors@R: c(
+    person(given="Doug", family="Martin", role=c("cre","aut"), email="martinrd3d@gmail.com"),
+    person(given="Alexios", family="Galanos", role=c("ctb"), email="alexios@4dscape.com"),
+    person(given="Kirk", family="Li", role=c("aut","ctb"), email="cocokecoli@gmail.com"),
+    person(given="Jon", family="Spinney", role=c("ctb"), email="Jon.Spinney@vestcor.org"),
+    person(given="Thomas", family="Philips", role=c("ctb"), email="tkpmep@gmail.com"))
+Description: A collection of functions and data sets that support teaching a quantitative finance MS level course on Portfolio Construction and Risk Analysis, and the writing of a textbook for such a course. The package provides several real-world data sets for problem assignments and student projects, including cross-sections of stock data from the Center for Research on Security Prices, LLC (CRSP), corresponding factor exposures from S&P Global, and several S&P 500 data sets.
 License: GPL-2
-Depends:
-	R (>= 4.0.0),
 Encoding: UTF-8
-Imports:
-	PerformanceAnalytics,
-	PortfolioAnalytics,
-	boot,
-	methods,
-	xts,
-	zoo,
-	lattice,
-	corpcor,
-	data.table,
-	quadprog,
-	RobStatTM,
-	robustbase,
-	R.cache
-Suggests: R.rsp
-LazyLoad: true
+Depends: R (>= 4.0.0)
+Imports: PerformanceAnalytics, PortfolioAnalytics, boot, methods, xts,
+        zoo, lattice, corpcor, data.table, quadprog, RobStatTM,
+        robustbase, R.cache
+Suggests: R.rsp, MASS, tensr, facmodCS, fit.models, sandwich
 LazyData: true
 LazyDataCompression: xz
-Copyright: (c) 2022-2023
-RoxygenNote: 7.2.3
 VignetteBuilder: R.rsp
+RoxygenNote: 7.3.3

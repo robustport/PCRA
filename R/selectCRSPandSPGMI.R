@@ -15,6 +15,10 @@
 #' function re-samples the lower frequency factorsSPGMI data up to the 
 #' chosen stocksCRSP frequency.
 #' 
+#' IMPORTANT:  When using selectCRSPandSPGMI with periodicity = "weekly", you must
+#' first use the code line stocksCRSPweekly <- getPCRAData(data = "stocksCRSPweekly"),
+#' and for "daily" data use stocksCRSPdaily <- getPCRAData(data = "stocksCRSPdaily"). 
+#' 
 #' Users may select all columns from both data sets, a specified set of columns,
 #' or by setting either stockItems or factorItems to "NULL", may select only 
 #' items from the other data set (that is, if only the stocksCRSP data is 
@@ -51,9 +55,10 @@
 #' consisting of selected stocks and/or factor exposures data.
 #' 
 #' @examples
+#' data.table::setDTthreads(1)
 #' data(stocksCRSP)
 #' return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
-#'                                     dateRange  = c("2006-01-31", "2010-12-31"),
+#'                                     dateRange  = c("2006-01-31", "2006-07-31"),
 #'                                     stockItems = c("Date", "TickerLast",
 #'                                     "CapGroupLast", "Sector", "Return",
 #'                                     "Ret13WkBill", "MktIndexCRSP"),
@@ -66,7 +71,7 @@
 #' dim(return_data) #includes all tickers plus risk free rate & market return columns
 #'
 #' stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",
-#'                                     dateRange    = c("2006-01-31", "2010-12-31"),
+#'                                     dateRange    = c("2006-01-31", "2006-07-31"),
 #'                                     stockItems   = c("Date", "TickerLast",
 #'                                     "CapGroupLast", "Sector", "Return",
 #'                                     "Ret13WkBill", "MktIndexCRSP"),

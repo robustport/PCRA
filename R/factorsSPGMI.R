@@ -108,18 +108,11 @@
 #'  
 #' GICS is a joint product of SPGMI and MSCI.
 #' For details, see the GICS Global Industry Classification Standard document
-#' (The GICS MAP Book) available at \url{https://www.spglobal.com/en/}, and the MSCI
+#' (The GICS MAP Book) available at https://www.spglobal.com/, and the MSCI
 #' GICS Methodology 2020 document available at \url{https://www.msci.com/}.
 #' 
 #' @source Standard and Poors Global Market Intelligence (SPGMI). NOTE: SPGMI
 #' data is not covered by the GPL. Redistribution of this SPGMI data is not
 #' permitted, and use of the data in derivative works is not permitted without
 #' the written permission of SPGMI
-#' 
-#' @examples  
-#' factorsSPGMI <- data(factorsSPGMI)
-#' class(factorsSPGMI)
-#' names(factorsSPGMI)
-#' head(factorsSPGMI, 2)
-#' str(factorsSPGMI) # MORE EXAMPLE CODE MAY BE ADDED
 "factorsSPGMI"

@@ -17,32 +17,29 @@ rather than re-downloading from the github site}
 cached dataset}
 }
 \value{
-An object of class \dQuote{data.table}.
+An object of class \dQuote{data.table}. If the download fails,
+e.g., because the internet resource is temporarily unavailable, the
+function returns \code{NULL} invisibly, with an informative message.
 }
 \description{
-Downloads stocksCRSPweekly, stocksCRSPdaily, factorsSPGMI
+Downloads stocksCRSPweekly, stocksCRSPdaily
 }
 \details{
 The following are valid names of datasets available:
-\itemize{
+\describe{
 \item{"stocksCRSPdaily"}{"Details same as for stocksCRSP except now daily"}
 \item{"stocksCRSPweekly"}{"Details same as for stocksCRSP except now weekly"}
-\item{"factorsSPGMI"}{"Details same as for factprsSPGMI"}
 }
 User must install R.cache package
 }
 \examples{
-\dontrun{
-stocksCRSPweekly <- getPCRAData(data = stocksCRSPweekly)
+\donttest{
+stocksCRSPweekly <- getPCRAData(dataset = "stocksCRSPweekly")
 class(stocksCRSPweekly)
 names(stocksCRSPweekly)
 
-stocksCRSPdaily <- getPCRAData(data = stocksCRSPdaily)
+stocksCRSPdaily <- getPCRAData(dataset = "stocksCRSPdaily")
 class(stocksCRSPdaily)
 names(stocksCRSPdaily)
-
-factorsSPGMI <- getPCRAData(data = factorsSPGMI)
-class(factorsSPGMI)
-names(factorsSPGMI)
 }
 }

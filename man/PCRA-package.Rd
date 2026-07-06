@@ -6,7 +6,7 @@
 \alias{PCRA-package}
 \title{PCRA: Companion to Portfolio Construction and Risk Analysis}
 \description{
-Companion to the text Robust Portfolio Construction and Risk Analysis authored by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, Stoyan Stoyanov and Kirk Li, to be published by Springer in 2023. The package includes cross-sections of data for approximately 300 stocks from the Center for Research on Security Prices, LLC (CRSP), and 14 corresponding factor exposures from S&P Global. The book covers classical and modern robust methods of portfolio construction and risk analysis with a reproducibility focus. The data and function in the package support this focus. Extensive R scripts based on package functions for each chapter reproduce most of the tables and figures in the chapter.
+A collection of functions and data sets that support teaching a quantitative finance MS level course on Portfolio Construction and Risk Analysis, and the writing of a textbook for such a course. The package provides several real-world data sets for problem assignments and student projects, including cross-sections of stock data from the Center for Research on Security Prices, LLC (CRSP), corresponding factor exposures from S&P Global, and several S&P 500 data sets.
 }
 \author{
 \strong{Maintainer}: Doug Martin \email{martinrd3d@gmail.com}
@@ -20,6 +20,7 @@ Other contributors:
 \itemize{
   \item Alexios Galanos \email{alexios@4dscape.com} [contributor]
   \item Jon Spinney \email{Jon.Spinney@vestcor.org} [contributor]
+  \item Thomas Philips \email{tkpmep@gmail.com} [contributor]
 }
 
 }

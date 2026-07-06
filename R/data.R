@@ -69,31 +69,6 @@
 "FRBinterestRates"
 
 
-#' @title Weekly Returns 1980
-#' 
-#' @description Weekly returns of 10 stocks and 90 day T-Bill from November
-#' 1980 through Octobber 1981.
-#'
-#' @docType data
-#'
-#' @usage data(WeeklyReturns1980)
-#'
-#' @format Multivariate time series zoo object
-#' 
-#' @source Center for Research in Security Prices, LLC (CRSP), an Affiliate of
-#' the University of Chicago Booth School of Business.
-#' 
-#' @examples
-#' library(PCRA)
-#' library(zoo)
-#' data(WeeklyReturns1980)
-#' class(WeeklyReturns1980)
-#' names(WeeklyReturns1980)
-#' head(WeeklyReturns1980,2)
-#' range(index(retDD))
-"WeeklyReturns1980"
-
-
 #' @title gfunds5
 #' 
 #' @description Monthly returns of 5 German investment funds November 1989
@@ -164,6 +139,93 @@
 "retEDS"
 
 
+#' @title Stock with Ticker FNB
+#' 
+#' @description Weekly returns (RET) of stock with ticker FNB for 2008
+#'  
+#' @docType data
+#'
+#' @usage data(retFNB)
+#'
+#' @format Univariate time series xts object
+#' 
+#' @source Center for Research in Security Prices, LLC (CRSP), an Affiliate of
+#' the University of Chicago Booth School of Business.
+#' 
+#' @examples
+#' library(PCRA)
+#' library(zoo)
+#' data(retFNB)
+#' head(retFNB)
+#' range(index(retFNB))
+"retFNB"
+
+
+#' @title Fama-French Weekly 3-Factor Model
+#' 
+#' @description Weekly values of the 3 factors MKT, SMB and HML
+#' 
+#' @docType data
+#'
+#' @usage data(datFF3W)
+#'
+#' @format Multivariate time series xts object
+#' 
+#' @source \url{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}
+#' 
+#' @examples
+#' library(PCRA)
+#' library(zoo)
+#' data(datFF3W)
+#' head(datFF3W)
+#' range(index(datFF3W))
+"datFF3W"
+
+
+#' @title Fama-French-Carhart Weekly 4-Factor Model
+#' 
+#' @description Weekly values of the 4 factors MKT, SMB, HML and MOM
+#' 
+#' @docType data
+#'
+#' @usage data(datFF4W)
+#'
+#' @format Multivariate time series xts object
+#' 
+#' @source \url{https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html}
+#' 
+#' @examples
+#' library(PCRA)
+#' library(zoo)
+#' data(datFF4W)
+#' head(datFF4W)
+#' range(index(datFF4W))
+"datFF4W"
+
+
+#' @title Stock with Ticker KBH
+#' 
+#' @description Weekly returns (RET) of stock with ticker KBH for 2007
+#' and 2008, along with market returns (MKT) and risk-free rate (RF).
+#'  
+#' @docType data
+#'
+#' @usage data(retKBH)
+#'
+#' @format Multivariate time series xts object
+#' 
+#' @source Center for Research in Security Prices, LLC (CRSP), an Affiliate of
+#' the University of Chicago Booth School of Business.
+#' 
+#' @examples
+#' library(PCRA)
+#' library(zoo)
+#' data(retKBH)
+#' head(retKBH)
+#' range(index(retKBH))
+"retKBH"
+
+
 #' @title Stock with Ticker MER
 #' 
 #' @description Weekly returns (RET) of stock with ticker MER for 2002
@@ -187,6 +249,51 @@
 "retMER"
 
 
+#' @title Stock with Ticker OFG
+#' 
+#' @description Weekly returns (RET) of stock with ticker OFG for 2007
+#' and 2008, along with market returns (MKT) and risk-free rate (RF).
+#'  
+#' @docType data
+#'
+#' @usage data(retOFG)
+#'
+#' @format Multivariate time series xts object
+#' 
+#' @source Center for Research in Security Prices, LLC (CRSP), an Affiliate of
+#' the University of Chicago Booth School of Business.
+#' 
+#' @examples
+#' library(PCRA)
+#' library(zoo)
+#' data(retOFG)
+#' head(retOFG)
+#' range(index(retOFG))
+"retOFG"
+
+#' @title Stock with Ticker PSC
+#' 
+#' @description Weekly returns (RET) of stock with ticker PSC for 1987
+#' and 1088, along with market returns (MKT) and risk-free rate (RF).
+#'  
+#' @docType data
+#'
+#' @usage data(retPSC)
+#'
+#' @format Multivariate time series xts object
+#' 
+#' @source Center for Research in Security Prices, LLC (CRSP), an Affiliate of
+#' the University of Chicago Booth School of Business.
+#' 
+#' @examples
+#' library(PCRA)
+#' library(zoo)
+#' data(retPSC)
+#' head(retPSC)
+#' range(index(retPSC))
+"retPSC"
+
+
 #' @title Stock with Ticker VHI
 #' 
 #' @description Weekly returns (RET) of stock with ticker VHI for 1990
@@ -208,6 +315,29 @@
 #' head(retVHI)
 #' range(index(retVHI))
 "retVHI"
+
+
+#' @title Stock with Ticker WTS
+#' 
+#' @description Weekly returns (RET) of stock with ticker WTS for 2009
+#' and 2010, along with market returns (MKT) and risk-free rate (RF).
+#'  
+#' @docType data
+#'
+#' @usage data(retWTS)
+#'
+#' @format Multivariate time series xts object
+#' 
+#' @source Center for Research in Security Prices, LLC (CRSP), an Affiliate of
+#' the University of Chicago Booth School of Business.
+#' 
+#' @examples
+#' library(PCRA)
+#' library(zoo)
+#' data(retWTS)
+#' head(retWTS)
+#' range(index(retWTS))
+"retWTS"
 
 
 #' @title Earnings per Share of Invensys

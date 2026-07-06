@@ -31,6 +31,7 @@ specified by a date range and a set of tickers, with convenient defaults,
 and convert it to an xts object
 }
 \examples{
+data.table::setDTthreads(1)
 library(PCRA)
 library(xts)
 library(data.table)

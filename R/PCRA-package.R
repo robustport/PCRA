@@ -3,7 +3,7 @@
 #' @importFrom grDevices topo.colors
 #' @importFrom graphics abline arrows axis barplot box boxplot identify legend lines mtext par points polygon segments strheight strwidth text title
 #' @importFrom methods cbind2
-#' @importFrom stats cov dnorm integrate lm mad median pnorm qchisq sd uniroot var
+#' @importFrom stats cov dnorm integrate lm mad median pnorm qchisq sd uniroot var qnorm qqnorm
 #' @importFrom utils globalVariables
 #' @importFrom lattice panel.abline xyplot panel.xyplot
 #' @importFrom xts xts as.xts apply.monthly
