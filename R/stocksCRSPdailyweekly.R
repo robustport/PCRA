@@ -1,10 +1,13 @@
 #' @title CRSP daily stocks data for 294 stocks
-#' 
-#' @description CRSP daily stocks data for 294 stocks for 1993 to 2015
-#' 
+#'
+#' @description CRSP daily stocks data for 294 stocks for 1993 to 2015.
+#' This dataset is not shipped with the package due to CRAN package size
+#' limits. Download it with \code{stocksCRSPdaily <-
+#' getPCRAData(dataset = "stocksCRSPdaily")}.
+#'
 #' @docType data
 #'
-#' @usage data(stocksCRSPdaily)
+#' @name stocksCRSPdaily
 #'
 #' @format A data.table object with 82000 observations on 15 variables:
 #' \itemize{
@@ -34,20 +37,24 @@
 #' @source Unknown
 #' 
 #' @examples
-#' data(stocksCRSPdaily)
-#' 
-  
-"stocksCRSPdaily"
+#' \donttest{
+#' stocksCRSPdaily <- getPCRAData(dataset = "stocksCRSPdaily")
+#' }
+#'
+NULL
 
 
 
 #' @title CRSP weekly stocks data for 294 stocks
-#' 
-#' @description CRSP Weekly stocks data for 294 stocks for 1993 to 2015
-#' 
+#'
+#' @description CRSP Weekly stocks data for 294 stocks for 1993 to 2015.
+#' This dataset is not shipped with the package due to CRAN package size
+#' limits. Download it with \code{stocksCRSPweekly <-
+#' getPCRAData(dataset = "stocksCRSPweekly")}.
+#'
 #' @docType data
 #'
-#' @usage data(stocksCRSPweekly)
+#' @name stocksCRSPweekly
 #'
 #' @format A data.table object with 82000 observations on 15 variables:
 #' \itemize{
@@ -77,7 +84,8 @@
 #' @source Unknown
 #' 
 #' @examples
-#' data(stocksCRSPweekly)
-#' 
-
-"stocksCRSPweekly"
+#' \donttest{
+#' stocksCRSPweekly <- getPCRAData(dataset = "stocksCRSPweekly")
+#' }
+#'
+NULL

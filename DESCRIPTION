@@ -42,10 +42,26 @@ Imports:
 	xts,
 	zoo,
 	devtools
-Suggests: R.rsp
+Suggests:
+	R.rsp,
+	CVXR,
+	dplyr,
+	ellipse,
+	facmodCS,
+	fit.models,
+	foreach,
+	ggplot2,
+	hitandrun,
+	Matrix,
+	reshape2,
+	RPEIF,
+	RPESE,
+	sandwich,
+	tensr
 LazyLoad: true
 LazyData: true
 LazyDataCompression: xz
 Copyright: (c) 2022-2024
 VignetteBuilder: R.rsp
 Config/roxygen2/version: 8.0.0
+RoxygenNote: 7.3.3

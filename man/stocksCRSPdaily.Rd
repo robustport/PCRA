@@ -33,14 +33,15 @@ A data.table object with 82000 observations on 15 variables:
 \source{
 Unknown
 }
-\usage{
-data(stocksCRSPdaily)
-}
 \description{
-CRSP daily stocks data for 294 stocks for 1993 to 2015
+CRSP daily stocks data for 294 stocks for 1993 to 2015.
+This dataset is not shipped with the package due to CRAN package size
+limits. Download it with \code{stocksCRSPdaily <-
+getPCRAData(dataset = "stocksCRSPdaily")}.
 }
 \examples{
-data(stocksCRSPdaily)
+\donttest{
+stocksCRSPdaily <- getPCRAData(dataset = "stocksCRSPdaily")
+}
 
 }
-\keyword{datasets}
