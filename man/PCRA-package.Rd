@@ -20,6 +20,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Doug Martin \email{martinrd3d@gmail.com}
   \item Kirk Li \email{cocokecoli@gmail.com} [contributor]
 }
 

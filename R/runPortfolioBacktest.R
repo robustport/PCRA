@@ -28,7 +28,7 @@
 #' @param plotType "cumRet", "drawdown", or the default is "both"
 #' @param colorSet Optional character vector of colors passed to \code{backtest.plot()}.
 #' @param ltySet Optional integer vector of line types passed to \code{backtest.plot()}.
-#' @param ... Additional arguments passed to \code{optimize.portfolio.rebalancing()}.
+#' @param lwdSet Optional integer vector of line width passed to \code{backtest.plot()}.
 #'
 #' @return A list:
 #' \describe{
@@ -56,14 +56,14 @@ runPortfolioBacktest <- function(
     rolling_window = NULL,
     optimize_method = "CVXR",
     moment_list = NULL,
-    ...,
     save_plot = TRUE,
     plot_path = "./",
     plot_name = "backtest",
     plot_main = NULL,
     plotType = "both",
     colorSet = NULL,
-    ltySet = NULL
+    ltySet = NULL,
+    lwdSet = NULL
 ) {
   # Input validation
   if (!xts::is.xts(return_portfolio)) {
@@ -101,8 +101,7 @@ runPortfolioBacktest <- function(
         optimize_method = optimize_method,
         rebalance_on = rebalance_on,
         rolling_window = rolling_window,
-        momentFUN = moment_list[[i]],
-        ... = ...
+        momentFUN = moment_list[[i]]
       )
     } else {
       bt <- PortfolioAnalytics::optimize.portfolio.rebalancing(
@@ -110,8 +109,7 @@ runPortfolioBacktest <- function(
         portfolio = portfolio_list[[i]],
         optimize_method = optimize_method,
         rebalance_on = rebalance_on,
-        rolling_window = rolling_window,
-        ... = ...
+        rolling_window = rolling_window
       )
     }
     
@@ -148,7 +146,8 @@ runPortfolioBacktest <- function(
     main = plot_main,
     plotType = plotType,
     colorSet = colorSet,
-    ltySet = ltySet
+    ltySet = ltySet,
+    lwdSet = lwdSet
   )
   
   # Save plot
