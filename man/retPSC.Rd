@@ -3,7 +3,7 @@
 \docType{data}
 \name{retPSC}
 \alias{retPSC}
-\title{Stock with Ticker PSC}
+\title{CRSP Returns of Stock with Ticker PSC}
 \format{
 Multivariate time series xts object
 }

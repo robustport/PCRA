@@ -3,7 +3,7 @@
 \docType{data}
 \name{retVHI}
 \alias{retVHI}
-\title{Stock with Ticker VHI}
+\title{CRSP Returns of Stock with Ticker VHI}
 \format{
 Multivariate time series xts object
 }

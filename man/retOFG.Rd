@@ -3,7 +3,7 @@
 \docType{data}
 \name{retOFG}
 \alias{retOFG}
-\title{Stock with Ticker OFG}
+\title{CRSP Returns of Stock with Ticker OFG}
 \format{
 Multivariate time series xts object
 }

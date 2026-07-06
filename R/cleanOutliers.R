@@ -1,4 +1,4 @@
-#' @title Clean Returns Outliers
+#' @title Clean Returns Outliers Effectively
 #'
 #' @description Outliers are "cleaned" by shrinking or rejecting data whose
 #' distance from the median (med) is larger in absolute value than a specified

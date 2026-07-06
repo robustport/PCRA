@@ -3,11 +3,11 @@
 \docType{data}
 \name{factorsSPGMI}
 \alias{factorsSPGMI}
-\title{factorsSPGMI}
+\title{SPGMI Data  14 Factors for 294 Stocks}
 \format{
-A data.frame containing 14 SPGMI monthly factor exposures (alpha
-factors) for 294 stocks from 1993 to 2015 (276 months) of observations on 21
-variables that include the 14 factor exposures, for each of 294 stocks
+A data.frame containing 14 SPGMI numeric factor exposures (alpha
+factors) for each of 294 stocks from 1993 to 2015 (276 months), among a
+total of 22 variables, that also include 4 categorical factor exposures.
 \itemize{
  \item \strong{Date:} type `Date`.
  \item \strong{TickerLast:} type `chr`. This is the ticker as of December 2015
@@ -114,7 +114,7 @@ Sector, followed by the GICS sector name:
  
 GICS is a joint product of SPGMI and MSCI.
 For details, see the GICS Global Industry Classification Standard document
-(The GICS MAP Book) available at https://www.spglobal.com/, and the MSCI
+(The GICS MAP Book) available at https://www.spglobal.com/spdji/en/landing/investment-themes/gics/, and the MSCI
 GICS Methodology 2020 document available at \url{https://www.msci.com/}.
 }
 \references{

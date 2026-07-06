@@ -3,7 +3,7 @@
 \docType{data}
 \name{retFNB}
 \alias{retFNB}
-\title{Stock with Ticker FNB}
+\title{CRSP Returns of Stock with Ticker FNB}
 \format{
 Univariate time series xts object
 }

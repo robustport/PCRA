@@ -80,7 +80,7 @@ parameters.
 }
 \examples{
 data.table::setDTthreads(1)
-data(stocksCRSP)
+data(stocksCRSPmonthly)
 return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
                                     dateRange  = c("2006-01-31", "2006-07-31"),
                                     stockItems = c("Date", "TickerLast",
@@ -91,7 +91,7 @@ return_data <- selectCRSPandSPGMI(periodicity  = "monthly",
                                     subsetValues = NULL,
                                     outputType   = "xts")
 
-length(unique(stocksCRSP$TickerLast)) 
+length(unique(stocksCRSPmonthly$TickerLast)) 
 dim(return_data) #includes all tickers plus risk free rate & market return columns
 
 stocks_factors <- selectCRSPandSPGMI(periodicity = "monthly",

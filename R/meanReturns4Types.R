@@ -17,12 +17,12 @@
 meanReturns4Types <- function(return, robust = FALSE, eff = 0.95)
 {
   if(robust == FALSE) {retMu <- mean(return)} else
-  {x <- locScaleM(return, eff = eff)
+  {x <- RobStatTM::locScaleM(return, eff = eff)
   retMu <- x$mu
   }
   logret <- log(return+1)
   if(robust == FALSE) {logretMu <- mean(logret)} else
-  {x <- locScaleM(logret, eff = eff)
+  {x <- RobStatTM::locScaleM(logret, eff = eff)
   logretMu <- x$mu
   }
   g <- exp(logretMu)-1

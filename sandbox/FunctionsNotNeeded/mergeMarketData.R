@@ -21,10 +21,10 @@
 #' @return A merged data.table consisting of selected stocks and factors
 #' 
 #'@examples
-#'data(stocksCRSP)
+#'data(stocksCRSPmonthly)
 #'data(factorsSPGMI)
 #'
-#'stocks_factors <- selectCRSPandSPGMI(stocks = stocksCRSP, factors = factorsSPGMI,
+#'stocks_factors <- selectCRSPandSPGMI(stocks = stocksCRSPmonthly, factors = factorsSPGMI,
 #'                                     dateSet = c("2006-01-31", "2010-12-31"), 
 #'                                     stockItems = c("Date", "TickerLast", 
 #'                                                    "CapGroup", "Sector", 
@@ -36,7 +36,7 @@
 #'str(stocks_factors)
 #'@export
 
-mergeMarketData <- function(stocks = stocksCRSP, factors = factorsSPGMI,
+mergeMarketData <- function(stocks = stocksCRSPmonthly, factors = factorsSPGMI,
                                dateSet = c("1993-01-31","2015-12-31"), 
                                stockItems = c("Date", "TickerLast", "CapGroup",
                                               "Sector", "Return", "Ret13WkBill",

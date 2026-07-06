@@ -7,7 +7,7 @@
 #' @param refresh whether to re-download a cached dataset
 #' @details The following are valid names of datasets available:
 #' \itemize{
-#' \item{"stocksCRSP"}{"Add Description"}
+#' \item{"stocksCRSPmonthly"}{"Add Description"}
 #' \item{"stocksCRSPdaily"}{"Add Description"}
 #' \item{"stocksCRSPweekly"}{"Add Description"}
 #' \item{"crsp.returns8"}{"Add Description"}
@@ -34,7 +34,7 @@
 #'
 getPCRAData <- function(dataset = "crsp.returns8", cache = TRUE, refresh = FALSE)
 {
-  valid_datasets <- c("stocksCRSP","stocksCRSPdaily",
+  valid_datasets <- c("stocksCRSPmonthly","stocksCRSPdaily",
                       "stocksCRSPweekly","crsp.returns8",
                       "crsp.short","factorsSPGMI",
                       "FRBrates1934to2014",

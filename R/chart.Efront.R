@@ -54,7 +54,7 @@ chart.Efront <- function(returns, pspec, firstEfront = TRUE, gmv = TRUE,
   else 
   {lines(ef.sd, ef.mu, lty = "dashed")}
   if(gmv == TRUE)
-    points(port.gmv[1], port.gmv[2], pch = 19)
+    points(port.gmv[1], port.gmv[2], pch = 20)
   if(maxSR == TRUE)
     points(port.maxSR[1], port.maxSR[2], pch = 19)
   round(c(port.gmv, port.maxSR, sharpe.max),4)

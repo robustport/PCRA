@@ -16,7 +16,10 @@
 #' @format A data frame with observations on the S&P 500® index 
 #' from 1967 to 2007
 #' \itemize{
-#'  \item \strong{Year:} type `num`.
+#'  \item \strong{Date:} type `Date`. End of year date formatted as YYYY-12-31. 
+#'  Useful when creating a time series object for exploratory time series plots. 
+#'  Convert the data frame to an xts object using xts::as.xts(SP500).
+#'  \item \strong{Year:} type `num`. Year corresponding to Date.
 #'  \item \strong{Sales:} type `num`. Revenues per share for the S&P 500® 
 #'  for the calendar year.
 #'  \item \strong{Cash_Flow:} type `num`. Cash Flow per share for the S&P 500® 

@@ -10,55 +10,58 @@
 #' @format A data frame with observations on the S&P Industrials® index 
 #' from 1967 to 2007
 #' \itemize{
-#'  \item \strong{Year:} type `num`.
-#'  \item \strong{Sales:} type `num`. Revenues per share for the S&P Industrials 
+#'  \item \strong{Date:} type `Date`. End of year date formatted as YYYY-12-31. 
+#'  Useful when creating a time series object for exploratory time series plots. 
+#'  Convert the data frame to an xts object using xts::as.xts(SP500).
+#'  \item \strong{Year:} type `num`. Year corresponding to Date.
+#'  \item \strong{Sales:} type `num`. Revenues per share for the S&P Industrials® 
 #'  for the calendar year.
 #'  \item \strong{Operating_Profit:} type `num`. Operating Income per share 
-#'  for the S&P Industrials for the calendar year.
+#'  for the S&P Industrials® for the calendar year.
 #'  \item \strong{Profit_Margin_Pct:} type `num`. Ratio of Operating_Profit to 
-#'  Sales for the S&P Industrials from 1993 to 2007 expressed as a percentage.
+#'  Sales for the S&P Industrials® from 1993 to 2007 expressed as a percentage.
 #'  Definition currently unknown for earlier years.
 #'  \item \strong{Depreciation:} type `num`. Depreciation expense per share for 
-#'  the S&P Industrials for the calendar year.
+#'  the S&P Industrials® for the calendar year.
 #'  \item \strong{Income_Tax:} type `num`. Tax expense per share for 
-#'  the S&P Industrials for the calendar year.
+#'  the S&P Industrials® for the calendar year.
 #'  \item \strong{Cash_Flow:} type `num`. Cash Flow per share for the 
-#'  S&P Industrials for the calendar year.
+#'  S&P Industrials® for the calendar year.
 #'  \item \strong{Diluted_EPS:} type `num`. Fully Diluted As-Reported Earnings 
-#'  per share for the S&P Industrials for the calendar year.
+#'  per share for the S&P Industrials® for the calendar year.
 #'  \item \strong{Earnings_Pct_of_Sales:} type `num`. Ratio of Diluted_EPS to 
-#'  Sales for the S&P Industrials from 1993 to 2007 expressed as a percentage.
+#'  Sales for the S&P Industrials® from 1993 to 2007 expressed as a percentage.
 #'  Definition currently unknown for earlier years.
 #'  \item \strong{Dividends_Per_Share:} type `num`. Dividends per share for the 
-#'  S&P Industrials for the calendar year.
+#'  S&P Industrials® for the calendar year.
 #'  \item \strong{Dividends_Pct_of_Earnings:} type `num`. Ratio of Dividends_Per_Share
-#'   to Diluted_EPS for the S&P Industrials, expressed as a percentage.
+#'   to Diluted_EPS for the S&P Industrials®, expressed as a percentage.
 #'  \item \strong{Price_High:} type `num`. Highest price level achieved by the 
-#'  S&P Industrials Index during the calendar year.
+#'  S&P Industrials® Index during the calendar year.
 #'  \item \strong{Price_Low:} type `num`. Lowest price level achieved by the 
-#'  S&P Industrials Index during the calendar year.
+#'  S&P Industrials® Index during the calendar year.
 #'  \item \strong{Price_Close:} type `num`. Year-end (12/31) price of the 
-#'   S&P Industrials Index.
+#'   S&P Industrials® Index.
 #'  \item \strong{PE_Ratio_High:} type `num`. Ratio of Price_High to Diluted_EPS
-#'   for the S&P Industrials Index.
+#'   for the S&P Industrials® Index.
 #'  \item \strong{PE_Ratio_Low:} type `num`. Ratio of Price_Low to Diluted_EPS
-#'   for the S&P Industrials Index.
+#'   for the S&P Industrials® Index.
 #'  \item \strong{PE_Ratio_Close:} type `num`. Ratio of Price_Close to Diluted_EPS
-#'   for the S&P Industrials Index.
+#'   for the S&P Industrials® Index.
 #'  \item \strong{Dividend_Yld_High:} type `num`. Ratio of Dividends_Per_Share to
-#'   Price_High for the S&P Industrials Index.
+#'   Price_High for the S&P Industrials® Index.
 #'  \item \strong{Dividend_Yld_Low:} type `num`. Ratio of Dividends_Per_Share to
-#'   Price_Low for the S&P Industrials Index.
+#'   Price_Low for the S&P Industrials® Index.
 #'  \item \strong{Dividend_Yld_Close:} type `num`. Ratio of Dividends_Per_Share to
-#'   Price_Close for the S&P Industrials Index.
+#'   Price_Close for the S&P Industrials® Index.
 #'  \item \strong{Total_Return_Index:} type `num`. Cumulative total return of the
-#'   S&P Industrials Index including both dividends and price return. Start date
+#'   S&P Industrials® Index including both dividends and price return. Start date
 #'   for the series is not known.
 #'  \item \strong{Book_Value_Per_Share:} type `num`. Year-end (12/31) Book Value 
-#'  (or Shareholders' Equity) per share for the S&P Industrials Index.
+#'  (or Shareholders' Equity) per share for the S&P Industrials® Index.
 #'  \item \strong{Book_Value_Pct_Return:} type `num`. Definition Unknown. 
 #'  \item \strong{Price_to_Book_Ratio:} type `num`. Ratio of Price_Close to 
-#'  Book_Value_Per_Share for the S&P Industrials Index.
+#'  Book_Value_Per_Share for the S&P Industrials® Index.
 #' }
 #' 
 #' @references

@@ -10,7 +10,10 @@
 #' @format A data frame with observations on the S&P 425 Industrials® index 
 #' from 1946 to 1966
 #' \itemize{
-#'  \item \strong{Year:} type `num`.
+#'  \item \strong{Date:} type `Date`. End of year date formatted as YYYY-12-31. 
+#'  Useful when creating a time series object for exploratory time series plots. 
+#'  Convert the data frame to an xts object using xts::as.xts(SP500).
+#'  \item \strong{Year:} type `num`. Year corresponding to Date.
 #'  \item \strong{Sales:} type `num`. Revenues per share for the S&P 425 Industrials 
 #'  for the calendar year.
 #'  \item \strong{Operating_Profit:} type `num`. Operating Income per share 

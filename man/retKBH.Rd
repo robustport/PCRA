@@ -3,7 +3,7 @@
 \docType{data}
 \name{retKBH}
 \alias{retKBH}
-\title{Stock with Ticker KBH}
+\title{CRSP Returns of Stock with Ticker KBH}
 \format{
 Multivariate time series xts object
 }

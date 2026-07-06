@@ -1,10 +1,10 @@
-#' stocksCRSP
+#' @title stocksCRSPmonthly
 #'
-#' CRSP monthly stocks data for 294 stocks 1993 to 2015
+#' @description CRSP monthly stocks data for 294 stocks 1993 to 2015
 #' 
 #' @docType data
 #'
-#' @usage data(stocksCRSP)
+#' @usage data(stocksCRSPmonthly)
 #'
 #' @format A data.table object with 82000 observations on 15 variables:
 #' \itemize{
@@ -51,9 +51,12 @@
 #' 
 #' @examples
 #' data.table::setDTthreads(1)  
-#' data(stocksCRSP)
-#' names(stocksCRSP)
-#' unique(stocksCRSP$Sector)
-#' unique(stocksCRSP$CapGroup)
-#' head(stocksCRSP,2)
-"stocksCRSP"
+#' data(stocksCRSPmonthly)
+#' names(stocksCRSPmonthly)
+#' unique(stocksCRSPmonthly$Sector)
+#' unique(stocksCRSPmonthly$CapGroup)
+#' head(stocksCRSPmonthly,2)
+"stocksCRSPmonthly"
+
+
+

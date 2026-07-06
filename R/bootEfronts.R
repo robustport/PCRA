@@ -67,6 +67,6 @@ bootEfronts <- function(returns, pspec, rf = 0.003, npoints = 20, B = 3,
                     xlab = xlab, ylab = ylab ,n.portfolios = 20)}
   out = round(apply(gmvMaxSR, 2, sd), digits)
   legend("topleft", bty = "n", title = "   STANDARD DEVIATIONS", legend = 
-           c(paste("gmvMu:", out[1]), paste("gmvSd:", out[2]),
-             paste("tanMu:", out[3]), paste("tanSd:", out[4])))
+           c( paste("GMV Mean:", out[2]),
+              paste("Maximum SR:", out[5])))
 }
