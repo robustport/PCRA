@@ -1,14 +1,10 @@
+## 1. First, install the devtools package using the RStudio drop-down menu:
+## RStudio > Tools > Install Packages > devtools.
 
-## 1. First, install the devtools package using the drop-down menu:
-## RStudio > Tools > Install Packages > devtools
+## 2. Install all packages that are arguments of library(pkgName) below with:
+## RStudio > Tools > Install Packages > pkgName.
 
-## 2. Next, install the PCRA package FROM THE RStudio CONSOLE using 
-## devtools::install_github("robustport/PCRA"), and load it with:
 library(PCRA)
-# NOTE: This PCRA is the latest version. DO NOT INSTALL PCRA from CRAN!
-
-## 3. Install all packages that are arguments of library(packageName) below with:
-## RStudio > Tools > Install Packages > PackageName
 library(data.table)    
 library(xts)
 library(PerformanceAnalytics) 
@@ -18,10 +14,13 @@ library(CVXR)
 library(RPESE)
 library(RPEIF)
 library(ggplot2)
+library(reshape2)
+library(lubridate)
 library(dplyr)
 library(RobStatTM)
+library(hitandrun)
 
-## 4. Finally, ensure that you have installed optimalRhoPsi 
+## 3. Ensure that you have installed optimalRhoPsi 
 ## FROM THE RStudio CONSOLE using
 ## devtools::install_github("kjellpk/optimalRhoPsi"), and load it with:
 library(optimalRhoPsi)
@@ -31,133 +30,14 @@ library(optimalRhoPsi)
 # but not limited to:
 # "method overwritten", "using 6 threads", "object is masked", etc. etc.
 
+## 4. Finally, in RStudio select:
+## Session > Set Working Directory > To Source File Location
+## This makes the folder where you saved the demo script the R working directory
 
-# YOU ARE NOW READY TO RUN THE CH 2 REPRODUCIBILITY CODE
-
-##  Table 2.1
-
-# Largecaps
-stockItems <- c("Date", "TickerLast", "CapGroupLast", "Return")
-dateRange  <- c("1993-01-31", "2015-12-31")
-returns    <- selectCRSPandSPGMI("monthly", dateRange = dateRange, 
-                                 stockItems = stockItems, factorItems = NULL, 
-                                 subsetType = "CapGroupLast",
-                                 subsetValues = "LargeCap", 
-                                 outputType = "xts")
-
-ret <- coredata(returns) # Package xts
-n   <- ncol(ret)
-acfLarge <- rep(0, n)
-for(i in 1:n){
-  acfLarge[i] <- acf(ret[,i], lag.max = 1, plot = FALSE)$acf[2]
-}
-muLarge <- mean(acfLarge)
-sdLarge <- sd(acfLarge)
-
-# Midcaps
-returns <- selectCRSPandSPGMI("monthly",dateRange = dateRange, 
-                              stockItems = stockItems, factorItems = NULL, 
-                              subsetType = "CapGroupLast",
-                              subsetValues = "MidCap", 
-                              outputType = "xts")
-ret <- coredata(returns) # Package xts
-n   <- ncol(ret)
-acfMid <- rep(0, n)
-for(i in 1:n){
-  acfMid[i] <- acf(ret[,i], lag.max = 1, 
-                   plot = FALSE)$acf[2]
-}
-muMid <- mean(acfMid)
-sdMid <- sd(acfMid)
-
-## Smallcaps
-returns <- selectCRSPandSPGMI("monthly", dateRange = dateRange, 
-                              stockItems = stockItems, factorItems = NULL, 
-                              subsetType = "CapGroupLast",
-                              subsetValues = "SmallCap", 
-                              outputType = "xts")
-ret <- coredata(returns) # Package xts
-n   <- ncol(ret)
-acfSmall <- rep(0, n)
-for(i in 1:n){
-  acfSmall[i] <- acf(ret[,i], lag.max = 1, 
-                     plot = FALSE)$acf[2]
-}
-muSmall <- mean(acfSmall)
-sdSmall <- sd(acfSmall)
-
-## Microcaps
-returns <- selectCRSPandSPGMI("monthly", dateRange = dateRange, 
-                              stockItems = stockItems, factorItems = NULL, 
-                              subsetType = "CapGroupLast",
-                              subsetValues = "MicroCap", 
-                              outputType = "xts")
-ret <- coredata(returns) # Package xts
-n <- ncol(ret)
-acfMicro <- rep(0, n)
-for(i in 1:n){
-  acfMicro[i] <- acf(ret[,i], lag.max = 1, plot = FALSE)$acf[2]
-}
-
-muMicro <- mean(acfMicro)
-sdMicro <- sd(acfMicro)
-
-dat <- cbind(c(muLarge, sdLarge), c(muMid, sdMid),
-             c(muSmall, sdSmall), c(muMicro, sdMicro))
-dat <- round(dat,3)
-dat <- data.frame(dat)
-names(dat) <- c("LargeCap", "MidCap", "SmallCap", "MicroCap")
-row.names(dat) <- c("  Mean Lag-1 Acf", "StdDev Lag-1 Acf")
-dat
+## You are now ready to run Ch 2 Foundations Demo.R
 
 
 ##  Figure 2.1
-
-dat <- list(acfLarge, acfMid, acfSmall, acfMicro)
-names(dat) <- c("87 LargeCaps", "67 MidCaps", "106 SmallCaps", "34 MicroCaps")
-boxplot(dat, varwidth = TRUE, col = "cyan")
-
-
-
-##  Figure 2.2
-
-returns <- PerformanceAnalytics::edhec
-returns <- returns["2002-01-31/2019-12-31", -13]
-names(returns) <- c("CA",  "CTA", "DIST", "EM", "EMN", "ED", 
-                    "FIA", "GM",  "LSE",  "MA", "RV", "SS")
-PCRA::tsPlotMP(returns)
-# range(index(returns))
-Ret <- coredata(returns)
-n   <- ncol(Ret)
-acfRet <- rep(0, n)
-for(i in 1:n){
-  acfRet[i] <- acf(Ret[,i], lag.max = 1, 
-                   plot = FALSE)$acf[2]
-}
-hist(acfRet, main = "EDHEC Hedge Fund Indexes",
-     xlab = "Lag-1 ACF Values")
-
-
-## Figure 2.3
-
-# names(acfRet) <- names(returns)
-# (names(sort(acfRet)[1:4]))
-# delete "CTA", "GM", "SS", "EMN"
-
-returns8 <- returns[ , c("CA",  "DIST", "EM", "ED",
-                         "FIA", "LSE",  "MA", "RV")]
-PCRA::tsPlotMP(returns8, yname = "RETURNS", 
-               stripText.cex = 0.7, axis.cex = 0.7)
-
-
-
-##  Figure 2.4
-
-acf(returns8$EM, main = "EM", lag.max = 5)
-
-
-
-##  Figure 2.5
 
 muVol <- c(.20, .10, .15, .04)
 wts   <- seq(0,1, .01)
@@ -195,7 +75,7 @@ text(0.2, .1, adj = c(0, NA), "  (.20, .10)", cex = 1.1)
 text(0.15, .04, adj = c(0, NA),"  (.15, .04)", cex = 1.1)
 
 
-##  Figure 2.6
+##  Figure 2.2
 
 muVol <- c(.20, .10, .15, .04)
 wts <- seq(0, 1, .01)
@@ -221,7 +101,7 @@ text(.02, .08, expression(paste(rho, " = -1  ")), adj = c(0, NA), cex = 1.5)
 text(.18, .07, expression(paste(rho, " = +1 ")), adj = c(0, NA), cex = 1.5)
 
 
-##   Figure 2.7
+##   Figure 2.3
 
 muVol <- c(.20, .10, .15, .04)
 wts   <- seq(0, 1, .01)
@@ -249,7 +129,7 @@ text(maxMuSS[1:2], adj = c(0, NA),
      paste("  (",toString(round(maxMuSS[1:2], 2)),")"), cex = 1.1)
 
 
-##   Figure 2.8
+##   Figure 2.4
 
 volMu1 <- c(.20, .10)
 volMu2 <- c(.15, .04)
@@ -276,7 +156,7 @@ text(volMu3[1] + 0.01, volMu3[2], adj = c(0,NA), toString(volMu3), cex = 1.1)
 text(.04, .10, expression(paste(rho, " = 0")), cex = 1.5)
 
 
-##  Figure 2.9
+##  Figure 2.5
 
 volMu1 <- c(.20,.10)
 volMu2 <- c(.15,.04)
@@ -314,24 +194,25 @@ corrRet <- diag(c(1, 1, 1))
 PCRA::mathGmvMuCov(muRet,volRet,corrRet,digits = 3)
 
 
-##  Figure 2.10
+##  Figure 2.6
 
 # There is currently no code for this Figure, and while
 # IBM and XOM are in our CRSP data, GE is not.
-# Will consider replacing GE with a stock in the CRSP data.
+# We may consider replacing GE with a stock in the CRSP data.
 
 
-## Example 2.6 Figures 2.8 - 2.10 with the following steps
-# Get xts object of 106 smallcap stocks, and the Market ("MktIndexCRSP") in
-# stocksCRSP for 1997 - 2010, and use the third group of 10 of these
-# to compute Gmv portfolios. Change name "MktIndexCRSP" to "Market".
+## Example 2.6 Figures 2.7 - 2.10 with the following steps
+# Get xts object of 106 smallcap stocks, and the Market ("MktIndexCRSP")
+# in the data set stocksCRSPmonthly for 1997 - 2010, and use the third
+# group of 10 of these to compute Gmv portfolios. Als, change the name 
+# "MktIndexCRSP" to "Market".
 
 
-## Figure 2.11
+## Figure 2.7
 
 library(data.table)
 stockItems <- c("Date","TickerLast","CapGroupLast","Return","MktIndexCRSP")
-dateRange  <- c("1997-01-31","2010-12-31")
+dateRange  <- c("1997-01-31","2011-12-31")
 stocksDat  <- PCRA::selectCRSPandSPGMI("monthly",dateRange = dateRange, 
                                        stockItems = stockItems, 
                                        factorItems = NULL, 
@@ -346,12 +227,9 @@ tsPlotMP(returns10Mkt,scaleType = "free",layout = c(2, 6),stripText.cex = .45,
 
 
 
-##  Figures 2.12 and 2.13
+##  Figures 2.8 and 2.9
 
-# Use PortfolioAnalytics, and related functions, to compute and plot
-# time series of: (1) GmvLS portfolio weights wtsGmvLS, (2) Combined
-# GmvLS and Market returns, (3) cumulative gross returns of GmvLS and
-# Market portfolios.
+# See the two tsPlotMP code lines down below
 
 # Create GmvLS portfolio specs
 returns <- returns10Mkt[, 1:10]
@@ -369,33 +247,43 @@ pspec.gmvLS <- add.objective(pspec.fi, type="risk", name="var")
 bt.gmvLS <- optimize.portfolio.rebalancing(returns, pspec.gmvLS,
                                            optimize_method = "CVXR",
                                            rebalance_on = "months",
-                                           training_period = 60,
                                            rolling_window = 60,
                                            trace = TRUE)
 
 # Extract time series of portfolio weights
 wtsGmvLS <- extractWeights(bt.gmvLS)
 
+range(index(wtsGmvLS))
 
 # Compute rebalancing GmvLS arithmetic returns
 # The Return.rebalancing function is from PerformanceAnalytics
-GmvLS <- Return.rebalancing(returns, wtsGmvLS)
+
+# GmvLS <- Return.rebalancing(returns, wtsGmvLS)
+## The above is replaced with Brian's suggested next line
+
+GmvLS <- Return.rebalancing(
+  returns[paste0(first(index(wtsGmvLS)), '/')], wtsGmvLS
+)
 
 # Combine GmvLS and Market returns and plot their time series
-ret.comb <- na.omit(merge.xts(GmvLS, Market, all=F))
+
+# ret.comb <- na.omit(merge.xts(GmvLS, Market, all = FALSE))
+## The above is replaced by the next line 
+
+ret.comb <- na.omit(merge.xts(GmvLS, Market, all = TRUE))
 names(ret.comb) <- c("GmvLS", "Market")
 
 
-# Figure 2.12
-tsPlotMP(wtsGmvLS, layout = c(2,5), scaleType = "same",
+# Figure 2.8
+tsPlotMP(wtsGmvLS, layout = c(2,5), scaleType = "same", yname = "Weights",
          stripText.cex = 0.7, axis.cex = .7)
 
 
-# Figure 2.13
+# Figure 2.9
 tsPlotMP(ret.comb, scaleType = "same", stripText.cex = .7, axis.cex = .7)
 
 
-##  Figure 2.14
+##  Figure 2.10
 # Compute cumulative gross portfolio returns
 
 R <- ret.comb
@@ -446,7 +334,7 @@ p <- xts::addPolygon(y[i:(i+1), 3:4], on=-2, col="lightgrey") # lower panel
 p
 
 
-##  Table 2.2
+##  Table 2.1
 
 dt2mat <- table.Drawdowns(R, top = 2) # find the worst two drawdowns
 dt2mat[,4] <- round(dt2mat[,4], 2)
@@ -456,15 +344,266 @@ dt2 <- dt2[, c(1:3, 5, 4)]
 dt2
 
 
-## Figure 2.15
+## Figure 2.11
+
+library(PCRA)
+library(data.table)
+library(xts)
+library(PortfolioAnalytics)
+library(PerformanceAnalytics)
+
+######################### Parameters #####################################
+
+# The code below produces the following 3 files in your working directory:
+# "LargeCap and SmallCap Stocks Plot k.png" k = 1,2,3, as a result of n = 3,
+# and the file " Avg cumRet Gmv LS LargeCap and SmallCap.png", which is
+# the average of the CGRs in those 3 files. 
+
+
+dir <- "."
+dateRange <- c("1997-01-31","2011-12-31")
+saveplots <- TRUE # save every single plot
+savestocks <- TRUE # save every portfolio stocks
+saveplotsAvgCR <- TRUE # save average cumulative returns
+n <- 3 # how many samples to be run
+m <- 10 # how many stocks in a portfolio
+
+definePort <- FALSE # reproduce a specific portfolio, precondition: n=1
+portN <- 2 # reproduce the portN-th portfolio
+
+######################### Load Data #####################################
+stockItems <-  c("Date", "TickerLast", "Return", "CapGroupLast",
+                 "Ret13WkBill","MktIndexCRSP")
+datAll <- selectCRSPandSPGMI("monthly", dateRange = dateRange,
+                             stockItems = stockItems, 
+                             outputType = "data.table")
+retAll <- selectCRSPandSPGMI("monthly", dateRange = dateRange,
+                             stockItems = stockItems, 
+                             outputType = "xts")
+asset.var = "TickerLast" 
+ret.var = "Return" 
+date.var = "Date"
+
+rf <- retAll[,"Ret13WkBill"]
+
+
+######################### LargeCapGroup ##################################
+portDataGmv <- as.data.frame(matrix(ncol = 12, nrow = 0))
+portDataStock <- as.data.frame(matrix(ncol = m, nrow = 0))
+
+btGmvLargeAvgCum <- 0
+btGmvSmallAvgCum <- 0
+
+rebalance_on = "months"
+rolling_window = 60
+
+set.seed(0)
+for(k in 1:n){
+  if(n == 1 & definePort){
+    portDataStockFile <- read.csv(file.path(dir, "portDataStock.csv"), row.names = 1)
+    selectPort <- portDataStockFile[portN,]
+  } else {
+    # Select the random 20 LargeCap Stocks to form a portfolio
+    selectPortLarge <- sample(unique(datAll[CapGroupLast == "LargeCap"]$TickerLast), m)
+    
+    # Select the random 20 SmallCap Stocks to form a portfolio
+    selectPortSmall <- sample(unique(datAll[CapGroupLast == "SmallCap"]$TickerLast), m)
+  }
+  # datPort <- datAll[TickerLast %in% selectPort][Date >= as.Date(dateRange[1]) & Date <= as.Date(dateRange[2])]
+  retPortLarge <- retAll[, colnames(retAll) %in% selectPortLarge]
+  retPortSmall <- retAll[, colnames(retAll) %in% selectPortSmall]
+  
+  
+  pspecLarge <- portfolio.spec(assets = selectPortLarge)
+  pspecLarge <- add.constraint(pspecLarge, type = "full_investment")
+  #  pspecLarge <- add.constraint(pspecLarge, type = "long_only")
+  pspec_GmvLarge <- add.objective(portfolio = pspecLarge, type = "risk", name = "var")
+  
+  pspecSmall <- portfolio.spec(assets = selectPortSmall)
+  pspecSmall <- add.constraint(pspecSmall, type = "full_investment")
+  #  pspecSmall <- add.constraint(pspecSmall, type = "long_only")
+  pspec_GmvSmall <- add.objective(portfolio = pspecSmall, type = "risk", name = "var")  
+  
+  bt.GmvLarge <- optimize.portfolio.rebalancing(retPortLarge, pspec_GmvLarge,
+                                                optimize_method = "CVXR",
+                                                rebalance_on = rebalance_on,
+                                                rolling_window = rolling_window)
+  bt.GmvSmall <- optimize.portfolio.rebalancing(retPortSmall, pspec_GmvSmall,
+                                                optimize_method = "CVXR",
+                                                rebalance_on = rebalance_on,
+                                                rolling_window = rolling_window)
+  
+  wts.GmvLarge <- extractWeights(bt.GmvLarge)
+  wts.GmvLarge <- wts.GmvLarge[complete.cases(wts.GmvLarge),]
+  wts.GmvSmall <- extractWeights(bt.GmvSmall)
+  wts.GmvSmall <- wts.GmvSmall[complete.cases(wts.GmvSmall),]
+  
+  #  btGmvLarge <- Return.rebalancing(retPortLarge, wts.GmvLarge)
+  #  btGmvSmall <- Return.rebalancing(retPortSmall, wts.GmvSmall)
+  
+  # Exemplar
+  # GmvLS <- Return.rebalancing(
+  #   returns[paste0(first(index(wtsGmvLS)), '/')], wtsGmvLS
+  #  )
+  
+  btGmvLarge <- Return.rebalancing(
+    retPortLarge[paste0(first(index(wts.GmvLarge)), '/')], wts.GmvLarge
+  )
+  
+  btGmvSmall <- Return.rebalancing(
+    retPortSmall[paste0(first(index(wts.GmvSmall)), '/')], wts.GmvSmall
+  )
+  
+  ret.comb <- na.omit(merge(btGmvLarge, btGmvSmall, retAll[,"MktIndexCRSP"], all=F))
+  names(ret.comb) <- c("GmvLS Large", "GmvLS Small", "Market")
+  
+  p <- backtest.plot(ret.comb, plotType = "cumRet", colorSet = c("black", "darkgreen", "red"), 
+                     drawdown_on = NULL, ltySet = c("dashed", "solid", "dotted"),
+                     lwdSet = c(2.0 ,2.0, 3.0),)
+  if(saveplots){
+    file_name <- file.path(dir, paste0(" LargeCap and SmallCap Stocks Plot ", k, ".png"))
+    #    file_name <- file.path(dir, paste0("Plots Backtests/", " LargeCap and SmallCap Stocks Plot ", k, ".png"))
+    
+    png(file_name, width = 800, height = 600)
+    plot(p)
+    dev.off()
+  }
+  
+  portDataGmv <- rbind(portDataGmv,
+                       c(prod(1 + btGmvLarge), prod(1 + btGmvSmall), 
+                         maxDrawdown(btGmvLarge), maxDrawdown(btGmvSmall),
+                         sd(btGmvLarge), sd(btGmvSmall),
+                         sqrt(mean(pmin(btGmvLarge - rf)^2)),
+                         sqrt(mean(pmin(btGmvSmall - rf)^2)),
+                         mean(btGmvLarge - rf) / sd(btGmvLarge),
+                         mean(btGmvSmall - rf) / sd(btGmvSmall),
+                         mean(btGmvLarge - rf) / sqrt(mean(pmin(btGmvLarge - rf)^2)),
+                         mean(btGmvSmall - rf) / sqrt(mean(pmin(btGmvSmall - rf)^2))))
+  
+  # save avg cum return
+  btGmvLargeAvgCum <- btGmvLargeAvgCum + cumprod(1+btGmvLarge)
+  btGmvSmallAvgCum <- btGmvSmallAvgCum + cumprod(1+btGmvSmall)
+  
+  # save stocks
+  # portDataStock <- rbind(portDataStock, selectPort)
+}
+
+########################### Risk Data Save ##########################
+colnames(portDataGmv) <- c("GmvLarge", "GmvSmall", "GmvLarge Drawdown", "GmvSmall Drawdown",
+                           "GmvLarge SD", "GmvSmall SD", "GmvLarge SSD", "GmvSmall SSD", 
+                           "GmvLarge SR", "GmvSmall SR", "GmvLarge downsideSR", "GmvSmall downsideSR")
+
+# reproduce cumulative return plot,
+# if(definePort) p
+# if(definePort) selectPort
+# if(definePort) portDataGmv
+
+# save down stocks as csv file
+# if(savestocks){
+#  colnames(portDataStock) <- paste("stocks", 1:m)
+#  write.csv(portDataStock, file_name <- file.path(dir, "portDataStock.csv"))
+#}
+
+# save down average cumulative return plot
+if(saveplotsAvgCR){
+  ret.comb.avg <- na.omit(merge(btGmvLargeAvgCum/lag(btGmvLargeAvgCum, 1) - 1,
+                                btGmvSmallAvgCum/lag(btGmvSmallAvgCum, 1) - 1,
+                                retAll[,"MktIndexCRSP"],
+                                all=F))
+  names(ret.comb.avg) <- c("Gmv Long-Short LargeCaps", "Gmv Long-Short SmallCaps", "Market")
+  p <- backtest.plot(ret.comb.avg, plotType = "cumRet", drawdown_on = NULL,
+                     colorSet = c("black", "darkgreen", "red"), 
+                     ltySet = c("dashed", "solid", "dotted"),
+                     lwdSet = c(2.0 ,2.0, 3.0),
+                     main = "Cumulative Gross Returns")
+  file_name <- file.path(dir, paste0(" Avg cumRet Gmv LS LargeCap and SmallCap.png"))
+  png(file_name, width = 800, height = 600)
+  plot(p)
+  dev.off()
+}
+
+
+## Figure 2.12
+
+# Change n <- 2 to n <- 50 in the above code for Figure 2.11 and run it.
+# Be prepared for it to take several minutes. Then you will see the 50
+# files "LargeCap and SmallCap Stocks Plot k.png" k = 1,2, ..., 50 and
+# and the file " Avg cumRet Gmv LS LargeCap and SmallCap.png", which is
+# the average of the CGRs in those 50 files. 
+
+
+## Figure 2.13
+
+# Run the following code first with the current n_simulations = 3
+# and see what you get.  Then run it with n_simulations = 50 and 
+# wait some minutes to get Figure 2.13
+
+library(PCRA)
+library(data.table)
+library(xts)
+library(PortfolioAnalytics)
+library(PerformanceAnalytics)
+
+dateRange    <- c("1997-01-01", "2011-12-31")
+stockItems <- c("Date", "TickerLast", "CapGroupLast", "Return", "MktIndexCRSP")
+returnsAll <- PCRA::selectCRSPandSPGMI("monthly",
+                                       dateRange = dateRange,
+                                       stockItems = stockItems, 
+                                       factorItems = NULL, 
+                                       subsetType = "CapGroupLast",
+                                       subsetValues = "SmallCap", 
+                                       outputType = "xts")
+Market <- returnsAll[ , 107]
+returns <- returnsAll[ ,-107]
+
+# PCRA::tsPlotMP(returns, layout = c(2,15))  # User optional plot
+
+buildOwnPort <- function(selected_stocks){
+  pspec <- portfolio.spec(assets = selected_stocks)
+  pspec.fi <- add.constraint(pspec, type = "full_investment")
+  
+  # Spec for Gmv long-only (GmvLO) & Gmv long-short (GmvLS) portfolios
+  pspec.LS <- pspec.fi
+  pspec.LO <- add.constraint(pspec.fi, type = "long_only")
+  pspec_list <- list(pspec_GmvLS <- add.objective(pspec.LS, type = "risk", 
+                                                  name = "var"),
+                     pspec_GmvLO <- add.objective(pspec.LO, type = "risk", 
+                                                  name = "var")) 
+  names(pspec_list) <- c("Gmv Long-Short","Gmv Long-Only")
+  return(pspec_list)
+}
+
+btout <- runMultipleBacktests(
+  n_simulations = 3,
+  portfolio_size = 20,
+  seed = 0,
+  return_portfolio = returns,
+  stock_list = colnames(returns),
+  buildPortfolios = buildOwnPort,
+  market_return = Market,
+  rebalance_on = "months",
+  rolling_window = 60,
+  moment_list = list(NULL, NULL),
+  colorSet = c("black","darkgreen","darkred"),
+  ltySet = c("dashed","solid","dotted"),
+  lwdSet = c(2.0 ,2.0, 3.0),
+  save_plot = TRUE,
+  plotType = "cumRet",
+  # plot_path = './All Plots/',
+  plot_path = '.',
+  save_avg_plot = TRUE,
+  avg_plot_main = "Average CGR Monthly Gmv Long-Short and Long-Only Portfolios"
+)
+
+
+## Figure 2.14
 
 levg <- levgLongShort(wtsGmvLS)
-plot.zoo(levg, ylim = c(0.0,1.5), ylab = "Leverage")
+plot.zoo(levg, ylim = c(1, 2), ylab = "Leverage")
 abline(h = 1.0, lty = "dotted")
 
 
-
-##  Figure 2.16 Left-Hand Plot
+##  Figure 2.15 Left-Hand Plot
 
 GmvLS.TO <- 100*turnOver(wtsGmvLS)
 plot.zoo(GmvLS.TO, ylim = c(0,60), ylab = "TURNOVER (%)",
@@ -473,7 +612,7 @@ abline(h = mean(GmvLS.TO), lty = "dashed")
 text(as.Date("2004-01-31"), 50, "Mean Turnover = 13.4 (%)", cex = 1.5)
 
 
-## Figure 2.16 Right-Hand Plot
+## Figure 2.15 Right-Hand Plot
 
 GmvLS.DIV <- 100*divHHI(wtsGmvLS)
 plot.zoo(GmvLS.DIV,ylim = c(0,100),lwd = 1.5, ylab = "DIV(%)",
@@ -482,7 +621,7 @@ abline(h = mean(GmvLS.DIV),lty = "dashed")
 text(as.Date("2006-01-31"), 90, "Mean Diversification = 63.5 (%)", cex = 1.5)
 
 
-##  Table 2.3
+##  Table 2.2
 # Risk & Performance Estimator Standard Errors package
 
 SD12 <- SD.SE(ret.comb, se.method = "IFiid")
@@ -503,17 +642,17 @@ rownames(RM) <- c("GmvLS SD",  "Market SD",
 RM <- as.data.frame(RM)
 RM
 
-##  Figure 2.17
+##  Figure 2.16
 # Risk-free rates were not negligible before 2009
 
 stockItems <- c("Date", "TickerLast", "Return", "Ret13WkBill")
 returnsAll <- selectCRSPandSPGMI("monthly", stockItems = stockItems,  
                                  factorItems = NULL, outputType = "xts")
 riskFree <- returnsAll[ , "Ret13WkBill"]
-tsPlotMP(riskFree, yname = "RISK-FREE RATE")
+tsPlotMP(riskFree, yname = "Risk-Free Rate")
 
 
-##  Figure 2.18
+##  Figure 2.17
 # Variation of risk-free rate for 1995 through 2000
 
 returns <- returnsAll["1995-01-31/2000-12-31"]
@@ -521,10 +660,10 @@ x   <- sort(apply(returns, 2, mean))
 x0  <- x[x <= 0.007 & x >= 0.005] # Results in 21 stocks & choose FMC
 ret <- returns[, c("FMC", "Ret13WkBill")]
 names(ret)[2] <- "Risk-Free"
-tsPlotMP(ret, yname = "RETURNS", scaleType = "free")
+tsPlotMP(ret, yname = "RETURNS", scaleType = "free", yname = "Returns")
 
 
-##  Table 2.4
+##  Table 2.3
 
 SR12  <- SR.SE(ret.comb, se.method = "IFiid")
 SR12  <- printSE(SR12, round.digit = 2)
@@ -543,18 +682,18 @@ rownames(Ratios) <- c("GmvLS SR", "Market SR",
 Ratios <- as.data.frame(Ratios)
 Ratios
 
-##  Figure 2.19
+##  Figure 2.18
 
 data(edhec, package = "PerformanceAnalytics")
 colnames(edhec) <- c("CA", "CTAG", "DIS", "EM", "EMN", "ED", "FIA", 
                      "GM", "LS", "MA", "RV", "SS", "FoF")
 par(mfrow = c(1, 2))
 outSD <- IF.SD(returns = edhec$CA, evalShape = T, IFplot = T)
-outSR <- IF.SemiSD(returns = edhec$CA, evalShape = T, IFplot = T)
+outSR <- IF.SR(returns = edhec$CA, evalShape = T, IFplot = T)
 par(mfrow = c(1, 1))
 
 
-##  Figure 2.20
+##  Figure 2.19
 
 muRet   <- c(.10, .04, .02)
 volRet  <- c(.20, .15, .10)
@@ -565,7 +704,7 @@ arrows(0.07, 0.09, .10, .06, length = 0.1, lwd= 1.0)
 
 
 
-##  Table 2.5
+##  Table 2.4
 
 muRet   <- c(.10, .04, .02)
 volRet  <- c(.20, .15, .10)
@@ -573,20 +712,30 @@ corrRet <- diag(c(1, 1, 1))
 efront  <-  mathEfrontRiskyMuCov(muRet, volRet, corrRet, npoints = 5, 
                                  values = T, display = F)
 mu.efront <- efront$mu.efront
+vol.efront <- efront$vol.efront
+
+# Confirm mathEfrontRiskyMuCov uses equally spaced vol.efront values
+# vol.efront[2:5] - vol.efront[1:4]
+
 wtsEfront <- mathWtsEfrontRiskyMuCov(muRet, volRet, corrRet, 
-                                     mu.efront, digits = 3)
+                                     mu.efront, digits = 4)
+# Temporary fix - need to fix in PCRA
+# mathWtsEfrontRiskyMuCov interchanges the expected return and volatility rows
+# which are computed correctly by efront. Copy the correct data in for now
+wtsEfront[1, ] <- round(efront[[1]], 3)
+wtsEfront[2, ] <- round(efront[[2]], 3)
 wtsEfront
 
 
-##  Figure 2.21
+##  Figure 2.20
 
 nColor <- 4
-barplotWts(as.matrix(wtsEfront), legend.text = T, ylab = "WEIGHTS",
+barplotWts(as.matrix(wtsEfront), legend.text = T, ylab = "Weights",
            col = topo.colors(nColor), bar.ylim = c(-1, 2),
            cex.lab = 1.2, cex.axis = 1.3)
 
 
-##  Figure 2.22
+##  Figure 2.21
 
 returns10 <- returns10Mkt[,-11]
 efront <- mathEfrontRisky(returns10, display = T, cexGmv = 1.0,
@@ -594,17 +743,22 @@ efront <- mathEfrontRisky(returns10, display = T, cexGmv = 1.0,
 
 
 
-##  Figure 2.23
+##  Figure 2.22
 
 efront10 <- mathEfrontRisky(returns10,npoints = 5, display = F, values = TRUE)
 mu.efront <- efront10$mu.efront
 wtsEfront <- mathWtsEfrontRisky(returns10, mu.efront,digits = 3)
+# Temporary fix - need to fix in PCRA
+# mathWtsEfrontRisky interchanges the expected return and volatility rows
+# which are computed correctly by efront. Copy the correct data in for now
+wtsEfront[1, ] <- round(efront10[[1]], 3)
+wtsEfront[2, ] <- round(efront10[[2]], 3)
 barplotWts(as.matrix(wtsEfront), legend.text = T, ylab = "WEIGHTS",
            col = topo.colors(10), bar.ylim = c(-1.5,3.0),cex.lab = 1.2,
            cex.axis = 1.3)
 
 
-##  Figure 2.24
+##  Figure 2.23
 
 stockItems <- c("Date", "TickerLast", "CapGroupLast", "Return", "Ret13WkBill")
 dateRange  <- c("1997-01-31", "2010-12-31")
@@ -616,29 +770,34 @@ stocksDat  <- selectCRSPandSPGMI("monthly", dateRange = dateRange,
                                  outputType = "xts")
 returns10andRF <- stocksDat[, c(21:30,107)]
 names(returns10andRF)[11] <- "RiskFree"
-tsPlotMP(returns10andRF,scaleType = "free",layout = c(2,6),stripText.cex = .45,
-         axis.cex = 0.4,lwd = 0.5)
+tsPlotMP(returns10andRF,scaleType = "free",layout = c(2,6), yname = "Returns",
+         stripText.cex = .45, axis.cex = 0.4,lwd = 0.5)
 
 
-##  Figure 2.25
+##  Figure 2.24
 
 rf <- mean(returns10andRF[, 11])
 returns10 <- returns10andRF[, -11]
 mathEfrontCashRisky(returns10, rf = rf, cexPoints = 1.0)
 
 
-##  Figure 2.26
+##  Figure 2.25
 
 rf <- mean(returns10andRF[, 11])
 returns10 <- returns10andRF[, -11]
 wtsEfront = mathEfrontCashRisky(returns10, plot.efront = FALSE, values = TRUE)
+# Temporary fix - need to fix in PCRA
+# mathWtsEfrontRiskyMuCov interchanges the expected return and volatility rows
+# which are computed correctly by efront. Copy the correct data in for now
+wtsEfront[1, ] <- round(efront10[[1]], 3)
+wtsEfront[2, ] <- round(efront10[[2]], 3)
 barplotWts(as.matrix(wtsEfront),legend.text = T,col = topo.colors(3),
            ylab = "Weights",xlab = "VOL", bar.ylim = c(-0.5, 1.5))
 
 
 
-##  Calculation of risk aversion and risk tolerance values for Figure 2.25,
-##  reported at end of paragraph below (2.154)
+##  Calculation of risk aversion and risk tolerance values for Figure 2.21,
+##  reported at end of paragraph below (2.163)
 
 rf <- .005
 C  <- var(returns10)
@@ -650,21 +809,21 @@ lambda      # Risk aversion value
 1/lambda    # Risk tolerance value
 
 
-##  Figure 2.27
+##  Figure 2.26
 
-plot(FRBinterestRates, xaxt = "n", xlab = "", ylab = "InterestRates (%)")
+plot(FRBinterestRates, xaxt = "n", xlab = "", ylab = "Interest Rates (%)")
 axis(side = 1,at = seq(1930,2020,by=10), labels = seq(1930, 2020, by=10))
 grid()
 
 
-##  Figure 2.28
+##  Figure 2.27
 
 rf <- mean(returns10andRF[,11])
 returns10 <- returns10andRF[,-11]
 mathEfront(returns10, rf = rf, mu.max = .035, sigma.max = .19, cexText = 0.8, npoints = 100)
 
 
-##  Figure 2.29
+##  Figure 2.28
 
 rf        <- 0.03
 rf_lend   <- 0.04
@@ -696,7 +855,7 @@ ggplot(df_melt, aes(x = Leverage, y = value )) +
         axis.title   = element_text(size = 14))
 
 
-##  Figure 2.30
+##  Figure 2.29
 
 volMu1 <-  c(.20, .10)
 volMu2 <-  c(.15, .04)
@@ -726,7 +885,7 @@ plot(sigmaA, muA, xlim = c(0, 21), ylim = c(0, 8.5), type = "l", lwd = 1.5,
 text(2, 7, pos = 4, "IR = slope of line = .36", cex = 1.5)
 
 
-##  Table 2.6
+##  Table 2.5
 
 wGmv <- z1/cc
 w1   <- z2/a
@@ -743,7 +902,7 @@ row.names(wA.df) <- rnames
 wA.df
 
 
-## Figure 2.31
+## Figure 2.30
 # Actively managed frontier dominated by efficient frontier
 
 volB <- 0.12
@@ -769,18 +928,18 @@ text(0.163, 0.06, "ACTIVELY MANAGED", pos = 4, cex = 1.1)
 arrows(0.165, 0.06, sigmaPA[50], muPA[50], length = .1, lwd = 1.5)
 
 
+##  Figure 2.31
+
+# The two plots in this Figure are from Jorion(2003) Financial Analysts
+# Journal article with Permission from Taylor and Francis.
+
+
 ##  Figure 2.32
 
-# The two plots in this Figure are from Jorion(2003)
-# Proper citation will be added.
+# These two plots were created by the RPCRA authors
 
 
 ##  Figure 2.33
-
-# These two plots were created by the PCRA authors
-
-
-##  Figure 2.34
 
 #  Left-Hand Plot Code
 
@@ -819,7 +978,7 @@ quadraticUtilityPlot <- function()
 quadraticUtilityPlot()
 
 
-##  Figure 2.35
+##  Figure 2.34
 
 #  Left-Hand Plot Code
 
@@ -844,6 +1003,7 @@ p1 <- ggplot(df1) +
 
 p1 + geom_point(data = df1a, aes(x = x, y = y),  
                 color = "dodgerblue4", shape = 17, size = 3)
+
 #  Rigt-Hand Plot Code
 
 rm2    <- 0.08
@@ -859,7 +1019,7 @@ p2 <- ggplot(df2) +
   geom_point(aes(x = Beta2, y = Mu2),  color = "black")  +
   geom_line(aes( x = Beta2, y = SML2), color = "gray20") +
   ylim(0, 0.12) +
-  labs(x = "Beta", y = "Mean Excess Return", title = "1965 \u2013 1991") + 
+  labs(x = "Beta", y = "Mean Excess Return", title = "1966 \u2013 1991") + 
   theme(plot.title = element_text(hjust = 0.5)) +
   annotate(geom = "text", x = 1.12, y = 0.055, 
            label = "CAPM Security Market Line", color = "gray20") +
@@ -869,7 +1029,7 @@ p2 <- ggplot(df2) +
 p2 + geom_point(data = df2a, aes(x = x, y = y),  
                 color = "dodgerblue4", shape = 17, size = 3)
 
-##  Figure 2.36
+##  Figure 2.35
 
 #  Left-Hand Plot Code
 
@@ -888,7 +1048,7 @@ ggplot(df2, aes(x = Beta2, y = Sigma2)) +
   geom_text(x = 1.05, y = 0.18, label = "sigma %~~% 0.2 ~ beta", parse=TRUE)
 
 
-##  Table 2.7
+##  Table 2.6
 
 df    <- data.frame(matrix(" ", nrow = 6, ncol = 4))
 df$X1 <- c("1/31--12/39",  "1/40--12/49", "1/50--12/59", "1/60--12/69", "1/70--12/79","1/80--12/91")
@@ -902,7 +1062,7 @@ colnames(df) <- c("Period", "Mean(Excess Return)", "Std. Dev(Excess Return)", "t
 df
 
 
-##  Figure 2.37
+##  Figure 2.36
 
 stocksCRSPweekly <- getPCRAData("stocksCRSPweekly")
 dateRange    <- c("2004-01-01", "2005-12-31")
@@ -916,11 +1076,11 @@ returnsAll <- selectCRSPandSPGMI("weekly",
                                  subsetValues = "SmallCap", 
                                  outputType = "xts")
 returns <- returnsAll[ , 1:10]
-tsPlotMP(returns, scaleType = "free",layout = c(2,5),
+tsPlotMP(returns, scaleType = "free",layout = c(2,5), yname = "Returns",
          stripText.cex = .45, axis.cex = 0.4,lwd = 0.5)
 
 
-##  Figure 2.38
+##  Figure 2.37
 
 pspec <- portfolio.spec(assets = names(returns))
 pspecFI <- add.constraint(pspec, type = "full_investment")
@@ -941,7 +1101,7 @@ chart.EfficientFrontierCompare(returns, pspecESLO5pct, risk_type = "ES",
                                legend.loc = "topleft", main = NULL)
 
 
-##  Figure 2.39
+##  Figure 2.38
 
 chart.EfficientFrontierCompare(returns, pspecESLO5pct, risk_type = "StdDev", 
                                guideline = TRUE,  cex.axis = 1.2,
@@ -953,15 +1113,88 @@ chart.EfficientFrontierCompare(returns, pspecESLO5pct, risk_type = "StdDev",
                                legend.loc = "topleft", main = NULL)
 
 
-##  Figure 2.40
+##  Figure 2.39
+# Plot mOpt and Huber rho and psi functions
 
-x <- seq(-4.9, 4.9, by = 0.001)
-ccopt <- computeTuningPsi_modOpt(0.95)
-plot(x, wgt_modOpt(x, cc = ccopt), type = "l",
-     xlab = "x", ylab = "", cex = 1.5, cex.lab = 1.5)
+library(optimalRhoPsi)
+
+# Huber 95% Efficiency Tuning Constant
+ccHuber <- 1.345
+
+# mOpt 95% Efficiency Tuning Constant
+ccModOpt <- computeTuningPsi_modOpt(0.95)
+
+# Huber rho function
+rhoHuber = function(x, cc = ccHuber)
+{rho = ifelse(abs(x/ccHuber) < 1, 0.5*x^2, ccHuber*abs(x) -     				0.5*ccHuber^2) 
+return(rho)
+}
+
+## Plot overlaid rho functions
+par(mfrow = c(1,2))
+# Plot rho functions
+x <- seq(-5, 5, 0.01)
+ylim <- c(0, 2)
+ylab <- "rho(x)"
+
+rhoMax <- rho_modOpt(3, cc = ccModOpt)
+plot(x,rho_modOpt(x, cc = ccModOpt)/rhoMax, ylim = ylim, ylab = ylab, 
+     type = "l", lwd = 1.3, cex.lab = 1.1)
+lines(x, rhoHuber(x, ccHuber)/rhoMax , col = "darkred", lty = "dashed",
+      lwd = 1.3)
+legend("topleft", c("mOpt", "Huber"), 
+       lty = c("solid", "dashed"),
+       lwd = c(1.3, 1.3), cex = 0.8,
+       col = c("black", "darkred"), bty = "n")
+
+## Plot overlaid psi functions
+
+# Huber psi
+psiHuber <- function(x, ccHub = 1.345)
+{psi<- ifelse(abs(x/ccHub) < 1, x, ccHub) 
+psiHub <- ifelse(x/ccHub <= -1, -ccHub, psi)
+return(psiHub)
+}
+
+x <- seq(-5, 5, 0.01)
+ylim <- c(-2.5, 2.5)
+ylab <- "psi(x)"
+plot(x,psi_modOpt(x, cc = ccModOpt), ylim = ylim, ylab = ylab, 
+     type = "l", cex.lab = 1.1, lwd = 1.3)
+lines(x, psiHuber(x) , col = "darkred", lty = "dashed", lwd = 1.3)
+legend("topleft", c("mOpt", "Huber"), 
+       lty = c("solid", "dashed"),
+       lwd = c(1.3, 1.3),  cex = 0.8,
+       col = c("black", "darkred"), bty = "n")
+par(mfrow = c(1,1))
+
+
+##  Figure 2.40
+# mOpt and Huber weight functions
+
+# Huber weight function
+wgtHuber = function(x, cc = ccHuber)
+{wts = ifelse(abs(x/ccHuber) < 1, 1, ccHuber/(sign(x)*x)) 
+return(wts)
+}
+
+## Plot overlaid weight functions
+
+# Plot weights
+x <- seq(-5, 5, 0.01)
+ylim <- c(0, 1.45)
+ylab <- "w(x)"
+plot(x,wgt_modOpt(x, cc = ccModOpt), ylim = ylim, ylab = ylab, type = "l", 
+     cex.lab = 1.1)
+lines(x, wgtHuber(x, cc) , col = "darkred", lty = "dashed")
+legend("top", c("mOpt", "Huber"), 
+       lty = c("solid", "dashed"),
+       col = c("black", "darkred"), bty = "n")
+
 
 
 ##  Figure 2.41
+# Robust versus sample mean for FIA returns
 
 data(edhec)
 hfnames <- c("CA", "CTA", "DIS", "EM", "EMN", "ED", "FIA",
@@ -974,7 +1207,7 @@ index(retFIA) <- as.yearmon(index(retFIA))
 # Plot FIA returns with sample mean and robust mean
 mu <- 100*mean(retFIA)
 se.mu <- 100*sd(retFIA)/sqrt(24)
-x <- RobStatTM::locScaleM(retFIA, eff = .95)
+x <- locScaleM(retFIA, eff = .95)
 muRob <- 100*x$mu
 se.muRob <- 100*x$std.mu
 plot.zoo(retFIA, type ="b", xlab = "", ylab = "FIA Returns")
@@ -984,7 +1217,7 @@ legend(1999.2, -.03, legend = c("Robust Mean", "Sample Mean"), lwd = c(1, 2),
        lty = c("solid", "dashed"), col = c("blue", "red"), bty = "n", cex = 1.3)
 
 
-##  Table 2.8
+##  Table 2.7
 
 tstat.mu <- mu/se.mu
 tstat.muRob <- muRob/se.muRob
@@ -999,6 +1232,7 @@ meanEsts
 
 
 ##  Figure 2.42
+# Robust scale M-estimator weight function
 
 # mOpt 95% Efficiency Tuning Constant
 ccModOpt <- computeTuningPsi_modOpt(0.95)
@@ -1031,7 +1265,7 @@ returns <- 100*edhec['1998-01-31/1999-12-31']
 tsPlotMP(returns, type = "l", stripText.cex = 0.7, axis.cex = 0.7)
 
 
-##  Table 2.9
+##  Table 2.8
 
 StdDev <- apply(returns,2,sd)
 MADM <- apply(returns,2,mad)
