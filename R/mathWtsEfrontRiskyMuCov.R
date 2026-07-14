@@ -41,7 +41,7 @@ mathWtsEfrontRiskyMuCov <- function (muRet, volRet, corrRet, mu.efront,
   wts.efront <- a1 + a2
   wts.efront <- as.data.frame(wts.efront)
   vol.efront <- (1/cc + (cc/d) * (mu.efront - a/cc)^2)^0.5
-  out <- rbind(vol.efront, mu.efront, wts.efront)
+  out <- rbind(mu.efront, vol.efront, wts.efront)
   rowNames <- c("MU", "VOL", paste("W", sep = "", 1:n.assets))
   row.names(out) <- rowNames
   names(out) <- paste("P", sep = "", 1:n)
