@@ -14,8 +14,10 @@ runMultipleBacktests(
   market_return = NULL,
   rebalance_on = NULL,
   rolling_window = NULL,
+  training_period = NULL,
   optimize_method = "CVXR",
   moment_list = NULL,
+  moment_control = NULL,
   save_plot = TRUE,
   plot_path = "./",
   plot_name = "backtest",
@@ -60,12 +62,20 @@ See \code{\link[xts]{endpoints}} for valid names.}
 \item{rolling_window}{Positive integer. Length of the rolling estimation
 window in periods.}
 
+\item{training_period}{an integer of the number of periods to use as 
+a training data in the front of the returns data.}
+
 \item{optimize_method}{Character string specifying the solver. Default \code{"CVXR"}.}
 
 \item{moment_list}{If different moment functions are passed into multiple GMV
 portfolios, please define each moment function via this parameter. For the
 portfolio that do not require moment function, please pass NULL. Example:
 \code{list('custom.covRob.Rocke', NULL, NULL)}.}
+
+\item{moment_control}{If different moment functions are passed into multiple GMV
+portfolios and require parameters in the moment functions, please define parameters
+in moment_control. For the portfolio that do not require moment function, please pass NULL. 
+Example: \code{list(list(tol = 1e-5, maxit=100), NULL, NULL)}.}
 
 \item{save_plot}{Logical. Whether to save the plot to a PNG file. Default \code{TRUE}.}
 

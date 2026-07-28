@@ -15,6 +15,8 @@
 #'   See \code{\link[xts]{endpoints}} for valid names.
 #' @param rolling_window Positive integer. Length of the rolling estimation
 #'   window in periods.
+#' @param training_period an integer of the number of periods to use as 
+#'   a training data in the front of the returns data.
 #' @param optimize_method Character string specifying the solver. Default \code{"CVXR"}.
 #' @param moment_list If different moment functions are passed into multiple GMV
 #'   portfolios, please define each moment function via this parameter. For the
@@ -54,8 +56,10 @@ runPortfolioBacktest <- function(
     market_return = NULL,
     rebalance_on = NULL,
     rolling_window = NULL,
+    training_period = NULL,
     optimize_method = "CVXR",
     moment_list = NULL,
+    moment_control = NULL,
     save_plot = TRUE,
     plot_path = "./",
     plot_name = "backtest",
@@ -95,21 +99,24 @@ runPortfolioBacktest <- function(
   for(i in seq_along(portfolio_list)){
     ## Optimize portfolio
     if(!is.null(moment_list[[i]])){
-      bt <- PortfolioAnalytics::optimize.portfolio.rebalancing(
-        R = return_portfolio,
-        portfolio = portfolio_list[[i]],
-        optimize_method = optimize_method,
-        rebalance_on = rebalance_on,
-        rolling_window = rolling_window,
-        momentFUN = moment_list[[i]]
-      )
+      args <- c(list(R = return_portfolio,
+                     portfolio = portfolio_list[[i]],
+                     optimize_method = optimize_method,
+                     rebalance_on = rebalance_on,
+                     rolling_window = rolling_window,
+                     training_period = training_period,
+                     momentFUN = moment_list[[i]]), 
+                moment_control[[i]]
+                )
+      bt <- do.call(PortfolioAnalytics::optimize.portfolio.rebalancing, args)
     } else {
       bt <- PortfolioAnalytics::optimize.portfolio.rebalancing(
         R = return_portfolio,
         portfolio = portfolio_list[[i]],
         optimize_method = optimize_method,
         rebalance_on = rebalance_on,
-        rolling_window = rolling_window
+        rolling_window = rolling_window,
+        training_period = training_period
       )
     }
     

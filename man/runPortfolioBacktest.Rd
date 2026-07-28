@@ -11,8 +11,10 @@ runPortfolioBacktest(
   market_return = NULL,
   rebalance_on = NULL,
   rolling_window = NULL,
+  training_period = NULL,
   optimize_method = "CVXR",
   moment_list = NULL,
+  moment_control = NULL,
   save_plot = TRUE,
   plot_path = "./",
   plot_name = "backtest",
@@ -40,6 +42,9 @@ See \code{\link[xts]{endpoints}} for valid names.}
 
 \item{rolling_window}{Positive integer. Length of the rolling estimation
 window in periods.}
+
+\item{training_period}{an integer of the number of periods to use as 
+a training data in the front of the returns data.}
 
 \item{optimize_method}{Character string specifying the solver. Default \code{"CVXR"}.}
 
