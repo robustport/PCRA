@@ -1,0 +1,354 @@
+#' @title iceIndices
+#'
+#' @description Monthly time series of total return, Weighted Average
+#' Maturity, Modified Duration, Yield to Maturity and Option Adjusted Spread 
+#' from January 1988 to December 2021 for two short duration indices 
+#' maintained by ICE Data Indices, LLC
+#' 1. ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110), and
+#' 2. ICE BofA 1-3 Year US Treasury Index (Index G1O2) 
+#' Returns are total returns (coupon income + price return) for the month,
+#' while characteristics are reported as of month-end.
+#' 
+#' @docType data
+#'
+#' @usage data(iceIndices)
+#
+#' @format A data frame with monthly time series of total return, Weighted Average 
+#' Maturity (WAM), Modified Duration (Dmod), Yield to Maturity (YTM) and 
+#' Option Adjusted Spread (OAS) from December 1987 to December 2025 for 15 
+#' fixed income indices maintained by ICE Data Indices, LLC:
+#' 1. ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110)
+#' 2. ICE BofA US 3-Month Treasury Bill Index (Index G0O1)
+#' 3. ICE BofA US 6-Month Treasury Bill Index (Index G0O2)
+#' 4. ICE BofA US Treasury Index (Index G0Q0)
+#' 5. ICE BofA 1-3 Year US Treasury Index (Index G1O2) 
+#' 6. ICE BofA 1-5 Year US Treasury Index (Index GVQ0)
+#' 7. ICE BofA US Corporate Index (Index C0A0)
+#' 8. ICE BofA 1-3 Year US Corporate Index (Index C1A0)
+#' 9. ICE BofA AAA-A US Corporate Index (Index C010)
+#' 10. ICE BofA 1-3 Year BBB US Corporate Index (Index C1A4)
+#' 11. ICE BofA 1-5 Year AAA-A US Corporate Index (Index CV10)
+#' 12. ICE BofA 1-5 Year BBB US Corporate Index (Index CVA4)
+#' 13. ICE BofA US Broad Market Index (Index US00)
+#' 14. ICE BofA 1-5 Year G7 Government Index (Index WVG7)
+#' 15. ICE BofA 1-10 Year G7 Government Index (Index W5G7)
+#' Returns are total returns (i.e. coupon income + price change divided by 
+#' initial price) for the month, and are expressed in percentage points 
+#' (e.g. 2.05 corresponds to a total return of 2.05% for the month). 
+#' WAM and Dmod are expressed in years and are reported as of month end. 
+#' YTM, like total return, is reported in percentage points 
+#' (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%), while OAS is expressed 
+#' in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option Adjusted 
+#' Spread of 8 basis points or 0.08%). All items other than returns are reported 
+#' as of month-end. Returns are reported in every month, but not all characteristics 
+#' are reported at the end of every month.
+#' 									
+
+#' \itemize{
+#'  \item \strong{Date:} type `Date`. Last Day of Month. Many, but not all, of
+#'  the time series have data from December 1987 to December 2025.
+#'  \item \strong{C110_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-3 Year AAA-A US Corporate 
+#'  Index (Index C110). Return is expressed in percentage points (e.g. 2.05 
+#'  corresponds to a total return of 2.05% for the month)
+#'  \item \strong{C110_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110). WAM is expressed 
+#'  in years.
+#'  \item \strong{C110_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110). Dmod is expressed 
+#'  in years.
+#'  \item \strong{C110_YTM:} type `num`. Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{C110_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{G0O1_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA US 3-Month Treasury Bill Index 
+#'  (Index G0O1). Return is expressed in percentage points (e.g. 2.05 
+#'  corresponds to a total return of 2.05% for the month)
+#'  \item \strong{G0O1_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA US 3-Month Treasury Bill Index (Index G0O1). WAM is expressed 
+#'  in years.
+#'  \item \strong{G0O1_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA US 3-Month Treasury Bill Index (Index G0O1). Dmod is expressed 
+#'  in years.
+#'  \item \strong{G0O1_YTM:} type `num`. Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA US 3-Month Treasury Bill Index (Index G0O1). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{G0O1_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA US 3-Month Treasury Bill Index (Index G0O1). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{G0O2_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA US 6-Month Treasury Bill Index 
+#'  (Index G0O2). Return is expressed in percentage points (e.g. 2.05 
+#'  corresponds to a total return of 2.05% for the month)
+#'  \item \strong{G0O2_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA US 6-Month Treasury Bill Index (Index G0O2). WAM is expressed 
+#'  in years.
+#'  \item \strong{G0O2_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA US 6-Month Treasury Bill Index (Index G0O2). Dmod is expressed 
+#'  in years.
+#'  \item \strong{G0O2_YTM:} type `num`. Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA US 6-Month Treasury Bill Index (Index G0O2). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{G0O2_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA US 6-Month Treasury Bill Index (Index G0O2). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{G0Q0_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA US Treasury Index 
+#'  (Index G0Q0). Return is expressed in percentage points (e.g. 2.05 
+#'  corresponds to a total return of 2.05% for the month)
+#'  \item \strong{G0Q0_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA US Treasury Index (Index G0Q0). WAM is expressed 
+#'  in years.
+#'  \item \strong{G0Q0_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA US Treasury Index (Index G0Q0). Dmod is expressed 
+#'  in years.
+#'  \item \strong{G0Q0_YTM:} type `num`. Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA US Treasury Index (Index G0Q0). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{G0Q0_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA US Treasury Index (Index G0Q0). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{G1O2_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-3 Year US Treasury Index 
+#'  (Index G1O2). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{G1O2_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-3 Year US Treasury Index (Index G1O2). WAM is expressed 
+#'  in years.
+#'  \item \strong{G1O2_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-3 Year US Treasury Index (Index G1O2). Dmod is expressed 
+#'  in years.
+#'  \item \strong{G1O2_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-3 Year US Treasury Index (Index G1O2). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{G1O2_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-3 Year US Treasury Index (Index G1O2). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{GVQ0_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-5 Year US Treasury Index 
+#'  (Index GVQ0). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{GVQ0_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-5 Year US Treasury Index (Index GVQ0). WAM is expressed 
+#'  in years.
+#'  \item \strong{GVQ0_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-5 Year US Treasury Index (Index GVQ0). Dmod is expressed 
+#'  in years.
+#'  \item \strong{GVQ0_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-5 Year US Treasury Index (Index GVQ0). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{GVQ0_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-5 Year US Treasury Index (Index GVQ0). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{C0A0_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA US Corporate Index 
+#'  (Index C0A0). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{C0A0_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA US Corporate Index (Index C0A0). WAM is expressed 
+#'  in years.
+#'  \item \strong{C0A0_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA US Corporate Index (Index C0A0). Dmod is expressed 
+#'  in years.
+#'  \item \strong{C0A0_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA US Corporate Index (Index C0A0). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{C0A0_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA US Corporate Index (Index C0A0). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{C1A0_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-3 Year US Corporate Index 
+#'  (Index C1A0). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{C1A0_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-3 Year US Corporate Index (Index C1A0). WAM is expressed 
+#'  in years.
+#'  \item \strong{C1A0_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-3 Year US Corporate Index (Index C1A0). Dmod is expressed 
+#'  in years.
+#'  \item \strong{C1A0_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-3 Year US Corporate Index (Index C1A0). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{C1A0_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-3 Year US Corporate Index (Index C1A0). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{C010_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA AAA-A US Corporate Index 
+#'  (Index C010). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{C010_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA AAA-A US Corporate Index (Index C010). WAM is expressed 
+#'  in years.
+#'  \item \strong{C010_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA AAA-A US Corporate Index (Index C010). Dmod is expressed 
+#'  in years.
+#'  \item \strong{C010_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA AAA-A US Corporate Index (Index C010). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{C010_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA AAA-A US Corporate Index (Index C010). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{C1A4_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-3 Year BBB US Corporate Index 
+#'  (Index C1A4). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{C1A4_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-3 Year BBB US Corporate Index (Index C1A4). WAM is expressed 
+#'  in years.
+#'  \item \strong{C1A4_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-3 Year BBB US Corporate Index (Index C1A4). Dmod is expressed 
+#'  in years.
+#'  \item \strong{C1A4_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-3 Year BBB US Corporate Index (Index C1A4). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{C1A4_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-3 Year BBB US Corporate Index (Index C1A4). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{CV10_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-5 Year AAA-A US Corporate 
+#'  Index (Index CV10). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{CV10_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-5 Year AAA-A US Corporate Index (Index CV10). WAM is expressed 
+#'  in years.
+#'  \item \strong{CV10_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-5 Year AAA-A US Corporate Index (Index CV10). Dmod is expressed 
+#'  in years.
+#'  \item \strong{CV10_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-5 Year AAA-A US Corporate Index (Index CV10). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{CV10_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-5 Year AAA-A US Corporate Index (Index CV10). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{CVA4_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-5 Year BBB US Corporate 
+#'  Index (Index CVA4). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{CVA4_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-5 Year BBB US Corporate Index (Index CVA4). WAM is expressed 
+#'  in years.
+#'  \item \strong{CVA4_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-5 Year BBB US Corporate Index (Index CVA4). Dmod is expressed 
+#'  in years.
+#'  \item \strong{CVA4_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-5 Year BBB US Corporate Index (Index CVA4). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{CVA4_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-5 Year BBB US Corporate Index (Index CVA4). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{US00_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA US Broad Market Index 
+#'  (Index US00). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{US00_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA US Broad Market Index (Index US00). WAM is expressed 
+#'  in years.
+#'  \item \strong{US00_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA US Broad Market Index (Index US00). Dmod is expressed 
+#'  in years.
+#'  \item \strong{US00_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA US Broad Market Index (Index US00). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{US00_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA US Broad Market Index (Index US00). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{WVG7_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-5 Year G7 Government Index 
+#'  (Index WVG7). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{WVG7_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-5 Year G7 Government Index (Index WVG7). WAM is expressed 
+#'  in years.
+#'  \item \strong{WVG7_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-5 Year G7 Government Index (Index WVG7). Dmod is expressed 
+#'  in years.
+#'  \item \strong{WVG7_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-5 Year G7 Government Index (Index WVG7). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{WVG7_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-5 Year G7 Government Index (Index WVG7). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#'  \item \strong{W5G7_Return:} type `num`. Total return including coupon income
+#'  and change in price for the month of the ICE BofA 1-10 Year G7 Government Index 
+#'  (Index W5G7). Return is expressed in percentage points (e.g. 2.05 corresponds 
+#'  to a total return of 2.05% for the month).
+#'  \item \strong{W5G7_WAM:} type `num`. Month-end Weighted Average Maturity (WAM) 
+#'  of the ICE BofA 1-10 Year G7 Government Index (Index W5G7). WAM is expressed 
+#'  in years.
+#'  \item \strong{W5G7_Dmod:} type `num`. Month-end Modified Duration (Dmod) of the 
+#'  ICE BofA 1-10 Year G7 Government Index (Index W5G7). Dmod is expressed 
+#'  in years.
+#'  \item \strong{W5G7_YTM:} type `num`.  Month-end Yield to Maturity (YTM) of the 
+#'  ICE BofA 1-10 Year G7 Government Index (Index W5G7). YTM is reported in 
+#'  percentage points (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%).
+#'  \item \strong{W5G7_OAS:} type `num`. Month-end Option Adjusted Spread (OAS) 
+#'  of the ICE BofA 1-10 Year G7 Government Index (Index W5G7). OAS is 
+#'  expressed in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option 
+#'  Adjusted Spread of 8 basis points or 0.08%).
+#' }
+#' 
+#' @references
+#' Chapter 11 (Expected Returns) of Martin, Philips, Scherer, 
+#' Stoyanov and Li, Portfolio Construction and Risk Analysis, Springer, 2026.
+#' 
+#' @details This data set provides  monthly time series of total return, Weighted Average 
+#' Maturity (WAM), Modified Duration (Dmod), Yield to Maturity (YTM) and 
+#' Option Adjusted Spread (OAS) from December 1987 to December 2025 for 15 
+#' fixed income indices maintained by ICE Data Indices, LLC:
+#' 1. ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110)
+#' 2. ICE BofA US 3-Month Treasury Bill Index (Index G0O1)
+#' 3. ICE BofA US 6-Month Treasury Bill Index (Index G0O2)
+#' 4. ICE BofA US Treasury Index (Index G0Q0)
+#' 5. ICE BofA 1-3 Year US Treasury Index (Index G1O2) 
+#' 6. ICE BofA 1-5 Year US Treasury Index (Index GVQ0)
+#' 7. ICE BofA US Corporate Index (Index C0A0)
+#' 8. ICE BofA 1-3 Year US Corporate Index (Index C1A0)
+#' 9. ICE BofA AAA-A US Corporate Index (Index C010)
+#' 10. ICE BofA 1-3 Year BBB US Corporate Index (Index C1A4)
+#' 11. ICE BofA 1-5 Year AAA-A US Corporate Index (Index CV10)
+#' 12. ICE BofA 1-5 Year BBB US Corporate Index (Index CVA4)
+#' 13. ICE BofA US Broad Market Index (Index US00)
+#' 14. ICE BofA 1-5 Year G7 Government Index (Index WVG7)
+#' 15. ICE BofA 1-10 Year G7 Government Index (Index W5G7)
+#' Returns are total returns (coupon income + price return) for the month,
+#' while characteristics are reported as of month-end.
+#' 
+#' @source Source: ICE Data Indices, LLC ("ICE Data"), used with permission. 
+#' THE ICE DATA INDICES ARE PROVIDED BY ICE DATA FOR EDUCATIONAL PURPOSES. 
+#' ICE DATA, ITS AFFILIATES AND THEIR RESPECTIVE THIRD PARTY SUPPLIERS DISCLAIM 
+#' ANY AND ALL WARRANTIES AND REPRESENTATIONS, EXPRESS AND/OR IMPLIED, INCLUDING 
+#' ANY WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE OR USE, 
+#' INCLUDING THE INDICES, INDEX DATA AND ANY DATA INCLUDED IN, RELATED TO, OR 
+#' DERIVED THEREFROM. NEITHER ICE DATA, ITS AFFILIATES NOR THEIR RESPECTIVE THIRD 
+#' PARTY SUPPLIERS SHALL BE SUBJECT TO ANY DAMAGES OR LIABILITY WITH RESPECT TO 
+#' THE ADEQUACY, ACCURACY, TIMELINESS OR COMPLETENESS OF THE INDICES OR THE 
+#' INDEX DATA OR ANY COMPONENT THEREOF, AND THE INDICES AND INDEX DATA AND ALL 
+#' COMPONENTS THEREOF ARE PROVIDED ON AN "AS IS" BASIS AND YOUR USE IS AT YOUR 
+#' OWN RISK. ICE DATA, ITS AFFILIATES AND THEIR RESPECTIVE THIRD PARTY SUPPLIERS 
+#' DO NOT SPONSOR, ENDORSE, OR RECOMMEND ANY TEXTBOOKS, PRODUCTS OR SERVICES OF 
+#' SPRINGER PUBLISHERS, R. DOUGLAS MARTIN, THOMAS K. PHILIPS, BERND SCHERER, 
+#' OR KIRK LI.
+#' 
+#' @examples  
+#' data(iceIndices)
+#' names(iceIndices)
+#' head(iceIndices, 5)
+#' tail(iceIndices, 5)
+"iceIndices"
