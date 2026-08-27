@@ -159,7 +159,9 @@ runMultipleBacktests <- function(
   
   # Average cumulative return
   cum_avg <- Reduce("+", cum_list) / n_simulations
-  ret_avg <- cum_avg / lag(cum_avg, 1) - 1
+  lag_avg <- lag(cum_avg, 1)
+  lag_avg <- replace(lag_avg, is.na(lag_avg), 1)
+  ret_avg <- cum_avg / lag_avg - 1
   ret_avg <- na.omit(ret_avg)
   
   if(save_avg_plot){
