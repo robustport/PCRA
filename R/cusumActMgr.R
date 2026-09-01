@@ -594,8 +594,8 @@ chartCusum <- function(results_obj, digits = 3, select_option = NULL,
 #'                  the volatility of logarithmic active returns. The default is 4
 #' @param filterStd Logical value, determines if the estimated volatility of 
 #'                  logarithmic active returns is filtered with a simple digital 
-#'                  filter to induce some additional persistence in the estimate.
-#'                  The default is set to \code{FALSE}
+#'                  filter to induce some additional persistence in the estimated
+#'                  volatility. The default is set to \code{FALSE}
 #'
 #'
 #' @return \code{cusumActMgr} returns a \code{list} containing the following xts objects:
