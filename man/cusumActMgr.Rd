@@ -19,7 +19,7 @@ cusumActMgr(
 \arguments{
 \item{portfolioName}{A character string with the name of the portfolio. Required, no default}
 
-\item{benchmarkName}{A character string with the name of the benchamark. Required, no default}
+\item{benchmarkName}{A character string with the name of the benchmark. Required, no default}
 
 \item{return_df}{An xts object containing the columns \code{portfolioName} and \code{benchmarkName}
 of monthly returns. Required, no default}
@@ -34,10 +34,13 @@ the current estimate of volatility. Default = 0.9}
 \item{lambda_out}{Exponential weighting constant used when the data seems inconsistent with
 the current estimate of volatility. Default = 0.8}
 
-\item{winsorize}{Numeric value >1, of the multiple of the standard deviation at which we winsorize.
-The default is 4}
+\item{winsorize}{Numeric value >1, of the multiple of the standard deviation 
+at which we winsorize returns to obtain a robust estimate of
+the volatility of logarithmic active returns. The default is 4}
 
-\item{filterStd}{Logical value, determines if estimated standard deviations are filtered.
+\item{filterStd}{Logical value, determines if the estimated volatility of 
+logarithmic active returns is filtered with a simple digital 
+filter to induce some additional persistence in the estimate.
 The default is set to \code{FALSE}}
 }
 \value{

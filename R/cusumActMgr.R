@@ -580,7 +580,7 @@ chartCusum <- function(results_obj, digits = 3, select_option = NULL,
 #'
 #'
 #' @param portfolioName A character string with the name of the portfolio. Required, no default
-#' @param benchmarkName A character string with the name of the benchamark. Required, no default
+#' @param benchmarkName A character string with the name of the benchmark. Required, no default
 #' @param return_df An xts object containing the columns \code{portfolioName} and \code{benchmarkName}
 #'                  of monthly returns. Required, no default
 #' @param upper_IR Numeric value representing the LIR of a good portfolio, default = 0.5
@@ -589,9 +589,12 @@ chartCusum <- function(results_obj, digits = 3, select_option = NULL,
 #'                  the current estimate of volatility. Default = 0.9
 #' @param lambda_out Exponential weighting constant used when the data seems inconsistent with
 #'                   the current estimate of volatility. Default = 0.8
-#' @param winsorize Numeric value >1, of the multiple of the standard deviation at which we winsorize.
-#'                  The default is 4
-#' @param filterStd Logical value, determines if estimated standard deviations are filtered.
+#' @param winsorize Numeric value >1, of the multiple of the standard deviation 
+#'                  at which we winsorize returns to obtain a robust estimate of
+#'                  the volatility of logarithmic active returns. The default is 4
+#' @param filterStd Logical value, determines if the estimated volatility of 
+#'                  logarithmic active returns is filtered with a simple digital 
+#'                  filter to induce some additional persistence in the estimate.
 #'                  The default is set to \code{FALSE}
 #'
 #'

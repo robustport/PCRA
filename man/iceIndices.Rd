@@ -319,7 +319,7 @@ data(iceIndices)
 Monthly time series of total return, Weighted Average
 Maturity, Modified Duration, Yield to Maturity and Option Adjusted Spread 
 from December 1987 to December 2025 for fifteen fixed-income indices 
-maintained by ICE Data Indices, LLC
+maintained by ICE Data Indices, LLC.
 Returns are total returns (coupon income + price return) for the month,
 while characteristics are reported as of month-end.
 }
