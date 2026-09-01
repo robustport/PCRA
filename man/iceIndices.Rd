@@ -5,8 +5,8 @@
 \alias{iceIndices}
 \title{iceIndices}
 \format{
-A data frame with monthly time series of total return, Weighted Average 
-Maturity (WAM), Modified Duration (Dmod), Yield to Maturity (YTM) and 
+A data frame with monthly time series of Total Return (Return), Weighted 
+Average Maturity (WAM), Modified Duration (Dmod), Yield to Maturity (YTM) and 
 Option Adjusted Spread (OAS) from December 1987 to December 2025 for 15 
 fixed income indices maintained by ICE Data Indices, LLC:
 1. ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110)
@@ -32,8 +32,10 @@ YTM, like total return, is reported in percentage points
 (e.g. 5.05 corresponds to a Yield to Maturity of 5.05%), while OAS is expressed 
 in basis points or 1/100th of 1% (e.g. 8 corresponds to an Option Adjusted 
 Spread of 8 basis points or 0.08%). All items other than returns are reported 
-as of month-end. Returns are reported in every month, but not all characteristics 
-are reported at the end of every month.
+as of month-end. Returns are reported in every month starting in January 1988, 
+(some returns are reported in December 1987 as well) but not all characteristics 
+are reported at the end of every month as ICE Indices could not regenerate
+the full history of all the indices it acquired from other vendors over time.
 									
 \itemize{
  \item \strong{Date:} type `Date`. Last Day of Month. Many, but not all, of
@@ -316,7 +318,7 @@ OR KIRK LI.
 data(iceIndices)
 }
 \description{
-Monthly time series of total return, Weighted Average
+Monthly time series of Total Return, Weighted Average
 Maturity, Modified Duration, Yield to Maturity and Option Adjusted Spread 
 from December 1987 to December 2025 for fifteen fixed-income indices 
 maintained by ICE Data Indices, LLC.
