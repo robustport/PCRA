@@ -622,18 +622,17 @@ chartCusum <- function(results_obj, digits = 3, select_option = NULL,
 #' \item{benchmarkName}{The benchmark name passed in by the user}
 #' \item{returns}{The \code{xts} object of returns passed in by the user}
 #'
-#' @import xts
-#' @import zoo
-#' @import scales
-#' @import RobStatTM
-#' @import ggpubr
-#' @import gridExtra
-#' @import ggplot2
-#' @import dplyr
+#' @importFrom ggplot2 aes annotate element_blank element_line element_rect element_text geom_abline geom_bar geom_hline geom_line geom_point geom_vline ggplot guide_legend guides labs scale_colour_manual scale_fill_manual scale_x_continuous scale_y_continuous theme
+#' @importFrom ggpubr text_grob
 #' @importFrom grid unit
+#' @importFrom gridExtra grid.arrange
 #' @importFrom graphics par
 #' @importFrom grDevices dev.off pdf png
 #' @importFrom stats median rnorm sd
+#' @importFrom scales pretty_breaks
+#' @importFrom utils tail
+#' @importFrom xts is.xts xts
+#' @importFrom zoo as.yearmon fortify.zoo index
 #'
 #' @author
 #' Chindhanai Uthaisaad (GSoC 2017) Vinav Singh Sancheti (2021) and Thomas Philips (2025)
@@ -714,7 +713,7 @@ cusumActMgr <- function(portfolioName, benchmarkName, return_df,
   }
 
   # Initialize logarithmic active returns, IR, Lindley's Recursion and TE
-  prior_month <- as.yearmon(first(index(portfolioReturns))) - 1 / 12
+  prior_month <- as.yearmon(index(portfolioReturns)[1]) - 1 / 12
   all_Months  <- c(prior_month, index(portfolioReturns))
   Lindley     <- xts(rep(0, n + 1), order.by = all_Months)
 
