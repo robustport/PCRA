@@ -318,10 +318,8 @@ data(iceIndices)
 \description{
 Monthly time series of total return, Weighted Average
 Maturity, Modified Duration, Yield to Maturity and Option Adjusted Spread 
-from January 1988 to December 2021 for two short duration indices 
+from December 1987 to December 2025 for fifteen fixed-income indices 
 maintained by ICE Data Indices, LLC
-1. ICE BofA 1-3 Year AAA-A US Corporate Index (Index C110), and
-2. ICE BofA 1-3 Year US Treasury Index (Index G1O2) 
 Returns are total returns (coupon income + price return) for the month,
 while characteristics are reported as of month-end.
 }
