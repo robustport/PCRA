@@ -112,14 +112,16 @@ df[, "BXM"]  <- df[, "BXM"]  / dplyr::lag(df[, "BXM"],  1) - 1
 df[, "SPTR"] <- df[, "SPTR"] / dplyr::lag(df[, "SPTR"], 1) - 1
 df <- na.omit(df)
 
+
 # Turn the dataframe into an xts object
 df$Date <- zoo::as.yearmon(df$Date, format = "\%Y-\%m-\%d")
 df <- xts::as.xts(df[, -1], order.by = df$Date)
 
+
 # Create all ouput filenames
 png_fn1 <- "C:/Temp/Mgr vs Bmk Page 1.png"
-png_fn2 <- "C:/Temp/Mgr vs Bmk Page 1.png"
-pdf_fn1 <- "C:/Temp/Mgr vs Bmk Page 2.pdf"
+png_fn2 <- "C:/Temp/Mgr vs Bmk Page 2.png"
+pdf_fn1 <- "C:/Temp/Mgr vs Bmk Page 1.pdf"
 pdf_fn2 <- "C:/Temp/Mgr vs Bmk Page 2.pdf"
 
 
@@ -134,6 +136,7 @@ chartCusum(results, select_option = 1,
            print_to_screen = TRUE,
            print_to_png = TRUE, png_fn = png_fn1,
            print_to_pdf = TRUE, pdf_fn = pdf_fn1)
+par(new = FALSE)
 
 
 # Print page 2 of the results
@@ -141,6 +144,8 @@ chartCusum(results, select_option = 2,
            print_to_screen = TRUE,
            print_to_png = TRUE, png_fn = png_fn2,
            print_to_pdf = TRUE, pdf_fn = pdf_fn2)
+par(new = FALSE)
+
 }
 }
 \references{
