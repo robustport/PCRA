@@ -44,8 +44,8 @@ bootEfronts <- function(returns, pspec, rf = 0.003, npoints = 20, B = 3,
   {xlim <- xlim}
   
   # Plot Original Mean-Variance Efficient Frontier
-  xlab <- "STANDARD DEVIATION"
-  ylab <- "MEAN RETURN"
+  xlab <- "Standard Deviation"
+  ylab <- "Mean Return"
   chart.Efront(returns, pspec, firstEfront = T, gmv = gmv, maxSR = maxSR, 
                rf = rf, xlim = xlim, ylim = ylim, xlab = xlab, ylab = ylab,
                n.portfolios = 20)
@@ -64,9 +64,9 @@ bootEfronts <- function(returns, pspec, rf = 0.003, npoints = 20, B = 3,
   for(i in 1:B) 
   {gmvMaxSR[i,] = chart.Efront(returns[boot.index[,i],], pspec, firstEfront = F,
                     gmv = gmv, maxSR = maxSR, rf = rf, xlim=xlim, ylim = ylim,
-                    xlab = xlab, ylab = ylab ,n.portfolios = 20)}
+                    xlab = xlab, ylab = ylab , n.portfolios = 20)}
   out = round(apply(gmvMaxSR, 2, sd), digits)
-  legend("topleft", bty = "n", title = "   STANDARD DEVIATIONS", legend = 
+  legend("topleft", bty = "n", legend = 
            c( paste("GMV Mean:", out[2]),
               paste("Maximum SR:", out[5])))
 }

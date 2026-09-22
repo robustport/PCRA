@@ -136,7 +136,6 @@ chartCusum(results, select_option = 1,
            print_to_screen = TRUE,
            print_to_png = TRUE, png_fn = png_fn1,
            print_to_pdf = TRUE, pdf_fn = pdf_fn1)
-par(new = FALSE)
 
 
 # Print page 2 of the results
@@ -144,7 +143,6 @@ chartCusum(results, select_option = 2,
            print_to_screen = TRUE,
            print_to_png = TRUE, png_fn = png_fn2,
            print_to_pdf = TRUE, pdf_fn = pdf_fn2)
-par(new = FALSE)
 
 }
 }
