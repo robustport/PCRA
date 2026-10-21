@@ -22,11 +22,13 @@ runMultipleBacktests(
   plot_path = "./",
   plot_name = "backtest",
   plot_main = NULL,
+  default_main = TRUE,
   plotType = "both",
   save_avg_plot = TRUE,
   avg_plot_path = "./",
   avg_plot_name = "avg_backtest",
   avg_plot_main = NULL,
+  avg_default_main = TRUE,
   avgPlotType = "both",
   colorSet = NULL,
   ltySet = NULL,
@@ -86,6 +88,8 @@ Required when \code{save_plot = TRUE}.}
 
 \item{plot_main}{Plot title for each simulation PNG output.}
 
+\item{default_main}{whether to display the default subtitle for plots}
+
 \item{plotType}{"cumRet", "drawdown", or the default is "both"}
 
 \item{save_avg_plot}{Logical. Whether to save the the average cumulative 
@@ -97,6 +101,8 @@ Required when \code{save_avg_plot = TRUE}.}
 \item{avg_plot_name}{Plot name for average simulation output. Default \code{"avg_backtest"}.}
 
 \item{avg_plot_main}{Plot title for the average simulation PNG output.}
+
+\item{avg_default_main}{whether to display the default subtitle for avg plots}
 
 \item{avgPlotType}{"cumRet", "drawdown", or the default is "both"}
 

@@ -19,6 +19,7 @@ runPortfolioBacktest(
   plot_path = "./",
   plot_name = "backtest",
   plot_main = NULL,
+  default_main = TRUE,
   plotType = "both",
   colorSet = NULL,
   ltySet = NULL,
@@ -65,6 +66,8 @@ Required when \code{save_plot = TRUE}.}
 \item{plot_name}{Plot name for the PNG output. Default \code{"backtest"}.}
 
 \item{plot_main}{Plot title for the PNG output.}
+
+\item{default_main}{whether to display the default subtitle for plots}
 
 \item{plotType}{"cumRet", "drawdown", or the default is "both"}
 

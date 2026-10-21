@@ -43,6 +43,7 @@
 #'   Required when \code{save_plot = TRUE}.
 #' @param plot_name Plot name for each simulation output. Default \code{"backtest"}
 #' @param plot_main Plot title for each simulation PNG output.
+#' @param default_main whether to display the default subtitle for plots
 #' @param plotType "cumRet", "drawdown", or the default is "both"
 #' @param save_avg_plot Logical. Whether to save the the average cumulative 
 #'   returns plot to a PNG file. Default \code{TRUE}.
@@ -50,6 +51,7 @@
 #'   Required when \code{save_avg_plot = TRUE}.
 #' @param avg_plot_name Plot name for average simulation output. Default \code{"avg_backtest"}.
 #' @param avg_plot_main Plot title for the average simulation PNG output.
+#' @param avg_default_main whether to display the default subtitle for avg plots
 #' @param avgPlotType "cumRet", "drawdown", or the default is "both"
 #' @param colorSet Optional character vector of colors passed to \code{backtest.plot()}.
 #' @param ltySet Optional integer vector of line types passed to \code{backtest.plot()}.
@@ -94,11 +96,13 @@ runMultipleBacktests <- function(
     plot_path = "./",
     plot_name = "backtest",
     plot_main = NULL,
+    default_main = TRUE,
     plotType = "both",
     save_avg_plot = TRUE,
     avg_plot_path = "./",
     avg_plot_name = "avg_backtest",
     avg_plot_main = NULL,
+    avg_default_main = TRUE,
     avgPlotType = "both",
     colorSet = NULL,
     ltySet = NULL,
@@ -146,6 +150,7 @@ runMultipleBacktests <- function(
       plot_path = plot_path,
       plot_name = paste(plot_name, k),
       plot_main = plot_main,
+      default_main = default_main,
       plotType = plotType,
       colorSet = colorSet,
       ltySet = ltySet,
@@ -169,6 +174,7 @@ runMultipleBacktests <- function(
       ret_avg,
       main = avg_plot_main,
       plotType = avgPlotType,
+      default_main = avg_default_main,
       colorSet = colorSet,
       ltySet = ltySet,
       lwdSet = lwdSet
