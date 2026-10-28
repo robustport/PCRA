@@ -2,7 +2,7 @@
 % Please edit documentation in R/winsorize.R
 \name{winsorize}
 \alias{winsorize}
-\title{Winsorize Data}
+\title{Winsorize Data xx}
 \usage{
 winsorize(x, fraction = 0.1)
 }

@@ -1,4 +1,4 @@
-#' @title Winsorize Data
+#' @title Winsorize Data xx
 #' 
 #' @description  This function Winsorizes a fraction gamma of a numeric data
 #' set.
