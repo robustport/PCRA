@@ -67,4 +67,4 @@ LazyData: true
 LazyDataCompression: xz
 Copyright: (c) 2022-2024
 VignetteBuilder: R.rsp
-Config/roxygen2/version: 8.1.0
+Config/roxygen2/version: 8.1.1
