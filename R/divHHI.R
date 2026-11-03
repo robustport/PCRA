@@ -1,4 +1,4 @@
-#' @title HHI Based Diversification Index
+#' @title HHI Based Diversification Index xxx
 #' 
 #' @description divHHI calculates a portfolio diversification index DIV. The DIV
 #' is equal to 1 minus the Herfindahl-Hirschman Index (HHI), which is defined

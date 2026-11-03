@@ -2,7 +2,7 @@
 % Please edit documentation in R/divHHI.R
 \name{divHHI}
 \alias{divHHI}
-\title{HHI Based Diversification Index}
+\title{HHI Based Diversification Index xxx}
 \usage{
 divHHI(weights)
 }
