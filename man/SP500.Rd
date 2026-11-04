@@ -5,8 +5,8 @@
 \alias{SP500}
 \title{SP500}
 \format{
-A data frame with observations on the S&P 500® from 1925 
-to the most recent year end for which final data is available:
+A data frame with observations on the S&P 500® from 1925 to 2025
+ (the most recent year-end for which final data is publicly available):
 \itemize{
  \item \strong{Date:} type `Date`. End of year date formatted as YYYY-12-31. 
  Useful when creating a time series object for exploratory time series plots. 
@@ -25,6 +25,22 @@ to the most recent year end for which final data is available:
  quarterly earnings per share for the S&P 500® during the calendar year.
  \item \strong{SP500EpsBest1Q:} type `num`. 4 x the highest earnings per share
  in a quarter for the S&P 500® during the calendar year.
+ \item \strong{SP500EpsQ1:} type `num`. As-Reported Earnings per share for 
+ the first calendar quarter for the S&P 500® during the calendar year.
+ \item \strong{SP500EpsQ2:} type `num`. As-Reported Earnings per share for 
+ the second calendar quarter for the S&P 500® during the calendar year.
+ \item \strong{SP500EpsQ3:} type `num`. As-Reported Earnings per share for 
+ the third calendar quarter for the S&P 500® during the calendar year.
+ \item \strong{SP500EpsQ4:} type `num`. As-Reported Earnings per share for 
+ the fourth calendar quarter for the S&P 500® during the calendar year.
+ \item \strong{SP500OpEpsQ1:} type `num`. Operating Earnings per share for 
+ the first calendar quarter for the S&P 500® during the calendar year.
+ \item \strong{SP500OpEpsQ2:} type `num`. Operating Earnings per share for 
+ the second calendar quarter for the S&P 500® during the calendar year.
+ \item \strong{SP500OpEpsQ3:} type `num`. Operating Earnings per share for 
+ the third calendar quarter for the S&P 500® during the calendar year.
+ \item \strong{SP500OpEpsQ4:} type `num`. Operating Earnings per share for 
+ the fourth calendar quarter for the S&P 500® during the calendar year.
  \item \strong{SP500RevenuePS:} type `num`. Annual Revenues per share 
  for the S&P 500® during the calendar year.
  \item \strong{SP500BookValuePS:} type `num`. Year-end (12/31) Book Value 
@@ -58,7 +74,8 @@ and Dow Jones® is a registered trademark of Dow Jones Trademark Holdings LLC.
 All rights reserved.
 Redistribution of the data is not permitted, and use of the data in
 derivative works is not permitted without the written permission of 
-S&P Dow Jones Indices LLC. Data for the S&P 500® is updated using the QUARTERLY DATA tab of
+S&P Dow Jones Indices LLC. Data for the S&P 500® was updated using data from
+Professor Robert Shiller's website as well as the QUARTERLY DATA tab of
 https://www.spglobal.com/spdji/en/documents/additional-material/sp-500-eps-est.xlsx. 
 Final year-end numbers are typically reported in April or May of the following year.
 CPIAUCNS is obtained from the Federal Reserve Bank of St. Louis' FRED database at 
@@ -71,7 +88,7 @@ data(SP500)
 }
 \description{
 Year-end data on the S&P 500®, Nominal GDP and Consumer Prices from 
-1925 to the most recent year-end for which final data is available.
+1925 to 2025 (the most recent year-end for which final data is publicly available).
 }
 \details{
 This dataset was constructed by combining information in various datasets, and
